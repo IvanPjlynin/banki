@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" client="site">
+	<name>Vsebanki</name>
+	<version>1.0</version>
+	<creationDate>01/12/2021</creationDate>
+	<author>Volodymyr Pershyn</author>
+	<authorEmail>zeus071986@gmail.com</authorEmail>
+	<copyright>(C) 2017 Open Source Matters, Inc.</copyright>
+	<description>TPL_VSEBANKI_XML_DESCRIPTION</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>images</folder>
+		<folder>scss</folder>
+	</files>
+	<positions>
+		<position>menu</position>
+		<position>mobile-menu</position>
+		<position>intro</position>
+		<position>main-block</position>
+		<position>banner1</position>
+		<position>banner2</position>
+		<position>product</position>
+		<position>banner3</position>
+		<position>articles</position>
+		<position>mobile-app</position>
+		<position>footer1</position>
+		<position>footer2</position>
+		<position>footer3</position>
+		<position>footer4</position>
+		<position>debug</position>
+		<position>filter</position>
+		<position>tab-menu</position>
+		<position>subzag</position>
+		<position>bestdeals</position>
+		<position>bestdeals-blog</position>
+	</positions>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/tpl_vsebanki.ini</language>
+		<language tag="en-GB">en-GB/tpl_vsebanki.sys.ini</language>
+		<language tag="ru-RU">en-GB/tpl_vsebanki.ini</language>
+		<language tag="ru-RU">en-GB/tpl_vsebanki.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="advanced">
+				<field
+					name="brand"
+					type="radio"
+					label="TPL_VSEBANKI_BRAND_LABEL"
+					default="1"
+					layout="joomla.form.field.radio.switcher"
+					filter="boolean"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field
+					name="logo-file"
+					type="media"
+					default=""
+					label="TPL_VSEBANKI_LOGO_LABEL"
+					showon="brand:1"
+				/>
+
+				<field
+					name="sticky-header"
+					type="radio"
+					label="TPL_VSEBANKI_STICKY_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="0"
+					filter="integer"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field
+					name="back-top"
+					type="radio"
+					label="TPL_VSEBANKI_BACKTOTOP_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="0"
+					filter="integer"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+				   name="copyright"
+				   type="textarea"
+				   label="TPL_VSEBANKI_COPYRIGHT_LABEL"
+				   default=""
+				   filter="raw"
+			    />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

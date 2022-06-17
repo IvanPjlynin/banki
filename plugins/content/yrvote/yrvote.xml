@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3" type="plugin" group="content" method="upgrade">
+    <name>YRVote</name>
+    <author>Lev Milicenco</author>
+    <creationDate>January 2018</creationDate>
+    <copyright>(c) Marlev.it - Itroom SRLS - 2018</copyright>
+    <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+    <authorEmail>support@marlev.it</authorEmail>
+    <authorUrl>marlev.it</authorUrl>
+    <version>2.1</version>
+    <description>YRVote - Vote and Ratings</description>
+    <scriptfile>install_script.php</scriptfile>
+
+    <files>
+        <filename plugin="yrvote">yrvote.php</filename>
+        <filename>index.html</filename>
+        <filename>yrvote.php</filename>
+        <filename>install_script.php</filename>
+        <folder>incl</folder>
+        <folder>language</folder>
+        <folder>awesome</folder>
+        <folder>marlevupdate</folder>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset name="Updates">
+
+                <field name="product_key"  type="text"   label="Product Key"
+                       stylesize="10"  default=""
+                />
+                <field name="private_key"  type="text"   label="Private Key"
+                       stylesize="10"  default=""
+                />
+            </fieldset>
+            <fieldset name="basic">
+                <field name="yrvotestyle" type="list" default="blue" label="YRVOTE_STAR_STYLE">
+                    <option value="blue">YRVOTE_BLUE</option>
+                    <option value="red">YRVOTE_RED</option>
+                    <option value="green">YRVOTE_GREEN</option>
+                    <option value="yellow">YRVOTE_YELLOW</option>
+                    <option value="purple">YRVOTE_PURPLE</option>
+                </field>
+                <field name="yrvotecount" type="radio" class="btn-group " default="1" label="YRVOTE_COUNT" >
+                    <option value="1">JSHOW</option>
+                    <option value="0">JHIDE</option>
+                </field>
+                <field name="yrvotetextcolor" type="color" default="#a6adb3"
+                       label="YRVOTE_TEXT_COLOR"
+                />
+                <field name="yrvotetext"  type="text"   label="YRVOTE_THANK"
+                       stylesize="10"  default=""
+                />
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" name="YRVote"><![CDATA[http://marlev.it/online-update/marlev_update.php?extension=yrvote&type=paid]]></server>
+    </updateservers>
+</extension>
+
+

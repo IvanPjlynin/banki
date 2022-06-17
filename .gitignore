@@ -1,0 +1,5 @@
+/.ssh
+/administrator/cache/*
+/administrator/components/com_actionlogs/*
+/cache/*
+/configuration.php
