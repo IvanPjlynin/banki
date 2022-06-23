@@ -135,3 +135,18 @@
     margin-top: 0;
     margin-bottom: 0;
 }
+
+.blog .category-desc .section.banner2.turist .container .row div .banner-wrapper.block3 {
+    padding: 0;
+    margin-bottom: 0;
+    background: none;
+}
+
+.blog .category-desc .section.banner2.turist .container .row div .banner-wrapper .banner-text.block3 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    color: #606970;
+}
