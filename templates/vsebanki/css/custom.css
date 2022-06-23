@@ -51,3 +51,10 @@
 .blog .category-desc .section.banner2 .container {
     padding: 10px;
 }
+
+.blog .category-desc .section.banner2 .container .row div .banner-wrapper img {
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
