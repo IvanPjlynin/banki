@@ -80,3 +80,14 @@
     text-align: center;
     margin-top: 0;
 }
+
+
+
+.blog .category-desc .section.banner2.turist .banner-subtitle {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 46px;
+    color: #002D4F;
+}
