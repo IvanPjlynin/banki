@@ -67,6 +67,7 @@
     line-height: 32px;
     text-align: center;
     color: #002D4F;
+    margin-bottom: 15px;
 }
 
 
@@ -77,4 +78,5 @@
     font-size: 18px;
     line-height: 32px;
     text-align: center;
+    margin-top: 0;
 }
