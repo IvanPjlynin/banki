@@ -41,7 +41,7 @@ $moduleBestdeals = JModuleHelper::getModules('bestdeals-blog');
 $attribs['style'] = 'none';
 
 ?>
-<div class="com-content-category-blog blog" itemscope itemtype="https://schema.org/Blog">
+<div class="com-content-category-blog blog menu_id_<? echo $menu;?>" itemscope itemtype="https://schema.org/Blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
     <div class="page-header">
         <h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
