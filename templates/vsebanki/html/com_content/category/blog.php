@@ -91,8 +91,9 @@ $attribs['style'] = 'none';
 	$introcount = count($this->intro_items);
 	$counter = 0;
 	?>
-
+    11
     <?php if (!empty($this->intro_items)) : ?>
+    22
     <?php $blogClass = $this->params->get('blog_class', ''); ?>
     <?php if ((int) $this->params->get('num_columns') > 1) : ?>
     <?php $blogClass .= (int) $this->params->get('multi_column_order', 0) === 0 ? ' masonry-' : ' columns-'; ?>
