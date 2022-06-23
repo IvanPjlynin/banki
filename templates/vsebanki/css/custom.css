@@ -188,4 +188,6 @@
 
 .blog .category-desc .section.banner2.bg-home {
     background-image: url(/images/strahovca-nedvig/bg-home.svg);
+    background-position: right;
+    background-repeat: no-repeat;
 }
