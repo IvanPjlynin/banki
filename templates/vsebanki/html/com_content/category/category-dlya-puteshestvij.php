@@ -40,7 +40,7 @@ $moduleSubzag = JModuleHelper::getModules('subzag');
 $moduleBestdeals = JModuleHelper::getModules('bestdeals-blog');
 $attribs['style'] = 'none';
 
-?>1111
+?>11112
 <div class="com-content-category-blog blog" itemscope itemtype="https://schema.org/Blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
     <div class="page-header">
