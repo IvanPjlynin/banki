@@ -1,4 +1,5 @@
 /* Variables */
+
 $colorWhite: #ffffff;
 $colorBlack: #000000;
 $colorText: #606970;
@@ -13,6 +14,7 @@ $fontRoboto: 'Roboto',
 sans-serif;
 
 /* Mixins */
+
 @mixin zagH1 {
     font: {
         family: $fontRoboto;
@@ -413,7 +415,9 @@ sans-serif;
     }
 }
 
+
 /* Fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 html {
@@ -597,7 +601,9 @@ header {
     }
 }
 
+
 /* Mobile menu */
+
 .mobile-menu {
     display: flex;
     justify-content: space-evenly;
@@ -725,9 +731,7 @@ main {
                                 z-index: 1;
                             }
                         }
-
                     }
-
 
                     &.credit {
                         background: linear-gradient(161.96deg, #FD9D9D 12.28%, #E97C7C 108.64%);
@@ -1675,255 +1679,305 @@ main {
     }
 }
 
-/* Article */
-.item-page {
-   .page-header {
-      h2 {
-         @include zagH2;
-         margin-top: 100px;
-         margin-bottom: 30px;
-      }
-   }
-   .article-info {
-      display: none;
-   }
-   .com-content-article__body {
-      p {
-         font: {
-            family: $fontRoboto;
-            size: 18px;
-            weight: 400;
-         }
-         line-height: 32px;
-         color: $colorText;
-         margin-bottom: 40px;
-         a {
-            color: $colorMain;
-            text-decoration: none;
 
-            &:hover {
-               color: $colorMain;
-               text-decoration: none;
-            }
-         }
-      }
-      .article-spisok {
-         list-style: none;
-         padding-left: 0;
-         margin-bottom: 30px;
-         margin-top: -30px;
-         li {
-            &:before {
-               content: '';
-               display: inline-block;
-               width: 10px;
-               height: 10px;
-               margin-right: 13px;
-               border-radius: 2px;
-               background: $colorMain;
-            }
-            display: flex;
-            align-items: center;
+/* Article */
+
+.item-page {
+    .page-header {
+        h2 {
+            @include zagH2;
+            margin-top: 100px;
+            margin-bottom: 30px;
+        }
+    }
+
+    .article-info {
+        display: none;
+    }
+
+    .com-content-article__body {
+        p {
             font: {
-               family: $fontRoboto;
-               size: 18px;
-               weight: 400;
+                family: $fontRoboto;
+                size: 18px;
+                weight: 400;
             }
-            line-height: 40px;
+
+            line-height: 32px;
             color: $colorText;
-         }
-      }
-   }
-   &.credit {
-      margin-top: 58px;
-      .page-header {
-         h1 {
-            @include zagH1;
-            margin-bottom: 13px;
-         }
-      }
-      .com-content-article__body {
-         margin-top: 107px;
-         padding-top: 40px;
-         background: #f6f9f9;
-         display: flex;
-         min-width: 100vw;
-         background: #F6F9F9;
-         flex-direction: column;
-         margin-left: calc((100vw - 1253px)/-2) !important;
-         align-items: center;
-         .bank-info {
-            background: $colorWhite;
-            border-radius: 12px;
-            box-shadow: 0px 8px 16px rgba(99, 102, 129, 0.06);
             margin-bottom: 40px;
-            width: 1270px;
-            .row {
-               margin-left: 0;
-               margin-right: 0;
-               &.bank-info-row {
-                  padding-top: 25px;
-                  padding-bottom: 25px;
-               }
-               .rating {
-                  padding-left: 25px;
-                  border-right: 1px solid #EBEFEF;
-                  .rating-title {
-                     display: block;
-                     background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMxLjA2MjUgMi4zMDk1N0gyNi45NTYxQzI2Ljk3MDkgMS44NTQ3NCAyNi45NzkyIDEuMzk3MjIgMjYuOTc5MiAwLjkzNzVDMjYuOTc5MiAwLjQxOTY3OCAyNi41NTkzIDAgMjYuMDQxNyAwSDUuOTU4MjVDNS40NDA2NyAwIDUuMDIwNzUgMC40MTk2NzggNS4wMjA3NSAwLjkzNzVDNS4wMjA3NSAxLjM5NzIyIDUuMDI5MDUgMS44NTQ3NCA1LjA0Mzk1IDIuMzA5NTdIMC45Mzc1QzAuNDE5Njc4IDIuMzA5NTcgMCAyLjcyOTI1IDAgMy4yNDcwN0MwIDcuNDQ3NzUgMS4wOTc5IDExLjQxMDkgMy4wOTEzMSAxNC40MDY3QzUuMDYxNzcgMTcuMzY4NCA3LjY4NjUyIDE5LjA2NzEgMTAuNTIyIDE5LjIzMjRDMTEuMTY0OCAxOS45MzE5IDExLjg0NDIgMjAuNTAyMiAxMi41NTIgMjAuOTM3M1YyNS4xMDRIMTAuOTc5MkM5LjA3Nzg4IDI1LjEwNCA3LjUzMTI1IDI2LjY1MDkgNy41MzEyNSAyOC41NTJWMzAuMTI0OEg3LjQ2NDZDNi45NDY3OCAzMC4xMjQ4IDYuNTI3MSAzMC41NDQ3IDYuNTI3MSAzMS4wNjIzQzYuNTI3MSAzMS41ODAxIDYuOTQ2NzggMzEuOTk5OCA3LjQ2NDYgMzEuOTk5OEgyNC41MzU0QzI1LjA1MzIgMzEuOTk5OCAyNS40NzI5IDMxLjU4MDEgMjUuNDcyOSAzMS4wNjIzQzI1LjQ3MjkgMzAuNTQ0NyAyNS4wNTMyIDMwLjEyNDggMjQuNTM1NCAzMC4xMjQ4SDI0LjQ2ODhWMjguNTUyQzI0LjQ2ODggMjYuNjUwOSAyMi45MjIxIDI1LjEwNCAyMS4wMjA4IDI1LjEwNEgxOS40NDhWMjAuOTM3M0MyMC4xNTU4IDIwLjUwMjQgMjAuODM1NCAxOS45MzE5IDIxLjQ3ODMgMTkuMjMyNEMyNC4zMTM1IDE5LjA2NzEgMjYuOTM4MiAxNy4zNjg0IDI4LjkwODkgMTQuNDA2N0MzMC45MDIzIDExLjQxMDkgMzIgNy40NDc3NSAzMiAzLjI0NzA3QzMyIDIuNzI5MjUgMzEuNTgwMyAyLjMwOTU3IDMxLjA2MjUgMi4zMDk1N1pNNC42NTIzNCAxMy4zNjgyQzMuMDA4MDYgMTAuODk3MiAyLjA0MTk5IDcuNjY1MjggMS44OTQ3OCA0LjE4NDU3SDUuMTQ4NjhDNS40ODY4MiA4LjQ2MzM4IDYuNDkxMjEgMTIuNDE4NSA4LjA2MTA0IDE1LjU1NzlDOC4zMTEwNCAxNi4wNTc5IDguNTcyNTEgMTYuNTMwMyA4Ljg0Mzc1IDE2Ljk3NTFDNy4yODQ0MiAxNi4zODYyIDUuODQxMzEgMTUuMTU1MyA0LjY1MjM0IDEzLjM2ODJaTTIyLjU5MzggMjguNTUyVjMwLjEyNUg5LjQwNjI1VjI4LjU1MkM5LjQwNjI1IDI3LjY4NDggMTAuMTExOCAyNi45NzkgMTAuOTc5MiAyNi45NzlIMjEuMDIwOEMyMS44ODgyIDI2Ljk3OSAyMi41OTM4IDI3LjY4NDggMjIuNTkzOCAyOC41NTJaTTE3LjU3MyAyNS4xMDRIMTQuNDI3VjIxLjc1MkMxNC45NDI0IDIxLjg4NzcgMTUuNDY3NSAyMS45NTgzIDE2IDIxLjk1ODNDMTYuNTMyNSAyMS45NTgzIDE3LjA1NzYgMjEuODg3NyAxNy41NzMgMjEuNzUyVjI1LjEwNFpNMTguMTUzNiAxOS41MjE1QzE4LjExMTMgMTkuNTM4OCAxOC4wNzA4IDE5LjU1OTggMTguMDMyIDE5LjU4M0MxNy4zNjk0IDE5LjkxMjYgMTYuNjg4NSAyMC4wODMzIDE2IDIwLjA4MzNDMTUuMzExOCAyMC4wODMzIDE0LjYzMTEgMTkuOTEyNiAxMy45Njg4IDE5LjU4MzVDMTMuOTI5NCAxOS41NTk4IDEzLjg4ODcgMTkuNTM4OCAxMy44NDU5IDE5LjUyMUMxMy4xMTA4IDE5LjEzMjMgMTIuMzk5NyAxOC41NDU0IDExLjcyNzEgMTcuNzc0MkMxMS42OTE3IDE3LjcyMzYgMTEuNjUxOSAxNy42NzcgMTEuNjA3NyAxNy42MzQ1QzEwLjkzOTkgMTYuODQxOCAxMC4zMTE4IDE1Ljg2NjcgOS43MzgwNCAxNC43MTkyQzguMDE1MTQgMTEuMjczNyA3LjAyMDAyIDYuNzQzMTYgNi45MDY3NCAxLjg3NUgyNS4wOTMzQzI0Ljk3OTcgNi43NDMxNiAyMy45ODQ2IDExLjI3MzkgMjIuMjYyIDE0LjcxOTJDMjEuNjg4MiAxNS44NjY3IDIxLjA2MDEgMTYuODQxOCAyMC4zOTI2IDE3LjYzNDVDMjAuMzQ4MSAxNy42NzcgMjAuMzA3OSAxNy43MjM5IDIwLjI3MjcgMTcuNzc0NEMxOS42MDAxIDE4LjU0NTkgMTguODg4NyAxOS4xMzI2IDE4LjE1MzYgMTkuNTIxNVpNMjcuMzQ3NyAxMy4zNjgyQzI2LjE1ODcgMTUuMTU1MyAyNC43MTU2IDE2LjM4NjIgMjMuMTU2MiAxNi45NzUxQzIzLjQyNzUgMTYuNTMwMyAyMy42ODkgMTYuMDU3OSAyMy45MzkgMTUuNTU3OUMyNS41MDg4IDEyLjQxODUgMjYuNTEyOSA4LjQ2MzM4IDI2Ljg1MTMgNC4xODQ1N0gzMC4xMDUyQzI5Ljk1OCA3LjY2NTI4IDI4Ljk5MTkgMTAuODk3MiAyNy4zNDc3IDEzLjM2ODJaIiBmaWxsPSIjQUVCMkI1Ii8+Cjwvc3ZnPgo=') no-repeat left center;
-                     font: {
-                        family: $fontRoboto;
-                        size: 18px;
-                        weight: 400;
-                     }
-                     line-height: 32px;
-                     color: #002D4F;
-                     margin-left: 25px;
-                     margin-top: 25px;
-                     padding-left: 45px;
-                  }
-                  .jve-rating {
-                     display: flex;
-                     align-items: center;
-                     margin-left: 25px;
-                     .jve-statistics {
-                        font: {
-                           family: $fontRoboto;
-                           size: 24px;
-                           weight: 700;
+
+            a {
+                color: $colorMain;
+                text-decoration: none;
+
+                &:hover {
+                    color: $colorMain;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .article-spisok {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+            margin-top: -30px;
+
+            li {
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    margin-right: 13px;
+                    border-radius: 2px;
+                    background: $colorMain;
+                }
+
+                display: flex;
+                align-items: center;
+
+                font: {
+                    family: $fontRoboto;
+                    size: 18px;
+                    weight: 400;
+                }
+
+                line-height: 40px;
+                color: $colorText;
+            }
+        }
+    }
+
+    &.credit {
+        margin-top: 58px;
+
+        .page-header {
+            h1 {
+                @include zagH1;
+                margin-bottom: 13px;
+            }
+        }
+
+        .com-content-article__body {
+            margin-top: 107px;
+            padding-top: 40px;
+            background: #f6f9f9;
+            display: flex;
+            min-width: 100vw;
+            background: #F6F9F9;
+            flex-direction: column;
+            margin-left: calc((100vw - 1253px)/-2) !important;
+            align-items: center;
+
+            .bank-info {
+                background: $colorWhite;
+                border-radius: 12px;
+                box-shadow: 0px 8px 16px rgba(99, 102, 129, 0.06);
+                margin-bottom: 40px;
+                width: 1270px;
+
+                .row {
+                    margin-left: 0;
+                    margin-right: 0;
+
+                    &.bank-info-row {
+                        padding-top: 25px;
+                        padding-bottom: 25px;
+                    }
+
+                    .rating {
+                        padding-left: 25px;
+                        border-right: 1px solid #EBEFEF;
+
+                        .rating-title {
+                            display: block;
+                            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMxLjA2MjUgMi4zMDk1N0gyNi45NTYxQzI2Ljk3MDkgMS44NTQ3NCAyNi45NzkyIDEuMzk3MjIgMjYuOTc5MiAwLjkzNzVDMjYuOTc5MiAwLjQxOTY3OCAyNi41NTkzIDAgMjYuMDQxNyAwSDUuOTU4MjVDNS40NDA2NyAwIDUuMDIwNzUgMC40MTk2NzggNS4wMjA3NSAwLjkzNzVDNS4wMjA3NSAxLjM5NzIyIDUuMDI5MDUgMS44NTQ3NCA1LjA0Mzk1IDIuMzA5NTdIMC45Mzc1QzAuNDE5Njc4IDIuMzA5NTcgMCAyLjcyOTI1IDAgMy4yNDcwN0MwIDcuNDQ3NzUgMS4wOTc5IDExLjQxMDkgMy4wOTEzMSAxNC40MDY3QzUuMDYxNzcgMTcuMzY4NCA3LjY4NjUyIDE5LjA2NzEgMTAuNTIyIDE5LjIzMjRDMTEuMTY0OCAxOS45MzE5IDExLjg0NDIgMjAuNTAyMiAxMi41NTIgMjAuOTM3M1YyNS4xMDRIMTAuOTc5MkM5LjA3Nzg4IDI1LjEwNCA3LjUzMTI1IDI2LjY1MDkgNy41MzEyNSAyOC41NTJWMzAuMTI0OEg3LjQ2NDZDNi45NDY3OCAzMC4xMjQ4IDYuNTI3MSAzMC41NDQ3IDYuNTI3MSAzMS4wNjIzQzYuNTI3MSAzMS41ODAxIDYuOTQ2NzggMzEuOTk5OCA3LjQ2NDYgMzEuOTk5OEgyNC41MzU0QzI1LjA1MzIgMzEuOTk5OCAyNS40NzI5IDMxLjU4MDEgMjUuNDcyOSAzMS4wNjIzQzI1LjQ3MjkgMzAuNTQ0NyAyNS4wNTMyIDMwLjEyNDggMjQuNTM1NCAzMC4xMjQ4SDI0LjQ2ODhWMjguNTUyQzI0LjQ2ODggMjYuNjUwOSAyMi45MjIxIDI1LjEwNCAyMS4wMjA4IDI1LjEwNEgxOS40NDhWMjAuOTM3M0MyMC4xNTU4IDIwLjUwMjQgMjAuODM1NCAxOS45MzE5IDIxLjQ3ODMgMTkuMjMyNEMyNC4zMTM1IDE5LjA2NzEgMjYuOTM4MiAxNy4zNjg0IDI4LjkwODkgMTQuNDA2N0MzMC45MDIzIDExLjQxMDkgMzIgNy40NDc3NSAzMiAzLjI0NzA3QzMyIDIuNzI5MjUgMzEuNTgwMyAyLjMwOTU3IDMxLjA2MjUgMi4zMDk1N1pNNC42NTIzNCAxMy4zNjgyQzMuMDA4MDYgMTAuODk3MiAyLjA0MTk5IDcuNjY1MjggMS44OTQ3OCA0LjE4NDU3SDUuMTQ4NjhDNS40ODY4MiA4LjQ2MzM4IDYuNDkxMjEgMTIuNDE4NSA4LjA2MTA0IDE1LjU1NzlDOC4zMTEwNCAxNi4wNTc5IDguNTcyNTEgMTYuNTMwMyA4Ljg0Mzc1IDE2Ljk3NTFDNy4yODQ0MiAxNi4zODYyIDUuODQxMzEgMTUuMTU1MyA0LjY1MjM0IDEzLjM2ODJaTTIyLjU5MzggMjguNTUyVjMwLjEyNUg5LjQwNjI1VjI4LjU1MkM5LjQwNjI1IDI3LjY4NDggMTAuMTExOCAyNi45NzkgMTAuOTc5MiAyNi45NzlIMjEuMDIwOEMyMS44ODgyIDI2Ljk3OSAyMi41OTM4IDI3LjY4NDggMjIuNTkzOCAyOC41NTJaTTE3LjU3MyAyNS4xMDRIMTQuNDI3VjIxLjc1MkMxNC45NDI0IDIxLjg4NzcgMTUuNDY3NSAyMS45NTgzIDE2IDIxLjk1ODNDMTYuNTMyNSAyMS45NTgzIDE3LjA1NzYgMjEuODg3NyAxNy41NzMgMjEuNzUyVjI1LjEwNFpNMTguMTUzNiAxOS41MjE1QzE4LjExMTMgMTkuNTM4OCAxOC4wNzA4IDE5LjU1OTggMTguMDMyIDE5LjU4M0MxNy4zNjk0IDE5LjkxMjYgMTYuNjg4NSAyMC4wODMzIDE2IDIwLjA4MzNDMTUuMzExOCAyMC4wODMzIDE0LjYzMTEgMTkuOTEyNiAxMy45Njg4IDE5LjU4MzVDMTMuOTI5NCAxOS41NTk4IDEzLjg4ODcgMTkuNTM4OCAxMy44NDU5IDE5LjUyMUMxMy4xMTA4IDE5LjEzMjMgMTIuMzk5NyAxOC41NDU0IDExLjcyNzEgMTcuNzc0MkMxMS42OTE3IDE3LjcyMzYgMTEuNjUxOSAxNy42NzcgMTEuNjA3NyAxNy42MzQ1QzEwLjkzOTkgMTYuODQxOCAxMC4zMTE4IDE1Ljg2NjcgOS43MzgwNCAxNC43MTkyQzguMDE1MTQgMTEuMjczNyA3LjAyMDAyIDYuNzQzMTYgNi45MDY3NCAxLjg3NUgyNS4wOTMzQzI0Ljk3OTcgNi43NDMxNiAyMy45ODQ2IDExLjI3MzkgMjIuMjYyIDE0LjcxOTJDMjEuNjg4MiAxNS44NjY3IDIxLjA2MDEgMTYuODQxOCAyMC4zOTI2IDE3LjYzNDVDMjAuMzQ4MSAxNy42NzcgMjAuMzA3OSAxNy43MjM5IDIwLjI3MjcgMTcuNzc0NEMxOS42MDAxIDE4LjU0NTkgMTguODg4NyAxOS4xMzI2IDE4LjE1MzYgMTkuNTIxNVpNMjcuMzQ3NyAxMy4zNjgyQzI2LjE1ODcgMTUuMTU1MyAyNC43MTU2IDE2LjM4NjIgMjMuMTU2MiAxNi45NzUxQzIzLjQyNzUgMTYuNTMwMyAyMy42ODkgMTYuMDU3OSAyMy45MzkgMTUuNTU3OUMyNS41MDg4IDEyLjQxODUgMjYuNTEyOSA4LjQ2MzM4IDI2Ljg1MTMgNC4xODQ1N0gzMC4xMDUyQzI5Ljk1OCA3LjY2NTI4IDI4Ljk5MTkgMTAuODk3MiAyNy4zNDc3IDEzLjM2ODJaIiBmaWxsPSIjQUVCMkI1Ii8+Cjwvc3ZnPgo=') no-repeat left center;
+
+                            font: {
+                                family: $fontRoboto;
+                                size: 18px;
+                                weight: 400;
+                            }
+
+                            line-height: 32px;
+                            color: #002D4F;
+                            margin-left: 25px;
+                            margin-top: 25px;
+                            padding-left: 45px;
                         }
+
+                        .jve-rating {
+                            display: flex;
+                            align-items: center;
+                            margin-left: 25px;
+
+                            .jve-statistics {
+                                font: {
+                                    family: $fontRoboto;
+                                    size: 24px;
+                                    weight: 700;
+                                }
+
+                                line-height: 32px;
+                                color: #56C182;
+                                margin-right: 17px;
+                            }
+                        }
+                    }
+
+                    .bank-logo {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-right: 1px solid #EBEFEF;
+                    }
+
+                    .bank-fields {
+                        @include bankFields;
+                    }
+
+                    .bank-tags {
+                        @include bankTags;
+                    }
+                }
+            }
+
+            .bank-info-full {
+                .jve-rating {
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    top: 485px;
+                    left: 425px;
+
+                    .jve-statistics {
+                        font: {
+                            family: $fontRoboto;
+                            size: 24px;
+                            weight: 700;
+                        }
+
                         line-height: 32px;
                         color: #56C182;
                         margin-right: 17px;
-                     }
-                  }
-               }
-               .bank-logo {
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                  border-right: 1px solid #EBEFEF;
-               }
-               .bank-fields {
-                  @include bankFields;
-               }
-               .bank-tags {
-                  @include bankTags;
-               }
+                    }
+                }
+
+                .rl_tabs {
+                    width: 1270px;
+                    margin-bottom: 0;
+
+                    .nav-tabs {
+                        margin-left: 16px;
+                        margin-bottom: 0;
+                        border-bottom: none;
+
+                        li {
+                            &:before {
+                                content: '';
+                                display: none;
+                            }
+
+                            width: 216px;
+                            margin-right: 16px !important;
+                            text-align: center;
+
+                            a {
+                                border: none;
+                                margin: 0;
+                                padding: 4px 0;
+                                display: block;
+                                border-top-left-radius: 6px;
+                                border-top-right-radius: 6px;
+                                font-family: $fontRoboto;
+                                font-size: 18px;
+                                font-weight: 500;
+                                line-height: 32px;
+                                color: $colorWhite;
+                                background: transparent;
+
+                                &:focus {
+                                    box-shadow: none;
+                                }
+                            }
+
+                            #tab-stavki {
+                                background: #FEAB4A;
+                            }
+
+                            #tab-trebovaniya {
+                                background: #56C182;
+                            }
+
+                            #tab-dopolnitelno {
+                                background: #B697F9;
+                            }
+
+                            &.active {
+                                a {
+                                    background: $colorWhite !important;
+                                    color: #002D4F;
+                                }
+                            }
+                        }
+                    }
+
+                    .tab-content {
+                        border-radius: 12px;
+                        box-shadow: 0px 8px 16px rgba(99, 102, 129, 0.06);
+                        margin-bottom: 40px;
+                        padding: 48px 32px;
+
+                        .tab-pane {
+                            padding: 0;
+
+                            .tab-text {
+                                &.two {
+                                    margin-top: 24px;
+                                }
+
+                                margin-left: 0;
+                                margin-right: 0;
+
+                                .tab-text-block {
+                                    &-title {
+                                        font: {
+                                            family: $fontRoboto;
+                                            size: 18px;
+                                            weight: 400;
+                                        }
+
+                                        line-height: 32px;
+                                        color: #606970;
+                                        margin-bottom: 0;
+                                    }
+
+                                    &-content {
+                                        font: {
+                                            family: $fontRoboto;
+                                            size: 18px;
+                                            weight: 500;
+                                        }
+
+                                        line-height: 32px;
+                                        color: #002D4F;
+                                        margin-bottom: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
-         }
-         .bank-info-full {
-            .jve-rating {
-               display: flex;
-               align-items: center;
-               position: absolute;
-               top: 485px;
-               left: 425px;
-               .jve-statistics {
-                  font: {
-                     family: $fontRoboto;
-                     size: 24px;
-                     weight: 700;
-                  }
-                  line-height: 32px;
-                  color: #56C182;
-                  margin-right: 17px;
-               }
-            }
-            .rl_tabs {
-               width: 1270px;
-               margin-bottom: 0;
-               .nav-tabs {
-                  margin-left: 16px;
-                  margin-bottom: 0;
-                  border-bottom: none;
-                  li {
-                     &:before {
-                        content: '';
-                        display: none;
-                     }
-                     width: 216px;
-                     margin-right: 16px !important;
-                     text-align: center;
-                     a {
-                        border: none;
-                        margin: 0;
-                        padding: 4px 0;
-                        display: block;
-                        border-top-left-radius: 6px;
-                        border-top-right-radius: 6px;
-                        font-family: $fontRoboto;
-                        font-size: 18px;
-                        font-weight: 500;
-                        line-height: 32px;
-                        color: $colorWhite;
-                        background: transparent;
-                        &:focus {
-                           box-shadow: none;
-                        }
-                     }
-                     #tab-stavki {
-                        background: #FEAB4A;
-                     }
-                     #tab-trebovaniya {
-                        background: #56C182;
-                     }
-                     #tab-dopolnitelno {
-                        background: #B697F9;
-                     }
-                     &.active {
-                        a {
-                           background: $colorWhite !important;
-                           color: #002D4F;
-                        }
-                     }
-                  }
-               }
-               .tab-content {
-                  border-radius: 12px;
-                  box-shadow: 0px 8px 16px rgba(99, 102, 129, 0.06);
-                  margin-bottom: 40px;
-                  padding: 48px 32px;
-                  .tab-pane {
-                     padding: 0;
-                     .tab-text {
-                        &.two {
-                           margin-top: 24px;
-                        }
-                        margin-left: 0;
-                        margin-right: 0;
-                        .tab-text-block {
-                           &-title {
-                              font: {
-                                 family: $fontRoboto;
-                                 size: 18px;
-                                 weight: 400;
-                              }
-                              line-height: 32px;
-                              color: #606970;
-                              margin-bottom: 0;
-                           }
-                           &-content {
-                              font: {
-                                 family: $fontRoboto;
-                                 size: 18px;
-                                 weight: 500;
-                              }
-                              line-height: 32px;
-                              color: #002D4F;
-                              margin-bottom: 0;
-                           }
-                        }
-                     }
-                  }
-               }
-            }
-         }
-      }
-   }
+        }
+    }
 }
 
+
 /* Blog */
+
 .blog {
     margin-top: 58px;
 
@@ -2256,7 +2310,15 @@ main {
     }
 }
 
+.blog.menu_id_129 {
+    .category-desc {
+        padding-top: 0px;
+    }
+}
+
+
 /* Filter */
+
 .form-search + p {
     margin: 0;
 }
