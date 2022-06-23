@@ -64,7 +64,7 @@ $attribs['style'] = 'none';
     <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
     <?php endif; ?>
 
-    <?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) && $menu != '129' : ?>
+    <?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) && ($menu != '129') : ?>
     <?php if ($this->params->get('show_no_articles', 1)) : ?>
     <div class="alert alert-info">
         <span class="icon-info-circle" aria-hidden="true"></span><span class="visually-hidden"><?php echo Text::_('INFO'); ?></span>
