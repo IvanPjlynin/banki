@@ -88,10 +88,9 @@
 
 .blog .category-desc .section.banner2.turist img.img-absolute {
     position: absolute;
-    top: 0;
-    right: 0;
+    right: -130px;
     bottom: 0;
-    max-width: 485px;
+    max-height: 530px;
 }
 
 .blog .category-desc .section.banner2.turist .banner-subtitle {
