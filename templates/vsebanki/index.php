@@ -42,7 +42,7 @@ $wa->registerAndUseScript('chosen.jquery', 'media/vendor/chosen/js/chosen.jquery
 $wa->registerAndUseScript('ion.rangeSlider', 'templates/vsebanki/js/ion.rangeSlider.min.js');
 $wa->registerAndUseScript('template', 'templates/vsebanki/js/template.js');
 $wa->registerAndUseScript('bootstrap.bundle', 'templates/vsebanki/js/bootstrap.bundle.min.js');
-//$wa->registerAndUseStyle('template', 'templates/vsebanki/css/custom.css');
+$wa->registerAndUseStyle('template', 'templates/vsebanki/css/custom.css');
 
 
 // Container
