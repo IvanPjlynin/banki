@@ -43,28 +43,28 @@ $attribs['style'] = 'none';
 ?>
 <div class="com-content-category-blog blog" itemscope itemtype="https://schema.org/Blog">
     <?php if ($this->params->get('show_page_heading')) : ?>
-    1<div class="page-header">
+    <div class="page-header">
         <h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
         <?php echo JModuleHelper::renderModule($moduleSubzag[0], $attribs); ?>
     </div>
     <?php endif; ?>
 
     <?php if ($this->params->get('show_category_title', 1)) : ?>
-    2<<?php echo $htag; ?>>
+    <<?php echo $htag; ?>>
         <?php echo $this->category->title; ?>
     </<?php echo $htag; ?>>
     <?php endif; ?>
-    3<?php echo $afterDisplayTitle; ?>
+    <?php echo $afterDisplayTitle; ?>
 
-    4<?php echo JModuleHelper::renderModule($moduleTabs[0], $attribs); ?>
-    5<?php echo JModuleHelper::renderModule($moduleFilter[0], $attribs); ?>
+    <?php echo JModuleHelper::renderModule($moduleTabs[0], $attribs); ?>
+    <?php echo JModuleHelper::renderModule($moduleFilter[0], $attribs); ?>
 
-    6<?php if ($this->params->get('show_cat_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
+    <?php if ($this->params->get('show_cat_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
     <?php $this->category->tagLayout = new FileLayout('joomla.content.tags'); ?>
     <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
     <?php endif; ?>
 
-    7<?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) : ?>
+    <?php if (empty($this->lead_items) && empty($this->link_items) && empty($this->intro_items)) && $menu != '129' : ?>
     <?php if ($this->params->get('show_no_articles', 1)) : ?>
     <div class="alert alert-info">
         <span class="icon-info-circle" aria-hidden="true"></span><span class="visually-hidden"><?php echo Text::_('INFO'); ?></span>
@@ -72,7 +72,7 @@ $attribs['style'] = 'none';
     </div>
     <?php endif; ?>
     <?php endif; ?>
-    8
+
     <?php $leadingcount = 0; ?>
     <?php if (!empty($this->lead_items)) : ?>
     <div class="com-content-category-blog__items blog-items items-leading <?php echo $this->params->get('blog_class_leading'); ?>">
@@ -86,12 +86,12 @@ $attribs['style'] = 'none';
         <?php endforeach; ?>
     </div>
     <?php endif; ?>
-    9
+
     <?php
 	$introcount = count($this->intro_items);
 	$counter = 0;
 	?>
-    10
+
     <?php if (!empty($this->intro_items)) : ?>
     <?php $blogClass = $this->params->get('blog_class', ''); ?>
     <?php if ((int) $this->params->get('num_columns') > 1) : ?>
