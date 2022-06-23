@@ -82,6 +82,11 @@
 }
 
 
+.blog .category-desc .section.banner2.turist {
+    position: relative;
+}
+
+.blog .category-desc .section.banner2.turist img.img-absolute {}
 
 .blog .category-desc .section.banner2.turist .banner-subtitle {
     font-family: 'Roboto';
