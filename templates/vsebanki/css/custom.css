@@ -90,4 +90,11 @@
     font-size: 28px;
     line-height: 46px;
     color: #002D4F;
+    padding-left: 160px;
+    padding-top: 100px;
+}
+
+.blog .category-desc .section.banner2.turist .container .row {
+    padding: 0;
+    margin: 0;
 }
