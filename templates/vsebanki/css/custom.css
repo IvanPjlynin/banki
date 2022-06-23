@@ -2,15 +2,13 @@
     padding-top: 0px;
 }
 
-
-/* Оформить страховку выгодно за 2 минуты */
-
 .blog.menu_id_129 .category-desc .title {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 42px;
     line-height: 48px;
+    margin-bottom: 0px;
 }
 
 .blog.menu_id_129 .category-desc .subtitle {
@@ -19,4 +17,29 @@
     font-size: 28px;
     line-height: 46px;
     color: #002D4F;
+}
+
+
+.blog .category-desc .category-button {
+    border: 1px solid #D9DEE3;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 4px 0;
+    text-align: center;
+    margin-right: 16px;
+    width: 216px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    color: #56C182;
+    background: transparent;
+    transition: all 0.3s linear;
+}
+
+.blog .category-desc .category-button:hover {
+    color: #fff;
+    background: #56C182;
+    border: 1px solid #56C182;
+    transition: all 0.3s linear;
 }
