@@ -54,7 +54,17 @@
 
 .blog .category-desc .section.banner2 .container .row div .banner-wrapper img {
     text-align: center;
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
+    width: 130px;
+    height: 130px;
+    margin: 20px auto;
+}
+
+.blog .category-desc .section.banner2 .container .row div .banner-wrapper .banner-title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    color: #002D4F;
 }
