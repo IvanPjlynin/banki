@@ -155,3 +155,21 @@
 .blog.menu_id_128 .category-desc {
     padding-top: 0px;
 }
+
+.blog.menu_id_128 .category-desc .title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 48px;
+    margin-bottom: 0px;
+}
+
+.blog.menu_id_128 .category-desc .subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 46px;
+    color: #002D4F;
+    margin-bottom: 30px;
+}
