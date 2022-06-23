@@ -185,3 +185,7 @@
     padding-left: 160px;
     padding-top: 60px;
 }
+
+.blog .category-desc .section.banner2.bg-home {
+    background-image: url(/images/strahovca-nedvig/bg-home.svg);
+}
