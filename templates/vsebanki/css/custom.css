@@ -21,25 +21,24 @@
 
 
 .blog .category-desc .category-button {
-    border: 1px solid #D9DEE3;
+    color: #fff;
+    background: #56C182;
+    border: 1px solid #56C182;
+    transition: all 0.3s linear;
     box-sizing: border-box;
     border-radius: 6px;
     padding: 4px 0;
     text-align: center;
-    margin-right: 16px;
     width: 216px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 32px;
-    color: #56C182;
-    background: transparent;
-    transition: all 0.3s linear;
 }
 
 .blog .category-desc .category-button:hover {
-    color: #fff;
-    background: #56C182;
-    border: 1px solid #56C182;
+    border: 1px solid #D9DEE3;
+    color: #56C182;
+    background: transparent;
     transition: all 0.3s linear;
 }
