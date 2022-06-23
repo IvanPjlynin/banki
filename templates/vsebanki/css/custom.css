@@ -2,7 +2,16 @@
     padding-top: 0px;
 }
 
+
 /* Оформить страховку выгодно за 2 минуты */
+
+.blog.menu_id_129 .category-desc .title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 48px;
+}
 
 .blog.menu_id_129 .category-desc .subtitle {
     font-style: normal;
