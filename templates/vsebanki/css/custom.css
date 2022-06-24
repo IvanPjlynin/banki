@@ -153,11 +153,13 @@
 }
 
 
-.blog.menu_id_128 .category-desc {
+.blog.menu_id_128 .category-desc,
+.blog.menu_id_127 .category-desc {
     padding-top: 0px;
 }
 
-.blog.menu_id_128 .category-desc .title {
+.blog.menu_id_128 .category-desc .title,
+.blog.menu_id_127 .category-desc .title {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
@@ -166,7 +168,8 @@
     margin-bottom: 0px;
 }
 
-.blog.menu_id_128 .category-desc .subtitle {
+.blog.menu_id_128 .category-desc .subtitle,
+.blog.menu_id_127 .category-desc .subtitle {
     font-style: normal;
     font-weight: 400;
     font-size: 28px;
