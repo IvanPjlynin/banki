@@ -414,12 +414,12 @@
     font-weight: 600;
 }
 
-.full-item-block .num-block_text {
+.full-item-block p.num-block_text {
     font-family: "Roboto", sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 32px;
     color: #606970;
     margin-bottom: 0;
-    display: contents;
+    display: inline-block;
 }
