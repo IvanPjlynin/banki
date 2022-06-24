@@ -270,7 +270,7 @@
 }
 
 .full-item-block.block1 {
-    padding-bottom: 30px;
+    padding-bottom: 80px;
     padding-top: 60px;
 }
 
@@ -329,13 +329,14 @@
     flex-direction: column;
     background: #f6f9f9;
     border-radius: 12px;
+    padding: 20px;
 }
 
 .full-item-block .banner-wrapper img {
     text-align: center;
     width: 130px;
     height: 130px;
-    margin: 15px auto;
+    margin: 0 auto 15px;
 }
 
 .full-item-block .banner-wrapper .banner-title {
@@ -356,6 +357,6 @@
     font-size: 18px;
     line-height: 26px;
     text-align: center;
-    margin-top: 0;
-    padding: 0 15px;
+    padding: 0;
+    margin: 0;
 }
