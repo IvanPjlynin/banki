@@ -268,3 +268,42 @@
     margin: 50px auto 14px;
     width: auto;
 }
+
+.full-item.block1 {
+    padding-bottom: 90px;
+
+}
+
+.full-item.block1 .title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 48px;
+    margin-bottom: 0px;
+}
+
+.full-item.block1 .subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 46px;
+    color: #002D4F;
+    margin-bottom: 30px;
+}
+
+.full-item.block1 .category-button {
+    color: #fff;
+    background: #56C182;
+    border: 1px solid #56C182;
+    transition: all 0.3s linear;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 8px 100px;
+    text-align: center;
+    width: 216px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+}
