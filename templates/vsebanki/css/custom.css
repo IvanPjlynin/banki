@@ -390,3 +390,10 @@
     position: relative;
     padding: 40px 0;
 }
+
+.full-item-block.block3 .bg-write {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px rgb(99 102 129 / 6%);
+    border-radius: 12px;
+}
