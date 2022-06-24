@@ -360,3 +360,33 @@
     padding: 0;
     margin: 0;
 }
+
+.full-item-block .bg-gree {
+    width: 100vw;
+    position: absolute;
+    left: 50%;
+    background: #f6f9f9;
+    top: 0;
+    right: 50%;
+    z-index: -1;
+    bottom: 0;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.full-item-block .bg-gree2 {
+    width: 100vw;
+    position: absolute;
+    right: 51%;
+    background: #f6f9f9;
+    top: 0;
+    z-index: -1;
+    bottom: 0;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.full-item-block.block3 > div > .row {
+    position: relative;
+    padding: 40px 0;
+}
