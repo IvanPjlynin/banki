@@ -409,14 +409,16 @@
     width: auto;
 }
 
+.full-item-block .num-block {}
+
 .full-item-block .num-block_numb {
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 600;
     line-height: 63px;
     vertical-align: top;
     display: inline-block;
     width: 30px;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 .full-item-block p.num-block_text {
