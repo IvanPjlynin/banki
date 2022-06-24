@@ -380,7 +380,7 @@ jQuery(document).ready(function ($) {
 //ivp правки фильтра
 jQuery(document).ready(function ($) {
 
-    $('.block2 .banner-wrapper').equalHeights();
+    $('.block2 .banner-wrapper p').equalHeights();
 
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
