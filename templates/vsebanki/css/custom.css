@@ -496,8 +496,8 @@
         0px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-.ac-container label:hover:after,
-.ac-container input:checked + label:hover:after {
+.ac-container label:after,
+.ac-container input:checked + label:after {
     content: '';
     position: absolute;
     width: 24px;
@@ -507,7 +507,7 @@
     background: transparent url(../images/arrow_down.png) no-repeat center center;
 }
 
-.ac-container input:checked + label:hover:after {
+.ac-container input:checked + label:after {
     background-image: url(../images/arrow_up.png);
 }
 
