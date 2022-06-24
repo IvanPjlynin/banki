@@ -263,3 +263,8 @@
     font-size: 16px;
     line-height: 24px;
 }
+
+#casko-4 a.category-button.block3 {
+    margin: 50px auto 14px;
+    width: auto;
+}
