@@ -433,3 +433,7 @@
     display: inline-block;
     padding-top: 20px;
 }
+
+.full-item-block.block3 .category-button {
+    margin: 30px;
+}
