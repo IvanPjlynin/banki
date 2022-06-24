@@ -199,4 +199,6 @@
     background-image: url(/images/kasko/avto.svg);
     background-position: right;
     background-repeat: no-repeat;
+    padding-bottom: 90px;
+    background-size: contain;
 }
