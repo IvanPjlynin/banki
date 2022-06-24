@@ -397,3 +397,7 @@
     box-shadow: 0px 8px 16px rgb(99 102 129 / 6%);
     border-radius: 12px;
 }
+
+.full-item-block.block3 .banner-wrapper {
+    background: #fff;
+}
