@@ -234,10 +234,10 @@
 #casko-4 .bg-gree2 {
     width: 100vw;
     position: absolute;
+    right: 50%;
     left: 50%;
     background: #f6f9f9;
     top: 0;
-    right: 50%;
     z-index: -1;
     bottom: 0;
     margin-left: -50vw;
