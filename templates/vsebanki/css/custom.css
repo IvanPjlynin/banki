@@ -405,8 +405,9 @@
 }
 
 .full-item-block .full-img {
-    height: 100%;
+    height: 70%;
     width: auto;
+    float: right;
 }
 
 .full-item-block .num-block {
