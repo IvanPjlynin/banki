@@ -404,4 +404,22 @@
     background: #fff;
 }
 
-.full-item-block .full-img {}
+.full-item-block .full-img {
+    height: 100%;
+    width: auto;
+}
+
+.full-item-block .num-block_numb {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.full-item-block .num-block_text {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    color: #606970;
+    margin-bottom: 0;
+    display: contents;
+}
