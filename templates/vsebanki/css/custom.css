@@ -216,4 +216,11 @@
 
 #casko-4 .row {}
 
-#casko-4 .bg-gree {}
+#casko-4 .bg-gree {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
