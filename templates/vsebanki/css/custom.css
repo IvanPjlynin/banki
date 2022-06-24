@@ -311,3 +311,14 @@
 .full-item-block .container {
     padding: 0px;
 }
+
+.full-item-block .banner-subtitle {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 46px;
+    color: #002D4F;
+    padding-left: 160px;
+    padding-top: 60px;
+}
