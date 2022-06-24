@@ -216,6 +216,7 @@
 
 #casko-4 .row {
     position: relative;
+    padding: 40px 0;
 }
 
 #casko-4 .bg-gree {
@@ -234,12 +235,18 @@
 #casko-4 .bg-gree2 {
     width: 100vw;
     position: absolute;
-    right: 50%;
-    left: 50%;
+    right: 51%;
     background: #f6f9f9;
     top: 0;
     z-index: -1;
     bottom: 0;
     margin-left: -50vw;
     margin-right: -50vw;
+}
+
+#casko-4 .banner-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: #f6f9f9;
+    border-radius: 12px;
 }
