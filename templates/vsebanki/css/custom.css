@@ -214,13 +214,32 @@
     max-height: 183px;
 }
 
-#casko-4 .row {}
+#casko-4 .row {
+    position: relative;
+}
 
 #casko-4 .bg-gree {
     width: 100vw;
-    position: relative;
+    position: absolute;
     left: 50%;
+    background: #f6f9f9;
+    top: 0;
     right: 50%;
+    z-index: -1;
+    bottom: 0;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+#casko-4 .bg-gree2 {
+    width: 100vw;
+    position: absolute;
+    left: 50%;
+    background: #f6f9f9;
+    top: 0;
+    right: 50%;
+    z-index: -1;
+    bottom: 0;
     margin-left: -50vw;
     margin-right: -50vw;
 }
