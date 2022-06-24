@@ -409,7 +409,9 @@
     width: auto;
 }
 
-.full-item-block .num-block {}
+.full-item-block .num-block {
+    margin: 15px 0;
+}
 
 .full-item-block .num-block_numb {
     font-size: 50px;
