@@ -647,7 +647,8 @@
     color: #002D4F;
 }
 
-.block-accordion .accordion-body {
+.block-accordion .accordion-body,
+.block-accordion .accordion-body p {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
