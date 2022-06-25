@@ -597,3 +597,13 @@
     left: 0px;
     top: 6px;
 }
+
+.full-item-block_text-icon-before2::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #F55549;
+    position: absolute;
+    left: 0px;
+    top: 6px;
+}
