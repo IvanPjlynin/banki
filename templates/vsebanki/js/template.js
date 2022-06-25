@@ -441,6 +441,12 @@ jQuery(document).ready(function ($) {
 
         getRezultElemForm();
 
+        function digits_int(target) {
+            val = $(target).val().replace(/[^0-9]/g, '');
+            val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            $(target).val(val);
+        }
+
         function getRezultElemForm() {
             $('.form-credit-calc_valute').html(kredit['select-valute']);
             let stavka_procent = kredit['stavka-procent'] * 0.01;
@@ -457,6 +463,7 @@ jQuery(document).ready(function ($) {
             $(elem).on("change keyup paste", function () {
                 kredit[$(this).attr('id')] = $(this).val();
                 getRezultElemForm();
+                igits_int(this);
                 console.log(kredit);
             })
         }
