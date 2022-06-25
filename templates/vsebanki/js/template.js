@@ -431,11 +431,7 @@ jQuery(document).ready(function ($) {
     //выравниевание блоков по высоте
     $('.banner-wrapper').matchHeight();
     //форма калькулятора и расчет
-
-
-
     if ($('.form-credit-calc').length > 0) {
-
         let kredit = {
             "summ-kredit": 100000,
             "select-valute": "₽",
@@ -443,20 +439,18 @@ jQuery(document).ready(function ($) {
             "srock-credit": "12"
         };
 
+        getRezultElemForm();
+
         function getRezultElemForm() {
-
             $('.form-credit-calc_valute').html(kredit['select-valute']);
-
             let stavka_procent = kredit['stavka-procent'] * 0.01;
-
-            let annyPlateg = kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) ** kredit['srock-credit'])) / (((1 + stavka_procent) ** kredit['srock-credit']) - 1));
-
+            let annyPlateg = kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) * * kredit['srock-credit'])) / (((1 + stavka_procent) * * kredit['srock-credit']) - 1));
             $('.form-credit-calc_mes-plat').html(Math.round(annyPlateg));
             $('.form-credit-calc_pereplat').html(Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
             $('.form-credit-calc_summ').html(Math.round(annyPlateg * kredit['srock-credit']));
-
             $('.form-credit-calc .progress .progress-bar').width(100 - ((Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit'])) / (Math.round(annyPlateg * kredit['srock-credit']) / 100)) + '%');
 
+            $('input').val(String($('input').val().replace(/[^0-9.]/g, '')).replace(/\B(?=(\d{3})+(?!\d))/g, " "));
         }
 
         function setDataCalcFormEdit(elem) {
@@ -466,11 +460,7 @@ jQuery(document).ready(function ($) {
                 console.log(kredit);
             })
         }
-
-
         setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
-
-
     }
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
