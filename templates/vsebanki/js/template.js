@@ -450,7 +450,7 @@ jQuery(document).ready(function ($) {
             $('.form-credit-calc_summ').html(Math.round(annyPlateg * kredit['srock-credit']));
             $('.form-credit-calc .progress .progress-bar').width(100 - ((Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit'])) / (Math.round(annyPlateg * kredit['srock-credit']) / 100)) + '%');
 
-            $('input').val(String($('input').val().replace(/[^0-9.]/g, '')).replace(/\B(?=(\d{3})+(?!\d))/g, " "));
+            //$('input').val(String($('input').val().replace(/[^0-9.]/g, '')).replace(/\B(?=(\d{3})+(?!\d))/g, " "));
         }
 
         function setDataCalcFormEdit(elem) {
