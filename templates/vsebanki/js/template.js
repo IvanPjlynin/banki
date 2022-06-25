@@ -455,7 +455,7 @@ jQuery(document).ready(function ($) {
             $('.form-credit-calc_pereplat').html(Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
             $('.form-credit-calc_summ').html(Math.round(annyPlateg * kredit['srock-credit']));
 
-            $('.form-credit-calc .progress .progress-bar').width((100 - Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit']) / (kredit['summ-kredit'] / 100)) + '%');
+            $('.form-credit-calc .progress .progress-bar').width(100 - ((Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit'])) / (Math.round(annyPlateg * kredit['srock-credit']) / 100)) + '%');
 
         }
 
