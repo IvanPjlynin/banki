@@ -637,3 +637,21 @@
     background-size: 1.25rem;
     transition: transform .2s ease-in-out;
 }
+
+.block-accordion .accordion-button {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    color: #002D4F;
+}
+
+.block-accordion .accordion-body {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    color: #606970;
+}
