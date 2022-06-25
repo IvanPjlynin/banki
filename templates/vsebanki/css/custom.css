@@ -731,4 +731,12 @@
     color: #000000;
 }
 
-.form-credit-calc #srock-credit {}
+.form-credit-calc #srock-credit {
+    width: auto;
+    max-width: 80px;
+}
+
+.form-credit-calc #stavka-procent {
+    width: auto;
+    max-width: 80px;
+}
