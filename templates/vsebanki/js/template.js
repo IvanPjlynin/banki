@@ -447,7 +447,7 @@ jQuery(document).ready(function ($) {
 
             $('.form-credit-calc_valute').html(kredit['select-valute']);
 
-            kredit['stavka-procent'] = kredit['stavka-procent'] * 0, 01;
+            kredit['stavka-procent'] = kredit['stavka-procent'] * 0.01;
 
             let annyPlateg = kredit['summ-kredit'] * ((kredit['stavka-procent'] * ((1 + kredit['stavka-procent']) ** kredit['srock-credit'])) / (((1 + kredit['stavka-procent']) ** kredit['srock-credit']) - 1));
 
