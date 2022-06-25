@@ -708,3 +708,11 @@
 .form-credit-calc .border-right {
     border-right: 3px solid #f6f9f9;
 }
+
+.form-credit-calc .progress {
+    background-color: #fed64a;
+}
+
+.form-credit-calc .progress .progress-bar {
+    background: #56c182;
+}
