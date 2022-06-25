@@ -589,6 +589,8 @@
 .full-item-block_text-icon-before {}
 
 .full-item-block_text-icon-before::before {
-    content: " ";
-    color: blue;
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #68D293;
 }
