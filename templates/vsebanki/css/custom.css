@@ -681,8 +681,7 @@
 
 .full-item-block_bg-img {
     background-image: url(/images/credit-calc/g124.svg);
-    background-position: right;
+    background-position: top 80px right;
     background-repeat: no-repeat;
-    padding-bottom: 90px;
-    background-size: contain;
+    background-size: auto;
 }
