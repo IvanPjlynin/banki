@@ -593,4 +593,7 @@
     width: 10px;
     height: 10px;
     background: #68D293;
+    position: absolute;
+    left: 0px;
+    top: 6px;
 }
