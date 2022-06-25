@@ -436,13 +436,13 @@ jQuery(document).ready(function ($) {
 
     if ($('.form-credit-calc').length > 0) {
 
-        let summ_kredit, valute_kredit, srock_kredit, procent_kredit;
+        let kredit;
 
-        function setDataCalcForm(elem, peremen) {
+        function setDataCalcForm(elem) {
             $(elem).on("change keyup paste", function () {
-                peremen = $(this).val();
-                callback(peremen);
-                console.log(summ_kredit);
+                kredit.$(this).attr('id') = $(this).val();
+
+                console.log(kredit);
             })
         }
 
