@@ -608,4 +608,8 @@
     top: 6px;
 }
 
-full-item-block_bottom-left {}
+.full-item-block_bottom-left {
+    float: left;
+    width: fit-content;
+    margin: 1rem 1.5rem 0;
+}
