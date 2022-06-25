@@ -497,8 +497,9 @@ jQuery(document).ready(function ($) {
 
 //ivp правки фильтра
 jQuery(document).ready(function ($) {
+    //выравниевание блоков по высоте
+    $('.banner-wrapper').matchHeight();
 
-    $('.block2 .banner-wrapper').matchHeight();
 
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
