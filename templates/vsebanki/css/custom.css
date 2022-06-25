@@ -686,4 +686,12 @@
     background-size: auto;
 }
 
-.full-item-block_full-wight {}
+.full-item-block_full-wight {
+    display: flex;
+    min-width: 100vw;
+    background: #F6F9F9;
+    flex-direction: column;
+    margin-left: calc((100vw - 1169px)/-2) !important;
+    align-items: center;
+    position: relative;
+}
