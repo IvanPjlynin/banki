@@ -20,7 +20,6 @@
     margin-bottom: 30px;
 }
 
-
 .blog .category-desc .category-button {
     color: #fff;
     background: #56C182;
@@ -70,7 +69,6 @@
     margin-bottom: 15px;
 }
 
-
 .blog .category-desc .section.banner2 .container .row div .banner-wrapper .banner-text {
     font-family: 'Roboto';
     font-style: normal;
@@ -81,7 +79,6 @@
     margin-top: 0;
     /*padding: 0 15px;*/
 }
-
 
 .blog .category-desc .section.banner2.turist {
     position: relative;
@@ -151,7 +148,6 @@
     line-height: 32px;
     color: #606970;
 }
-
 
 .blog.menu_id_128 .category-desc,
 .blog.menu_id_127 .category-desc {
@@ -439,8 +435,6 @@
     margin: 30px;
 }
 
-
-
 .full-item-block .full-bg-img {
     background-image: url(/images/reg-ip/Group_1360.svg);
     background-position: right;
@@ -449,10 +443,13 @@
     background-size: contain;
 }
 
+.full-item-block .full-bg-img_gerb {
+    background-image: url(/images/samozanyatykh/gerb.svg);
+}
 
 .ac-container {
     margin: 0;
-    padding: 0;
+    gerb padding: 0;
     text-align: left;
     border-radius: 12px;
     background: #f6f9f9;
@@ -477,7 +474,7 @@
     /* background: -webkit-linear-gradient(top, #ffffff 1%, #eaeaea 100%); */
     background: -o-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
     background: -ms-linear-gradient(top, #ffffff 1%, #eaeaea 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eaeaea', GradientType=0);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eaeaea', GradientType=0);
     /* box-shadow:
         0px 0px 0px 1px rgba(155, 155, 155, 0.3),
         1px 0px 0px 0px rgba(255, 255, 255, 0.9) inset,
@@ -538,7 +535,6 @@
     line-height: 32px;
     color: #606970;
     padding: 20px 70px;
-
 }
 
 .ac-container input:checked ~ article {
