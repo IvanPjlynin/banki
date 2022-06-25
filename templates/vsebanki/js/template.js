@@ -447,20 +447,9 @@ jQuery(document).ready(function ($) {
         }
 
 
-        setDataCalcForm('#summ-kredit');
+        setDataCalcForm('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
 
-        /*$("#summ-kredit").on("change keyup paste", function () {
-            console.log($(this).val());
-        })*/
-        $("#select-valute").on("change keyup paste", function () {
-            console.log($(this).val());
-        })
-        $("#srock-credit").on("change keyup paste", function () {
-            console.log($(this).val());
-        })
-        $("#stavka-procent").on("change keyup paste", function () {
-            console.log($(this).val());
-        })
+
     }
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
