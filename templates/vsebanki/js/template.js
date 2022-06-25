@@ -500,12 +500,12 @@ jQuery(document).ready(function ($) {
     //выравниевание блоков по высоте
     $('.banner-wrapper').matchHeight();
 
-
+    console.log('000');
     //форма калькулятора и расчет
-    if ($('body').hasClass('form-credit-calc')) {
-        console.log($('.form-credit-calc'));
+    if ($('.form-credit-calc').length > 0) {
+        console.log('111');
     }
-
+    //$('.form-credit-calc')
 
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
