@@ -447,7 +447,7 @@ jQuery(document).ready(function ($) {
         }
 
 
-        setDataCalcForm('#summ-kredit', summ_kredit)
+        setDataCalcForm('#summ-kredit');
 
         /*$("#summ-kredit").on("change keyup paste", function () {
             console.log($(this).val());
