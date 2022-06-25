@@ -440,7 +440,7 @@ jQuery(document).ready(function ($) {
 
         function setDataCalcForm(elem) {
             $(elem).on("change keyup paste", function () {
-                kredit.$(this).attr('id') = $(this).val();
+                kredit[$(this).attr('id')] = $(this).val();
 
                 console.log(kredit);
             })
