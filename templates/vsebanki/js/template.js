@@ -439,6 +439,10 @@ jQuery(document).ready(function ($) {
         let kredit = {};
 
         function setDataCalcForm(elem) {
+            kredit[$(this).attr('id')] = $(this).val();
+        }
+
+        function setDataCalcFormEdit(elem) {
             $(elem).on("change keyup paste", function () {
                 kredit[$(this).attr('id')] = $(this).val();
 
@@ -446,8 +450,8 @@ jQuery(document).ready(function ($) {
             })
         }
 
-
         setDataCalcForm('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
+        setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
 
 
     }
