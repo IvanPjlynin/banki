@@ -657,8 +657,7 @@
     color: #606970;
 }
 
-.block-bg-gree,
-.block-bg-gree div {
+.block-bg-gree {
     border-radius: 12px;
     background: #f6f9f9;
     padding: 57px 117px 60px 103px;
