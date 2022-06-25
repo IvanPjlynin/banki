@@ -441,7 +441,7 @@ jQuery(document).ready(function ($) {
         function setDataCalcForm(elem, peremen) {
             $(elem).on("change keyup paste", function () {
                 peremen = $(this).val();
-
+                callback(peremen);
                 console.log(summ_kredit);
             })
         }
