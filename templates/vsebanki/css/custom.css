@@ -574,4 +574,6 @@
     font-size: 20px;
     line-height: 32px;
     color: #002D4F;
+    display: inline-block;
+    margin-top: 20px;
 }
