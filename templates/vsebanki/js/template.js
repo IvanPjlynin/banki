@@ -444,7 +444,14 @@ jQuery(document).ready(function ($) {
         };
 
         function getRezultElemForm() {
+
             $('.form-credit-calc_valute').html(kredit['select-valute']);
+
+            kredit['stavka-procent'] = kredit['stavka-procent'] * 0, 01;
+
+            let annyPlateg = kredit['summ-kredit'] * ((kredit['stavka-procent'] * (1 + kredit['stavka-procent']) ** kredit['srock-credit']) / (1 + kredit['stavka-procent']) ** kredit['srock-credit'] - 1);
+
+            $('.form-credit-calc_mes-plat').html(annyPlateg);
         }
 
         function setDataCalcFormEdit(elem) {
