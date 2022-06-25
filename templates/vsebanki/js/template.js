@@ -431,10 +431,27 @@ jQuery(document).ready(function ($) {
     //выравниевание блоков по высоте
     $('.banner-wrapper').matchHeight();
     //форма калькулятора и расчет
+
+
+
     if ($('.form-credit-calc').length > 0) {
-        $("#summ-kredit").on("change keyup paste", function () {
+
+        let summ_kredit, valute_kredit, srock_kredit, procent_kredit;
+
+        function setDataCalcForm(elem, peremen) {
+            $(elem).on("change keyup paste", function () {
+                peremen = $(this).val();
+
+                console.log(summ_kredit);
+            })
+        }
+
+
+        setDataCalcForm('#summ-kredit', summ_kredit)
+
+        /*$("#summ-kredit").on("change keyup paste", function () {
             console.log($(this).val());
-        })
+        })*/
         $("#select-valute").on("change keyup paste", function () {
             console.log($(this).val());
         })
