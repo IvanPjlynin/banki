@@ -501,6 +501,12 @@ jQuery(document).ready(function ($) {
     $('.banner-wrapper').matchHeight();
 
 
+    //форма калькулятора и расчет
+    if ($('body').hasClass('form-credit-calc')) {
+        console.log($('.form-credit-calc'));
+    }
+
+
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
 
