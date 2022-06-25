@@ -585,3 +585,10 @@
     position: absolute;
     top: -25px;
 }
+
+.full-item-block_text-icon-before {}
+
+.full-item-block_text-icon-before::before {
+    content: " ";
+    color: blue;
+}
