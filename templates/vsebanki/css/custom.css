@@ -688,7 +688,7 @@
 
 .full-item-block_full-wight {
     display: flex;
-    min-width: 100vw;
+    min-width: 99.96vw;
     background: #F6F9F9;
     flex-direction: column;
     margin-left: calc((100vw - 1169px)/-2) !important;
