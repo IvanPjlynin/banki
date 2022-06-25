@@ -645,6 +645,7 @@
     font-size: 18px;
     line-height: 32px;
     color: #002D4F;
+    background: none;
 }
 
 .block-accordion .accordion-body,
