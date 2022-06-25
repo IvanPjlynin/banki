@@ -463,7 +463,7 @@ jQuery(document).ready(function ($) {
             $(elem).on("change keyup paste", function () {
                 kredit[$(this).attr('id')] = $(this).val();
                 getRezultElemForm();
-                igits_int(this);
+                digits_int(this);
                 console.log(kredit);
             })
         }
