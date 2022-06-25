@@ -451,7 +451,9 @@ jQuery(document).ready(function ($) {
 
             let annyPlateg = kredit['summ-kredit'] * ((kredit['stavka-procent'] * ((1 + kredit['stavka-procent']) ** kredit['srock-credit'])) / (((1 + kredit['stavka-procent']) ** kredit['srock-credit']) - 1));
 
-            $('.form-credit-calc_mes-plat').html(annyPlateg);
+            $('.form-credit-calc_mes-plat').html(Math.round(annyPlateg));
+            $('.form-credit-calc_pereplat').html(Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
+            $('.form-credit-calc_summ').html(Math.round(annyPlateg * kredit['srock-credit']));
         }
 
         function setDataCalcFormEdit(elem) {
