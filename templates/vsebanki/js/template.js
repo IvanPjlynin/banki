@@ -443,12 +443,14 @@ jQuery(document).ready(function ($) {
             "srock-credit": "12"
         };
 
-
+        function getRezultElemForm() {
+            $('.form-credit-calc_valute').innerHTML(kredit.select - valute);
+        }
 
         function setDataCalcFormEdit(elem) {
             $(elem).on("change keyup paste", function () {
                 kredit[$(this).attr('id')] = $(this).val();
-
+                getRezultElemForm();
                 console.log(kredit);
             })
         }
