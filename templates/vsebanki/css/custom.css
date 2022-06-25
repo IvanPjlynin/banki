@@ -578,4 +578,10 @@
     margin-top: 20px;
 }
 
-full-item-block_img_pos-ab-top-r {}
+.full-item-block_img_pos-ab-top-r {
+    width: 80px;
+    height: 80px;
+    right: -25px;
+    position: absolute;
+    top: -25px;
+}
