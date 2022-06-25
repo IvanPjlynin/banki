@@ -444,7 +444,7 @@ jQuery(document).ready(function ($) {
         };
 
         function getRezultElemForm() {
-            $('.form-credit-calc_valute').innerHTML(kredit.select - valute);
+            $('.form-credit-calc_valute').innerHTML(kredit['select-valute']);
         }
 
         function setDataCalcFormEdit(elem) {
