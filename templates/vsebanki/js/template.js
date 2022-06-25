@@ -433,7 +433,7 @@ jQuery(document).ready(function ($) {
     //форма калькулятора и расчет
     if ($('.form-credit-calc').length > 0) {
         $("#summ-kredit").on("change keyup paste", function () {
-            dosomething();
+
             console.log($(this).val());
         })
 
