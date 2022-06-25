@@ -436,11 +436,14 @@ jQuery(document).ready(function ($) {
 
     if ($('.form-credit-calc').length > 0) {
 
-        let kredit = {};
+        let kredit = {
+            "summ-kredit": 100000,
+            "select-valute": "₽",
+            "stavka-procent": "9.5",
+            "srock-credit": "12"
+        };
 
-        function setDataCalcForm(elem) {
-            kredit[$(this).attr('id')] = $(this).val();
-        }
+
 
         function setDataCalcFormEdit(elem) {
             $(elem).on("change keyup paste", function () {
@@ -450,7 +453,7 @@ jQuery(document).ready(function ($) {
             })
         }
 
-        setDataCalcForm('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
+
         setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
 
 
