@@ -705,6 +705,10 @@
     margin: 20px;
 }
 
+.form-credit-calc {
+    color: #606970;
+}
+
 .form-credit-calc .border-right {
     border-right: 3px solid #f6f9f9;
 }
