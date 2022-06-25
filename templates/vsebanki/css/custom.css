@@ -662,3 +662,7 @@
     background: #f6f9f9;
     padding: 57px 117px 60px 103px;
 }
+
+.block-bg-gree .accordion-item {
+    background: none;
+}
