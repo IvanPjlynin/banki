@@ -436,7 +436,7 @@ jQuery(document).ready(function ($) {
 
     if ($('.form-credit-calc').length > 0) {
 
-        let kredit;
+        let kredit = {};
 
         function setDataCalcForm(elem) {
             $(elem).on("change keyup paste", function () {
