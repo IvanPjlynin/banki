@@ -433,10 +433,17 @@ jQuery(document).ready(function ($) {
     //форма калькулятора и расчет
     if ($('.form-credit-calc').length > 0) {
         $("#summ-kredit").on("change keyup paste", function () {
-
             console.log($(this).val());
         })
-
+        $("#select-valute").on("change keyup paste", function () {
+            console.log($(this).val());
+        })
+        $("#srock-credit").on("change keyup paste", function () {
+            console.log($(this).val());
+        })
+        $("#stavka-procent").on("change keyup paste", function () {
+            console.log($(this).val());
+        })
     }
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
