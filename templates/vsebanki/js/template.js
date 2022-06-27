@@ -490,6 +490,17 @@ jQuery(document).ready(function ($) {
                     trClassShowHide = 'show';
                 }
 
+                if (i = 4) {
+                    $("#exampleModalGrafic table.table-grafic tbody").append(`
+                    <tr class="tr-btn-click">
+                        <td colspan="5">
+                            <div class="section full-item-block block3">
+                                <a class="category-button block3 " href="#" target="_blank ">Показать все</a>
+                            </div>
+                        </td>
+                    </tr>`);
+                }
+
                 $("#exampleModalGrafic table.table-grafic tbody").append(`
                     <tr class="${trClassShowHide}">
                         <td>${i} платеж</th>
