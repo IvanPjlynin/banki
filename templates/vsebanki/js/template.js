@@ -508,7 +508,7 @@ jQuery(document).ready(function ($) {
                     </tr>`);
 
             valSumCredit = $('#summ-kredit').val().replace(/[^0-9]/g, '');
-            valSumCredit = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            valSumCredit = valSumCredit.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
             $('#exampleModalGrafic .summ-credit').html(valSumCredit);
             $('#exampleModalGrafic .valute-credit').html(kredit['select-valute']);
