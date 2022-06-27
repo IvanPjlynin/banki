@@ -490,7 +490,7 @@ jQuery(document).ready(function ($) {
                     trClassShowHide = 'show';
                 }
 
-                if (i = 4) {
+                if (i == 4) {
                     $("#exampleModalGrafic table.table-grafic tbody").append(`
                     <tr class="tr-btn-click">
                         <td colspan="5">
