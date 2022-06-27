@@ -479,13 +479,13 @@ jQuery(document).ready(function ($) {
             let procent = Math.round((summaCredit - kredit['summ-kredit']) / kredit['srock-credit']);
             let summProcent = procent;
 
-            $("#exampleModalGrafic table tbody").empty();
-            $("#exampleModalGrafic table tfooter").empty();
+            $("#exampleModalGrafic table.table-grafic tbody, #exampleModalGrafic table.table-footer tbody").empty();
+
 
             while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
 
-                $("#exampleModalGrafic table tbody").append(`
+                $("#exampleModalGrafic table.table-grafic tbody").append(`
                     <tr>
                         <td>${i} платеж</th>
                         <td>${ostatok}</td>
@@ -499,7 +499,7 @@ jQuery(document).ready(function ($) {
                 i++;
             }
 
-            $("#exampleModalGrafic table tfooter").append(`<tr>
+            $("#exampleModalGrafic table.table-footer tbody").append(`<tr>
                         <td>Итого </th>
                         <td></td>
                         <td>${procent * kredit['srock-credit']}</td>
