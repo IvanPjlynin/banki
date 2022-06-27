@@ -476,6 +476,7 @@ jQuery(document).ready(function ($) {
             let pogasheno = 0;
             let summaCredit = Math.round(annyPlateg * kredit['srock-credit']);
             let ostatok = summaCredit;
+            let procent = (summaCredit - kredit['summ-kredit']) / kredit['srock-credit'];
 
             while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
@@ -484,12 +485,13 @@ jQuery(document).ready(function ($) {
                     <tr>
                         <td>${i} платеж</th>
                         <td>${ostatok}</td>
-                        <td>Mark</td>
+                        <td>${procent}</td>
                         <td>${pogasheno}</td>
                         <td>${annyPlateg}</td>
                     </tr>`);
 
                 ostatok = ostatok - annyPlateg;
+                procent = procent + procent;
                 i++;
             }
         }
