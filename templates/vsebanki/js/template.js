@@ -467,8 +467,19 @@ jQuery(document).ready(function ($) {
                 getRezultElemForm();
                 digits_int(this);
                 console.log(kredit);
+                renderTableGrafic();
             })
         }
+
+        function renderTableGrafic() {
+            let i = kredit['srock-credit'];
+            while (i) { // когда i будет равно 0, условие станет ложным, и цикл остановится
+                console.log(i);
+                i--;
+            }
+
+        }
+
         setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
     }
     //смена количества в фильтре при зугрузке
