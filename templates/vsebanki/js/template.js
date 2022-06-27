@@ -471,16 +471,20 @@ jQuery(document).ready(function ($) {
 
         function renderTableGrafic() {
             let i = kredit['srock-credit'];
+            let stavka_procent = kredit['stavka-procent'] * 0.01;
+            let annyPlateg = Math.round(kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) ** kredit['srock-credit'])) / (((1 + stavka_procent) ** kredit['srock-credit']) - 1)));
+            let pogasheno = 0;
+
+
             while (i) { // когда i будет равно 0, условие станет ложным, и цикл остановится
 
-                $("#exampleModalGrafic table tbody").prepend(`<tr id="R$">
-                  <td class="row-index text-center">
-                        <p>${i}</p></td>
-                   <td class="text-center">
-                    <button class="btn btn-danger remove" 
-                        type="button">Remove</button>
-                    </td>
-                   </tr>`);
+                $("#exampleModalGrafic table tbody").prepend(`
+                    <tr>
+                        <th scope="row">${i} платеж</th>
+                        <td>Mark</td>
+                        <td>${pogasheno+annyPlateg}</td>
+                        <td>${annyPlateg}</td>
+                    </tr>`);
 
                 console.log(i);
                 i--;
