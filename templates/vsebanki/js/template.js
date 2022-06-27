@@ -478,6 +478,9 @@ jQuery(document).ready(function ($) {
             let ostatok = summaCredit;
             let procent = Math.round((summaCredit - kredit['summ-kredit']) / kredit['srock-credit']);
             let summProcent = procent;
+
+            $("#exampleModalGrafic table tbody").empty();
+
             while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
 
