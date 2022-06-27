@@ -461,7 +461,7 @@ jQuery(document).ready(function ($) {
 
         function setDataCalcFormEdit(elem) {
             $(elem).on("change keyup paste", function () {
-                kredit[$(this).attr('id')] = $(this).val().replace(/\s{2,}/g, ' ');
+                kredit[$(this).attr('id')] = $(this).val().replace(/\s+/g, '');
                 getRezultElemForm();
                 digits_int(this);
                 console.log(kredit);
