@@ -485,8 +485,13 @@ jQuery(document).ready(function ($) {
             while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
 
+                trClassShowHide = 'hide';
+                if ((i <= 3) || (i >= (kredit['srock-credit'] - 3))) {
+                    trClassShowHide = 'show';
+                }
+
                 $("#exampleModalGrafic table.table-grafic tbody").append(`
-                    <tr>
+                    <tr class="${trClassShowHide}">
                         <td>${i} платеж</th>
                         <td>${ostatok}</td>
                         <td>${summProcent}</td>
