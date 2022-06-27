@@ -443,8 +443,8 @@ jQuery(document).ready(function ($) {
             document.body.appendChild(js);
         }
 
-        includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/moment.min.js");
-        includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/locale/ar.js");
+        includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js");
+        includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js");
         moment().format();
 
 
