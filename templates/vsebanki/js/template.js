@@ -474,7 +474,8 @@ jQuery(document).ready(function ($) {
             let stavka_procent = kredit['stavka-procent'] * 0.01;
             let annyPlateg = Math.round(kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) ** kredit['srock-credit'])) / (((1 + stavka_procent) ** kredit['srock-credit']) - 1)));
             let pogasheno = 0;
-
+            let summaCredit = Math.round(annyPlateg * kredit['srock-credit']);
+            let ostatok = summaCredit;
 
             while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
@@ -482,12 +483,13 @@ jQuery(document).ready(function ($) {
                 $("#exampleModalGrafic table tbody").append(`
                     <tr>
                         <th scope="row">${i} платеж</th>
+                        <td>${ostatok}</td>
                         <td>Mark</td>
                         <td>${pogasheno}</td>
                         <td>${annyPlateg}</td>
                     </tr>`);
 
-                console.log(i);
+                ostatok = ostatok - annyPlateg;
                 i++;
             }
         }
