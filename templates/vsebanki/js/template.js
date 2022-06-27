@@ -438,7 +438,6 @@ jQuery(document).ready(function ($) {
             "stavka-procent": "9.5",
             "srock-credit": "12"
         };
-
         getRezultElemForm();
 
         function digits_int(target) {
@@ -452,12 +451,11 @@ jQuery(document).ready(function ($) {
         function getRezultElemForm() {
             $('.form-credit-calc_valute').html(kredit['select-valute']);
             let stavka_procent = kredit['stavka-procent'] * 0.01;
-            let annyPlateg = kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) ** kredit['srock-credit'])) / (((1 + stavka_procent) ** kredit['srock-credit']) - 1));
+            let annyPlateg = kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) * * kredit['srock-credit'])) / (((1 + stavka_procent) * * kredit['srock-credit']) - 1));
             $('.form-credit-calc_mes-plat').html(Math.round(annyPlateg));
             $('.form-credit-calc_pereplat').html(Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
             $('.form-credit-calc_summ').html(Math.round(annyPlateg * kredit['srock-credit']));
             $('.form-credit-calc .progress .progress-bar').width(100 - ((Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit'])) / (Math.round(annyPlateg * kredit['srock-credit']) / 100)) + '%');
-
             //$('input').val(String($('input').val().replace(/[^0-9.]/g, '')).replace(/\B(?=(\d{3})+(?!\d))/g, " "));
         }
 
@@ -474,12 +472,20 @@ jQuery(document).ready(function ($) {
         function renderTableGrafic() {
             let i = kredit['srock-credit'];
             while (i) { // когда i будет равно 0, условие станет ложным, и цикл остановится
+
+                $("#exampleModalGrafic table tbody").append(`<tr id="R$">
+                  <td class="row-index text-center">
+                        <p>{$i}</p></td>
+                   <td class="text-center">
+                    <button class="btn btn-danger remove" 
+                        type="button">Remove</button>
+                    </td>
+                   </tr>`);
+
                 console.log(i);
                 i--;
             }
-
         }
-
         setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
     }
     //смена количества в фильтре при зугрузке
