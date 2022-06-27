@@ -479,7 +479,7 @@ jQuery(document).ready(function ($) {
             while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
 
-                $("#exampleModalGrafic table tbody").prepend(`
+                $("#exampleModalGrafic table tbody").append(`
                     <tr>
                         <th scope="row">${i} платеж</th>
                         <td>Mark</td>
