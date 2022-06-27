@@ -480,6 +480,7 @@ jQuery(document).ready(function ($) {
             let summProcent = procent;
 
             $("#exampleModalGrafic table tbody").empty();
+            $("#exampleModalGrafic table tfooter").empty();
 
             while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
