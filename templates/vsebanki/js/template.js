@@ -521,7 +521,7 @@ jQuery(document).ready(function ($) {
 
                 $("#exampleModalGrafic table.table-grafic tbody").append(`
                     <tr class="${trClassShowHide}">
-                        <td><b>${i} платеж</b> <br>${moment().format('MMMM YYYY')};</th>
+                        <td><b>${i} платеж</b> <br>${moment().format('MMMM YYYY').add('months', i)};</th>
                         <td>${ostatok}</td>
                         <td>${summProcent}</td>
                         <td>${pogasheno}</td>
