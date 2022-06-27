@@ -496,7 +496,7 @@ jQuery(document).ready(function ($) {
             let summProcent = procent;
 
             moment.locale('ru');
-            moment().format('mm.YYYY')
+            moment().format('MMMM.YYYY')
 
             $("#exampleModalGrafic table.table-grafic tbody, #exampleModalGrafic table.table-footer tbody").empty();
 
