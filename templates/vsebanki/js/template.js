@@ -536,7 +536,9 @@ jQuery(document).ready(function ($) {
         renderTableGrafic();
 
         $(document).on('click', '#showTrTable', function (e) {
+            e.preventDefault();
             $('#exampleModalGrafic table.table-grafic tbody tr.visually-hidden').removeClass();
+            $('#exampleModalGrafic table.table-grafic tbody tr.tr-btn-click').remove();
         });
     }
     //смена количества в фильтре при зугрузке
