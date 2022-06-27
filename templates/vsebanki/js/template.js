@@ -477,7 +477,7 @@ jQuery(document).ready(function ($) {
 
 
             while (i) { // когда i будет равно 0, условие станет ложным, и цикл остановится
-                pogasheno = +annyPlateg;
+                pogasheno = pogasheno + annyPlateg;
 
                 $("#exampleModalGrafic table tbody").prepend(`
                     <tr>
