@@ -492,10 +492,10 @@ jQuery(document).ready(function ($) {
 
                 if (i == 4) {
                     $("#exampleModalGrafic table.table-grafic tbody").append(`
-                    <tr class="tr-btn-click">
+                    <tr class="tr-btn-click" style="background: #6e6e6e12;">
                         <td colspan="5">
                             <div class="section full-item-block block3 text-center p-2">
-                                <a class="category-button block3 " href="#" target="_blank ">Показать все</a>
+                                <a class="category-button block3 " id="showTrTable" href="#" target="_blank ">Показать все</a>
                             </div>
                         </td>
                     </tr>`);
@@ -534,6 +534,10 @@ jQuery(document).ready(function ($) {
         }
         setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
         renderTableGrafic();
+
+        $(document).on('click', '#showTrTable', function (e) {
+            $('#exampleModalGrafic table.table-grafic tbody tr.visually-hidden').removeClass();
+        });
     }
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
