@@ -497,6 +497,15 @@ jQuery(document).ready(function ($) {
                 summProcent = summProcent + procent;
                 i++;
             }
+
+            $("#exampleModalGrafic table tfooter").append(`<tr>
+                        <td>Итого </th>
+                        <td></td>
+                        <td>${procent * kredit['srock-credit']}</td>
+                        <td>${summaCredit}</td>
+                        <td>${summaCredit}</td>
+                    </tr>`);
+
         }
         setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
     }
