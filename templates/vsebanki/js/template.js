@@ -496,7 +496,7 @@ jQuery(document).ready(function ($) {
             let summProcent = procent;
 
             moment.locale('ru');
-            moment().format('MMMM.YYYY')
+
 
             $("#exampleModalGrafic table.table-grafic tbody, #exampleModalGrafic table.table-footer tbody").empty();
 
@@ -521,7 +521,7 @@ jQuery(document).ready(function ($) {
 
                 $("#exampleModalGrafic table.table-grafic tbody").append(`
                     <tr class="${trClassShowHide}">
-                        <td>${i} платеж ${moment().add('months', 7)};</th>
+                        <td>${i} платеж ${moment().format('MMMM')};</th>
                         <td>${ostatok}</td>
                         <td>${summProcent}</td>
                         <td>${pogasheno}</td>
