@@ -509,6 +509,7 @@ jQuery(document).ready(function ($) {
 
         }
         setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
+        renderTableGrafic();
     }
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
