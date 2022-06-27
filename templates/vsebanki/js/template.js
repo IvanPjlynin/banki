@@ -507,6 +507,11 @@ jQuery(document).ready(function ($) {
                         <td><b>${summaCredit}</b></td>
                     </tr>`);
 
+            $('#exampleModalGrafic .summ-credit').html((kredit['summ-kredit']).replace(/\B(?=(\d{3})+(?!\d))/g, ' '));
+            $('#exampleModalGrafic .valute-credit').html(kredit['select-valute']);
+            $('#exampleModalGrafic .sroc-credit').html(kredit['srock-credit']);
+            $('#exampleModalGrafic .stavca-credit').html(kredit['stavka-procent']);
+
         }
         setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
         renderTableGrafic();
