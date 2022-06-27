@@ -476,7 +476,7 @@ jQuery(document).ready(function ($) {
             let pogasheno = 0;
             let summaCredit = Math.round(annyPlateg * kredit['srock-credit']);
             let ostatok = summaCredit;
-            let procent = (summaCredit - kredit['summ-kredit']) / kredit['srock-credit'];
+            let procent = Math.round((summaCredit - kredit['summ-kredit']) / kredit['srock-credit']);
 
             while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
