@@ -445,6 +445,8 @@ jQuery(document).ready(function ($) {
 
         includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/moment.min.js");
         includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/locale/ar.js");
+        moment().format();
+
 
         let kredit = {
             "summ-kredit": 100000,
