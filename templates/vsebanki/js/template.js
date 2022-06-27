@@ -485,8 +485,8 @@ jQuery(document).ready(function ($) {
             while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
 
-                trClassShowHide = 'hide';
-                if ((i <= 3) || (i >= (kredit['srock-credit'] - 3))) {
+                trClassShowHide = 'visually-hidden';
+                if ((i <= 3) || (i > (kredit['srock-credit'] - 1))) {
                     trClassShowHide = 'show';
                 }
 
