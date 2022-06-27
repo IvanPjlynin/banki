@@ -501,7 +501,7 @@ jQuery(document).ready(function ($) {
 
             $("#exampleModalGrafic table.table-footer tbody").append(`<tr>
                         <td>Итого </th>
-                        <td></td>
+                        <td>&nbsp;</td>
                         <td>${procent * kredit['srock-credit']}</td>
                         <td>${summaCredit}</td>
                         <td>${summaCredit}</td>
