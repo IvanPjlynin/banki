@@ -745,3 +745,7 @@ div.modal {
     z-index: 10050;
     background: #00000091;
 }
+
+#exampleModalGrafic table td {
+    width: 20%;
+}
