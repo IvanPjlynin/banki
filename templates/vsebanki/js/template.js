@@ -445,7 +445,8 @@ jQuery(document).ready(function ($) {
             //val = $(target).val().replace(/[^0-9]/g, '');
             val = $('#summ-kredit').val().replace(/[^0-9]/g, '');
             val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-            $(target).val(val);
+            //$(target).val(val);
+            $('#summ-kredit').val(val);
         }
 
         function getRezultElemForm() {
