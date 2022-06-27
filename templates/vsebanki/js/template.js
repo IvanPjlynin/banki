@@ -473,7 +473,7 @@ jQuery(document).ready(function ($) {
             let i = kredit['srock-credit'];
             while (i) { // когда i будет равно 0, условие станет ложным, и цикл остановится
 
-                $("#exampleModalGrafic table tbody").append(`<tr id="R$">
+                $("#exampleModalGrafic table tbody").prepend(`<tr id="R$">
                   <td class="row-index text-center">
                         <p>${i}</p></td>
                    <td class="text-center">
