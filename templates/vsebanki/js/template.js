@@ -482,7 +482,7 @@ jQuery(document).ready(function ($) {
 
                 $("#exampleModalGrafic table tbody").append(`
                     <tr>
-                        <th scope="row">${i} платеж</th>
+                        <td>${i} платеж</th>
                         <td>${ostatok}</td>
                         <td>Mark</td>
                         <td>${pogasheno}</td>
