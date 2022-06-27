@@ -470,13 +470,13 @@ jQuery(document).ready(function ($) {
         }
 
         function renderTableGrafic() {
-            let i = kredit['srock-credit'];
+            let i = 1;
             let stavka_procent = kredit['stavka-procent'] * 0.01;
             let annyPlateg = Math.round(kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) ** kredit['srock-credit'])) / (((1 + stavka_procent) ** kredit['srock-credit']) - 1)));
             let pogasheno = 0;
 
 
-            while (i) { // когда i будет равно 0, условие станет ложным, и цикл остановится
+            while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
 
                 $("#exampleModalGrafic table tbody").prepend(`
@@ -488,7 +488,7 @@ jQuery(document).ready(function ($) {
                     </tr>`);
 
                 console.log(i);
-                i--;
+                i++;
             }
         }
         setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
