@@ -445,7 +445,7 @@ jQuery(document).ready(function ($) {
 
         includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js");
         includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js");
-        moment().format();
+
 
 
         let kredit = {
