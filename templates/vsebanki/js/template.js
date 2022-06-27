@@ -475,7 +475,7 @@ jQuery(document).ready(function ($) {
 
                 $("#exampleModalGrafic table tbody").append(`<tr id="R$">
                   <td class="row-index text-center">
-                        <p>${$i}</p></td>
+                        <p>${i}</p></td>
                    <td class="text-center">
                     <button class="btn btn-danger remove" 
                         type="button">Remove</button>
