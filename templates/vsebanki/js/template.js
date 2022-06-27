@@ -477,12 +477,13 @@ jQuery(document).ready(function ($) {
 
 
             while (i) { // когда i будет равно 0, условие станет ложным, и цикл остановится
+                pogasheno = +annyPlateg;
 
                 $("#exampleModalGrafic table tbody").prepend(`
                     <tr>
                         <th scope="row">${i} платеж</th>
                         <td>Mark</td>
-                        <td>${pogasheno+annyPlateg}</td>
+                        <td>${pogasheno}</td>
                         <td>${annyPlateg}</td>
                     </tr>`);
 
