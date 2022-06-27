@@ -1,16 +1,3 @@
-function includeJs(jsFilePath) {
-    var js = document.createElement("script");
-
-    js.type = "text/javascript";
-    js.src = jsFilePath;
-
-    document.body.appendChild(js);
-}
-
-includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js");
-includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js");
-
-
 ! function (t) {
     "use strict";
     "function" == typeof define && define.amd ? define(["jquery"], t) : "undefined" != typeof module && module.exports ? module.exports = t(require("jquery")) : t(jQuery)
@@ -149,6 +136,21 @@ triggerTabList.forEach(function (triggerEl) {
     })
 })
 jQuery(document).ready(function ($) {
+
+    function includeJs(jsFilePath) {
+        var js = document.createElement("script");
+
+        js.type = "text/javascript";
+        js.src = jsFilePath;
+
+        document.body.appendChild(js);
+    }
+
+    includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js");
+    includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js");
+
+
+
     $(".type").chosen({
         disable_search_threshold: 10
     });
