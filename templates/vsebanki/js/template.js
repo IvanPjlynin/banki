@@ -432,6 +432,20 @@ jQuery(document).ready(function ($) {
     $('.banner-wrapper').matchHeight();
     //форма калькулятора и расчет
     if ($('.form-credit-calc').length > 0) {
+
+
+        function includeJs(jsFilePath) {
+            var js = document.createElement("script");
+
+            js.type = "text/javascript";
+            js.src = jsFilePath;
+
+            document.body.appendChild(js);
+        }
+
+        includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/moment.min.js");
+        includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/locale/ar.js");
+
         let kredit = {
             "summ-kredit": 100000,
             "select-valute": "₽",
@@ -481,7 +495,6 @@ jQuery(document).ready(function ($) {
 
             $("#exampleModalGrafic table.table-grafic tbody, #exampleModalGrafic table.table-footer tbody").empty();
 
-
             while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
                 pogasheno = pogasheno + annyPlateg;
 
@@ -503,7 +516,7 @@ jQuery(document).ready(function ($) {
 
                 $("#exampleModalGrafic table.table-grafic tbody").append(`
                     <tr class="${trClassShowHide}">
-                        <td>${i} платеж</th>
+                        <td>${i} платеж ${moment().add('months', 7)};</th>
                         <td>${ostatok}</td>
                         <td>${summProcent}</td>
                         <td>${pogasheno}</td>
