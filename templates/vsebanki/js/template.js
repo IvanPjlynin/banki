@@ -749,11 +749,11 @@ jQuery(document).ready(function ($) {
             $(this).toggle();
             $('#showTrTable').trigger('click');
             $('#exampleModalGrafic .modal-content').printThis({
+                printDelay: 200,
                 afterPrint: function () {
                     $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').toggle();
                 }
             });
-            //$('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').toggle();
         });
 
 
