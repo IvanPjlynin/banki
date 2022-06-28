@@ -746,10 +746,10 @@ jQuery(document).ready(function ($) {
         //печать
         $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').click(function (e) {
             e.preventDefault();
-            $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').toggle();
+            $(this).toggle();
             $('#showTrTable').trigger('click');
             $('#exampleModalGrafic .modal-content').printThis();
-            $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').toggle();
+            //$('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').toggle();
         });
 
 
