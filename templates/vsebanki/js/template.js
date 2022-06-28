@@ -845,7 +845,7 @@ jQuery(document).ready(function ($) {
                 i++;
             }
 
-            $("#exampleModalGrafic table.table-footer tbody").append(`<tr>
+            $("#exampleModalGrafic table.table-grafic tbody").append(`<tr>
                         <td><b>Итого </b></th>
                         <td>&nbsp;</td>
                         <td><b>${procent * kredit['srock-credit']}</b></td>
