@@ -434,17 +434,9 @@ jQuery(document).ready(function ($) {
     if ($('.form-credit-calc').length > 0) {
 
 
-        function includeJs(jsFilePath) {
-            var js = document.createElement("script");
-
-            js.type = "text/javascript";
-            js.src = jsFilePath;
-
-            document.body.appendChild(js);
-        }
-
-        includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js");
-        includeJs("https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js");
+        $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').click(function () {
+            $("#exampleModalGrafic").print();
+        });
 
 
 
