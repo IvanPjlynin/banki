@@ -442,8 +442,8 @@ jQuery(document).ready(function ($) {
             var doc = $('#print_frame')[0].contentDocument || $('#print_frame')[0].contentWindow.document;
             var win = $('#print_frame')[0].contentWindow || $('#print_frame')[0];
             doc.getElementsByTagName('body')[0].innerHTML = html_to_print;
-            win.print();
-            $('iframe').remove();
+            //win.print();
+            //$('iframe').remove();
         });
 
 
