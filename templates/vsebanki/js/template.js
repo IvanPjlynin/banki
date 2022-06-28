@@ -748,7 +748,7 @@ jQuery(document).ready(function ($) {
             e.preventDefault();
 
             $('#showTrTable').trigger('click');
-            $('#exampleModalGrafic').printThis();
+            $('#exampleModalGrafic .modal-content').printThis();
 
         });
 
