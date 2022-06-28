@@ -434,7 +434,8 @@ jQuery(document).ready(function ($) {
     if ($('.form-credit-calc').length > 0) {
 
 
-        $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').click(function () {
+        $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').click(function (e) {
+            e.preventDefault();
             $("#exampleModalGrafic").print();
         });
 
