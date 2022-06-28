@@ -748,7 +748,11 @@ jQuery(document).ready(function ($) {
             e.preventDefault();
             $(this).toggle();
             $('#showTrTable').trigger('click');
-            $('#exampleModalGrafic .modal-content').printThis();
+            $('#exampleModalGrafic .modal-content').printThis({
+                afterPrint: function () {
+                    $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').toggle();
+                }
+            });
             //$('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').toggle();
         });
 
