@@ -746,17 +746,9 @@ jQuery(document).ready(function ($) {
         //печать
         $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').click(function (e) {
             e.preventDefault();
-            /*var html_to_print = $('#exampleModalGrafic').html(); //что печатаем
-            var iframe = $('<iframe id="print_frame">');
-            $('body').append(iframe);
-            var doc = $('#print_frame')[0].contentDocument || $('#print_frame')[0].contentWindow.document;
-            var win = $('#print_frame')[0].contentWindow || $('#print_frame')[0];
-            doc.getElementsByTagName('body')[0].innerHTML = html_to_print;
-            //win.print();
-            //$('iframe').remove();*/
 
+            $('#showTrTable').trigger('click');
             $('#exampleModalGrafic').printThis();
-
 
         });
 
