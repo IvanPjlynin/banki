@@ -777,6 +777,7 @@ jQuery(document).ready(function ($) {
         function getRezultElemForm() {
             $('.form-credit-calc_valute').html(kredit['select-valute']);
             let stavka_procent = kredit['stavka-procent'] / 100 * 12;
+            console.log('stavka_procent - ', stavka_procent);
             let annyPlateg = kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) ** kredit['srock-credit'])) / (((1 + stavka_procent) ** kredit['srock-credit']) - 1));
             $('.form-credit-calc_mes-plat').html(Math.round(annyPlateg));
             $('.form-credit-calc_pereplat').html(Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
