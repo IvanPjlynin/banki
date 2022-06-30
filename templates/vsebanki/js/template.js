@@ -780,7 +780,7 @@ jQuery(document).ready(function ($) {
             let summCredit = kredit['summ-kredit'];
             let srocCredita = kredit['srock-credit'];
 
-            let mesPlateg = (summCredit * stavka_procent * (1 + stavka_procent) ** srocCredita) / ((1 + stavka_procent) ** srocCredita - 1);
+            let mesPlateg = (summCredit * stavka_procent * ((1 + stavka_procent) ** srocCredita)) / (((1 + stavka_procent) ** srocCredita) - 1);
 
             console.log('mesPlateg - ', mesPlateg);
 
