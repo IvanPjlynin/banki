@@ -803,7 +803,7 @@ jQuery(document).ready(function ($) {
 
         function renderTableGrafic() {
             let i = 1;
-            let stavka_procent = kredit['stavka-procent'] * 0.01;
+            let stavka_procent = kredit['stavka-procent'] / 100 / 12;
             let annyPlateg = Math.round(kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) ** kredit['srock-credit'])) / (((1 + stavka_procent) ** kredit['srock-credit']) - 1)));
             let pogasheno = 0;
             let summaCredit = Math.round(annyPlateg * kredit['srock-credit']);
