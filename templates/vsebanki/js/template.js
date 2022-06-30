@@ -784,15 +784,11 @@ jQuery(document).ready(function ($) {
 
             console.log('mesPlateg - ', mesPlateg);
 
+            $('.form-credit-calc_mes-plat').html(Math.round(mesPlateg));
+            $('.form-credit-calc_pereplat').html(Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
+            $('.form-credit-calc_summ').html(Math.round(mesPlateg * kredit['srock-credit']));
+            $('.form-credit-calc .progress .progress-bar').width(100 - ((Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit'])) / (Math.round(mesPlateg * kredit['srock-credit']) / 100)) + '%');
 
-
-
-            let annyPlateg = kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) ** kredit['srock-credit'])) / (((1 + stavka_procent) ** kredit['srock-credit']) - 1));
-            $('.form-credit-calc_mes-plat').html(Math.round(annyPlateg));
-            $('.form-credit-calc_pereplat').html(Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
-            $('.form-credit-calc_summ').html(Math.round(annyPlateg * kredit['srock-credit']));
-            $('.form-credit-calc .progress .progress-bar').width(100 - ((Math.round((annyPlateg * kredit['srock-credit']) - kredit['summ-kredit'])) / (Math.round(annyPlateg * kredit['srock-credit']) / 100)) + '%');
-            //$('input').val(String($('input').val().replace(/[^0-9.]/g, '')).replace(/\B(?=(\d{3})+(?!\d))/g, " "));
         }
 
         function setDataCalcFormEdit(elem) {
