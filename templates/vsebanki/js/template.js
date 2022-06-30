@@ -756,6 +756,20 @@ jQuery(document).ready(function ($) {
             });
         });
 
+        let sliderCreditSumm = $('.form-credit-calc #summ-kredit');
+
+        $sliderCreditSumm.ionRangeSlider({
+            type: "single",
+            grid: false,
+            from: 100000,
+            postfix: '',
+            min: 10000,
+            step: 1000,
+            grid_num: 4,
+            grid_snap: '',
+            max: 5000000
+        });
+
 
 
         let kredit = {
