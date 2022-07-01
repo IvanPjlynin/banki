@@ -764,7 +764,7 @@ jQuery(document).ready(function ($) {
         $sliderCreditSumm.ionRangeSlider({
             type: "single",
             grid: false,
-            from: 100000,
+            from: 1000000,
             postfix: '',
             min: 10000,
             step: 1000,
@@ -789,7 +789,7 @@ jQuery(document).ready(function ($) {
 
 
         let kredit = {
-            "summ-kredit": 100000,
+            "summ-kredit": 1000000,
             "select-valute": "₽",
             "stavka-procent": "9.5",
             "srock-credit": "12"
