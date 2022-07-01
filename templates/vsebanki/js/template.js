@@ -756,7 +756,7 @@ jQuery(document).ready(function ($) {
             });
         });
 
-        let sliderCreditSumm = $('.form-credit-calc #summ-kredit');
+        let sliderCreditSumm = $('#range-one33');
 
         sliderCreditSumm.ionRangeSlider({ 
             type: "single",
