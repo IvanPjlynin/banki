@@ -914,19 +914,16 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    //ипотечный калькулятор
     let calcIpoteca = {
-        params: {
-            "summ_kredit": 1000000,
-            "select_valute": "=₽",
-            "stavka_procent": "=9.5",
-            "srock_credit": "12"
-        },
-        go() {
-            this.params;
+        name: "Джон",
+        age: 30,
+        sayHi() {
+            alert(this.name);
         }
+
     };
-    console.log("calcIpoteca.params", calcIpoteca.go());
+
+    console.log("calcIpoteca.params", calcIpoteca.sayHi());
 
 
     //смена количества в фильтре при зугрузке
