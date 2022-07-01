@@ -795,8 +795,9 @@ jQuery(document).ready(function ($) {
 
         function getRezultElemForm() {
             
-             
-             
+            var sliderCreditSumm = $sliderCreditSumm.data("ionRangeSlider");
+            sliderCreditSumm.update({from: kredit['summ-kredit']});
+            
             $('.form-credit-calc_valute').html(kredit['select-valute']);
             let stavka_procent = kredit['stavka-procent'] / 100 / 12;
             let summCredit = kredit['summ-kredit'];
