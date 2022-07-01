@@ -779,6 +779,7 @@ jQuery(document).ready(function ($) {
                 value = $this.prop("value")
             
             $('#summ-kredit').val(value);
+            setDataCalcFormEdit();
                 
         });
 
