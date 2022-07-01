@@ -1,4 +1,4 @@
-! function (t) { 
+! function (t) {
     "use strict";
     "function" == typeof define && define.amd ? define(["jquery"], t) : "undefined" != typeof module && module.exports ? module.exports = t(require("jquery")) : t(jQuery)
 }(function (t) {
@@ -740,8 +740,8 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
     //выравниевание блоков по высоте
     $('.banner-wrapper').matchHeight();
-    
-    
+
+
     //форма калькулятора и расчет
     if ($('.form-credit-calc').length > 0) {
 
@@ -759,8 +759,8 @@ jQuery(document).ready(function ($) {
         });
 
         //let sliderCreditSumm = $('#summ-kredit-slider');
-        
-        var $sliderCreditSumm = $('#summ-kredit-slider');        
+
+        var $sliderCreditSumm = $('#summ-kredit-slider');
         $sliderCreditSumm.ionRangeSlider({
             type: "single",
             grid: false,
@@ -776,15 +776,15 @@ jQuery(document).ready(function ($) {
         $sliderCreditSumm.on("change", function () {
             var $this = $(this),
                 value = $this.prop("value")
-            
+
             $('#summ-kredit').val(value);
-            
+
             kredit['summ-kredit'] = $('#summ-kredit').val().replace(/\s+/g, '');
-            
+
             digits_int(this);
             getRezultElemForm();
             renderTableGrafic();
-            
+
         });
 
 
@@ -804,7 +804,7 @@ jQuery(document).ready(function ($) {
             $('#summ-kredit').val(val);
         }
 
-        function getRezultElemForm() {            
+        function getRezultElemForm() {
             $('.form-credit-calc_valute').html(kredit['select-valute']);
             let stavka_procent = kredit['stavka-procent'] / 100 / 12;
             let summCredit = kredit['summ-kredit'];
@@ -822,16 +822,18 @@ jQuery(document).ready(function ($) {
         }
 
         function setDataCalcFormEdit(elem) {
-            $(elem).on("change keyup paste", function () {                 
+            $(elem).on("change keyup paste", function () {
                 kredit[$(this).attr('id')] = $(this).val().replace(/\s+/g, '');
                 getRezultElemForm();
                 digits_int(this);
                 console.log(kredit);
                 renderTableGrafic();
-                
+
                 var sliderCreditSumm = $sliderCreditSumm.data("ionRangeSlider");
-                sliderCreditSumm.update({from: kredit['summ-kredit']});
-                
+                sliderCreditSumm.update({
+                    from: kredit['summ-kredit']
+                });
+
             })
         }
 
@@ -911,10 +913,19 @@ jQuery(document).ready(function ($) {
             $('#exampleModalGrafic table.table-grafic tbody tr.tr-btn-click').remove();
         });
     }
-    
-    
-    
-    
+
+    //ипотечный калькулятор
+    let calcIpoteca = {
+        params: {
+            "summ-kredit": 1000000,
+            "select-valute": "₽",
+            "stavka-procent": "9.5",
+            "srock-credit": "12"
+        }
+    };
+    console.log(calcIpoteca.params);
+
+
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
     //смена количества в фильтре при отработки чебоксов
