@@ -778,7 +778,14 @@ jQuery(document).ready(function ($) {
             var $this = $(this),
                 value = $this.prop("value")
             
-            $('#summ-kredit').val(value);                
+            $('#summ-kredit').val(value);
+            
+            kredit['summ-kredit'] = $('#summ-kredit').val().replace(/\s+/g, '');
+            getRezultElemForm();
+            digits_int(this);
+            console.log(kredit);
+            renderTableGrafic();
+            
         });
 
 
