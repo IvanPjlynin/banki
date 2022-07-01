@@ -918,7 +918,7 @@ jQuery(document).ready(function ($) {
         name: "Джон",
         age: 30,
         sayHi() {
-            this.name;
+            return this.name;
         }
 
     };
