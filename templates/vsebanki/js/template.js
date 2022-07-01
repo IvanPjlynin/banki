@@ -917,13 +917,16 @@ jQuery(document).ready(function ($) {
     //ипотечный калькулятор
     let calcIpoteca = {
         params: {
-            "summ-kredit": 1000000,
-            "select-valute": "=₽",
-            "stavka-procent": "=9.5",
-            "srock-credit": "12"
+            "summ_kredit": 1000000,
+            "select_valute": "=₽",
+            "stavka_procent": "=9.5",
+            "srock_credit": "12"
+        },
+        go: function () {
+            this.params.stavka_procent
         }
     };
-    console.log("calcIpoteca.params", calcIpoteca.params);
+    console.log("calcIpoteca.params", calcIpoteca.go);
 
 
     //смена количества в фильтре при зугрузке
