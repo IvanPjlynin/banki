@@ -782,10 +782,8 @@ jQuery(document).ready(function ($) {
             kredit['summ-kredit'] = $('#summ-kredit').val().replace(/\s+/g, '');
             
             digits_int(this);
-            /*getRezultElemForm();
-            
-            console.log(kredit);
-            renderTableGrafic();*/
+            getRezultElemForm();
+            renderTableGrafic();
             
         });
 
