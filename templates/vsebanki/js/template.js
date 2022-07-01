@@ -918,12 +918,12 @@ jQuery(document).ready(function ($) {
     let calcIpoteca = {
         params: {
             "summ-kredit": 1000000,
-            "select-valute": "₽",
-            "stavka-procent": "9.5",
+            "select-valute": "=₽",
+            "stavka-procent": "=9.5",
             "srock-credit": "12"
         }
     };
-    console.log(calcIpoteca.params);
+    console.log("calcIpoteca.params", calcIpoteca.params);
 
 
     //смена количества в фильтре при зугрузке
