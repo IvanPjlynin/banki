@@ -756,7 +756,7 @@ jQuery(document).ready(function ($) {
             });
         });
 
-        let sliderCreditSumm = $('#summ-kredit');
+        let sliderCreditSumm = $('#summ-kredit-slider');
 
         sliderCreditSumm.ionRangeSlider({ 
             type: "single",
