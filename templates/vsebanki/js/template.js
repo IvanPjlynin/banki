@@ -781,6 +781,7 @@ jQuery(document).ready(function ($) {
             $('#summ-kredit').val(value);
             setDataCalcFormEdit();
             digits_int();
+            getRezultElemForm();
                 
         });
 
