@@ -740,6 +740,8 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
     //выравниевание блоков по высоте
     $('.banner-wrapper').matchHeight();
+    
+    
     //форма калькулятора и расчет
     if ($('.form-credit-calc').length > 0) {
 
@@ -789,6 +791,9 @@ jQuery(document).ready(function ($) {
         }
 
         function getRezultElemForm() {
+            
+            sliderCreditSumm.ionRangeSlider({from: kredit['summ-kredit']});
+            
             $('.form-credit-calc_valute').html(kredit['select-valute']);
             let stavka_procent = kredit['stavka-procent'] / 100 / 12;
             let summCredit = kredit['summ-kredit'];
@@ -806,7 +811,7 @@ jQuery(document).ready(function ($) {
         }
 
         function setDataCalcFormEdit(elem) {
-            $(elem).on("change keyup paste", function () {
+            $(elem).on("change keyup paste", function () {                
                 kredit[$(this).attr('id')] = $(this).val().replace(/\s+/g, '');
                 getRezultElemForm();
                 digits_int(this);
@@ -891,6 +896,10 @@ jQuery(document).ready(function ($) {
             $('#exampleModalGrafic table.table-grafic tbody tr.tr-btn-click').remove();
         });
     }
+    
+    
+    
+    
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
     //смена количества в фильтре при отработки чебоксов
