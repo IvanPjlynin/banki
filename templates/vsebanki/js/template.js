@@ -923,7 +923,7 @@ jQuery(document).ready(function ($) {
             "srock_credit": "12"
         },
         go() {
-            this.params
+            this.params;
         }
     };
     console.log("calcIpoteca.params", calcIpoteca.go());
