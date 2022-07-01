@@ -774,7 +774,13 @@ jQuery(document).ready(function ($) {
             max: 5000000
         });
 
-        
+        $sliderCreditSumm.on("change", function () {
+            var $this = $(this),
+                value = $this.prop("value")
+            
+            $('#summ-kredit').val(value);
+                
+        });
 
 
         let kredit = {
