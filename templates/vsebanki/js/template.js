@@ -926,7 +926,7 @@ jQuery(document).ready(function ($) {
             this.params;
         }
     };
-    console.log("calcIpoteca.params", calcIpoteca.go);
+    console.log("calcIpoteca.params", calcIpoteca.go());
 
 
     //смена количества в фильтре при зугрузке
