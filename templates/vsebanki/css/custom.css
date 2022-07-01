@@ -753,3 +753,48 @@ div.modal {
 .topmenu .mod-menu li a.home-menu-ipoteka {
     color: #56C182;
 }
+
+
+/*slider*/
+
+.irs {
+    height: 20px;
+}
+
+.irs .irs .irs-line {
+    height: 8px;
+    top: 11px;
+    border-radius: 100px;
+    background: #DFE2E3;
+}
+
+.irs .irs .irs-min,
+.irs .irs .irs-max {
+    visibility: hidden !important;
+}
+
+.irs .irs .irs-single {
+    display: none;
+}
+
+.irs .irs-bar {
+    top: 11px;
+    height: 8px;
+    left: 0 !important;
+    background: #56C182;
+    border-radius: 100px;
+}
+
+.irs .irs-slider {
+    top: 0;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: -1.94779px 2.81455px 12.1737px rgb(110 116 171 / 28%);
+    margin-left: -1px;
+    cursor: pointer;
+}
+
+
+/*end slider*/
