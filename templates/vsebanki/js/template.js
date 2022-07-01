@@ -922,7 +922,7 @@ jQuery(document).ready(function ($) {
             "stavka_procent": "=9.5",
             "srock_credit": "12"
         },
-        go: function () {
+        go() {
             this.params
         }
     };
