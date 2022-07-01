@@ -1,4 +1,4 @@
-! function (t) {
+! function (t) { 
     "use strict";
     "function" == typeof define && define.amd ? define(["jquery"], t) : "undefined" != typeof module && module.exports ? module.exports = t(require("jquery")) : t(jQuery)
 }(function (t) {
@@ -562,7 +562,7 @@ jQuery(document).ready(function ($) {
         grid_snap: '',
         max: 85
     });
-    //ivp изменение слайдеров на главной в зависимости от селекта    
+    //ivp изменение слайдеров на главной в зависимости от селекта
     $("div.service.credit .type").chosen().change( //событие смены селекта
         function () {
             //console.log($(this).val());
@@ -600,7 +600,7 @@ jQuery(document).ready(function ($) {
         //console.log(summ.toLocaleString());
         $(this).html(summ.toLocaleString());
     });
-    //end ivp   
+    //end ivp
     //credit
     $range1.on("change", function () {
         var $this = $(this),
@@ -624,7 +624,7 @@ jQuery(document).ready(function ($) {
         box.find('.range-summary').text((value + "").replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
         box.find('.form-price').attr('value', value);
     });
-    //loan	
+    //loan
     $range4.on("change", function () {
         var $this = $(this),
             value = $this.prop("value"),
@@ -639,7 +639,7 @@ jQuery(document).ready(function ($) {
         box.find('.range-summary').text((value + "").replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
         box.find('.form-term').attr('value', value);
     });
-    //deposit	
+    //deposit
     $range6.on("change", function () {
         var $this = $(this),
             value = $this.prop("value"),
