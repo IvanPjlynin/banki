@@ -758,9 +758,11 @@ jQuery(document).ready(function ($) {
             });
         });
 
-        let sliderCreditSumm = $('#summ-kredit-slider');
-
-        sliderCreditSumm.ionRangeSlider({ 
+        //let sliderCreditSumm = $('#summ-kredit-slider');
+        
+        var $sliderCreditSumm = $('#summ-kredit-slider');
+        
+        $sliderCreditSumm.ionRangeSlider({
             type: "single",
             grid: false,
             from: 100000,
@@ -772,6 +774,7 @@ jQuery(document).ready(function ($) {
             max: 5000000
         });
 
+        
 
 
         let kredit = {
@@ -792,7 +795,7 @@ jQuery(document).ready(function ($) {
 
         function getRezultElemForm() {
             
-            sliderCreditSumm.ionRangeSlider({from: kredit['summ-kredit']});
+            sliderCreditSumm.ionRangeSlider.update({from: kredit['summ-kredit']});
             
             $('.form-credit-calc_valute').html(kredit['select-valute']);
             let stavka_procent = kredit['stavka-procent'] / 100 / 12;
