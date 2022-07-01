@@ -758,7 +758,7 @@ jQuery(document).ready(function ($) {
 
         let sliderCreditSumm = $('.form-credit-calc #summ-kredit');
 
-        sliderCreditSumm.ionRangeSlider({
+        sliderCreditSumm.ionRangeSlider({ 
             type: "single",
             grid: false,
             from: 100000,
