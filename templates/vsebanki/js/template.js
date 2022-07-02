@@ -936,7 +936,7 @@ jQuery(document).ready(function ($) {
                 this.digits_int(target);
             },
             onChangeInput: function (elem) {
-                $(elem).on("change keyup paste", function () {
+                elem.on("change keyup paste", function () {
                     this.digits_int(elem);
                 });
             }
