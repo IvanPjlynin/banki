@@ -925,7 +925,7 @@ jQuery(document).ready(function ($) {
                 "srock_credit": "12"
             },
             calc: function () {
-                this.params["procent-vznos"] = this.params["procent-vznos"] / (this.params["stoimost-nedvig"] / 100);
+                this.params["procent-vznos"] = this.params["one-vznos"] / (this.params["stoimost-nedvig"] / 100);
                 this.setSpanProcentVznos();
             },
             setSpanProcentVznos: function () {
