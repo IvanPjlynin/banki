@@ -948,7 +948,7 @@ jQuery(document).ready(function ($) {
                 $('.form-ipotec-calc_summ').html(this.digits_int2(this.params["summ-credit"]));
                 $('.form-ipotec-calc_mes-plat').html(this.digits_int2(this.params["mes-plateg"]));
                 $('.form-ipotec-calc_pereplat').html(this.digits_int2(this.params["pereplata"]));
-                $('.form-ipotec-calc_summ').html(this.digits_int2(this.params["itogo-summ"]));
+                $('.form-ipotec-calc_summ2').html(this.digits_int2(this.params["itogo-summ"]));
             },
             go: function () {
                 this.onChangeInput($('#stoimost-nedvig'));
