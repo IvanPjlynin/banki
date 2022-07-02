@@ -946,18 +946,17 @@ jQuery(document).ready(function ($) {
                     calcIpoteca.digits_int(elem);
                     calcIpoteca.saveParams(elem);
 
-                    if ($(elem).attr('id') == 'stoimost-nedvig') {
-                        var sliderStoimostNedvig = $sliderStoimostNedvig.data("ionRangeSlider");
-                        sliderStoimostNedvig.update({
-                            from: calcIpoteca.params['stoimost-nedvig']
-                        });
-                    }
-                    if ($(elem).attr('id') == 'one-vznos') {
-                        var sliderOneVznos = $sliderOneVznos.data("ionRangeSlider");
-                        sliderOneVznos.update({
-                            from: calcIpoteca.params['one-vznos']
-                        });
-                    }
+
+                    var sliderStoimostNedvig = $sliderStoimostNedvig.data("ionRangeSlider");
+                    var sliderOneVznos = $sliderOneVznos.data("ionRangeSlider");
+                    sliderStoimostNedvig.update({
+                        from: calcIpoteca.params['stoimost-nedvig']
+                    });
+                    sliderOneVznos.update({
+                        from: calcIpoteca.params['one-vznos'],
+                        max: calcIpoteca.params['stoimost-nedvig']
+                    });
+
                 });
             },
             saveParams: function (elem) {
