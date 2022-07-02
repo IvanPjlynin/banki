@@ -970,7 +970,7 @@ jQuery(document).ready(function ($) {
                 });
             },
             saveParams: function (elem) {
-                this.params[$(elem).attr('id')] = Number.parseInt($(elem).val().replace(/\s+/g, ''));
+                this.params[$(elem).attr('id')] = $(elem).val().replace(/\s+/g, '');
                 console.log('------------> ', calcIpoteca.params);
                 this.calc();
             }
