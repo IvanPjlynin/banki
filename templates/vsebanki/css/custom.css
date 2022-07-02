@@ -796,5 +796,8 @@ div.modal {
     cursor: pointer;
 }
 
-
 /*end slider*/
+
+.form-ipotec-calc .border-right {
+    border-right: 3px solid #f6f9f9;
+}
