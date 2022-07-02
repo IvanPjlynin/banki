@@ -934,6 +934,7 @@ jQuery(document).ready(function ($) {
             setSlideToInput: function (target, value) {
                 $(target).val(value);
                 this.digits_int(target);
+                this.saveParams(target);
             },
             setInputToSlide: function () {
 
