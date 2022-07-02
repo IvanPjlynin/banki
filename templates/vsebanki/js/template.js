@@ -924,6 +924,11 @@ jQuery(document).ready(function ($) {
         },
         go: function () {
             return this.params.stavka_procent;
+        },
+        digits_int: function (target) {
+            val = $(target).val().replace(/[^0-9]/g, '');
+            val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            $(target).val(val);
         }
     };
     console.log("calcIpoteca.params", calcIpoteca.go());
@@ -936,7 +941,7 @@ jQuery(document).ready(function ($) {
         from: 5000000,
         postfix: '',
         min: 100000,
-        step: 1000,
+        step: 10000,
         grid_num: 4,
         grid_snap: '',
         max: 100000000
@@ -946,8 +951,18 @@ jQuery(document).ready(function ($) {
         var $this = $(this),
             value = $this.prop("value");
         $('#stoimost-nedvig').val(value);
+        calcIpoteca.digits_int($('#stoimost-nedvig'));
     });
 
+
+
+    function digits_int(target) {
+        //val = $(target).val().replace(/[^0-9]/g, '');
+        val = $('#summ-kredit').val().replace(/[^0-9]/g, '');
+        val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        //$(target).val(val);
+        $('#summ-kredit').val(val);
+    }
 
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
