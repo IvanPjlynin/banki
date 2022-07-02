@@ -929,6 +929,10 @@ jQuery(document).ready(function ($) {
             val = $(target).val().replace(/[^0-9]/g, '');
             val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
             $(target).val(val);
+        },
+        setSlideToInput: function (target, value) {
+            $(target).val(value);
+            this.digits_int(target);
         }
     };
     console.log("calcIpoteca.params", calcIpoteca.go());
@@ -950,8 +954,8 @@ jQuery(document).ready(function ($) {
     $sliderStoimostNedvig.on("change", function () {
         var $this = $(this),
             value = $this.prop("value");
-        $('#stoimost-nedvig').val(value);
-        calcIpoteca.digits_int($('#stoimost-nedvig'));
+
+        calcIpoteca.setSlideToInput($('#stoimost-nedvig'), value);
     });
 
 
