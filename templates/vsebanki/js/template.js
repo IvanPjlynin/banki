@@ -955,7 +955,7 @@ jQuery(document).ready(function ($) {
                 $(target).val(val);
             },
             digits_int2: function (value) {
-                val = value.toString().replace(/[^0-9]/g, '');
+                val = Math.round(value).toString().replace(/[^0-9]/g, '');
                 val = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
                 return val;
             },
