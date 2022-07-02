@@ -923,17 +923,25 @@ jQuery(document).ready(function ($) {
                 "summ-credit": 1000000,
                 "procent-vznos": 50,
                 "stavka-procentu": 8,
-                "srock-ipoteca": 5
+                "mes-procent": 1,
+                "srock-ipoteca": 5,
+                "srock-mec": 60,
+                "mes-plateg": 10000
             },
             calc: function () {
                 this.params["procent-vznos"] = this.params["one-vznos"] / (this.params["stoimost-nedvig"] / 100);
                 this.params["summ-credit"] = this.params["stoimost-nedvig"] - this.params["one-vznos"];
+                this.params["mes-procent"] = this.params["stavka-procentu"] / 100 / 12;
+                this.params["srock-mec"] = this.params["srock-ipoteca"] * 12;
+
+                this.params["mes-plateg"] = this.params["summ-credit"] * ((this.params["mes-procent"] * (1 + this.params["mes-procent"]) ** this.params["srock-mec"]) / ((1 + this.params["mes-procent"]) ** this.params["srock-mec"] - 1));
 
                 this.setRenderFormData();
             },
             setRenderFormData: function () {
                 $('#procent-vznos').html(Math.round(this.params["procent-vznos"]) + ' %');
                 $('.form-ipotec-calc_summ').html(this.digits_int2(this.params["summ-credit"]));
+                $('.form-ipotec-calc_mes-plat').html(this.digits_int2(this.params["mes-plateg"]));
             },
             go: function () {
                 this.onChangeInput($('#stoimost-nedvig'));
