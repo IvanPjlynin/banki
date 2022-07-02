@@ -959,6 +959,7 @@ jQuery(document).ready(function ($) {
                 this.onChangeInput($('#one-vznos'));
                 this.onChangeInput($('#srock-ipoteca'));
                 this.onChangeInput($('#stavka-procentu'));
+                this.renderTableGrafic();
                 this.printGrafic();
             },
             digits_int: function (target) {
