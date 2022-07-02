@@ -1022,7 +1022,7 @@ jQuery(document).ready(function ($) {
                 moment.locale('ru');
                 let i = 1;
 
-                while (i <= kredit['srock-credit']) {
+                while (i <= this.params["srock-mec"]) {
                     $("#exampleModalGrafic table.table-grafic tbody").append(`
                     <tr class="">
                         <td><b>${i} платеж</b> <br>${moment().add('months', i).format('MMMM YYYY')};</th>
