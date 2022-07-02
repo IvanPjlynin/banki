@@ -1045,7 +1045,7 @@ jQuery(document).ready(function ($) {
                         <td><b>${i} платеж</b> <br>${moment().add('months', i).format('MMMM YYYY')}</th>
                         <td></td>
                         <td>${this.digits_int2(this.params["pereplata"]/this.params["srock-mec"]*i)}</td>
-                        <td>${this.digits_int2(this.params["mes-plateg"]*i)}</td>
+                        <td>${this.digits_int2(this.params["summ-credit"]/this.params["srock-mec"]*i)}</td>
                         <td>${this.digits_int2(this.params["mes-plateg"])}</td>
                     </tr>`);
 
