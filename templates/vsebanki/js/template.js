@@ -927,7 +927,7 @@ jQuery(document).ready(function ($) {
                 "srock-ipoteca": 5,
                 "srock-mec": 60,
                 "mes-plateg": 20276,
-                "itogo-summ": 1216560,
+                "itogo-summ": 1216584,
                 "pereplata": 216584
             },
             calc: function () {
@@ -946,9 +946,12 @@ jQuery(document).ready(function ($) {
             setRenderFormData: function () {
                 $('#procent-vznos').html(Math.round(this.params["procent-vznos"]) + ' %');
                 $('.form-ipotec-calc_summ').html(this.digits_int2(this.params["summ-credit"]));
+                $('.modal .summ-credit').html(this.digits_int2(this.params["summ-credit"]));
                 $('.form-ipotec-calc_mes-plat').html(this.digits_int2(this.params["mes-plateg"]));
                 $('.form-ipotec-calc_pereplat').html(this.digits_int2(this.params["pereplata"]));
                 $('.form-ipotec-calc_summ2').html(this.digits_int2(this.params["itogo-summ"]));
+                $('.modal .sroc-credit').html(this.params["srock-ipoteca"]);
+                $('.modal .stavca-credit').html(this.params["stavka-procentu"]);
             },
             go: function () {
                 this.onChangeInput($('#stoimost-nedvig'));
