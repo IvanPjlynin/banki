@@ -918,18 +918,22 @@ jQuery(document).ready(function ($) {
     if ($('.form-ipotec-calc').length > 0) {
         let calcIpoteca = {
             params: {
-                "stoimost-nedvig": 1000000,
+                "stoimost-nedvig": 2000000,
                 "one-vznos": 1000000,
+                "summ-credit": 1000000,
                 "procent-vznos": 50,
-                "stavka-procentu": "8",
-                "srock-ipoteca": "5"
+                "stavka-procentu": 8,
+                "srock-ipoteca": 5
             },
             calc: function () {
                 this.params["procent-vznos"] = this.params["one-vznos"] / (this.params["stoimost-nedvig"] / 100);
-                this.setSpanProcentVznos();
+                this.params["summ-credit"] = this.params["stoimost-nedvig"] - this.params["one-vznos"];
+
+                this.setRenderFormData();
             },
-            setSpanProcentVznos: function () {
+            setRenderFormData: function () {
                 $('#procent-vznos').html(Math.round(this.params["procent-vznos"]) + ' %');
+                $('.form-ipotec-calc_summ').html(this.params["summ-credit"]);
             },
             go: function () {
                 this.onChangeInput($('#stoimost-nedvig'));
