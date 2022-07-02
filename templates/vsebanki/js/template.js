@@ -1046,7 +1046,7 @@ jQuery(document).ready(function ($) {
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>${this.params["mes-plateg"]}</td>
+                        <td>${Math.round(this.params["mes-plateg"])}</td>
                     </tr>`);
 
                     i++;
