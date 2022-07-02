@@ -936,7 +936,7 @@ jQuery(document).ready(function ($) {
                 this.digits_int(target);
             },
             onChangeInput: function (elem) {
-                elem.on("change keyup paste", function () {
+                $(elem).on("change keyup paste", function () {
                     this.digits_int(elem);
                 });
             }
@@ -966,7 +966,7 @@ jQuery(document).ready(function ($) {
     }
 
 
-    $(elem).on("change keyup paste", function () {
+    /*$(elem).on("change keyup paste", function () {
         kredit[$(this).attr('id')] = $(this).val().replace(/\s+/g, '');
         getRezultElemForm();
         digits_int(this);
@@ -978,7 +978,7 @@ jQuery(document).ready(function ($) {
             from: kredit['summ-kredit']
         });
 
-    })
+    })*/
 
     //смена количества в фильтре при зугрузке
     $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
