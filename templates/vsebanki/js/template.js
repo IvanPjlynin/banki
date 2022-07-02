@@ -989,7 +989,6 @@ jQuery(document).ready(function ($) {
             var sliderOneVznos = $sliderOneVznos.data("ionRangeSlider");
 
             sliderOneVznos.update({
-                from: calcIpoteca.params['one-vznos'],
                 max: calcIpoteca.params['stoimost-nedvig']
             });
         });
