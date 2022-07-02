@@ -920,6 +920,7 @@ jQuery(document).ready(function ($) {
             params: {
                 "stoimost-nedvig": 1000000,
                 "one-vznos": 1000000,
+                "procent-vznos": 50,
                 "stavka_procent": "9.5",
                 "srock_credit": "12"
             },

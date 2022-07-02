@@ -801,3 +801,14 @@ div.modal {
 .form-ipotec-calc .border-right {
     border-right: 3px solid #f6f9f9;
 }
+
+.form-ipotec-calc .form-2 {
+    position: relative;
+}
+
+#procent-vznos {
+    position: absolute;
+    right: 10px;
+    top: 38px;
+    color: #fcbb52;
+}
