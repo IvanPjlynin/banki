@@ -918,9 +918,9 @@ jQuery(document).ready(function ($) {
     if ($('.form-ipotec-calc').length > 0) {
         let calcIpoteca = {
             params: {
-                "summ_kredit": 1000000,
-                "select_valute": "=₽",
-                "stavka_procent": "=9.5",
+                "stoimost-nedvig": 1000000,
+                "one-vznos": 1000000,
+                "stavka_procent": "9.5",
                 "srock_credit": "12"
             },
             go: function () {
