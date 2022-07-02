@@ -921,8 +921,8 @@ jQuery(document).ready(function ($) {
                 "stoimost-nedvig": 1000000,
                 "one-vznos": 1000000,
                 "procent-vznos": 50,
-                "stavka_procent": "9.5",
-                "srock_credit": "12"
+                "stavka-procentu": "9.5",
+                "srock-ipoteca": "5"
             },
             calc: function () {
                 this.params["procent-vznos"] = this.params["one-vznos"] / (this.params["stoimost-nedvig"] / 100);
@@ -934,6 +934,8 @@ jQuery(document).ready(function ($) {
             go: function () {
                 this.onChangeInput($('#stoimost-nedvig'));
                 this.onChangeInput($('#one-vznos'));
+                this.onChangeInput($('#srock-ipoteca'));
+                this.onChangeInput($('#stavka-procentu'));
             },
             digits_int: function (target) {
                 val = $(target).val().replace(/[^0-9]/g, '');
@@ -944,9 +946,6 @@ jQuery(document).ready(function ($) {
                 $(target).val(value);
                 this.digits_int(target);
                 this.saveParams(target);
-            },
-            setInputToSlide: function () {
-
             },
             onChangeInput: function (elem) {
                 $(elem).on("change keyup paste", function () {
@@ -968,7 +967,7 @@ jQuery(document).ready(function ($) {
             },
             saveParams: function (elem) {
                 this.params[$(elem).attr('id')] = Number.parseInt($(elem).val().replace(/\s+/g, ''));
-                console.log('------------> ', calcIpoteca.params['one-vznos']);
+                console.log('------------> ', calcIpoteca.params);
                 this.calc();
             }
         };
