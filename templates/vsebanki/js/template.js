@@ -937,14 +937,6 @@ jQuery(document).ready(function ($) {
                 $(target).val(value);
                 this.digits_int(target);
                 this.saveParams(target);
-
-
-                var sliderOneVznos = $sliderOneVznos.data("ionRangeSlider");
-
-                sliderOneVznos.update({
-                    from: calcIpoteca.params['one-vznos'],
-                    max: calcIpoteca.params['stoimost-nedvig']
-                });
             },
             setInputToSlide: function () {
 
@@ -993,6 +985,13 @@ jQuery(document).ready(function ($) {
                 value = $this.prop("value");
 
             calcIpoteca.setSlideToInput($('#stoimost-nedvig'), value);
+
+            var sliderOneVznos = $sliderOneVznos.data("ionRangeSlider");
+
+            sliderOneVznos.update({
+                from: calcIpoteca.params['one-vznos'],
+                max: calcIpoteca.params['stoimost-nedvig']
+            });
         });
 
         var $sliderOneVznos = $('#one-vznos-slider');
