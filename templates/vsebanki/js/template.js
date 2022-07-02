@@ -942,7 +942,7 @@ jQuery(document).ready(function ($) {
         max: 100000000
     });
 
-    $$sliderStoimostNedvig.on("change", function () {
+    $sliderStoimostNedvig.on("change", function () {
         var $this = $(this),
             value = $this.prop("value");
         $('#stoimost-nedvig').val(value);
