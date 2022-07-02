@@ -925,7 +925,7 @@ jQuery(document).ready(function ($) {
             },
             inputs: $('#stoimost-nedvig, #one-vznos'),
             go: function () {
-                this.onChangeInput($('#stoimost-nedvig'));
+                this.onChangeInput(this.inputs);
             },
             digits_int: function (target) {
                 val = $(target).val().replace(/[^0-9]/g, '');
