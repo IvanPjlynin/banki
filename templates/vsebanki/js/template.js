@@ -937,7 +937,7 @@ jQuery(document).ready(function ($) {
             },
             onChangeInput: function (elem) {
                 $(elem).on("change keyup paste", function () {
-                    this.digits_int(elem);
+                    calcIpoteca.digits_int(elem);
                 });
             }
         };
