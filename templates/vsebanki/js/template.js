@@ -953,13 +953,13 @@ jQuery(document).ready(function ($) {
                 if ($(elem).attr('id') == 'stoimost-nedvig') {
                     var sliderStoimostNedvig = $sliderStoimostNedvig.data("ionRangeSlider");
                     sliderStoimostNedvig.update({
-                        from: this.params[$(elem).attr('id')];
+                        from: this.params[$(elem).attr('id')]
                     });
                 }
                 if ($(elem).attr('id') == 'one-vznos') {
                     var sliderOneVznos = $sliderOneVznos.data("ionRangeSlider");
                     sliderOneVznos.update({
-                        from: this.params[$(elem).attr('id')];
+                        from: this.params[$(elem).attr('id')]
                     });
                 }
 
