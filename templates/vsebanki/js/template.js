@@ -929,7 +929,7 @@ jQuery(document).ready(function ($) {
                 this.setSpanProcentVznos();
             },
             setSpanProcentVznos: function () {
-                $('#procent-vznos').html(this.params["procent-vznos"] + ' %');
+                $('#procent-vznos').html(Math.round(this.params["procent-vznos"]) + ' %');
             },
             go: function () {
                 this.onChangeInput($('#stoimost-nedvig'));
