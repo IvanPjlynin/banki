@@ -926,7 +926,9 @@ jQuery(document).ready(function ($) {
                 "mes-procent": 1,
                 "srock-ipoteca": 5,
                 "srock-mec": 60,
-                "mes-plateg": 10000
+                "mes-plateg": 20276,
+                "itogo-summ": 1216560,
+                "pereplata": 1
             },
             calc: function () {
                 this.params["procent-vznos"] = this.params["one-vznos"] / (this.params["stoimost-nedvig"] / 100);
@@ -936,12 +938,16 @@ jQuery(document).ready(function ($) {
 
                 this.params["mes-plateg"] = this.params["summ-credit"] * ((this.params["mes-procent"] * (1 + this.params["mes-procent"]) ** this.params["srock-mec"]) / ((1 + this.params["mes-procent"]) ** this.params["srock-mec"] - 1));
 
+                this.params["itogo-summ"] = this.params["mes-plateg"] * this.params["srock-mec"];
+                this.params.pereplata = this.params["itogo-summ"] - this.params["summ-credit"];
+
                 this.setRenderFormData();
             },
             setRenderFormData: function () {
                 $('#procent-vznos').html(Math.round(this.params["procent-vznos"]) + ' %');
                 $('.form-ipotec-calc_summ').html(this.digits_int2(this.params["summ-credit"]));
                 $('.form-ipotec-calc_mes-plat').html(this.digits_int2(this.params["mes-plateg"]));
+                $('.form-ipotec-calc_pereplat').html(this.digits_int2(this.params["pereplata"]));
             },
             go: function () {
                 this.onChangeInput($('#stoimost-nedvig'));
