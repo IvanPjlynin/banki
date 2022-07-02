@@ -947,8 +947,8 @@ jQuery(document).ready(function ($) {
                 $(target).val(val);
             },
             digits_int2: function (value) {
-                val = value.replace(/[^0-9]/g, '');
-                val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+                val = value.toString().replace(/[^0-9]/g, '');
+                val = val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
                 return val;
             },
             setSlideToInput: function (target, value) {
