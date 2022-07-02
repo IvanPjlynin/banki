@@ -972,6 +972,27 @@ jQuery(document).ready(function ($) {
 
             calcIpoteca.setSlideToInput($('#stoimost-nedvig'), value);
         });
+
+        var $sliderOneVznos = $('#one-vznos-slider');
+        $sliderOneVznos.ionRangeSlider({
+            type: "single",
+            grid: false,
+            from: 5000000,
+            postfix: '',
+            min: 100000,
+            step: 10000,
+            grid_num: 4,
+            grid_snap: '',
+            max: 100000000
+        });
+
+        $sliderOneVznos.on("change", function () {
+            var $this = $(this),
+                value = $this.prop("value");
+
+            calcIpoteca.setSlideToInput($('#one-vznos'), value);
+        });
+
     }
 
 
