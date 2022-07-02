@@ -927,6 +927,20 @@ jQuery(document).ready(function ($) {
         }
     };
     console.log("calcIpoteca.params", calcIpoteca.go());
+    calcIpoteca.go();
+
+    var $sliderCreditSumm = $('#stoimost-nedvig-slider');
+    $sliderCreditSumm.ionRangeSlider({
+        type: "single",
+        grid: false,
+        from: 3000000,
+        postfix: '',
+        min: 100000,
+        step: 1000,
+        grid_num: 4,
+        grid_snap: '',
+        max: 100000000
+    });
 
 
     //смена количества в фильтре при зугрузке
