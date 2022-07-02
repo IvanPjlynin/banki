@@ -941,9 +941,12 @@ jQuery(document).ready(function ($) {
             onChangeInput: function (elem) {
                 $(elem).on("change keyup paste", function () {
                     calcIpoteca.digits_int(elem);
-                    calcIpoteca.params[$(this).attr('id')] = $(this).val().replace(/\s+/g, '');
-                    console.log('------------> ', calcIpoteca.params);
+                    calcIpoteca.saveParams(elem);
                 });
+            },
+            saveParams: function (elem) {
+                this.params[$(elem).attr('id')] = $(elem).val().replace(/\s+/g, '');
+                console.log('------------> ', calcIpoteca.params);
             }
         };
 
