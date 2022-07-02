@@ -921,7 +921,7 @@ jQuery(document).ready(function ($) {
                 "stoimost-nedvig": 1000000,
                 "one-vznos": 1000000,
                 "procent-vznos": 50,
-                "stavka-procentu": "9.5",
+                "stavka-procentu": "8",
                 "srock-ipoteca": "5"
             },
             calc: function () {
@@ -949,7 +949,11 @@ jQuery(document).ready(function ($) {
             },
             onChangeInput: function (elem) {
                 $(elem).on("change keyup paste", function () {
-                    calcIpoteca.digits_int(elem);
+
+                    if (($(elem).attr('id') == 'stoimost-nedvig') || ($(elem).attr('id') == 'one-vznos')) {
+                        calcIpoteca.digits_int(elem);
+                    }
+
                     calcIpoteca.saveParams(elem);
 
 
