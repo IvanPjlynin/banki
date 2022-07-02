@@ -1051,6 +1051,22 @@ jQuery(document).ready(function ($) {
 
                     i++;
                 }
+
+                $("#exampleModalGrafic table.table-grafic tbody").append(`<tr>
+                        <td><b>Итого </b></th>
+                        <td>&nbsp;</td>
+                        <td><b>${this.digits_int2(this.params["pereplata"])}</b></td>
+                        <td><b>${this.digits_int2(this.params["summ-credit"])}</b></td>
+                        <td><b>${this.digits_int2(this.params["itogo-summ"])}</b></td>
+                    </tr>`);
+
+                $(document).on('click', '#showTrTable', function (e) {
+                    e.preventDefault();
+                    $('#exampleModalGrafic table.table-grafic tbody tr.visually-hidden').removeClass();
+                    $('#exampleModalGrafic table.table-grafic tbody tr.tr-btn-click').remove();
+                });
+
+
             }
         };
 
