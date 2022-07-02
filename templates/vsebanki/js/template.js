@@ -935,9 +935,14 @@ jQuery(document).ready(function ($) {
                 $(target).val(value);
                 this.digits_int(target);
             },
+            setInputToSlide: function () {
+
+            },
             onChangeInput: function (elem) {
                 $(elem).on("change keyup paste", function () {
                     calcIpoteca.digits_int(elem);
+                    calcIpoteca.params[$(this).attr('id')] = $(this).val().replace(/\s+/g, '');
+                    console.log('------------> ', calcIpoteca.params);
                 });
             }
         };
