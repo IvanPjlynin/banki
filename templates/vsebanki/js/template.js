@@ -1023,13 +1023,30 @@ jQuery(document).ready(function ($) {
                 let i = 1;
 
                 while (i <= this.params["srock-mec"]) {
+
+                    trClassShowHide = 'visually-hidden';
+                    if ((i <= 3) || (i > (this.params["srock-mec"] - 1))) {
+                        trClassShowHide = 'show';
+                    }
+
+                    if (i == 4) {
+                        $("#exampleModalGrafic table.table-grafic tbody").append(`
+                    <tr class="tr-btn-click" style="background: #6e6e6e12;">
+                        <td colspan="5">
+                            <div class="section full-item-block block3 text-center p-2">
+                                <a class="category-button block3 " id="showTrTable" href="#" target="_blank ">Показать все</a>
+                            </div>
+                        </td>
+                    </tr>`);
+                    }
+
                     $("#exampleModalGrafic table.table-grafic tbody").append(`
                     <tr class="">
-                        <td><b>${i} платеж</b> <br>${moment().add('months', i).format('MMMM YYYY')};</th>
+                        <td><b>${i} платеж</b> <br>${moment().add('months', i).format('MMMM YYYY')}</th>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>${this.params["mes-plateg"]}</td>
                     </tr>`);
 
                     i++;
