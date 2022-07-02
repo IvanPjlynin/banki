@@ -923,6 +923,7 @@ jQuery(document).ready(function ($) {
                 "stavka_procent": "9.5",
                 "srock_credit": "12"
             },
+            inputs: $('#stoimost-nedvig, #one-vznos'),
             go: function () {
                 this.onChangeInput($('#stoimost-nedvig'));
             },
