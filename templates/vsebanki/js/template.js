@@ -942,6 +942,7 @@ jQuery(document).ready(function ($) {
                 this.params.pereplata = this.params["itogo-summ"] - this.params["summ-credit"];
 
                 this.setRenderFormData();
+                this.renderTableGrafic();
             },
             setRenderFormData: function () {
                 $('#procent-vznos').html(Math.round(this.params["procent-vznos"]) + ' %');
@@ -1014,6 +1015,25 @@ jQuery(document).ready(function ($) {
                         }
                     });
                 });
+            },
+            renderTableGrafic: function () {
+                $("#exampleModalGrafic table.table-grafic tbody, #exampleModalGrafic table.table-footer tbody").empty();
+
+                moment.locale('ru');
+                let i = 1;
+
+                while (i <= kredit['srock-credit']) {
+                    $("#exampleModalGrafic table.table-grafic tbody").append(`
+                    <tr class="">
+                        <td><b>${i} платеж</b> <br>${moment().add('months', i).format('MMMM YYYY')};</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>`);
+
+                    i++;
+                }
             }
         };
 
