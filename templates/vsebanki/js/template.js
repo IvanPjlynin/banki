@@ -929,8 +929,8 @@ jQuery(document).ready(function ($) {
     console.log("calcIpoteca.params", calcIpoteca.go());
     calcIpoteca.go();
 
-    var $sliderCreditSumm = $('#stoimost-nedvig-slider');
-    $sliderCreditSumm.ionRangeSlider({
+    var $sliderStoimostNedvig = $('#stoimost-nedvig-slider');
+    $sliderStoimostNedvig.ionRangeSlider({
         type: "single",
         grid: false,
         from: 5000000,
@@ -940,6 +940,12 @@ jQuery(document).ready(function ($) {
         grid_num: 4,
         grid_snap: '',
         max: 100000000
+    });
+
+    $$sliderStoimostNedvig.on("change", function () {
+        var $this = $(this),
+            value = $this.prop("value");
+        $('#stoimost-nedvig').val(value);
     });
 
 
