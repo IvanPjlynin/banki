@@ -943,6 +943,20 @@ jQuery(document).ready(function ($) {
             },
             onChangeInput: function (elem) {
                 $(elem).on("change keyup paste", function () {
+
+                    if ($(elem).attr('id') == 'stoimost-nedvig') {
+                        var sliderStoimostNedvig = $sliderStoimostNedvig.data("ionRangeSlider");
+                        sliderStoimostNedvig.update({
+                            from: this.params[$(elem).attr('id')]
+                        });
+                    }
+                    if ($(elem).attr('id') == 'one-vznos') {
+                        var sliderOneVznos = $sliderOneVznos.data("ionRangeSlider");
+                        sliderOneVznos.update({
+                            from: this.params[$(elem).attr('id')]
+                        });
+                    }
+
                     calcIpoteca.digits_int(elem);
                     calcIpoteca.saveParams(elem);
                 });
