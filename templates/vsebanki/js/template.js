@@ -933,7 +933,7 @@ jQuery(document).ready(function ($) {
             },
             setRenderFormData: function () {
                 $('#procent-vznos').html(Math.round(this.params["procent-vznos"]) + ' %');
-                $('.form-ipotec-calc_summ').html(this.params["summ-credit"]);
+                $('.form-ipotec-calc_summ').html(this.digits_int2(this.params["summ-credit"]));
             },
             go: function () {
                 this.onChangeInput($('#stoimost-nedvig'));
@@ -945,6 +945,11 @@ jQuery(document).ready(function ($) {
                 val = $(target).val().replace(/[^0-9]/g, '');
                 val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
                 $(target).val(val);
+            },
+            digits_int2: function (value) {
+                val = value.replace(/[^0-9]/g, '');
+                val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+                return val;
             },
             setSlideToInput: function (target, value) {
                 $(target).val(value);
