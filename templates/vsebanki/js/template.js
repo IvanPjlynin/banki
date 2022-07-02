@@ -924,7 +924,13 @@ jQuery(document).ready(function ($) {
                 "stavka_procent": "9.5",
                 "srock_credit": "12"
             },
-            inputs: $('#stoimost-nedvig, #one-vznos'),
+            calc: function () {
+                this.params["procent-vznos"] = this.params["procent-vznos"] / (this.params["stoimost-nedvig"] / 100);
+                this.setSpanProcentVznos();
+            },
+            setSpanProcentVznos: function () {
+                $('#procent-vznos').html(this.params["procent-vznos"] + ' %');
+            },
             go: function () {
                 this.onChangeInput($('#stoimost-nedvig'));
                 this.onChangeInput($('#one-vznos'));
@@ -963,6 +969,7 @@ jQuery(document).ready(function ($) {
             saveParams: function (elem) {
                 this.params[$(elem).attr('id')] = Number.parseInt($(elem).val().replace(/\s+/g, ''));
                 console.log('------------> ', calcIpoteca.params['one-vznos']);
+                this.calc();
             }
         };
 
