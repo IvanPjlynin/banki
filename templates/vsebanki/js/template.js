@@ -958,6 +958,7 @@ jQuery(document).ready(function ($) {
                 this.onChangeInput($('#one-vznos'));
                 this.onChangeInput($('#srock-ipoteca'));
                 this.onChangeInput($('#stavka-procentu'));
+                this.printGrafic();
             },
             digits_int: function (target) {
                 val = $(target).val().replace(/[^0-9]/g, '');
@@ -1000,6 +1001,19 @@ jQuery(document).ready(function ($) {
                 this.params[$(elem).attr('id')] = $(elem).val().replace(/\s+/g, '');
                 console.log('------------> ', calcIpoteca.params);
                 this.calc();
+            },
+            printGrafic: function () {
+                $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').click(function (e) {
+                    e.preventDefault();
+                    $(this).toggle();
+                    $('#showTrTable').trigger('click');
+                    $('#exampleModalGrafic .modal-content').printThis({
+                        printDelay: 200,
+                        afterPrint: function () {
+                            $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').toggle();
+                        }
+                    });
+                });
             }
         };
 
