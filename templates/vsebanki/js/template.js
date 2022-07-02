@@ -986,7 +986,7 @@ jQuery(document).ready(function ($) {
         $sliderStoimostNedvig.ionRangeSlider({
             type: "single",
             grid: false,
-            from: 5000000,
+            from: 2000000,
             postfix: '',
             min: 100000,
             step: 10000,
@@ -1012,7 +1012,7 @@ jQuery(document).ready(function ($) {
         $sliderOneVznos.ionRangeSlider({
             type: "single",
             grid: false,
-            from: 5000000,
+            from: 1000000,
             postfix: '',
             min: 100000,
             step: 10000,
