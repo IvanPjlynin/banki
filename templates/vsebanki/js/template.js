@@ -1041,7 +1041,7 @@ jQuery(document).ready(function ($) {
                     }
 
                     $("#exampleModalGrafic table.table-grafic tbody").append(`
-                    <tr class="">
+                    <tr class="${trClassShowHide}">
                         <td><b>${i} платеж</b> <br>${moment().add('months', i).format('MMMM YYYY')}</th>
                         <td></td>
                         <td></td>
