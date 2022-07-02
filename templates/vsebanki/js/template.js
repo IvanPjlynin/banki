@@ -963,7 +963,7 @@ jQuery(document).ready(function ($) {
             },
             saveParams: function (elem) {
                 this.params[$(elem).attr('id')] = $(elem).val().replace(/\s+/g, '');
-                console.log('------------> ', calcIpoteca.params);
+                console.log('------------> ', calcIpoteca.params['one-vznos']);
             }
         };
 
