@@ -997,7 +997,7 @@ jQuery(document).ready(function ($) {
             step: 10000,
             grid_num: 4,
             grid_snap: '',
-            max: 2000000
+            max: 50000000
         });
 
         $sliderStoimostNedvig.on("change", function () {
@@ -1023,7 +1023,7 @@ jQuery(document).ready(function ($) {
             step: 10000,
             grid_num: 4,
             grid_snap: '',
-            max: 100000000
+            max: 2000000
         });
 
         $sliderOneVznos.on("change", function () {
