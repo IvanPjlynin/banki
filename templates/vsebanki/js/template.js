@@ -943,6 +943,8 @@ jQuery(document).ready(function ($) {
             },
             onChangeInput: function (elem) {
                 $(elem).on("change keyup paste", function () {
+                    calcIpoteca.digits_int(elem);
+                    calcIpoteca.saveParams(elem);
 
                     if ($(elem).attr('id') == 'stoimost-nedvig') {
                         var sliderStoimostNedvig = $sliderStoimostNedvig.data("ionRangeSlider");
@@ -956,9 +958,6 @@ jQuery(document).ready(function ($) {
                             from: calcIpoteca.params['one-vznos']
                         });
                     }
-
-                    calcIpoteca.digits_int(elem);
-                    calcIpoteca.saveParams(elem);
                 });
             },
             saveParams: function (elem) {
