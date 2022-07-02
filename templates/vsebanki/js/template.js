@@ -933,7 +933,7 @@ jQuery(document).ready(function ($) {
     $sliderCreditSumm.ionRangeSlider({
         type: "single",
         grid: false,
-        from: 3000000,
+        from: 5000000,
         postfix: '',
         min: 100000,
         step: 1000,
