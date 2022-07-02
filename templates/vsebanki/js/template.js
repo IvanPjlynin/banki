@@ -947,13 +947,13 @@ jQuery(document).ready(function ($) {
                     if ($(elem).attr('id') == 'stoimost-nedvig') {
                         var sliderStoimostNedvig = $sliderStoimostNedvig.data("ionRangeSlider");
                         sliderStoimostNedvig.update({
-                            from: this.params['stoimost-nedvig']
+                            from: calcIpoteca.params['stoimost-nedvig']
                         });
                     }
                     if ($(elem).attr('id') == 'one-vznos') {
                         var sliderOneVznos = $sliderOneVznos.data("ionRangeSlider");
                         sliderOneVznos.update({
-                            from: this.params['one-vznos']
+                            from: calcIpoteca.params['one-vznos']
                         });
                     }
 
