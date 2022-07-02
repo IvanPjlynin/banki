@@ -949,6 +949,15 @@ jQuery(document).ready(function ($) {
             },
             saveParams: function (elem) {
                 this.params[$(elem).attr('id')] = $(elem).val().replace(/\s+/g, '');
+
+                if ($(elem).attr('id') == 'stoimost-nedvig') {
+                    var sliderStoimostNedvig = $sliderStoimostNedvig.data("ionRangeSlider");
+                    sliderStoimostNedvig.update({
+                        from: this.params[$(elem).attr('id')];
+                    });
+                }
+
+
                 console.log('------------> ', calcIpoteca.params);
             }
         };
