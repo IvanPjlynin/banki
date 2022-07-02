@@ -738,130 +738,130 @@ jQuery(document).ready(function ($) {
 });
 //ivp правки фильтра
 jQuery(document).ready(function ($) {
-    //выравниевание блоков по высоте
-    $('.banner-wrapper').matchHeight();
+            //выравниевание блоков по высоте
+            $('.banner-wrapper').matchHeight();
 
 
-    //форма калькулятора и расчет
-    if ($('.form-credit-calc').length > 0) {
+            //форма калькулятора и расчет
+            if ($('.form-credit-calc').length > 0) {
 
-        //печать
-        $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').click(function (e) {
-            e.preventDefault();
-            $(this).toggle();
-            $('#showTrTable').trigger('click');
-            $('#exampleModalGrafic .modal-content').printThis({
-                printDelay: 200,
-                afterPrint: function () {
-                    $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').toggle();
-                }
-            });
-        });
-
-        //let sliderCreditSumm = $('#summ-kredit-slider');
-
-        var $sliderCreditSumm = $('#summ-kredit-slider');
-        $sliderCreditSumm.ionRangeSlider({
-            type: "single",
-            grid: false,
-            from: 1000000,
-            postfix: '',
-            min: 10000,
-            step: 1000,
-            grid_num: 4,
-            grid_snap: '',
-            max: 5000000
-        });
-
-        $sliderCreditSumm.on("change", function () {
-            var $this = $(this),
-                value = $this.prop("value")
-
-            $('#summ-kredit').val(value);
-
-            kredit['summ-kredit'] = $('#summ-kredit').val().replace(/\s+/g, '');
-
-            digits_int(this);
-            getRezultElemForm();
-            renderTableGrafic();
-
-        });
-
-
-        let kredit = {
-            "summ-kredit": 1000000,
-            "select-valute": "₽",
-            "stavka-procent": "9.5",
-            "srock-credit": "12"
-        };
-        getRezultElemForm();
-
-        function digits_int(target) {
-            //val = $(target).val().replace(/[^0-9]/g, '');
-            val = $('#summ-kredit').val().replace(/[^0-9]/g, '');
-            val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-            //$(target).val(val);
-            $('#summ-kredit').val(val);
-        }
-
-        function getRezultElemForm() {
-            $('.form-credit-calc_valute').html(kredit['select-valute']);
-            let stavka_procent = kredit['stavka-procent'] / 100 / 12;
-            let summCredit = kredit['summ-kredit'];
-            let srocCredita = kredit['srock-credit'];
-
-            let mesPlateg = (summCredit * stavka_procent * ((1 + stavka_procent) ** srocCredita)) / (((1 + stavka_procent) ** srocCredita) - 1);
-
-            console.log('mesPlateg - ', mesPlateg);
-
-            $('.form-credit-calc_mes-plat').html(Math.round(mesPlateg));
-            $('.form-credit-calc_pereplat').html(Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
-            $('.form-credit-calc_summ').html(Math.round(mesPlateg * kredit['srock-credit']));
-            $('.form-credit-calc .progress .progress-bar').width(100 - ((Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit'])) / (Math.round(mesPlateg * kredit['srock-credit']) / 100)) + '%');
-
-        }
-
-        function setDataCalcFormEdit(elem) {
-            $(elem).on("change keyup paste", function () {
-                kredit[$(this).attr('id')] = $(this).val().replace(/\s+/g, '');
-                getRezultElemForm();
-                digits_int(this);
-                console.log(kredit);
-                renderTableGrafic();
-
-                var sliderCreditSumm = $sliderCreditSumm.data("ionRangeSlider");
-                sliderCreditSumm.update({
-                    from: kredit['summ-kredit']
+                //печать
+                $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').click(function (e) {
+                    e.preventDefault();
+                    $(this).toggle();
+                    $('#showTrTable').trigger('click');
+                    $('#exampleModalGrafic .modal-content').printThis({
+                        printDelay: 200,
+                        afterPrint: function () {
+                            $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').toggle();
+                        }
+                    });
                 });
 
-            })
-        }
+                //let sliderCreditSumm = $('#summ-kredit-slider');
 
-        function renderTableGrafic() {
-            let i = 1;
-            let stavka_procent = kredit['stavka-procent'] / 100 / 12;
-            let annyPlateg = Math.round(kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) ** kredit['srock-credit'])) / (((1 + stavka_procent) ** kredit['srock-credit']) - 1)));
-            let pogasheno = 0;
-            let summaCredit = Math.round(annyPlateg * kredit['srock-credit']);
-            let ostatok = summaCredit;
-            let procent = Math.round((summaCredit - kredit['summ-kredit']) / kredit['srock-credit']);
-            let summProcent = procent;
+                var $sliderCreditSumm = $('#summ-kredit-slider');
+                $sliderCreditSumm.ionRangeSlider({
+                    type: "single",
+                    grid: false,
+                    from: 1000000,
+                    postfix: '',
+                    min: 10000,
+                    step: 1000,
+                    grid_num: 4,
+                    grid_snap: '',
+                    max: 5000000
+                });
 
-            moment.locale('ru');
+                $sliderCreditSumm.on("change", function () {
+                    var $this = $(this),
+                        value = $this.prop("value")
+
+                    $('#summ-kredit').val(value);
+
+                    kredit['summ-kredit'] = $('#summ-kredit').val().replace(/\s+/g, '');
+
+                    digits_int(this);
+                    getRezultElemForm();
+                    renderTableGrafic();
+
+                });
 
 
-            $("#exampleModalGrafic table.table-grafic tbody, #exampleModalGrafic table.table-footer tbody").empty();
+                let kredit = {
+                    "summ-kredit": 1000000,
+                    "select-valute": "₽",
+                    "stavka-procent": "9.5",
+                    "srock-credit": "12"
+                };
+                getRezultElemForm();
 
-            while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
-                pogasheno = pogasheno + annyPlateg;
-
-                trClassShowHide = 'visually-hidden';
-                if ((i <= 3) || (i > (kredit['srock-credit'] - 1))) {
-                    trClassShowHide = 'show';
+                function digits_int(target) {
+                    //val = $(target).val().replace(/[^0-9]/g, '');
+                    val = $('#summ-kredit').val().replace(/[^0-9]/g, '');
+                    val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+                    //$(target).val(val);
+                    $('#summ-kredit').val(val);
                 }
 
-                if (i == 4) {
-                    $("#exampleModalGrafic table.table-grafic tbody").append(`
+                function getRezultElemForm() {
+                    $('.form-credit-calc_valute').html(kredit['select-valute']);
+                    let stavka_procent = kredit['stavka-procent'] / 100 / 12;
+                    let summCredit = kredit['summ-kredit'];
+                    let srocCredita = kredit['srock-credit'];
+
+                    let mesPlateg = (summCredit * stavka_procent * ((1 + stavka_procent) ** srocCredita)) / (((1 + stavka_procent) ** srocCredita) - 1);
+
+                    console.log('mesPlateg - ', mesPlateg);
+
+                    $('.form-credit-calc_mes-plat').html(Math.round(mesPlateg));
+                    $('.form-credit-calc_pereplat').html(Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
+                    $('.form-credit-calc_summ').html(Math.round(mesPlateg * kredit['srock-credit']));
+                    $('.form-credit-calc .progress .progress-bar').width(100 - ((Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit'])) / (Math.round(mesPlateg * kredit['srock-credit']) / 100)) + '%');
+
+                }
+
+                function setDataCalcFormEdit(elem) {
+                    $(elem).on("change keyup paste", function () {
+                        kredit[$(this).attr('id')] = $(this).val().replace(/\s+/g, '');
+                        getRezultElemForm();
+                        digits_int(this);
+                        console.log(kredit);
+                        renderTableGrafic();
+
+                        var sliderCreditSumm = $sliderCreditSumm.data("ionRangeSlider");
+                        sliderCreditSumm.update({
+                            from: kredit['summ-kredit']
+                        });
+
+                    })
+                }
+
+                function renderTableGrafic() {
+                    let i = 1;
+                    let stavka_procent = kredit['stavka-procent'] / 100 / 12;
+                    let annyPlateg = Math.round(kredit['summ-kredit'] * ((stavka_procent * ((1 + stavka_procent) ** kredit['srock-credit'])) / (((1 + stavka_procent) ** kredit['srock-credit']) - 1)));
+                    let pogasheno = 0;
+                    let summaCredit = Math.round(annyPlateg * kredit['srock-credit']);
+                    let ostatok = summaCredit;
+                    let procent = Math.round((summaCredit - kredit['summ-kredit']) / kredit['srock-credit']);
+                    let summProcent = procent;
+
+                    moment.locale('ru');
+
+
+                    $("#exampleModalGrafic table.table-grafic tbody, #exampleModalGrafic table.table-footer tbody").empty();
+
+                    while (i <= kredit['srock-credit']) { // когда i будет равно 0, условие станет ложным, и цикл остановится
+                        pogasheno = pogasheno + annyPlateg;
+
+                        trClassShowHide = 'visually-hidden';
+                        if ((i <= 3) || (i > (kredit['srock-credit'] - 1))) {
+                            trClassShowHide = 'show';
+                        }
+
+                        if (i == 4) {
+                            $("#exampleModalGrafic table.table-grafic tbody").append(`
                     <tr class="tr-btn-click" style="background: #6e6e6e12;">
                         <td colspan="5">
                             <div class="section full-item-block block3 text-center p-2">
@@ -869,11 +869,11 @@ jQuery(document).ready(function ($) {
                             </div>
                         </td>
                     </tr>`);
-                }
+                        }
 
-                moment().add('months', i);
+                        moment().add('months', i);
 
-                $("#exampleModalGrafic table.table-grafic tbody").append(`
+                        $("#exampleModalGrafic table.table-grafic tbody").append(`
                     <tr class="${trClassShowHide}">
                         <td><b>${i} платеж</b> <br>${moment().add('months', i).format('MMMM YYYY')};</th>
                         <td>${ostatok}</td>
@@ -882,12 +882,12 @@ jQuery(document).ready(function ($) {
                         <td>${annyPlateg}</td>
                     </tr>`);
 
-                ostatok = ostatok - annyPlateg;
-                summProcent = summProcent + procent;
-                i++;
-            }
+                        ostatok = ostatok - annyPlateg;
+                        summProcent = summProcent + procent;
+                        i++;
+                    }
 
-            $("#exampleModalGrafic table.table-grafic tbody").append(`<tr>
+                    $("#exampleModalGrafic table.table-grafic tbody").append(`<tr>
                         <td><b>Итого </b></th>
                         <td>&nbsp;</td>
                         <td><b>${procent * kredit['srock-credit']}</b></td>
@@ -895,115 +895,127 @@ jQuery(document).ready(function ($) {
                         <td><b>${summaCredit}</b></td>
                     </tr>`);
 
-            valSumCredit = $('#summ-kredit').val().replace(/[^0-9]/g, '');
-            valSumCredit = valSumCredit.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+                    valSumCredit = $('#summ-kredit').val().replace(/[^0-9]/g, '');
+                    valSumCredit = valSumCredit.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
-            $('#exampleModalGrafic .summ-credit').html(valSumCredit);
-            $('#exampleModalGrafic .valute-credit').html(kredit['select-valute']);
-            $('#exampleModalGrafic .sroc-credit').html(kredit['srock-credit']);
-            $('#exampleModalGrafic .stavca-credit').html(kredit['stavka-procent']);
+                    $('#exampleModalGrafic .summ-credit').html(valSumCredit);
+                    $('#exampleModalGrafic .valute-credit').html(kredit['select-valute']);
+                    $('#exampleModalGrafic .sroc-credit').html(kredit['srock-credit']);
+                    $('#exampleModalGrafic .stavca-credit').html(kredit['stavka-procent']);
 
-        }
-        setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
-        renderTableGrafic();
+                }
+                setDataCalcFormEdit('#summ-kredit, #select-valute, #srock-credit, #stavka-procent');
+                renderTableGrafic();
 
-        $(document).on('click', '#showTrTable', function (e) {
-            e.preventDefault();
-            $('#exampleModalGrafic table.table-grafic tbody tr.visually-hidden').removeClass();
-            $('#exampleModalGrafic table.table-grafic tbody tr.tr-btn-click').remove();
-        });
-    }
+                $(document).on('click', '#showTrTable', function (e) {
+                    e.preventDefault();
+                    $('#exampleModalGrafic table.table-grafic tbody tr.visually-hidden').removeClass();
+                    $('#exampleModalGrafic table.table-grafic tbody tr.tr-btn-click').remove();
+                });
+            }
 
-    //ипотечный калькулятор
-    let calcIpoteca = {
-        params: {
-            "summ_kredit": 1000000,
-            "select_valute": "=₽",
-            "stavka_procent": "=9.5",
-            "srock_credit": "12"
-        },
-        go: function () {
-            return this.params.stavka_procent;
-        },
-        digits_int: function (target) {
-            val = $(target).val().replace(/[^0-9]/g, '');
-            val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-            $(target).val(val);
-        },
-        setSlideToInput: function (target, value) {
-            $(target).val(value);
-            this.digits_int(target);
-        }
-    };
-    console.log("calcIpoteca.params", calcIpoteca.go());
-    calcIpoteca.go();
+            //ипотечный калькулятор
+            if ($('.form-ipotec-calc').length > 0) {
+                let calcIpoteca = {
+                    params: {
+                        "summ_kredit": 1000000,
+                        "select_valute": "=₽",
+                        "stavka_procent": "=9.5",
+                        "srock_credit": "12"
+                    },
+                    go: function () {
+                        this.onChangeInput($('#stoimost-nedvig'));
+                    },
+                    digits_int: function (target) {
+                        val = $(target).val().replace(/[^0-9]/g, '');
+                        val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+                        $(target).val(val);
+                    },
+                    setSlideToInput: function (target, value) {
+                        $(target).val(value);
+                        this.digits_int(target);
+                    },
+                    onChangeInput: function (elem) {
+                        $(elem).on("change keyup paste", function () {
+                                this.digits_int(elem);
+                            }
+                        }
+                    };
 
-    var $sliderStoimostNedvig = $('#stoimost-nedvig-slider');
-    $sliderStoimostNedvig.ionRangeSlider({
-        type: "single",
-        grid: false,
-        from: 5000000,
-        postfix: '',
-        min: 100000,
-        step: 10000,
-        grid_num: 4,
-        grid_snap: '',
-        max: 100000000
-    });
+                    calcIpoteca.go();
 
-    $sliderStoimostNedvig.on("change", function () {
-        var $this = $(this),
-            value = $this.prop("value");
+                    var $sliderStoimostNedvig = $('#stoimost-nedvig-slider');
+                    $sliderStoimostNedvig.ionRangeSlider({
+                        type: "single",
+                        grid: false,
+                        from: 5000000,
+                        postfix: '',
+                        min: 100000,
+                        step: 10000,
+                        grid_num: 4,
+                        grid_snap: '',
+                        max: 100000000
+                    });
 
-        calcIpoteca.setSlideToInput($('#stoimost-nedvig'), value);
-    });
+                    $sliderStoimostNedvig.on("change", function () {
+                        var $this = $(this),
+                            value = $this.prop("value");
+
+                        calcIpoteca.setSlideToInput($('#stoimost-nedvig'), value);
+                    });
+                }
 
 
+                $(elem).on("change keyup paste", function () {
+                    kredit[$(this).attr('id')] = $(this).val().replace(/\s+/g, '');
+                    getRezultElemForm();
+                    digits_int(this);
+                    console.log(kredit);
+                    renderTableGrafic();
 
-    function digits_int(target) {
-        //val = $(target).val().replace(/[^0-9]/g, '');
-        val = $('#summ-kredit').val().replace(/[^0-9]/g, '');
-        val = val.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-        //$(target).val(val);
-        $('#summ-kredit').val(val);
-    }
+                    var sliderCreditSumm = $sliderCreditSumm.data("ionRangeSlider");
+                    sliderCreditSumm.update({
+                        from: kredit['summ-kredit']
+                    });
 
-    //смена количества в фильтре при зугрузке
-    $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
-    //смена количества в фильтре при отработки чебоксов
-    $('.filter-fields input[type="checkbox"]').on('change', function () {
-        $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
-    });
-    $('.form-search input, .form-search input[type="radio"], .form-search input[type="checkbox"], .form-search select').on('change', function () {
-        console.log('изменен фильтр');
-        loadDataFiltr().done(function (data) {
-            console.log($(data).find('.item-content').length);
-            let articlesCount = $(data).find('.item-content').length;
-            $('.jlmf-button').text('Показать (' + articlesCount + ')');
-        })
-    });
+                })
 
-    function loadDataFiltr() {
-        var form = $('form.form-search');
-        //console.log(form.serialize());
-        return jQuery.ajax({
-            type: 'POST',
-            url: form.attr('action'),
-            cache: 'false',
-            data: form.serialize() + '&tmpl=jlcomponent_ajax',
-            dataType: 'html',
-        });
-    }
-    $('.jlmf-button').off('click.first');
-    $('.jlmf-button').on('click', function (e) {
-        e.preventDefault(); //отменить выполнение действия по умолчанию
-        //e.stopPropagation();
-        $('.blog-items').html('<img src="/modules/mod_jlcontentfieldsfilter/assets/images/ajax_loader.gif" style="width:30px;height:30px;margin:30 auto;display: block;">');
-        loadDataFiltr().done(function (data) {
-            //console.log($(data).find('.item-content').length);
-            let articlesResult = $(data).find('.blog-item');
-            //alert (articlesResult);
-            $('.blog-items').html(articlesResult);
-        });
-    });
-});
+                //смена количества в фильтре при зугрузке
+                $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
+                //смена количества в фильтре при отработки чебоксов
+                $('.filter-fields input[type="checkbox"]').on('change', function () {
+                    $('.search-filters > .number').text($('.filter-fields input[type="checkbox"]:checked').length);
+                });
+                $('.form-search input, .form-search input[type="radio"], .form-search input[type="checkbox"], .form-search select').on('change', function () {
+                    console.log('изменен фильтр');
+                    loadDataFiltr().done(function (data) {
+                        console.log($(data).find('.item-content').length);
+                        let articlesCount = $(data).find('.item-content').length;
+                        $('.jlmf-button').text('Показать (' + articlesCount + ')');
+                    })
+                });
+
+                function loadDataFiltr() {
+                    var form = $('form.form-search');
+                    //console.log(form.serialize());
+                    return jQuery.ajax({
+                        type: 'POST',
+                        url: form.attr('action'),
+                        cache: 'false',
+                        data: form.serialize() + '&tmpl=jlcomponent_ajax',
+                        dataType: 'html',
+                    });
+                }
+                $('.jlmf-button').off('click.first');
+                $('.jlmf-button').on('click', function (e) {
+                    e.preventDefault(); //отменить выполнение действия по умолчанию
+                    //e.stopPropagation();
+                    $('.blog-items').html('<img src="/modules/mod_jlcontentfieldsfilter/assets/images/ajax_loader.gif" style="width:30px;height:30px;margin:30 auto;display: block;">');
+                    loadDataFiltr().done(function (data) {
+                        //console.log($(data).find('.item-content').length);
+                        let articlesResult = $(data).find('.blog-item');
+                        //alert (articlesResult);
+                        $('.blog-items').html(articlesResult);
+                    });
+                });
+            });
