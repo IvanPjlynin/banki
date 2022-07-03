@@ -21,6 +21,12 @@ class plgContentYrvote extends JPlugin {
             return false;
         
         echo '<pre>';
+        print_r(array_search('84', $article->jcfields));
+        echo '</pre>';
+        
+        
+        
+        echo '<pre>';
         print_r($article->jcfields);
         echo '</pre>';
         die();
