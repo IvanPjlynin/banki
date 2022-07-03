@@ -54,6 +54,26 @@ class plgContentYrvote extends JPlugin {
             return $string;
         }
     }
+    
+    public function onContentAfterDisplay($context, &$article, &$params, $page = 0) {
+        $vote_plugin = JPluginHelper::getPlugin('content', 'vote');
+        $content = $this->check_if_content($context, $article);
+
+        if ($content == false || $vote_plugin)
+            return false;
+
+        if (!empty($params) && $params->get('show_vote', null)) {
+
+            $this->homepage = $this->if_is_homepage();
+            $document = $this->add_head();
+            $vars = $this->prepare_vars($article, $params);
+
+
+            $this->sctipt_to_html($document, $vars);
+            $string = $this->insert_stars($vars);
+            return $string;
+        }
+    }
 
     protected function sctipt_to_html($document, $vars) {
         if ($this->homepage == false) {
