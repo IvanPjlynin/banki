@@ -26,6 +26,7 @@ class plgContentYrvote extends JPlugin {
                $string = $this->insert_stars($vars);
                $article->jcfields[$key]->value = $string;
                
+               $document = $this->add_head();
                $this->sctipt_to_html($document, $vars);
                //print_r($article->jcfields[$key]->value);
            }
