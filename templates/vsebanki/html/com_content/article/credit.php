@@ -142,7 +142,7 @@ $attribs['style'] = 'none';
             </div>
         </div>
         <div class="bank-info-full">
-            <?php echo /*$this->item->text;*/ ?>
+            <?php /*echo $this->item->text;*/ ?>
 
             <div class="rl_tabs">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
