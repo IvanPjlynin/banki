@@ -417,7 +417,12 @@ class plgContentYrvote extends JPlugin
                     yrvoteimgclass.find(".yrvote-star").off("click").off("hover");
                     yrvoteimgclass.parents(".yrvote_box").html(itrating);
                     }
+<<<<<<< HEAD
                 },1000);
+=======
+
+                },1000); 
+>>>>>>> 4e3203d44bc7626be500224e5ca6fc46ce906c25
                }';
         $document->addScriptDeclaration($function);
         $uri = clone JUri::getInstance();
