@@ -23,7 +23,7 @@ class plgContentYrvote extends JPlugin {
         echo '<pre>';
         foreach ($article->jcfields as $key => $val) {
            
-               print_r($article->jcfields[$key]);
+               print_r($article->jcfields[$key]->value);
            
        }
         echo '</pre>';
