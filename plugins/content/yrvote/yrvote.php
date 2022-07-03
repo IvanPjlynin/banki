@@ -56,27 +56,7 @@ class plgContentYrvote extends JPlugin {
         }
     }
     
-    public function onContentAfterDisplay($context, &$article, &$params, $limitstart = 0) {
 
-        $content = $this->check_if_content($context, $article);
-        if ($content == false)
-            return false;
-
-        $regex = "#{yrvote}#";
-        preg_match_all($regex, $article->text, $matches, PREG_PATTERN_ORDER);
-
-        if (isset($matches[0][0])) {
-            $this->homepage = $this->if_is_homepage();
-            $document = $this->add_head();
-            $vars = $this->prepare_vars($article, $params);
-
-            foreach ($matches[0] as $value) {
-                $string = $this->insert_stars($vars);
-                $article->text = str_replace($value, $string, $article->text);
-            }
-            $this->sctipt_to_html($document, $vars);
-        }
-    }
 
 
     protected function sctipt_to_html($document, $vars) {
