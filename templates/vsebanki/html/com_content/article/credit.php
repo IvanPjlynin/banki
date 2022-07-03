@@ -113,7 +113,6 @@ $attribs['style'] = 'none';
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column rating">
                     <div class="rating-title"><?php echo JText::_('RATING'); ?></div>
                     {yrvote}
-                    <?php echo $this->item->extrafields['rejting2']->value; ?>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-logo">
                     <?php echo LayoutHelper::render('joomla.content.full_image', $this->item); ?>
