@@ -5,18 +5,14 @@
  * @extension       MarlevUpdate - Marlev Extensions Automatic Update
  * @author          Lev Milicenco<support@marlev.it>
  * @link            http://www.marlev.it
- * @copyright       Copyright 2022 marlev.it All Rights Reserved
+ * @copyright       Copyright 2017 marlev.it All Rights Reserved
  * @license         http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  */
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Version;
+class plgInstallerMarlevupdate extends JPlugin {
 
-class plgInstallerMarlevupdate extends JPlugin
-{
-
-    public function onInstallerBeforePackageDownload(&$url, &$headers)
-    {
+    public function onInstallerBeforePackageDownload(&$url, &$headers) {
 
 
         $uri = JUri::getInstance($url);
@@ -30,11 +26,14 @@ class plgInstallerMarlevupdate extends JPlugin
         $explode_ext = explode("_", $extension);
 
 
+
         $param = new JRegistry();
         if ($explode_ext[0] == "com") {
-            $com_params = \Joomla\CMS\Component\ComponentHelper::getComponent($extension)->getParams();
-            $gets = (array)$com_params->get("params");
-            $get_params = $param->loadArray($gets);
+            JLoader::import('joomla.application.component.helper');
+
+            $com_params = JComponentHelper::getParams($extension);
+            $gets = $com_params->get("params");
+            $get_params = $param->loadArray($com_params->get("params"));
         } else if ($explode_ext[0] == "tpl") {
             $get_templatekey = $this->get_marlevtemplate($explode_ext[1]);
             $get_params = $param->loadString($get_templatekey);
@@ -57,21 +56,14 @@ class plgInstallerMarlevupdate extends JPlugin
 
         $uri->setVar('product_key', $update_key);
         $uri->setVar('private_key', $private_key);
+
         $url = $uri->toString();
         return true;
     }
 
-    private function getjversion()
-    {
-        $v = new Version();
-        $getter = explode(".", $v->getShortVersion());
-        return $getter[0];
-    }
-
-    private function get_marlevtemplate($template)
-    {
+    private function get_marlevtemplate($template) {
         $return = '';
-        if (JComponentHelper::getComponent('com_tmarlev', true)->enabled && $this->getjversion() == 4) {
+        if (JComponentHelper::getComponent('com_tmarlev', true)->enabled) {
             $db = JFactory::getDbo();
             $query = $db->getQuery(true);
             $query->select('params');
@@ -92,8 +84,7 @@ class plgInstallerMarlevupdate extends JPlugin
         return $return;
     }
 
-    protected function update_servers()
-    {
+    protected function update_servers() {
         return array("marlev.it", "itroom.it");
     }
 
