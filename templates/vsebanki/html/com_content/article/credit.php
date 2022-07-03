@@ -142,7 +142,134 @@ $attribs['style'] = 'none';
             </div>
         </div>
         <div class="bank-info-full">
-            <?php echo $this->item->text; ?>
+            <?php echo /*$this->item->text;*/ ?>
+
+            <div class="rl_tabs">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="tab-stavki" data-bs-toggle="tab" data-bs-target="#tab-stavki-tab" type="button" role="tab" aria-controls="tab-stavki" aria-selected="true">Ставки</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tab-trebovaniya" data-bs-toggle="tab" data-bs-target="#tab-trebovaniya-tab" type="button" role="tab" aria-controls="tab-trebovaniya" aria-selected="false">Требования</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tab-dopolnitelno" data-bs-toggle="tab" data-bs-target="#tab-dopolnitelno-tab" type="button" role="tab" aria-controls="tab-dopolnitelno" aria-selected="false">Дополнительно</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="tab-stavki-tab" role="tabpanel" aria-labelledby="tab-stavki">
+                        <div class="row tab-text">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Сумма</h3>
+                                <p class="tab-text-block-content">50 000 - 5 000 000</p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Ставка без страховки</h3>
+                                <p class="tab-text-block-content">9.4% - 16.2%</p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Срок</h3>
+                                <p class="tab-text-block-content">6 мес - 7 мес</p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Ставка cо страховкой</h3>
+                                <p class="tab-text-block-content">5.4% - 12.2%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-trebovaniya-tab" role="tabpanel" aria-labelledby="tab-trebovaniya">
+                        <div class="row tab-text">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Возраст</h3>
+                                <p class="tab-text-block-content">от 21 года</p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Общий стаж</h3>
+                                <p class="tab-text-block-content">от 12 месяцев</p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Зарплата</h3>
+                                <p class="tab-text-block-content">от 250 000</p>
+                            </div>
+                        </div>
+                        <div class="row tab-text two">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Возраст для погашения</h3>
+                                <p class="tab-text-block-content">до 77 лет</p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">На последнем месте работы</h3>
+                                <p class="tab-text-block-content">Не требуется</p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Требование для подачи заявки</h3>
+                                <p class="tab-text-block-content">Гражданство РФ, постоянная регистрация</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
+                        <div class="row tab-text">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Обязательные документы</h3>
+                                <p class="tab-text-block-content">Паспорт, СНИЛС</p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Подтверждение дохода</h3>
+                                <p class="tab-text-block-content">Без справок о доходах</p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Способ получения</h3>
+                                <p class="tab-text-block-content">На счет, на карту</p>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Рассмотрение</h3>
+                                <p class="tab-text-block-content">от 2 мин - 3 дн</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button text-center" style="margin-bottom: 40px;"><a class="btn-green" href="#" style="max-width: 403px;">Оставить заявку</a></div>
+            <div class="article-content">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Кредиты в банках Санкт-Петербурга</h2>
+
+                        <p>Кредиты в Санкт-Петербурге отличаются своим разнообразием. Можно найти предложение с минимальными процентными ставками, минимальным набором документов. Взять кредит в Санкт-Петербурге могут люди, которые ранее не пользовались подобным банковским продуктом, граждане с разной КИ.</p>
+
+                        <h3>Как и где оформить кредит в Санкт-Петербурге?</h3>
+
+                        <p>Получить кредит в Санкт-Петербурге можно в:</p>
+                        <ul>
+                            <li>крупных холдингах (Сбербанк, ВТБ, Альфа банк, Совкомбанк, Почта Банк, Тинькофф);</li>
+                            <li>небольших петербургских банках.</li>
+                        </ul>
+                        <p>При выборе ориентируйтесь на рейтинг и оценку ЦБ РФ. Для физических лиц есть программы, предусматривающие оформление онлайн кредита в Санкт-Петербурге или с выдачей наличных в филиале. Разные требования предъявляются и к пакету документов.</p>
+                        <p>В одном случае для потребительского кредита в Санкт-Петербурге достаточно предоставить паспорт и второй документ, в другом — справку о доходах и информацию о постоянном месте работы. Банки Санкт-Петербурга рассматривают вопрос о процентной ставке индивидуально.</p>
+                        <h3>Способы оформления заявки на кредит в СПб: онлайн или поход в банк</h3>
+
+                        <p>Проще подается онлайн-заявка на кредит в Санкт-Петербурге. Заполнить анкету можно на нашем сайте или на официальной странице. Вы можете выбрать выгодное предложение, процентную ставку. Сроки рассмотрения кандидатуры для кредита в банках Санкт-Петербурга составляют до недели.</p>
+
+                        <p>Получить кредит в Санкт-Петербурге можно и с оформлением заявки в банке. Принесите в отделение сразу все необходимые документы. Вам предложат лучший кредит с учетом ваших индивидуальных особенностей и КИ.</p>
+
+                        <h3>Как подобрать подходящий кредит в Санкт-Петербурге?</h3>
+
+                        <p>Выгодный кредит в Санкт-Петербурге найдете на сайте Bankiros.ru. Воспользуйтесь калькулятором кредитов для быстрой сортировки по заданным параметрам. Останется:</p>
+
+                        <ul>
+                            <li>перейти на страницу понравившегося предложения;</li>
+                            <li>подробно изучить условия;</li>
+                            <li>нажать «Подать заявку»;</li>
+                            <li>заполнить заявку;</li>
+                            <li>получить кредит наличными в Санкт-Петербурге..</li>
+                        </ul>
+                        <p>Оформить кредит в Санкт-Петербурге по такой схеме просто, поскольку есть возможность отправить заявку в несколько учреждений для гарантированного получения одобрения.</p>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 
