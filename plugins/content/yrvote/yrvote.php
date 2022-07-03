@@ -16,10 +16,7 @@ class plgContentYrvote extends JPlugin {
     public function onContentPrepare($context, &$article, &$params, $limitstart = 0) {
         
         $content = $this->check_if_content($context, $article);
-        echo '<pre>';
-        var_dump($article);
-        echo '</pre>';
-        die();
+
         if ($content == false)
             return false;
 
