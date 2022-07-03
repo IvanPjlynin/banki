@@ -20,15 +20,24 @@ class plgContentYrvote extends JPlugin {
         if ($content == false)
             return false;
         
-        echo '<pre>';
-        print_r(array_search('84', $article->jcfields));
-        echo '</pre>';
+        
+        foreach ($array as $key => $val) {
+           if ($val['uid'] === $id) {
+               print_r($key);
+           }
+       }
         
         
         
-        echo '<pre>';
-        print_r($article->jcfields);
-        echo '</pre>';
+        //echo '<pre>';
+        //print_r(array_search('84', $article->jcfields));
+        //echo '</pre>';
+        
+        
+        
+        //echo '<pre>';
+        //print_r($article->jcfields);
+        //echo '</pre>';
         die();
         $regex = "#{yrvote}#";
         preg_match_all($regex, $article->text, $matches, PREG_PATTERN_ORDER);
