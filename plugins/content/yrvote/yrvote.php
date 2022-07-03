@@ -23,11 +23,13 @@ class plgContentYrvote extends JPlugin {
         //echo '<pre>';
         foreach ($article->jcfields as $key => $val) {
            if($article->jcfields[$key]->value == '{yrvote}') {
-               $string = $this->insert_stars($vars);
-               $article->jcfields[$key]->value = $string;
                
                $document = $this->add_head();
                $vars = $this->prepare_vars($article, $params);
+               $string = $this->insert_stars($vars);
+               $article->jcfields[$key]->value = $string;
+               
+               
                $this->sctipt_to_html($document, $vars);
                //print_r($article->jcfields[$key]->value);
            }
