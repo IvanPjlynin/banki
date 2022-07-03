@@ -110,8 +110,12 @@ jQuery(document).ready(function () {
         jQuery(this).children("span").each(function () {
             w = jQuery(this).width() + w;
         });
-        jQuery(this).css({"width": w + w});
-        jQuery(this).parent().find(".yrvotetotal").css({"width": w + w});
+        jQuery(this).css({
+            "width": w + w
+        });
+        jQuery(this).parent().find(".yrvotetotal").css({
+            "width": w + w
+        });
     });
 
 
