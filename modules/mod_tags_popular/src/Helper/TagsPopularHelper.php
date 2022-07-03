@@ -38,7 +38,7 @@ abstract class TagsPopularHelper
 		$user        = Factory::getUser();
 		$groups      = $user->getAuthorisedViewLevels();
 		$timeframe   = $params->get('timeframe', 'alltime');
-		$maximum     = $params->get('maximum', 5);
+		$maximum     = (int) $params->get('maximum', 5);
 		$order_value = $params->get('order_value', 'title');
 		$nowDate     = Factory::getDate()->toSql();
 		$nullDate    = $db->getNullDate();
@@ -54,7 +54,7 @@ abstract class TagsPopularHelper
 					'MAX(' . $db->quoteName('t.params') . ') AS ' . $db->quoteName('params'),
 				]
 			)
-			->group($db->quoteName(['tag_id', 'title', 'access', 'alias']))
+			->group($db->quoteName(['tag_id', 't.title', 't.access', 't.alias']))
 			->from($db->quoteName('#__contentitem_tag_map', 'm'))
 			->whereIn($db->quoteName('t.access'), $groups);
 
@@ -68,6 +68,22 @@ abstract class TagsPopularHelper
 		{
 			$query->whereIn($db->quoteName('t.parent_id'), $parentTags);
 		}
+
+		// Filter on category state
+		$query->join(
+			'INNER',
+			$db->quoteName('#__ucm_content', 'ucm'),
+			$db->quoteName('m.content_item_id') . ' = ' . $db->quoteName('ucm.core_content_item_id') .
+			' AND ' . $db->quoteName('m.type_id') . ' = ' . $db->quoteName('ucm.core_type_id')
+		);
+
+		$query->join(
+			'INNER',
+			$db->quoteName('#__categories', 'cat'),
+			$db->quoteName('ucm.core_catid') . ' = ' . $db->quoteName('cat.id')
+		);
+
+		$query->where($db->quoteName('cat.published') . ' > 0');
 
 		// Optionally filter on language
 		$language = ComponentHelper::getParams('com_tags')->get('tag_list_language_filter', 'all');
@@ -127,7 +143,11 @@ abstract class TagsPopularHelper
 				// Backup bound parameters array of the original query
 				$bounded = $query->getBounded();
 
-				$query->setLimit($maximum);
+				if ($maximum > 0)
+				{
+					$query->setLimit($maximum);
+				}
+
 				$query->order($db->quoteName('count') . ' DESC');
 				$equery = $db->getQuery(true)
 					->select(
@@ -158,7 +178,11 @@ abstract class TagsPopularHelper
 			}
 		}
 
-		$query->setLimit($maximum, 0);
+		if ($maximum > 0)
+		{
+			$query->setLimit($maximum);
+		}
+
 		$db->setQuery($query);
 
 		try

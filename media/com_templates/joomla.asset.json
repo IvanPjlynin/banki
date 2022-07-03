@@ -85,7 +85,7 @@
       "name": "com_templates.admin-templates",
       "type": "style",
       "uri": "com_templates/admin-templates-default.min.css",
-      "version": "cd12959b267aa4459e8f78098a53c23b205d1f3c"
+      "version": "1bacad73db8a9b90fffd909e283d16af69cad605"
     },
     {
       "name": "com_templates.admin-templates.es5",
@@ -98,7 +98,7 @@
         "nomodule": true,
         "defer": true
       },
-      "version": "8f49b81c2bb566ff85b09c8c5f79712e6047f48c"
+      "version": "5398eb3f677f7ffb4ed1fd08c64bf8939dc9d0af"
     },
     {
       "name": "com_templates.admin-templates",
@@ -110,7 +110,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "a7b87e59a68004d495abbaf7736e0b35f49b6e30"
+      "version": "0ea31502469a23385aac72c89cf83a181a32666b"
     }
   ]
 }

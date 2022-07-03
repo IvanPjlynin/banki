@@ -489,8 +489,6 @@ abstract class FormField
 					return $this->dataAttributes[$name];
 				}
 		}
-
-		return;
 	}
 
 	/**
@@ -749,11 +747,11 @@ abstract class FormField
 		// If we already have an id segment add the field id/name as another level.
 		if ($id)
 		{
-			$id .= '_' . ($fieldId ? $fieldId : $fieldName);
+			$id .= '_' . ($fieldId ?: $fieldName);
 		}
 		else
 		{
-			$id .= ($fieldId ? $fieldId : $fieldName);
+			$id .= ($fieldId ?: $fieldName);
 		}
 
 		// Clean up any invalid characters.
@@ -1068,6 +1066,10 @@ abstract class FormField
 				$options['hiddenDescription'] = $this->hiddenDescription;
 			}
 		}
+
+		$options['inlineHelp'] = isset($this->form->getXml()->config->inlinehelp['button'])
+			? ((string) $this->form->getXml()->config->inlinehelp['button'] == 'show' ?: false)
+			: false;
 
 		if ($this->showon)
 		{

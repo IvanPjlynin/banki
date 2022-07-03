@@ -105,14 +105,14 @@ jQuery(document).ready(function () {
 
 
 
-    jQuery(".yrvoteimg").each(function () {
-        var w = 0;
-        jQuery(this).children("span").each(function () {
-            w = jQuery(this).width() + w;
-        });
-        jQuery(this).css({"width": w + w});
-        jQuery(this).parent().find(".yrvotetotal").css({"width": w + w});
-    });
+    // jQuery(".yrvoteimg").each(function () {
+    //     var w = 0;
+    //     jQuery(this).find(".fa").each(function () {
+    //         w = jQuery(this).width() + w;
+    //     });
+    //     jQuery(this).css({"width": w + w});
+    //     jQuery(this).parent().find(".yrvotetotal").css({"width": w + w});
+    // });
 
 
 });

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fields name="attribs">
+
+        <fieldset name="params" label="YRVote">
+
+                <field name="contenttype" type="list" default="use_global" label="COM_PLUGINS_SNIPPETTYPE_FIELDSET_LABEL"  rows="3"
+                       cols="30">
+                    <option value="use_global">JGLOBAL_USE_GLOBAL</option>
+                    <option value="creativeworkseason">CreativeWorkSeason</option>
+                    <option value="course">Course</option>
+                    <option value="product">Product</option>
+                </field>
+            <field name="pname"  type="text" default="" hint="Name of Course, Product..." label="YRVOTE_NAME" description="YRVOTE_INSERT_NAME_OF"
+                   showon="contenttype:product[OR]contenttype:course"
+            />
+            <field name="pdescription"  type="text" default="" hint="Description of Course, Product..." label="YRVOTE_DESC" description="YRVOTE_INSERT_DESC_OF"
+                    showon="contenttype:product[OR]contenttype:course"
+            />
+
+
+            <field
+                    name="show_yrvote"
+                    type="list"
+                    label="JGLOBAL_SHOW_VOTE_LABEL"
+                    class="form-select-color-state"
+                    validate="options"
+                    default="1"
+            >
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
+            </field>
+            <field name="yrvotebrand" type="text" default="" hint="If emty, will be used article option or global" label="YRVOTE_BRAND" description="YRVOTE_BRAND_DESK"
+                   stylesize="10"
+            />
+            <field name="yrvotestyle" type="list" default="use_global" label="YRVOTE_STAR_STYLE"  >
+                <option value="use_global">JGLOBAL_USE_GLOBAL</option>
+                <option value="blue">YRVOTE_BLUE</option>
+                <option value="red">YRVOTE_RED</option>
+                <option value="green">YRVOTE_GREEN</option>
+                <option value="yellow">YRVOTE_YELLOW</option>
+                <option value="purple">YRVOTE_PURPLE</option>
+            </field>
+            <field name="yrvotestarsize" type="list" default="use_global" label="YRVOTE_STAR_SIZE"  >
+                <option value="use_global">JGLOBAL_USE_GLOBAL</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+            </field>
+            <field name="yrvotealign" type="list" class="btn-group " default="" label="YRVOTE_ALIGN"
+
+            >
+                <option value="use_global">JGLOBAL_USE_GLOBAL</option>
+                <option value="yrvote-center">YRVOTE_ALIGN_CENTER</option>
+                <option value="yrvote-left">YRVOTE_ALIGN_LEFT</option>
+                <option value="yrvote-right">YRVOTE_ALIGN_RIGHT</option>
+            </field>
+            <field name="yrvotecount" type="list" class="btn-group " default="1" label="YRVOTE_COUNT"
+
+            >
+                <option value="use_global">JGLOBAL_USE_GLOBAL</option>
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
+            </field>
+            <field name="yrvotetextcolor" type="color" default=""
+                   label="YRVOTE_TEXT_COLOR" hint="If emty, will be used article option or global"
+
+            />
+            <field name="yrvotetext" type="text" default="" label="YRVOTE_THANK"
+                   stylesize="10" hint="If emty, will be used article option or global"
+
+            />
+        </fieldset>
+    </fields>
+</form>

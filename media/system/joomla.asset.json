@@ -80,7 +80,7 @@
       "dependencies": [
         "core"
       ],
-      "version": "3cfa02e233a3320687fe9b7d1134d90c6d88e40a"
+      "version": "70b6651d6deab46dc8a25f03338f66f540cc62e2"
     },
     {
       "name": "messages",
@@ -95,6 +95,31 @@
       "version": "7425e8d1cb9e4f061d5e30271d6d99b085344117"
     },
     {
+      "name": "inlinehelp-legacy",
+      "type": "script",
+      "uri": "system/inlinehelp-es5.min.js",
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "dependencies": [
+        "core"
+      ],
+      "version": "a5630c75bc6ae50f121ab45580cf50990eef9468"
+    },
+    {
+      "name": "inlinehelp",
+      "type": "script",
+      "uri": "system/inlinehelp.min.js",
+      "attributes": {
+        "type": "module"
+      },
+      "dependencies": [
+        "inlinehelp-legacy"
+      ],
+      "version": "5e36e075be67c21b2439cfa452060ad3090af052"
+    },
+    {
       "name": "multiselect",
       "type": "script",
       "dependencies": [
@@ -104,7 +129,7 @@
       "attributes": {
         "defer": true
       },
-      "version": "48ce748e2d6e0ff3552bd0e0927833cefcf01911"
+      "version": "a78c7c2184ee83021253d01ce4a5da167199f3c0"
     },
     {
       "name": "searchtools",
@@ -129,7 +154,7 @@
         "defer": true,
         "nomodule": true
       },
-      "version": "079f76de32c3079737c332fb4dee32ddda8d493f"
+      "version": "4773265a19291954f19755d6f2ade3ca7ed9022f"
     },
     {
       "name": "showon",
@@ -142,7 +167,7 @@
       "attributes": {
         "type": "module"
       },
-      "version": "faea9ca18e3e92a6243f66d83d5ff12f01b925bc"
+      "version": "bfc733e48a923aaffb3d959cd04f176bad7d7d52"
     },
     {
       "name": "switcher",
@@ -185,7 +210,7 @@
       "dependencies": [
         "dragula"
       ],
-      "version": "184e54d0f97ab806d2c6f5c1643f27902e1697ff"
+      "version": "99df0440a40c558287e34d0ef429ab4d47b0bfc5"
     },
     {
       "name": "highlight-legacy",
@@ -198,7 +223,7 @@
       "dependencies": [
         "core"
       ],
-      "version": "baac5e087854a9f92780e0fd8dd84c63c74ea718"
+      "version": "aa8ebfb7e2279f4c00ac105bdf564990812896ad"
     },
     {
       "name": "highlight",
@@ -239,12 +264,6 @@
     },
     {
       "name": "field.calendar",
-      "type": "style",
-      "uri": "system/fields/calendar.css",
-      "version": "310d8eb8f7b2eeb6f82c417fe1d24271e32a8d95"
-    },
-    {
-      "name": "field.calendar",
       "type": "script",
       "uri": "system/fields/calendar.min.js",
       "attributes": {
@@ -254,12 +273,6 @@
         "field.calendar.helper"
       ],
       "version": "98c7f2f8860f0c44d72a82d32ed191007007de67"
-    },
-    {
-      "name": "field.calendar-rtl",
-      "type": "style",
-      "uri": "system/fields/calendar-rtl.css",
-      "version": "b2c0e5591d8e71ee353e507ee0d914d5713d383f"
     },
     {
       "name": "field.color-slider",
@@ -283,6 +296,12 @@
       "version": "2cf5ce06b5b33eeae7bfc9c13af12daa32ce7475"
     },
     {
+      "name": "field.calendar",
+      "type": "style",
+      "uri": "system/fields/calendar.css",
+      "version": "310d8eb8f7b2eeb6f82c417fe1d24271e32a8d95"
+    },
+    {
       "name": "webcomponent.field-fancy-select-legacy",
       "type": "script",
       "uri": "system/fields/joomla-field-fancy-select-es5.min.js",
@@ -294,7 +313,13 @@
         "wcpolyfill",
         "choicesjs"
       ],
-      "version": "410c97a9c65a28b3cd4e2dc29e36ebb41677714e"
+      "version": "94b84a555f30d400bcc9a3ebbbe23fb2d7c384c2"
+    },
+    {
+      "name": "field.calendar-rtl",
+      "type": "style",
+      "uri": "system/fields/calendar-rtl.css",
+      "version": "b2c0e5591d8e71ee353e507ee0d914d5713d383f"
     },
     {
       "name": "webcomponent.field-fancy-select",
@@ -332,7 +357,7 @@
       "dependencies": [
         "wcpolyfill"
       ],
-      "version": "32c02e7db99664c8a2d77a37fb2d67924b0eca1f"
+      "version": "d18f2f85eb5cc6b7007456d37caea2149443afe0"
     },
     {
       "name": "webcomponent.media-select",
@@ -344,7 +369,7 @@
       "dependencies": [
         "webcomponent.media-select-legacy"
       ],
-      "version": "f787ed6fa6f6d4ffbf8a6f7029459f0872aa00f2"
+      "version": "5c0ba0689e5edbcbbca4ea2587bce4fd83265380"
     },
     {
       "name": "webcomponent.field-media-legacy",
@@ -357,7 +382,7 @@
       "dependencies": [
         "wcpolyfill"
       ],
-      "version": "0adb5c1d17fe273849c42a4a8f4b133b17c40ee1"
+      "version": "edf17af57cda309526729bea2d079520adba69a6"
     },
     {
       "name": "webcomponent.field-media",
@@ -469,7 +494,7 @@
       "dependencies": [
         "wcpolyfill"
       ],
-      "version": "8e3dfe28b269e900329d647a54c01dc357a55c4c"
+      "version": "d8ad76bf2160644afc3a483007c5462ecb524b29"
     },
     {
       "name": "webcomponent.field-simple-color",
@@ -494,7 +519,7 @@
       "dependencies": [
         "wcpolyfill"
       ],
-      "version": "ae2042d7cfd8b26f62a24226a0540d8ce46a9d8a"
+      "version": "6a4cadbfbfdf673b3672160cecec53670a8d87a2"
     },
     {
       "name": "webcomponent.field-subform",
@@ -506,7 +531,7 @@
       "dependencies": [
         "webcomponent.field-subform-legacy"
       ],
-      "version": "b99b7a44d95a064fcf16f392cd4738835595ebd2"
+      "version": "0e0b205ec28517c528eb6f94f29ec5aa22842bda"
     },
     {
       "name": "webcomponent.field-user-legacy",
@@ -519,7 +544,7 @@
       "dependencies": [
         "wcpolyfill"
       ],
-      "version": "ce1471cc2a06753826351d0b12eb4bc3b53b5bce"
+      "version": "1ad3c533757fa321538fc6135856a55669b14edb"
     },
     {
       "name": "webcomponent.field-user",
@@ -544,7 +569,7 @@
       "dependencies": [
         "wcpolyfill"
       ],
-      "version": "9a902b9c79b5252cc41063bde586175c635201d9"
+      "version": "f011ab9aa9cd873f4a7032a1703fa42512f7824d"
     },
     {
       "name": "webcomponent.core-loader",
@@ -594,7 +619,7 @@
       "dependencies": [
         "wcpolyfill"
       ],
-      "version": "3dd0139a81dc4f6288fe90c54e7bd3944d1d5fa8"
+      "version": "b789c7848935f266e29fa47fe16b46e93e1ce67a"
     },
     {
       "name": "webcomponent.toolbar-button",

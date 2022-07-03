@@ -19,19 +19,6 @@
       "version": "dfda2cadb929cf361efab69cd56c9ef003a65dbe"
     },
     {
-      "name": "com_content.admin-article-readmore.es5",
-      "type": "script",
-      "uri": "com_content/admin-article-readmore-es5.min.js",
-      "dependencies": [
-        "core"
-      ],
-      "attributes": {
-        "nomodule": true,
-        "defer": true
-      },
-      "version": "3caf2bd836dad54185a2fbb3c9a625b7576d677c"
-    },
-    {
       "name": "com_content.admin-article-pagebreak",
       "type": "script",
       "uri": "com_content/admin-article-pagebreak.min.js",
@@ -43,6 +30,19 @@
         "defer": true
       },
       "version": "3a6400cb085212bd7f5f2f43ab8bfadfb405b7fd"
+    },
+    {
+      "name": "com_content.admin-article-readmore.es5",
+      "type": "script",
+      "uri": "com_content/admin-article-readmore-es5.min.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "3caf2bd836dad54185a2fbb3c9a625b7576d677c"
     },
     {
       "name": "com_content.admin-article-readmore",
@@ -57,18 +57,6 @@
       "version": "3e285e1e49b30182e409d2d82de5a337fa3a6c89"
     },
     {
-      "name": "com_content.admin-articles-batch",
-      "type": "script",
-      "uri": "com_content/admin-articles-default-batch-footer.min.js",
-      "dependencies": [
-        "com_content.admin-articles-batch.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "9ac1245a9dd2a9bf7e7f95c6e7e24f6075eef0ae"
-    },
-    {
       "name": "com_content.admin-articles-batch.es5",
       "type": "script",
       "uri": "com_content/admin-articles-default-batch-footer-es5.min.js",
@@ -80,6 +68,18 @@
         "defer": true
       },
       "version": "3660f7dadca40d79416fff13b55596f0cec73cd9"
+    },
+    {
+      "name": "com_content.admin-articles-batch",
+      "type": "script",
+      "uri": "com_content/admin-articles-default-batch-footer.min.js",
+      "dependencies": [
+        "com_content.admin-articles-batch.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "9ac1245a9dd2a9bf7e7f95c6e7e24f6075eef0ae"
     },
     {
       "name": "com_content.admin-articles-stage.es5",
@@ -145,6 +145,18 @@
       "version": "e7c98071755bbe4d4ad185fa342d361d56892073"
     },
     {
+      "name": "com_content.form-edit",
+      "type": "script",
+      "uri": "com_content/form-edit.min.js",
+      "dependencies": [
+        "com_content.form-edit.es5"
+      ],
+      "attributes": {
+        "type": "module"
+      },
+      "version": "405b01d00df544c5790201546a69f79d485a500d"
+    },
+    {
       "name": "com_content.articles-list.es5",
       "type": "script",
       "uri": "com_content/articles-list-es5.min.js",
@@ -156,18 +168,6 @@
         "defer": true
       },
       "version": "4d40a071d6672febde9190f361c8adecc94917d8"
-    },
-    {
-      "name": "com_content.form-edit",
-      "type": "script",
-      "uri": "com_content/form-edit.min.js",
-      "dependencies": [
-        "com_content.form-edit.es5"
-      ],
-      "attributes": {
-        "type": "module"
-      },
-      "version": "405b01d00df544c5790201546a69f79d485a500d"
     },
     {
       "name": "com_content.articles-list",

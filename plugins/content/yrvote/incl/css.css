@@ -2,7 +2,7 @@
 /**
     * @extensione  YRVote Plugin for Marlev Template ONLY!
     * @author      Lev Milicenco
-    * @copyright   (c) Marlev.it - Itroom SRLS - 2016. All rights reserved.
+    * @copyright   (c) Marlev.it - Itroom SRLS - 2022. All rights reserved.
     * @license     GNU General Public License version 2 or later; see LICENSE.txt
     */
 .yrvotetotal{
@@ -33,7 +33,13 @@
     transition: color 0.3s ease;
     -webkit-transition: color 0.3s ease;
 }
-
+.yrvote_box{
+    width: 100%;
+    clear: both;
+    display: block;
+    position: relative;
+    min-height: 20px;
+}
 /*RED Color*/
 .yrvote-star .yractive.red{
     color: red;
@@ -49,31 +55,31 @@
 }
 
 .yrvote-star .yrhalf3.red{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.39, red), color-stop(.40, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.39, red), color-stop(.40, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.39, red), color-stop(.40, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.39, red), color-stop(.40, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 .yrvote-star .yrhalf5.red{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.52, red), color-stop(.53, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.52, red), color-stop(.53, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.52, red), color-stop(.53, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.52, red), color-stop(.53, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
 .yrvote-star .yrhalf7.red{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.69, red), color-stop(.70, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.69, red), color-stop(.70, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.69, red), color-stop(.70, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.69, red), color-stop(.70, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
@@ -92,31 +98,31 @@
 }
 
 .yrvote-star .yrhalf3.green{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.39, #479e00), color-stop(.40, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.39, #479e00), color-stop(.40, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.39, #479e00), color-stop(.40, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.39, #479e00), color-stop(.40, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 .yrvote-star .yrhalf5.green{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.52, #479e00), color-stop(.53, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.52, #479e00), color-stop(.53, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.52, #479e00), color-stop(.53, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.52, #479e00), color-stop(.53, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
 .yrvote-star .yrhalf7.green{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.69, #479e00), color-stop(.70, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.69, #479e00), color-stop(.70, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.69, #479e00), color-stop(.70, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.69, #479e00), color-stop(.70, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
@@ -136,31 +142,31 @@
 }
 
 .yrvote-star .yrhalf3.yellow{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.39, #e5c706), color-stop(.40, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.39, #e5c706), color-stop(.40, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.39, #e5c706), color-stop(.40, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.39, #e5c706), color-stop(.40, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 .yrvote-star .yrhalf5.yellow{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.52, #e5c706), color-stop(.53, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.52, #e5c706), color-stop(.53, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.52, #e5c706), color-stop(.53, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.52, #e5c706), color-stop(.53, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
 .yrvote-star .yrhalf7.yellow{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.69, #e5c706), color-stop(.70, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.69, #e5c706), color-stop(.70, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.69, #e5c706), color-stop(.70, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.69, #e5c706), color-stop(.70, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
@@ -180,31 +186,31 @@
 }
 
 .yrvote-star .yrhalf3.blue{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.39, #1985f3), color-stop(.40, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.39, #1985f3), color-stop(.40, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.39, #1985f3), color-stop(.40, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.39, #1985f3), color-stop(.40, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 .yrvote-star .yrhalf5.blue{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.52, #1985f3), color-stop(.53, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.52, #1985f3), color-stop(.53, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.52, #1985f3), color-stop(.53, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.52, #1985f3), color-stop(.53, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
 .yrvote-star .yrhalf7.blue{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.69, #1985f3), color-stop(.70, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.69, #1985f3), color-stop(.70, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.69, #1985f3), color-stop(.70, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.69, #1985f3), color-stop(.70, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
@@ -224,30 +230,36 @@
 }
 
 .yrvote-star .yrhalf3.purple{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.39, #9c11ec), color-stop(.40, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.39, #9c11ec), color-stop(.40, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.39, #9c11ec), color-stop(.40, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.39, #9c11ec), color-stop(.40, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 .yrvote-star .yrhalf5.purple{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.52, #9c11ec), color-stop(.53, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.52, #9c11ec), color-stop(.53, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.52, #9c11ec), color-stop(.53, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.52, #9c11ec), color-stop(.53, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
 }
 
 .yrvote-star .yrhalf7.purple{
-    background: -webkit-gradient(linear, left top, right top, color-stop(.69, #9c11ec), color-stop(.70, #a6adb3)); 
-    background: gradient(linear, left top, right top, color-stop(.69, #9c11ec), color-stop(.70, #a6adb3)); 
+    background: -webkit-gradient(linear, left top, right top, color-stop(.69, #9c11ec), color-stop(.70, #a6adb3));
+    background: gradient(linear, left top, right top, color-stop(.69, #9c11ec), color-stop(.70, #a6adb3));
     transition: background 0.5s ease;
     -webkit-transition: background 0.5s ease;
-    color:transparent; 
-    -webkit-background-clip: text; 
+    color:transparent;
+    -webkit-background-clip: text;
     background-clip: text;
+}
+.yrvote-left{
+    float:left;
+}
+.yrvote-right{
+    float:right;
 }
