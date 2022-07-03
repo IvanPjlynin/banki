@@ -216,7 +216,7 @@ class plgContentYrvote extends JPlugin {
                     yrvoteimgclass.parents(".yrvote_box").html(itrating);
                     }
 
-                },1000);
+                },1000); 
                }';
         $document->addScriptDeclaration($function);
         $uri = clone JUri::getInstance();
