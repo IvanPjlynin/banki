@@ -111,7 +111,7 @@ $attribs['style'] = 'none';
         <div class="bank-info">
             <div class="row bank-info-row">
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column rating">
-                    <div class="rating-title"><?php echo JText::_('RATING'); ?></div>
+                    <div class="rating-title">/<?php echo JText::_('RATING'); ?>/</div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-logo">
                     <?php echo LayoutHelper::render('joomla.content.full_image', $this->item); ?>
