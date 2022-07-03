@@ -21,7 +21,7 @@ class plgContentYrvote extends JPlugin {
             return false;
         
         echo '<pre>';
-        print_r($article->extrafields['summa-kredita']);
+        print_r($this->item);
         echo '</pre>';
         die();
         $regex = "#{yrvote}#";
