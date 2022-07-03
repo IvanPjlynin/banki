@@ -22,9 +22,9 @@ class plgContentYrvote extends JPlugin {
         
         
         foreach ($array as $key => $val) {
-           if ($val['uid'] === $id) {
+           
                print_r($key);
-           }
+           
        }
         
         
