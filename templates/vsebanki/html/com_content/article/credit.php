@@ -112,16 +112,7 @@ $attribs['style'] = 'none';
             <div class="row bank-info-row">
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column rating">
                     <div class="rating-title"><?php echo JText::_('RATING'); ?></div>
-                    <div class="yrvote_box" data-rating="0.0">
-                        <div class="yrvote" data="" id="yrvote" itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating">
-                            <meta itemprop="bestRating" content="5">
-                            <meta itemprop="worstRating" content="1">
-                            <div class="yrvotetotal" style="color:#a6adb3; ">5</div>
-                            <meta itemprop="ratingValue" content="5">
-                            <meta content="1" itemprop="ratingCount">
-                            <div class="yrvoteimg" data-active="yractive fa fa-star green" data-off="yroff fa fa-star green"><span class="yrvote-star yrstar-1" data-vote="1" data-default="yractive fa fa-star green"><span class="yractive fa fa-star green"></span></span><span class="yrvote-star yrstar-2" data-vote="2" data-default="yractive fa fa-star green"><span class="yractive fa fa-star green"></span></span><span class="yrvote-star yrstar-3" data-vote="3" data-default="yractive fa fa-star green"><span class="yractive fa fa-star green"></span></span><span class="yrvote-star yrstar-4" data-vote="4" data-default="yractive fa fa-star green"><span class="yractive fa fa-star green"></span></span><span class="yrvote-star yrstar-5" data-vote="5" data-default="yractive fa fa-star green"><span class="yractive fa fa-star green"></span></span><input type="hidden" class="ittoken" value="1" name="54defba276974486b99e60d8e6465afd"></div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-logo">
                     <?php echo LayoutHelper::render('joomla.content.full_image', $this->item); ?>

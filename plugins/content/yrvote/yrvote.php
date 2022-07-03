@@ -21,7 +21,7 @@ class plgContentYrvote extends JPlugin {
             return false;
         
         echo '<pre>';
-        print_r($article);
+        print_r($article->jcfields);
         echo '</pre>';
         die();
         $regex = "#{yrvote}#";
@@ -36,7 +36,7 @@ class plgContentYrvote extends JPlugin {
                 $string = $this->insert_stars($vars);
                 $article->text = str_replace($value, $string, $article->text);
             }
-            //$this->sctipt_to_html($document, $vars);
+            $this->sctipt_to_html($document, $vars);
         }
     }
     
