@@ -43,7 +43,7 @@ class plgContentYrvote extends JPlugin {
         //echo '<pre>';
         //print_r($article->jcfields);
         //echo '</pre>';
-        die();
+        //die();
         $regex = "#{yrvote}#";
         preg_match_all($regex, $article->text, $matches, PREG_PATTERN_ORDER);
 
