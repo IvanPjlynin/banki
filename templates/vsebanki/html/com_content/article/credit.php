@@ -46,7 +46,7 @@ if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
 jimport('joomla.application.module.helper');
 $moduleBestdeals = JModuleHelper::getModules('bestdeals-blog');
 $attribs['style'] = 'none';
-?>1111
+?>
 <div class="com-content-article item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
     <meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? Factory::getApplication()->get('language') : $this->item->language; ?>">
     <?php if ($this->params->get('show_page_heading')) : ?>
