@@ -17,7 +17,7 @@ class plgContentYrvote extends JPlugin {
         
         $content = $this->check_if_content($context, $article);
         
-        print_r($this->prepare_vars($article, $params));
+        print_r($article);
         die();
         if ($content == false)
             return false;
