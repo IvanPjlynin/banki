@@ -55,7 +55,7 @@ class plgContentYrvote extends JPlugin {
         }
     }
     
-    public function onContentAfterDisplay($context, &$article, &$params, $page = 0) {
+    public function onAfterRender($context, &$article, &$params, $page = 0) {
         $vote_plugin = JPluginHelper::getPlugin('content', 'vote');
         $content = $this->check_if_content($context, $article);
 
