@@ -21,7 +21,7 @@ class plgContentYrvote extends JPlugin {
             return false;
         
         
-        foreach ($array as $key => $val) {
+        foreach ($article->jcfields as $key => $val) {
            
                print_r($key);
            
