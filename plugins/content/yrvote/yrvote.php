@@ -21,7 +21,7 @@ class plgContentYrvote extends JPlugin {
             return false;
         
         echo '<pre>';
-        print_r($article);
+        print_r($article->jcfields);
         echo '</pre>';
         die();
         $regex = "#{yrvote}#";
