@@ -34,6 +34,7 @@ class plgContentYrvote extends JPlugin {
             $this->sctipt_to_html($document, $vars);
         }
     }
+    
 
     public function onContentBeforeDisplay($context, &$article, &$params, $page = 0) {
         $vote_plugin = JPluginHelper::getPlugin('content', 'vote');
@@ -55,25 +56,28 @@ class plgContentYrvote extends JPlugin {
         }
     }
     
-    public function onAfterRender($context, &$article, &$params, $page = 0) {
-        $vote_plugin = JPluginHelper::getPlugin('content', 'vote');
-        $content = $this->check_if_content($context, $article);
+    public function onContentAfterDisplay($context, &$article, &$params, $limitstart = 0) {
 
-        if ($content == false || $vote_plugin)
+        $content = $this->check_if_content($context, $article);
+        if ($content == false)
             return false;
 
-        if (!empty($params) && $params->get('show_vote', null)) {
+        $regex = "#{yrvote}#";
+        preg_match_all($regex, $article->text, $matches, PREG_PATTERN_ORDER);
 
+        if (isset($matches[0][0])) {
             $this->homepage = $this->if_is_homepage();
             $document = $this->add_head();
             $vars = $this->prepare_vars($article, $params);
 
-
+            foreach ($matches[0] as $value) {
+                $string = $this->insert_stars($vars);
+                $article->text = str_replace($value, $string, $article->text);
+            }
             $this->sctipt_to_html($document, $vars);
-            $string = $this->insert_stars($vars);
-            return $string;
         }
     }
+
 
     protected function sctipt_to_html($document, $vars) {
         if ($this->homepage == false) {
