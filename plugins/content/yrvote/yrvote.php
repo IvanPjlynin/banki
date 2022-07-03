@@ -20,13 +20,13 @@ class plgContentYrvote extends JPlugin {
         if ($content == false)
             return false;
         
-        
+        echo '<pre>';
         foreach ($article->jcfields as $key => $val) {
            
                print_r($article->jcfields[$key]);
            
        }
-        
+        echo '</pre>';
         
         
         //echo '<pre>';
