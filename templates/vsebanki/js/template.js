@@ -461,7 +461,7 @@ jQuery(document).ready(function ($) {
     let field = $('.filter > .jlmf-section');
     field.slice(2, 7).wrapAll("<div class='filter-fields'></div>");
     $('.filter > .jlmf-section:nth-child(1), .filter > .jlmf-section:nth-child(2), .filter > .jlmf-section:last-child, .filter > .search-filters').addClass('col-md-3').wrapAll("<div class='row eq'></div>");
-    $('.yrvote_box').appendTo($('.bank-info-row .rating'));
+    //$('.yrvote_box').appendTo($('.bank-info-row .rating'));
     //let articlesCount = $('#filter-items-cat > .items-row').length;
     //$('.jlmf-button').text('Показать ('+articlesCount+')');
     //$("#jlcontentfieldsfilter-ordering-107").chosen({disable_search_threshold: 10});
