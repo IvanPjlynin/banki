@@ -465,7 +465,7 @@ jQuery(document).ready(function ($) {
     //let articlesCount = $('#filter-items-cat > .items-row').length;
     //$('.jlmf-button').text('Показать ('+articlesCount+')');
     //$("#jlcontentfieldsfilter-ordering-107").chosen({disable_search_threshold: 10});
-    // Calc
+    // Calc 
     var $range1 = $("#credit #range-one");
     var $range2 = $("#credit #range-two");
     var $range3 = $("#credit-card #range-one");
