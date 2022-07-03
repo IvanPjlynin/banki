@@ -19,7 +19,10 @@ class plgContentYrvote extends JPlugin {
 
         if ($content == false)
             return false;
+        
+        echo '<pre>';
         print_r($article);
+        echo '</pre>';
         die();
         $regex = "#{yrvote}#";
         preg_match_all($regex, $article->text, $matches, PREG_PATTERN_ORDER);
