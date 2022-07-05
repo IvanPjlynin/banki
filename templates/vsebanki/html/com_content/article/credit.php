@@ -161,7 +161,7 @@ $attribs['style'] = 'none';
                         <div class="row tab-text">
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Сумма</h3>
-                                <p class="tab-text-block-content">50 000 - 5 000 000</p>
+                                <p class="tab-text-block-content">50 000 - <?php echo $this->item->extrafields['summa-kredita']->value; ?></p>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка без страховки</h3>
