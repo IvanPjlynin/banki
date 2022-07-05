@@ -163,10 +163,14 @@ $attribs['style'] = 'none';
                                 <h3 class="tab-text-block-title">Сумма</h3>
                                 <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['summa-kredita-ot']->value, 0, ',', ' '); ?> ₽ - <?php echo number_format($this->item->extrafields['summa-kredita']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
+
+                            <?php if ($this->item->extrafields['stavka-bez-strahov-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка без страховки</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-bez-strahov-ot']->value; ?>% - <?php echo $this->item->extrafields['stavka-bez-strahov-do']->value; ?>%</p>
                             </div>
+                            <?php endif; ?>
+
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['srok-ot']->value; ?> мес - <?php echo $this->item->extrafields['srok']->value; ?> мес</p>
