@@ -250,11 +250,11 @@ $attribs['style'] = 'none';
 
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Подтверждение дохода</h3>
-                                <p class="tab-text-block-content">Без справок о доходах</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['podtverzhdenie-dokhoda']->value; ?></p>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Способ получения</h3>
-                                <p class="tab-text-block-content">На счет, на карту</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['sposob-polucheniya']->value; ?></p>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Рассмотрение</h3>
