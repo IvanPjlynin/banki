@@ -169,7 +169,7 @@ $attribs['style'] = 'none';
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок</h3>
-                                <p class="tab-text-block-content">6 мес - 7 мес</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['srok-ot']->value; ?> мес - <?php echo $this->item->extrafields['srok']->value; ?> мес</p>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка cо страховкой</h3>
