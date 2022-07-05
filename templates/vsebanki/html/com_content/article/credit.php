@@ -263,12 +263,14 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин - <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн</p>
                             </div>
                             <?php endif; ?>
-                            <?php echo $this->item->extrafields['ssylka-na-ofer-banka']->value; ?>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="button text-center" style="margin-bottom: 40px;"><a class="btn-green" href="#" style="max-width: 403px;">Оставить заявку</a></div>
+
+            <div class="button text-center" style="margin-bottom: 40px;"><a class="btn-green" target="_blank" href="<?php echo $this->item->extrafields['ssylka-na-ofer-banka']->value; ?>" style="max-width: 403px;">Оставить заявку</a></div>
+
             <div class="article-content">
                 <div class="row">
                     <div class="col-12">
