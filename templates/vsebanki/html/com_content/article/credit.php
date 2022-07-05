@@ -226,11 +226,11 @@ $attribs['style'] = 'none';
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">На последнем месте работы</h3>
                                 <p class="tab-text-block-content">
-                                    <?php if($this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value) {?>
+                                    <?php if($this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value) : ?>
                                     Не требуется
-                                    <?php }else {?>
+                                    <?php ? ?>
                                     Требуется
-                                    <?php }endif; ?>
+                                    <?php endif; ?>
                                 </p>
                             </div>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
