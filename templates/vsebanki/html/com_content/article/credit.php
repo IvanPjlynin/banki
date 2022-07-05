@@ -263,7 +263,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин - <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн</p>
                             </div>
                             <?php endif; ?>
-
+                            <?php echo $this->item->extrafields['ssylka-na-ofer']->value; ?>
                         </div>
                     </div>
                 </div>
