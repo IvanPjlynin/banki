@@ -200,10 +200,10 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['obshchij-stazh']->value) : ?>
+                            <?php if ($this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Общий стаж</h3>
-                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['obshchij-stazh']->value; ?> месяцев</p>
+                                <p class="tab-text-block-content">от 12 месяцев</p>
                             </div>
                             <?php endif; ?>
 
