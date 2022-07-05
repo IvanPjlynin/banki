@@ -174,7 +174,7 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if (this->item->extrafields['srok-ot']->value) : ?>
+                            <?php if ($this->item->extrafields['srok-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['srok-ot']->value; ?> мес - <?php echo $this->item->extrafields['srok']->value; ?> мес</p>
