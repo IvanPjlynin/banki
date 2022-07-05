@@ -223,7 +223,7 @@ $attribs['style'] = 'none';
                             <?php endif; ?>
 
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
-                                <h3 class="tab-text-block-title">Стаж на последнем месте работы, более 3-х месяцев</h3>
+                                <h3 class="tab-text-block-title">Стаж на последнем месте работы, <br>более 3-х месяцев</h3>
                                 <p class="tab-text-block-content">
                                     <?php echo $this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value ? 'Требуется' : 'Не требуется'; ?>
                                 </p>
