@@ -124,7 +124,7 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="bank-field srok">
                         <div class="bank-field-name"><?php echo $this->item->extrafields['srok']->title; ?></div>
-                        <div class="bank-field-value"><?php echo $this->item->extrafields['srok']->value; ?></div>
+                        <div class="bank-field-value">до <?php echo $this->item->extrafields['srok']->value; ?></div>
                     </div>
                     <div class="bank-field stavka">
                         <div class="bank-field-name"><?php echo $this->item->extrafields['stavka']->title; ?></div>
