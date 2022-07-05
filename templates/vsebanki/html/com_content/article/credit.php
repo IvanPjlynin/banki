@@ -240,10 +240,14 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
                         <div class="row tab-text">
+
+                            <?php if ($this->item->extrafields['obyazatelnye-dokumenty']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Обязательные документы</h3>
-                                <p class="tab-text-block-content">Паспорт, СНИЛС</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['obyazatelnye-dokumenty']->value; ?></p>
                             </div>
+                            <?php endif; ?>
+
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Подтверждение дохода</h3>
                                 <p class="tab-text-block-content">Без справок о доходах</p>
