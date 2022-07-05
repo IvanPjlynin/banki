@@ -68,8 +68,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
             <?php echo LayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
             <?php endif; ?>
             <div class="buttons">
-                <a class="button-full" href="<?php echo $this->item->category_route.'/'.$this->item->alias; ?>"><?php echo JText::_('BANK_FULL_LINK'); ?></a>
-                <?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>
+                <a class="button-full" href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));/* echo $this->item->category_route.'/'.$this->item->alias; */?>"><?php echo JText::_('BANK_FULL_LINK'); ?></a>
                 <a class="button-full-send" href="#"><?php echo JText::_('BANK_FULL_SEND_LINK'); ?></a>
             </div>
         </div>
