@@ -595,11 +595,11 @@ jQuery(document).ready(function ($) {
         $('.credit .hover-block .service-button').attr('href', link);
     }
     //разбитие цены на разряды
-    $('.summa .bank-field-value').each(function (i, elem) {
-        let summ = parseInt($(this).html());
-        //console.log(summ.toLocaleString());
-        $(this).html(summ.toLocaleString());
-    });
+    //$('.summa .bank-field-value').each(function (i, elem) {
+    //let summ = parseInt($(this).html());
+    //console.log(summ.toLocaleString());
+    // $(this).html(summ.toLocaleString());
+    //});
     //end ivp
     //credit
     $range1.on("change", function () {
