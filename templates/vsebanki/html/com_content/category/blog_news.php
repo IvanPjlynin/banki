@@ -30,17 +30,17 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 ?>
-
+1111
 <div class="item-content row eq">
-	<?php if ($isUnpublished) : ?>
-		<div class="system-unpublished">
-	<?php endif; ?>
-   <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
-   <div class="col-12 col-sm-12 col-md-3 column bank-logo">
-      <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
-   </div>
-   <div class="col-12 col-sm-12 col-md-4 column bank-fields">
-      <?php
+    <?php if ($isUnpublished) : ?>
+    <div class="system-unpublished">
+        <?php endif; ?>
+        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
+        <div class="col-12 col-sm-12 col-md-3 column bank-logo">
+            <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
+        </div>
+        <div class="col-12 col-sm-12 col-md-4 column bank-fields">
+            <?php
          $this->item->extrafields = array();
          if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
             foreach ($this->item->jcfields as $field) {
@@ -50,62 +50,62 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	        }
          }
       ?>
-      <div class="bank-field summa">
-         <div class="bank-field-name"><?php echo $this->item->extrafields['summa-kredita']->title; ?></div>
-         <div class="bank-field-value"><?php echo $this->item->extrafields['summa-kredita']->value; ?></div>
-      </div>
-      <div class="bank-field srok">
-         <div class="bank-field-name"><?php echo $this->item->extrafields['srok']->title; ?></div>
-         <div class="bank-field-value"><?php echo $this->item->extrafields['srok']->value; ?></div>
-      </div>
-      <div class="bank-field stavka">
-         <div class="bank-field-name"><?php echo $this->item->extrafields['stavka']->title; ?></div>
-         <div class="bank-field-value"><?php echo $this->item->extrafields['stavka']->value; ?></div>
-      </div>
-   </div>
-   <div class="col-12 col-sm-12 col-md-5 column bank-tags">
-      <?php if ($info == 0 && $params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
-		<?php echo LayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
-	  <?php endif; ?>
-	  <div class="buttons">
-          <a class="button-full" href="<?php echo $this->item->category_route.'/'.$this->item->alias; ?>"><?php echo JText::_('BANK_FULL_LINK'); ?></a>
-          <a class="button-full-send" href="#"><?php echo JText::_('BANK_FULL_SEND_LINK'); ?></a>
-      </div>
-   </div>
-	
+            <div class="bank-field summa">
+                <div class="bank-field-name"><?php echo $this->item->extrafields['summa-kredita']->title; ?></div>
+                <div class="bank-field-value"><?php echo $this->item->extrafields['summa-kredita']->value; ?></div>
+            </div>
+            <div class="bank-field srok">
+                <div class="bank-field-name"><?php echo $this->item->extrafields['srok']->title; ?></div>
+                <div class="bank-field-value"><?php echo $this->item->extrafields['srok']->value; ?></div>
+            </div>
+            <div class="bank-field stavka">
+                <div class="bank-field-name"><?php echo $this->item->extrafields['stavka']->title; ?></div>
+                <div class="bank-field-value"><?php echo $this->item->extrafields['stavka']->value; ?></div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-5 column bank-tags">
+            <?php if ($info == 0 && $params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
+            <?php echo LayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
+            <?php endif; ?>
+            <div class="buttons">
+                <a class="button-full" href="<?php echo $this->item->category_route.'/'.$this->item->alias; ?>"><?php echo JText::_('BANK_FULL_LINK'); ?></a>
+                <a class="button-full-send" href="#"><?php echo JText::_('BANK_FULL_SEND_LINK'); ?></a>
+            </div>
+        </div>
 
-	<?php if ($canEdit) : ?>
-		<?php echo LayoutHelper::render('joomla.content.icons', array('params' => $params, 'item' => $this->item)); ?>
-	<?php endif; ?>
 
-	<?php // Todo Not that elegant would be nice to group the params ?>
-	<?php $useDefList = ($params->get('show_modify_date') || $params->get('show_publish_date') || $params->get('show_create_date')
+        <?php if ($canEdit) : ?>
+        <?php echo LayoutHelper::render('joomla.content.icons', array('params' => $params, 'item' => $this->item)); ?>
+        <?php endif; ?>
+
+        <?php // Todo Not that elegant would be nice to group the params ?>
+        <?php $useDefList = ($params->get('show_modify_date') || $params->get('show_publish_date') || $params->get('show_create_date')
 		|| $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author') || $assocParam); ?>
 
-	<?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
-		<?php echo LayoutHelper::render('joomla.content.info_block', array('item' => $this->item, 'params' => $params, 'position' => 'above')); ?>
-	<?php endif; ?>
+        <?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
+        <?php echo LayoutHelper::render('joomla.content.info_block', array('item' => $this->item, 'params' => $params, 'position' => 'above')); ?>
+        <?php endif; ?>
 
-	<?php if (!$params->get('show_intro')) : ?>
-		<?php // Content is generated by content plugin event "onContentAfterTitle" ?>
-		<?php echo $this->item->event->afterDisplayTitle; ?>
-	<?php endif; ?>
+        <?php if (!$params->get('show_intro')) : ?>
+        <?php // Content is generated by content plugin event "onContentAfterTitle" ?>
+        <?php echo $this->item->event->afterDisplayTitle; ?>
+        <?php endif; ?>
 
-	<?php // Content is generated by content plugin event "onContentBeforeDisplay" ?>
-	<?php echo $this->item->event->beforeDisplayContent; ?>
+        <?php // Content is generated by content plugin event "onContentBeforeDisplay" ?>
+        <?php echo $this->item->event->beforeDisplayContent; ?>
 
-	<?php echo $this->item->introtext; ?>
+        <?php echo $this->item->introtext; ?>
 
-	<?php if ($info == 1 || $info == 2) : ?>
-		<?php if ($useDefList) : ?>
-			<?php echo LayoutHelper::render('joomla.content.info_block', array('item' => $this->item, 'params' => $params, 'position' => 'below')); ?>
-		<?php endif; ?>
-		<?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
-			<?php echo LayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
-		<?php endif; ?>
-	<?php endif; ?>
+        <?php if ($info == 1 || $info == 2) : ?>
+        <?php if ($useDefList) : ?>
+        <?php echo LayoutHelper::render('joomla.content.info_block', array('item' => $this->item, 'params' => $params, 'position' => 'below')); ?>
+        <?php endif; ?>
+        <?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
+        <?php echo LayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
+        <?php endif; ?>
+        <?php endif; ?>
 
-	<?php if ($params->get('show_readmore') && $this->item->readmore) :
+        <?php if ($params->get('show_readmore') && $this->item->readmore) :
 		if ($params->get('access-view')) :
 			$link = Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));
 		else :
@@ -116,14 +116,14 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 			$link->setVar('return', base64_encode(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)));
 		endif; ?>
 
-		<?php echo LayoutHelper::render('joomla.content.readmore', array('item' => $this->item, 'params' => $params, 'link' => $link)); ?>
+        <?php echo LayoutHelper::render('joomla.content.readmore', array('item' => $this->item, 'params' => $params, 'link' => $link)); ?>
 
-	<?php endif; ?>
+        <?php endif; ?>
 
-	<?php if ($isUnpublished) : ?>
-		</div>
-	<?php endif; ?>
+        <?php if ($isUnpublished) : ?>
+    </div>
+    <?php endif; ?>
 
-	<?php // Content is generated by content plugin event "onContentAfterDisplay" ?>
-	<?php echo $this->item->event->afterDisplayContent; ?>
+    <?php // Content is generated by content plugin event "onContentAfterDisplay" ?>
+    <?php echo $this->item->event->afterDisplayContent; ?>
 </div>
