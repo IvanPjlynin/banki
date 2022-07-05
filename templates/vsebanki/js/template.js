@@ -598,7 +598,7 @@ jQuery(document).ready(function ($) {
     $('.summa .bank-field-value').each(function (i, elem) {
         let summ = parseInt($(this).html());
         //console.log(summ.toLocaleString());
-        //$(this).html(summ.toLocaleString());
+        $(this).html('до ' + summ.toLocaleString());
     });
     //end ivp
     //credit
