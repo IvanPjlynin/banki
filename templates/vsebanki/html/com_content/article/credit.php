@@ -120,7 +120,7 @@ $attribs['style'] = 'none';
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields">
                     <div class="bank-field summa">
                         <div class="bank-field-name"><?php echo $this->item->extrafields['summa-kredita']->title; ?></div>
-                        <div class="bank-field-value">до <?php echo $this->item->extrafields['summa-kredita']->value; ?></div>
+                        <div class="bank-field-value"><?php echo $this->item->extrafields['summa-kredita']->value; ?></div>
                     </div>
                     <div class="bank-field srok">
                         <div class="bank-field-name"><?php echo $this->item->extrafields['srok']->title; ?></div>
