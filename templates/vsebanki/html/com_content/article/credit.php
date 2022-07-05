@@ -213,8 +213,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
                             <?php endif; ?>
-                        </div>
-                        <div class="row tab-text two">
+
 
                             <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
