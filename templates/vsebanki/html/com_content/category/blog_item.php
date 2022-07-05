@@ -30,7 +30,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 ?>
-111
+
 <div class="item-content row eq">
     <?php if ($isUnpublished) : ?>
     <div class="system-unpublished">
@@ -69,6 +69,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
             <?php endif; ?>
             <div class="buttons">
                 <a class="button-full" href="<?php echo $this->item->category_route.'/'.$this->item->alias; ?>"><?php echo JText::_('BANK_FULL_LINK'); ?></a>
+                <?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>
                 <a class="button-full-send" href="#"><?php echo JText::_('BANK_FULL_SEND_LINK'); ?></a>
             </div>
         </div>
