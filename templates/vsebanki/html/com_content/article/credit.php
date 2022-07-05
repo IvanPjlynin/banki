@@ -159,10 +159,13 @@ $attribs['style'] = 'none';
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-stavki-tab" role="tabpanel" aria-labelledby="tab-stavki">
                         <div class="row tab-text">
+
+                            <?php if ($this->item->extrafields['summa-kredita-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Сумма</h3>
                                 <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['summa-kredita-ot']->value, 0, ',', ' '); ?> ₽ - <?php echo number_format($this->item->extrafields['summa-kredita']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
+                            <?php endif; ?>
 
                             <?php if ($this->item->extrafields['stavka-bez-strahov-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
@@ -171,39 +174,58 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
+                            <?php if (this->item->extrafields['srok-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['srok-ot']->value; ?> мес - <?php echo $this->item->extrafields['srok']->value; ?> мес</p>
                             </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['stavka']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка cо страховкой</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka']->value; ?>% - <?php echo $this->item->extrafields['stavka-do']->value; ?>%</p>
                             </div>
+                            <?php endif; ?>
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-trebovaniya-tab" role="tabpanel" aria-labelledby="tab-trebovaniya">
                         <div class="row tab-text">
+
+                            <?php if ($this->item->extrafields['vozrast']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст</h3>
-                                <p class="tab-text-block-content">от 21 года</p>
+                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['vozrast']->value; ?> года</p>
                             </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['obshchij-stazh']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Общий стаж</h3>
-                                <p class="tab-text-block-content">от 12 месяцев</p>
+                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['obshchij-stazh']->value; ?> месяцев</p>
                             </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Зарплата</h3>
-                                <p class="tab-text-block-content">от 250 000</p>
+                                <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
+                            <?php endif; ?>
                         </div>
                         <div class="row tab-text two">
+
+                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст для погашения</h3>
-                                <p class="tab-text-block-content">до 77 лет</p>
+                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['vozrast-dlya-pogasheniya']->value; ?> лет</p>
                             </div>
+                            <?php endif; ?>
+
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">На последнем месте работы</h3>
-                                <p class="tab-text-block-content">Не требуется</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value; ?> Не требуется</p>
                             </div>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Требование для подачи заявки</h3>
