@@ -50,7 +50,7 @@ $attribs['style'] = 'none';
 <div class="com-content-article item-page<?php echo $this->pageclass_sfx; ?> credit" itemscope itemtype="https://schema.org/Article">
     <meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? Factory::getApplication()->get('language') : $this->item->language; ?>">
     <?php if ($this->params->get('show_page_heading')) : ?>
-    <div class="page-header">11
+    <div class="page-header">
         <h1><?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> - <?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h1>
         <h3><?php echo JText::_('GET_CREDIT_IN'); ?> <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?></h3>
     </div>
