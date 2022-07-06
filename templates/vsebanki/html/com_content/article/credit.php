@@ -47,7 +47,7 @@ jimport('joomla.application.module.helper');
 $moduleBestdeals = JModuleHelper::getModules('bestdeals-blog');
 $attribs['style'] = 'none';
 ?>
-<div class="com-content-article item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
+<div class="com-content-article item-page<?php echo $this->pageclass_sfx; ?> credit" itemscope itemtype="https://schema.org/Article">
     <meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? Factory::getApplication()->get('language') : $this->item->language; ?>">
     <?php if ($this->params->get('show_page_heading')) : ?>
     <div class="page-header">
