@@ -101,7 +101,7 @@ $attribs['style'] = 'none';
     <div class="com-content-category-blog__items blog-items <?php echo $blogClass; ?>">
         <?php foreach ($this->intro_items as $key => &$item) : ?>
         <div class="com-content-category-blog__item blog-item" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-           <?php echo ' ----------------- '.$menu; ?>
+           
             <?php $this->item = & $item; ?>
             <?php if (($menu == '109') || ($menu == '114') || ($menu === '115') || ($menu == '142')) : ?>
             <?php echo $this->loadTemplate('item'); ?>
@@ -118,6 +118,7 @@ $attribs['style'] = 'none';
             <?php else: ?>
             <?php echo $this->loadTemplate('news'); ?>
             <?php endif; ?>
+            
         </div>
         <?php endforeach; ?>
     </div>
