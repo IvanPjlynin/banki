@@ -755,9 +755,7 @@ div.modal {
     width: 20%;
 }
 
-.topmenu .mod-menu li a.home-menu-ipoteka {
-    color: #56C182;
-}
+
 
 
 /*slider*/
@@ -816,4 +814,8 @@ div.modal {
     right: 10px;
     top: 38px;
     color: #fcbb52;
+}
+
+.topmenu .mod-menu li.active > a {
+    color: #56C182;
 }
