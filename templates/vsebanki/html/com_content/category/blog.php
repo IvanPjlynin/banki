@@ -45,7 +45,16 @@ $attribs['style'] = 'none';
     <?php if ($this->params->get('show_page_heading')) : ?>
     <div class="page-header">
         <h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
+
         <?php echo JModuleHelper::renderModule($moduleSubzag[0], $attribs); ?>
+
+        <?php if (($menu == '118') || ($menu == '145')) : ?>
+        <?php echo '<h3 class="cat-subzag">Сравнить предложения</h3>'; ?>
+        <?php endif; ?>
+
+
+
+
     </div>
     <?php endif; ?>
 
