@@ -216,7 +216,7 @@ $attribs['style'] = 'none';
 
                             <?php if ($this->item->extrafields['stoimost-obsluzhivaniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Снятие кредитных средств</h3>
+                                <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
                                 <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-obsluzhivaniya']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
                             <?php endif; ?>
