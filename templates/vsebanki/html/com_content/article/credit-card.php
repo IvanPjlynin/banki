@@ -281,14 +281,40 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
+                            <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Подтверждение дохода</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['podtverzhdenie-dokhoda']->value; ?></p>
                             </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['stoimost-dostavki-karty']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Стоимость доставки карты</h3>
+                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-dostavki-karty']->value, 0, ',', ' '); ?> ₽</p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['osnovnoj-bonus']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Основной бонус</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['osnovnoj-bonus']->value; ?>%</p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['bonus-za-oplatu-v']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Бонус за оплату в</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['bonus-za-oplatu-v']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['sposob-polucheniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Способ получения</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['sposob-polucheniya']->value; ?></p>
                             </div>
+                            <?php endif; ?>
 
                             <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
