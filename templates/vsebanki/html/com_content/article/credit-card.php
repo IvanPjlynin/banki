@@ -128,12 +128,12 @@ $attribs['style'] = 'none';
                         <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['kreditnyj-limit']->value, 0, ',', ' '); ?></div>
                     </div>
                     <div class="bank-field srok">
-                        <div class="bank-field-name"><?php echo $this->item->extrafields['srok']->title; ?></div>
-                        <div class="bank-field-value">до <?php echo $this->item->extrafields['srok']->value; ?></div>
+                        <div class="bank-field-name"><?php echo $this->item->extrafields['lgotnyj-period']->title; ?></div>
+                        <div class="bank-field-value">до <?php echo $this->item->extrafields['lgotnyj-period']->value; ?></div>
                     </div>
                     <div class="bank-field stavka">
-                        <div class="bank-field-name"><?php echo $this->item->extrafields['stavka']->title; ?></div>
-                        <div class="bank-field-value"><?php echo $this->item->extrafields['stavka']->value; ?></div>
+                        <div class="bank-field-name"><?php echo $this->item->extrafields['stavka-kredit']->title; ?></div>
+                        <div class="bank-field-value"><?php if ($this->item->extrafields['stavka-kredit']->value){ echo $this->item->extrafields['stavka-kredit']->value; } else { echo '0';} ?></div>
                     </div>
                 </div>
             </div>
