@@ -132,7 +132,7 @@ $attribs['style'] = 'none';
                         <div class="bank-field-value">до <?php echo $this->item->extrafields['lgotnyj-period']->value; ?></div>
                     </div>
                     <div class="bank-field stavka">
-                        <div class="bank-field-name">Ставка после льготного периода</div>
+                        <div class="bank-field-name">Ставка</div>
                         <div class="bank-field-value"><?php if ($this->item->extrafields['stavka-kredit']->value){ echo $this->item->extrafields['stavka-kredit']->value; } else { echo '0';} ?></div>
                     </div>
                 </div>
