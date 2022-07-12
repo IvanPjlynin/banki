@@ -309,6 +309,13 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
+                            <?php if ($this->item->extrafields['bonus-u-partnerov']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Бонус у партнеров</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['bonus-u-partnerov']->value; ?>%</p>
+                            </div>
+                            <?php endif; ?>
+
                             <?php if ($this->item->extrafields['sposob-polucheniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Способ получения</h3>
