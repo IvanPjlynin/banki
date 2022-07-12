@@ -54,9 +54,10 @@ $attribs['style'] = 'none';
         <h1><?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> - <?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h1>
         <h3>Получите займ 
         
-        <?php if ($this->item->extrafields['kredit_pod_zalog']->value) : ?>
-        под залог <?php echo $this->item->extrafields['kredit_pod_zalog']->value; ?>   
+        <?php if ($this->item->extrafields['kredit-pod-zalog']->value) : ?>
+        под залог <?php echo $this->item->extrafields['kredit-pod-zalog']->value; ?>   
         <?php endif; ?>
+         
           в <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> в Санкт Петербурге</h3>
     </div>
     <?php endif;
