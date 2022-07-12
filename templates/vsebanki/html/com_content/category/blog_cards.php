@@ -30,7 +30,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 ?>
-111
+
 <div class="item-content row eq cards">
     <?php if ($isUnpublished) : ?>
     <div class="system-unpublished">
@@ -52,7 +52,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
       ?>
             <div class="bank-field summa">
                 <div class="bank-field-name"><?php echo $this->item->extrafields['kreditnyj-limit']->title; ?></div>
-                <div class="bank-field-value"><?php echo $this->item->extrafields['kreditnyj-limit']->value; ?></div>
+                <div class="bank-field-value"><?php echo number_format($this->item->extrafields['kreditnyj-limit']->value, 0, ',', ' '); ?></div>
             </div>
             <div class="bank-field srok">
                 <div class="bank-field-name"><?php echo $this->item->extrafields['lgotnyj-period']->title; ?></div>
@@ -68,8 +68,8 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
             <?php echo LayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
             <?php endif; ?>
             <div class="buttons">
-                <a class="button-full" href="<?php echo $this->item->category_route.'/'.$this->item->alias; ?>"><?php echo JText::_('BANK_FULL_LINK'); ?></a>
-                <a class="button-full-send" href="#"><?php echo JText::_('BANK_FULL_SEND_LINK'); ?></a>
+                <a class="button-full" href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); /*echo $this->item->category_route.'/'.$this->item->alias;*/ ?>"><?php echo JText::_('BANK_FULL_LINK'); ?></a>
+                <a class="button-full-send" href="<?php echo $this->item->extrafields['ssylka-na-ofer-banka']->value; ?>"><?php echo JText::_('BANK_FULL_SEND_LINK'); ?></a>
             </div>
         </div>
 
