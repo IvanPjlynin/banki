@@ -58,7 +58,7 @@ $attribs['style'] = 'none';
         под залог <?php echo $this->item->extrafields['kredit-pod-zalog']->value; ?>   
         <?php endif; ?>
          
-          в <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> в Санкт Петербурге</h3>
+          <?php /*echo $this->item->extrafields['nazvanie-organizatsii']->value;*/ ?> в Санкт Петербурге</h3>
     </div>
     <?php endif;
 	if (!empty($this->item->pagination) && !$this->item->paginationposition && $this->item->paginationrelative)
