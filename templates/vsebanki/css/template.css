@@ -4812,3 +4812,7 @@ footer .container .row div .podpiska .acym_module .acym_fulldiv form .acym_modul
     background: transparent;
     transition: all 0.3s linear
 }
+
+.item-page.credit.kreditnye-karty .com-content-article__body .bank-info .row .bank-fields .bank-field.srok .bank-field-value:after {
+    content: ' дн.';
+}
