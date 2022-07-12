@@ -123,12 +123,12 @@ $attribs['style'] = 'none';
                         <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['summa-zajma']->value, 0, ',', ' '); ?></div>
                     </div>
                     <div class="bank-field srok">
-                        <div class="bank-field-name"><?php echo $this->item->extrafields['srok']->title; ?></div>
-                        <div class="bank-field-value">до <?php echo $this->item->extrafields['srok']->value; ?></div>
+                        <div class="bank-field-name"><?php echo $this->item->extrafields['srok-zajma']->title; ?></div>
+                        <div class="bank-field-value">до <?php echo $this->item->extrafields['srok-zajma']->value; ?></div>
                     </div>
                     <div class="bank-field stavka">
-                        <div class="bank-field-name"><?php echo $this->item->extrafields['stavka']->title; ?></div>
-                        <div class="bank-field-value"><?php echo $this->item->extrafields['stavka']->value; ?></div>
+                        <div class="bank-field-name"><?php echo $this->item->extrafields['stavka-zajma']->title; ?></div>
+                        <div class="bank-field-value"><?php echo $this->item->extrafields['stavka-zajma']->value; ?></div>
                     </div>
                 </div>
             </div>
