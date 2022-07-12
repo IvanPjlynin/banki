@@ -196,7 +196,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['pogashenie']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Погашение</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['spogashenie']->value; ?></p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['pogashenie']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
