@@ -30,7 +30,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 ?>
-
+123456
 <div class="item-content row eq zajm">
     <?php if ($isUnpublished) : ?>
     <div class="system-unpublished">
