@@ -125,15 +125,15 @@ $attribs['style'] = 'none';
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields">
                     <div class="bank-field summa">
                         <div class="bank-field-name"><?php echo $this->item->extrafields['summa-kredita']->title; ?></div>
-                        <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['summa-kredita']->value, 0, ',', ' '); ?></div>
+                        <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['summa-kredita']->value, 0, ',', ' '); ?> ₽</div>
                     </div>
                     <div class="bank-field srok">
                         <div class="bank-field-name"><?php echo $this->item->extrafields['srok']->title; ?></div>
-                        <div class="bank-field-value">до <?php echo $this->item->extrafields['srok']->value; ?></div>
+                        <div class="bank-field-value">до <?php echo $this->item->extrafields['srok']->value; ?> мес.</div>
                     </div>
                     <div class="bank-field stavka">
                         <div class="bank-field-name"><?php echo $this->item->extrafields['stavka']->title; ?></div>
-                        <div class="bank-field-value"><?php echo $this->item->extrafields['stavka']->value; ?></div>
+                        <div class="bank-field-value">от <?php echo $this->item->extrafields['stavka']->value; ?> %</div>
                     </div>
                 </div>
             </div>
