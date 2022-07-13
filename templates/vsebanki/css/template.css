@@ -4056,7 +4056,7 @@ main {
 }
 
 .blog .blog-items .blog-item .item-content .bank-fields .bank-field.srok .bank-field-value:after {
-    content: ' мес.'
+    /*content: ' мес.'*/
 }
 
 .blog .blog-items .blog-item .item-content .bank-fields .bank-field.stavka .bank-field-value {
