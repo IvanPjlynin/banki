@@ -114,7 +114,7 @@ $attribs['style'] = 'none';
             <?php print_r($menu); ?>
 
             <?php $this->item = & $item; ?>
-            <?php if (($menu == '109') || ($menu == '114') || ($menu === '115') || ($menu == '142')) : ?>
+            <?php if (($menu == '109') || ($menu == '114') || ($menu == '115') || ($menu == '142')) : ?>
             <?php echo $this->loadTemplate('item'); ?>
             <?php elseif (($menu == '118') || ($menu == '145')) : ?>
             <?php echo $this->loadTemplate('zajm'); ?>
