@@ -48,7 +48,10 @@ $attribs['style'] = 'none';
 
         <?php echo JModuleHelper::renderModule($moduleSubzag[0], $attribs); ?>
 
-        <?php if (($menu == '118') || ($menu == '145') || ($menu == '114') || ($menu == '142') || ($menu == '115') || ($menu == '122') || ($menu == '123') || ($menu == '124')) : ?>
+        <?php 
+        $id_menu = '114,115,118,122,123,124,142,145';
+        if(in_array($menu, explode(',',$id_menu)) )
+        /*if (($menu == '118') || ($menu == '145') || ($menu == '114') || ($menu == '142') || ($menu == '115') || ($menu == '122') || ($menu == '123') || ($menu == '124'))*/ : ?>
         <?php echo '<h3 class="cat-subzag">Сравнить предложения</h3>'; ?>
         <?php endif; ?>
 
