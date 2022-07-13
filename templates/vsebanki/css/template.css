@@ -4064,11 +4064,11 @@ main {
 }
 
 .blog .blog-items .blog-item .item-content .bank-fields .bank-field.stavka .bank-field-value:before {
-    content: 'от '
+    /*content: 'от '*/
 }
 
 .blog .blog-items .blog-item .item-content .bank-fields .bank-field.stavka .bank-field-value:after {
-    content: '%'
+    /*content: '%'*/
 }
 
 .blog .blog-items .blog-item .item-content .bank-tags {
