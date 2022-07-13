@@ -4047,8 +4047,8 @@ main {
 }
 
 .blog .blog-items .blog-item .item-content .bank-fields .bank-field.summa .bank-field-value:after {
-    content: '\20BD';
-    padding-left: 5px
+    /*content: '\20BD';*/
+    /*padding-left: 5px*/
 }
 
 .blog .blog-items .blog-item .item-content .bank-fields .bank-field.srok .bank-field-value {
