@@ -51,11 +51,11 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
          }
       ?>
             <div class="bank-field summa">
-                <div class="bank-field-name"><?php echo $this->item->extrafields['summa-kredita']->title; ?></div>
+                <div class="bank-field-name">до <?php echo $this->item->extrafields['summa-kredita']->title; ?></div>
                 <div class="bank-field-value"><?php echo number_format($this->item->extrafields['summa-kredita']->value, 0, ',', ' '); ?> ₽</div>
             </div>
             <div class="bank-field srok">
-                <div class="bank-field-name"><?php echo $this->item->extrafields['srok']->title; ?></div>
+                <div class="bank-field-name">до <?php echo $this->item->extrafields['srok']->title; ?></div>
                 <div class="bank-field-value"><?php echo $this->item->extrafields['srok']->value; ?> мес.</div>
             </div>
             <div class="bank-field stavka">
