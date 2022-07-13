@@ -220,6 +220,20 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-obsluzhivaniya']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
                             <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['stoimost-dostavki-karty']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Стоимость доставки карты</h3>
+                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-dostavki-karty']->value, 0, ',', ' '); ?> ₽</p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['protsent-na-ostatok']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Проценты на остаток</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?>%</p>
+                            </div>
+                            <?php endif; ?>
 
                         </div>
                     </div>
@@ -261,12 +275,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">Гражданство РФ</p>
                             </div>
                             <?php endif; ?>
-
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
-                        <div class="row tab-text">
-
+                            
                             <?php if ($this->item->extrafields['obyazatelnye-dokumenty']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Обязательные документы</h3>
@@ -274,6 +283,12 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
+                        <div class="row tab-text">
+
+                            
                             <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Подтверждение дохода</h3>
@@ -281,12 +296,7 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['stoimost-dostavki-karty']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Стоимость доставки карты</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-dostavki-karty']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
+                            
 
                             <?php if ($this->item->extrafields['osnovnoj-bonus']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
@@ -309,12 +319,7 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['protsenty-na-ostatok']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Проценты на остаток</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['protsenty-na-ostatok']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
+                            
 
                             <?php if ($this->item->extrafields['sposob-polucheniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
