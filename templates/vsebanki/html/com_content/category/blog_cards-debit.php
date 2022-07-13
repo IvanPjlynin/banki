@@ -59,8 +59,8 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
                 <div class="bank-field-value">до <?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?>%</div>
             </div>
             <div class="bank-field stavka">
-                <div class="bank-field-name">Ставка</div>
-                <div class="bank-field-value"><?php if ($this->item->extrafields['stavka-kredit']->value){ echo $this->item->extrafields['stavka-kredit']->value; } else { echo '0';} ?></div>
+                <div class="bank-field-name">Годовое обслуживание</div>
+                <div class="bank-field-value"><?php if ($this->item->extrafields['godovoe-obsluzhivanie']->value){ echo $this->item->extrafields['godovoe-obsluzhivanie']->value; } else { echo '0';} ?></div>
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-5 column bank-tags">
