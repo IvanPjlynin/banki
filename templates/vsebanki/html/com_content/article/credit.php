@@ -133,7 +133,7 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="bank-field stavka">
                         <div class="bank-field-name"><?php echo $this->item->extrafields['stavka']->title; ?></div>
-                        <div class="bank-field-value">от <?php echo $this->item->extrafields['stavka']->value; ?>%</div>
+                        <div class="bank-field-value"><?php echo $this->item->extrafields['stavka']->value; ?></div>
                     </div>
                 </div>
             </div>
