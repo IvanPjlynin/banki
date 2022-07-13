@@ -52,7 +52,7 @@ $attribs['style'] = 'none';
     <?php if ($this->params->get('show_page_heading')) : ?>
     <div class="page-header">
         <h1><?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> - <?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h1>
-        <h3>Получите кредитную карту в <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> в Санкт-Петербурге</h3>
+        <h3>Получите дебетовую карту в <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> в Санкт-Петербурге</h3>
 
         <?php if ($this->item->extrafields['kredit-pod-zalog']->value) : ?>
         <h3>Под залог - <?php echo $this->item->extrafields['kredit-pod-zalog']->value; ?></h3>
@@ -124,16 +124,16 @@ $attribs['style'] = 'none';
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields">
                     <div class="bank-field summa">
-                        <div class="bank-field-name"><?php echo $this->item->extrafields['kreditnyj-limit']->title; ?></div>
-                        <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['kreditnyj-limit']->value, 0, ',', ' '); ?></div>
+                        <div class="bank-field-name">Cash Back</div>
+                        <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['cashback']->value, 0, ',', ' '); ?> %</div>
                     </div>
                     <div class="bank-field srok">
-                        <div class="bank-field-name"><?php echo $this->item->extrafields['lgotnyj-period']->title; ?></div>
-                        <div class="bank-field-value">до <?php echo $this->item->extrafields['lgotnyj-period']->value; ?></div>
+                        <div class="bank-field-name">Процент на остаток</div>
+                        <div class="bank-field-value">до <?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?> %</div>
                     </div>
                     <div class="bank-field stavka">
-                        <div class="bank-field-name">Ставка</div>
-                        <div class="bank-field-value"><?php if ($this->item->extrafields['stavka-kredit']->value){ echo $this->item->extrafields['stavka-kredit']->value; } else { echo '0';} ?></div>
+                        <div class="bank-field-name">Годовое обслуживание</div>
+                        <div class="bank-field-value"><?php if ($this->item->extrafields['godovoe-obsluzhivanie']->value){ echo $this->item->extrafields['godovoe-obsluzhivanie']->value; } else { echo '0';} ?> ₽</div>
                     </div>
                 </div>
             </div>
