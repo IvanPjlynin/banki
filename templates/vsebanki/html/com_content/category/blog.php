@@ -118,8 +118,10 @@ $attribs['style'] = 'none';
             <?php echo $this->loadTemplate('item'); ?>
             <?php elseif (($menu == '118') || ($menu == '145')) : ?>
             <?php echo $this->loadTemplate('zajm'); ?>
-            <?php elseif (($menu == '122') || ($menu == '123')) : ?>
+            <?php elseif ($menu == '122') : ?>
             <?php echo $this->loadTemplate('cards'); ?>
+            <?php elseif ($menu == '123') : ?>
+            <?php echo $this->loadTemplate('cards-debit'); ?>
             <?php elseif (($menu == '124') || ($menu == '125')) : ?>
             <?php echo $this->loadTemplate('vklady'); ?>
             <?php elseif (($menu == '127') || ($menu == '128') || ($menu == '129')) : ?>
