@@ -231,7 +231,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['protsent-na-ostatok']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Проценты на остаток</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?>%</p>
+                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?>%</p>
                             </div>
                             <?php endif; ?>
 
