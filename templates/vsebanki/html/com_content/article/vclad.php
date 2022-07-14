@@ -165,73 +165,24 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade show active" id="tab-stavki-tab" role="tabpanel" aria-labelledby="tab-stavki">
                         <div class="row tab-text">
 
-                            <?php if ($this->item->extrafields['summa-kreditnogo-limita']->value) : ?>
+                            <?php if ($this->item->extrafields['summa-vklada']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Сумма кредитного лимита</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['summa-kreditnogo-limita']->value, 0, ',', ' '); ?> ₽</p>
+                                <h3 class="tab-text-block-title">Сумма вклада</h3>
+                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['summa-vklada']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['kreditnyj-limit']->value) : ?>
+                            <?php if ($this->item->extrafields['srok-vklada']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Кредитный лимит</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['kreditnyj-limit']->value, 0, ',', ' '); ?> ₽</p>
+                                <h3 class="tab-text-block-title">Срок</h3>
+                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['srok-vklada']->value, 0, ',', ' '); ?> дн.</p>
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['stavka-kredit']->value) : ?>
+                            <?php if ($this->item->extrafields['stavka-vklada']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-kredit']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['stavka-za-vydachu-nalichnykh']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка за выдачу наличных</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-za-vydachu-nalichnykh']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['pogashenie']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Погашение</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['pogashenie']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['stavka-co-strakhovkoj']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка cо страховкой</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-co-strakhovkoj']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['snyatie-kreditnykh-sredstv']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Снятие кредитных средств</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['snyatie-kreditnykh-sredstv']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['stoimost-obsluzhivaniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-obsluzhivaniya']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['stoimost-dostavki-karty']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Стоимость доставки карты</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-dostavki-karty']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['protsent-na-ostatok']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Проценты на остаток</h3>
-                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?>%</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-vklada']->value; ?>%</p>
                             </div>
                             <?php endif; ?>
 
