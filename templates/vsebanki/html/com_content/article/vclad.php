@@ -124,16 +124,16 @@ $attribs['style'] = 'none';
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields">
                     <div class="bank-field summa">
-                        <div class="bank-field-name">Cash Back</div>
-                        <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['cashback']->value, 0, ',', ' '); ?> %</div>
+                        <div class="bank-field-name">Сумма вклада</div>
+                        <div class="bank-field-value">от <?php echo number_format($this->item->extrafields['summa-vklada']->value, 0, ',', ' '); ?> ₽</div>
                     </div>
                     <div class="bank-field srok">
-                        <div class="bank-field-name">Процент на остаток</div>
-                        <div class="bank-field-value">до <?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?> %</div>
+                        <div class="bank-field-name">Срок</div>
+                        <div class="bank-field-value">от <?php echo $this->item->extrafields['srok-vklada']->value; ?> дн.</div>
                     </div>
                     <div class="bank-field stavka">
-                        <div class="bank-field-name">Годовое обслуживание</div>
-                        <div class="bank-field-value"><?php if ($this->item->extrafields['godovoe-obsluzhivanie']->value){ echo $this->item->extrafields['godovoe-obsluzhivanie']->value; } else { echo '0';} ?> ₽</div>
+                        <div class="bank-field-name">Ставка</div>
+                        <div class="bank-field-value"><?php if ($this->item->extrafields['stavka-vklada']->value){ echo $this->item->extrafields['stavka-vklada']->value; } else { echo '0';} ?> %</div>
                     </div>
                 </div>
             </div>
