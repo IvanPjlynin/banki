@@ -52,15 +52,15 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
       ?>
       <div class="bank-field summa">
          <div class="bank-field-name"><?php echo $this->item->extrafields['summa-vklada']->title; ?></div>
-         <div class="bank-field-value"><?php echo $this->item->extrafields['summa-vklada']->value; ?></div>
+         <div class="bank-field-value">от <?php echo $this->item->extrafields['summa-vklada']->value; ?> ₽</div>
       </div>
       <div class="bank-field srok">
          <div class="bank-field-name"><?php echo $this->item->extrafields['srok-vklada']->title; ?></div>
-         <div class="bank-field-value"><?php echo $this->item->extrafields['srok-vklada']->value; ?></div>
+         <div class="bank-field-value">от <?php echo $this->item->extrafields['srok-vklada']->value; ?> дн.</div>
       </div>
       <div class="bank-field stavka">
          <div class="bank-field-name"><?php echo $this->item->extrafields['stavka-vklada']->title; ?></div>
-         <div class="bank-field-value"><?php echo $this->item->extrafields['stavka-vklada']->value; ?></div>
+         <div class="bank-field-value"><?php echo $this->item->extrafields['stavka-vklada']->value; ?> %</div>
       </div>
    </div>
    <div class="col-12 col-sm-12 col-md-5 column bank-tags">
