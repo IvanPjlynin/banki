@@ -222,7 +222,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['nesnizhaemyj-ostatok']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Неснижаемый остаток</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['nesnizhaemyj-ostatok']->value; ?></p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['nesnizhaemyj-ostatok']->value; ?> ₽</p>
                             </div>
                             <?php endif; ?>
                             
