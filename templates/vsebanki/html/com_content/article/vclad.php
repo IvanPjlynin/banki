@@ -198,47 +198,38 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
                             
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-
-                            <?php if ($this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value) : ?>
+                            <?php if ($this->item->extrafields['kapitalizatsiya-protsentov']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Общий стаж</h3>
-                                <p class="tab-text-block-content">от 12 месяцев</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Зарплата</h3>
-                                <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-
-
-                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
-                                <h3 class="tab-text-block-title">Возраст для погашения</h3>
-                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['vozrast-dlya-pogasheniya']->value; ?> лет</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
-                                <h3 class="tab-text-block-title">Требование для подачи заявки</h3>
-                                <p class="tab-text-block-content">Гражданство РФ</p>
+                                <h3 class="tab-text-block-title">Капитализация процентов</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['kapitalizatsiya-protsentov']->value; ?></p>
                             </div>
                             <?php endif; ?>
                             
-                            <?php if ($this->item->extrafields['obyazatelnye-dokumenty']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Обязательные документы</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['obyazatelnye-dokumenty']->value; ?></p>
+                            <?php if ($this->item->extrafields['popolnenie']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Пополнение</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['popolnenie']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['chastichnoe-snyatie']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Частичное снятие</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['chastichnoe-snyatie']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['nesnizhaemyj-ostatok']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Неснижаемый остаток</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['nesnizhaemyj-ostatok']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['dosrochnoe-rastorzhenie']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Досрочное расторжение</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['dosrochnoe-rastorzhenie']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
