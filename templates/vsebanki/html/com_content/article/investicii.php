@@ -270,6 +270,15 @@ $attribs['style'] = 'none';
                                     } ?> 
                                 </p>
                             </div>
+                            
+                            <?php if ($this->item->extrafields['dostupnye-birzhi']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Доступные биржи</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['dostupnye-birzhi']->value;?> 
+                                </p>
+                            </div>
+                            <?php endif; ?>
    
                         </div>
                     </div>
