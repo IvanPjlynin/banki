@@ -50,9 +50,9 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
         ?>
 
 
-        <div class="col-12 col-sm-12 col-md-3 column bank-logo">
+        <div class="col-12 col-sm-12 col-md-3 column ">
             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
-            <h3 class="d-block"><?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h3>
+            <h3 class=""><?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h3>
         </div>
         <div class="col-12 col-sm-12 col-md-4 column bank-fields">
 
