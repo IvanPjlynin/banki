@@ -136,13 +136,13 @@ $attribs['style'] = 'none';
                         <div class="bank-field-value text-end">
                             <?php
                             if($this->item->extrafields['razmer-portfelya-ot']->value){
-                                echo 'от '.number_format($this->item->extrafields['razmer-portfelya-ot']->value, 0, ',', ' ').'₽ ';
+                                echo 'от '.number_format($this->item->extrafields['razmer-portfelya-ot']->value, 0, ',', ' ').' ₽ ';
                             }
                             if(($this->item->extrafields['razmer-portfelya-ot']->value)||($this->item->extrafields['razmer-portfelya-do']->value)){
                                 echo '</br>';
                             }
                             if($this->item->extrafields['razmer-portfelya-do']->value){
-                                echo 'до '.number_format($this->item->extrafields['razmer-portfelya-do']->value, 0, ',', ' ').'₽ ';
+                                echo 'до '.number_format($this->item->extrafields['razmer-portfelya-do']->value, 0, ',', ' ').' ₽ ';
                             }
                             ?>
                         </div>
