@@ -133,6 +133,8 @@ $attribs['style'] = 'none';
             <?php echo $this->loadTemplate('strahovka'); ?>
             <?php elseif (($menu == '130') || ($menu == '131')) : ?>
             <?php echo $this->loadTemplate('ipoteka'); ?>
+            <?php elseif ($menu == '134') : ?>
+            <?php echo $this->loadTemplate('rco'); ?>
             <?php else: ?>
             <?php echo $this->loadTemplate('news'); ?>
             <?php endif; ?>
