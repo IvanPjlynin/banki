@@ -51,16 +51,16 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
          }
       ?>
       <div class="bank-field summa">
-         <div class="bank-field-name"><?php echo $this->item->extrafields['summa-ipoteka']->title; ?></div>
-         <div class="bank-field-value"><?php echo $this->item->extrafields['summa-ipoteka']->value; ?></div>
+         <div class="bank-field-name">Сумма кредита</div>
+         <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['summa-ipoteka']->value, 0, ',', ' '); ?> ₽</div>
       </div>
       <div class="bank-field srok">
-         <div class="bank-field-name"><?php echo $this->item->extrafields['srok-ipoteka']->title; ?></div>
-         <div class="bank-field-value"><?php echo $this->item->extrafields['srok-ipoteka']->value; ?></div>
+         <div class="bank-field-name">Срок</div>
+         <div class="bank-field-value">до <?php echo $this->item->extrafields['srok-ipoteka']->value; ?> мес.</div>
       </div>
       <div class="bank-field stavka">
-         <div class="bank-field-name"><?php echo $this->item->extrafields['stavka-ipoteka']->title; ?></div>
-         <div class="bank-field-value"><?php echo $this->item->extrafields['stavka-ipoteka']->value; ?></div>
+         <div class="bank-field-name">Ставка</div>
+         <div class="bank-field-value">от <?php echo $this->item->extrafields['stavka-ipoteka']->value; ?> %</div>
       </div>
    </div>
    <div class="col-12 col-sm-12 col-md-5 column bank-tags">
