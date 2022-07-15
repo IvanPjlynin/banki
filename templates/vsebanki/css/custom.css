@@ -820,4 +820,6 @@ div.modal {
     color: #56C182;
 }
 
-.item-page #myTabContent .tab-text-block {}
+.item-page #myTabContent .tab-text-block {
+    padding-bottom: 25px;
+}
