@@ -56,18 +56,11 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
         </div>
         <div class="col-12 col-sm-12 col-md-4 column bank-fields">
 
-            <div class="bank-field summa">
-                <div class="bank-field-name"><?php echo $this->item->extrafields['summa-kredita']->title; ?></div>
-                <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['summa-kredita']->value, 0, ',', ' '); ?> ₽</div>
-            </div>
             <div class="bank-field srok">
-                <div class="bank-field-name"><?php echo $this->item->extrafields['nazvanie-produktanazvanie-produkta']->title; ?></div>
-                <div class="bank-field-value">до <?php echo $this->item->extrafields['nazvanie-produkta']->value; ?> мес.</div>
+                <div class="bank-field-name">Стоимость тарифа</div>
+                <div class="bank-field-value"><?php echo number_format($this->item->extrafields['stoimost-tarifa']->value, 0, ',', ' '); ?> ₽/мес.</div>
             </div>
-            <div class="bank-field stavka">
-                <div class="bank-field-name"><?php echo $this->item->extrafields['stavka']->title; ?></div>
-                <div class="bank-field-value">от <?php echo $this->item->extrafields['stavka']->value; ?> %</div>
-            </div>
+
         </div>
         <div class="col-12 col-sm-12 col-md-5 column bank-tags">
             <?php if ($info == 0 && $params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
