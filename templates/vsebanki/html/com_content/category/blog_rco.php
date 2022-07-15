@@ -56,7 +56,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
         </div>
         <div class="col-12 col-sm-12 col-md-4 column bank-fields">
 
-            <div class="bank-field srok">
+            <div class="bank-field srok mb-0">
                 <div class="bank-field-name">Стоимость тарифа</div>
                 <div class="bank-field-value"><?php echo number_format($this->item->extrafields['stoimost-tarifa']->value, 0, ',', ' '); ?> ₽/мес.</div>
             </div>
@@ -68,7 +68,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
             <?php endif; ?>
             <div class="buttons">
                 <a class="button-full" href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language));/* echo $this->item->category_route.'/'.$this->item->alias; */?>"><?php echo JText::_('BANK_FULL_LINK'); ?></a>
-                <a class="button-full-send" href="<?php echo $this->item->extrafields['ssylka-na-ofer-banka']->value; ?>"><?php echo JText::_('BANK_FULL_SEND_LINK'); ?></a>
+                <a class="button-full-send" href="<?php echo $this->item->extrafields['ssylka-na-ofer-banka']->value; ?>">Перейти на сайт</a>
             </div>
         </div>
 
