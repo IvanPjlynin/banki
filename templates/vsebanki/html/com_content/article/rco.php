@@ -188,13 +188,20 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
+                            <?php if ($this->item->extrafields['platezhi']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Платежи</h3>
+                                <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['platezhi']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <div class="button text-center" style="margin-bottom: 40px;"><a class="btn-green" target="_blank" href="<?php echo $this->item->extrafields['ssylka-na-ofer-banka']->value; ?>" style="max-width: 403px;">Оформить ипотеку</a></div>
+            <div class="button text-center" style="margin-bottom: 40px;"><a class="btn-green" target="_blank" href="<?php echo $this->item->extrafields['ssylka-na-ofer-banka']->value; ?>" style="max-width: 403px;">Перейти на сайт</a></div>
 
             <div class="article-content">
                 <div class="row">
