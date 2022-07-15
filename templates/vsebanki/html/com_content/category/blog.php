@@ -131,7 +131,7 @@ $attribs['style'] = 'none';
             <?php echo $this->loadTemplate('investicii'); ?>
             <?php elseif (($menu == '127') || ($menu == '128') || ($menu == '129')) : ?>
             <?php echo $this->loadTemplate('strahovka'); ?>
-            <?php elseif (($menu == '131')) : ?>
+            <?php elseif (($menu == '130') || ($menu == '131')) : ?>
             <?php echo $this->loadTemplate('ipoteka'); ?>
             <?php else: ?>
             <?php echo $this->loadTemplate('news'); ?>
