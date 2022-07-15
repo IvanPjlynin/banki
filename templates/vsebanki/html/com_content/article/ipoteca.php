@@ -294,7 +294,7 @@ $attribs['style'] = 'none';
                 </div>
             </div>
 
-            <div class="button text-center" style="margin-bottom: 40px;"><a class="btn-green" target="_blank" href="<?php echo $this->item->extrafields['ssylka-na-ofer-banka']->value; ?>" style="max-width: 403px;">Открыть счет</a></div>
+            <div class="button text-center" style="margin-bottom: 40px;"><a class="btn-green" target="_blank" href="<?php echo $this->item->extrafields['ssylka-na-ofer-banka']->value; ?>" style="max-width: 403px;">Оформить ипотеку</a></div>
 
             <div class="article-content">
                 <div class="row">
