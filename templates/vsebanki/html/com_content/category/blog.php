@@ -125,8 +125,10 @@ $attribs['style'] = 'none';
             <?php echo $this->loadTemplate('cards'); ?>
             <?php elseif ($menu == '123') : ?>
             <?php echo $this->loadTemplate('cards-debit'); ?>
-            <?php elseif (($menu == '124') || ($menu == '125')) : ?>
+            <?php elseif ($menu == '124') : ?>
             <?php echo $this->loadTemplate('vklady'); ?>
+            <?php elseif ($menu == '125') : ?>
+            <?php echo $this->loadTemplate('investicii'); ?>
             <?php elseif (($menu == '127') || ($menu == '128') || ($menu == '129')) : ?>
             <?php echo $this->loadTemplate('strahovka'); ?>
             <?php elseif (($menu == '131')) : ?>
