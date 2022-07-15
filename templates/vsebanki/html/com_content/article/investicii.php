@@ -185,23 +185,30 @@ $attribs['style'] = 'none';
             <div class="rl_tabs">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="tab-stavki" data-bs-toggle="tab" data-bs-target="#tab-stavki-tab" type="button" role="tab" aria-controls="tab-stavki" aria-selected="true">Ставки</a>
+                        <a class="nav-link active" id="tab-stavki" data-bs-toggle="tab" data-bs-target="#tab-stavki-tab" type="button" role="tab" aria-controls="tab-stavki" aria-selected="true">Тариф</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="tab-trebovaniya" data-bs-toggle="tab" data-bs-target="#tab-trebovaniya-tab" type="button" role="tab" aria-controls="tab-trebovaniya" aria-selected="false">Условия</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="tab-dopolnitelno" data-bs-toggle="tab" data-bs-target="#tab-dopolnitelno-tab" type="button" role="tab" aria-controls="tab-dopolnitelno" aria-selected="false">Дополнительно</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-stavki-tab" role="tabpanel" aria-labelledby="tab-stavki">
                         <div class="row tab-text">
 
-                            <?php if ($this->item->extrafields['summa-vklada']->value) : ?>
+                            <?php if (($this->item->extrafields['razmer-portfelya-ot']->value)||($this->item->extrafields['razmer-portfelya-do']->value)) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Минимальная сумма вклада</h3>
-                                <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['summa-vklada']->value, 0, ',', ' '); ?> ₽</p>
+                                <h3 class="tab-text-block-title">Размер портфеля</h3>
+                                <p class="tab-text-block-content">
+                                    <?php
+                                    if($this->item->extrafields['razmer-portfelya-ot']->value){
+                                        echo 'от '.number_format($this->item->extrafields['razmer-portfelya-ot']->value, 0, ',', ' ').' ₽ ';
+                                    }
+                                    
+                                    if($this->item->extrafields['razmer-portfelya-do']->value){
+                                        echo 'до '.number_format($this->item->extrafields['razmer-portfelya-do']->value, 0, ',', ' ').' ₽ ';
+                                    }
+                                    ?>
+                                </p>
                             </div>
                             <?php endif; ?>
 
