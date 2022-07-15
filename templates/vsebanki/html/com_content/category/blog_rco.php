@@ -38,6 +38,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
         <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
         <div class="col-12 col-sm-12 col-md-3 column bank-logo">
             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
+            <h3><?php echo number_format($this->item->extrafields['nazvanie-produkta']->value, 0, ',', ' '); ?></h3>
         </div>
         <div class="col-12 col-sm-12 col-md-4 column bank-fields">
             <?php
