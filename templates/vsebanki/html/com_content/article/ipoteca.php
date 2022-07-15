@@ -161,6 +161,9 @@ $attribs['style'] = 'none';
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="tab-trebovaniya" data-bs-toggle="tab" data-bs-target="#tab-trebovaniya-tab" type="button" role="tab" aria-controls="tab-trebovaniya" aria-selected="false">Условия</a>
                     </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tab-dopolnitelno" data-bs-toggle="tab" data-bs-target="#tab-dopolnitelno-tab" type="button" role="tab" aria-controls="tab-dopolnitelno" aria-selected="false">Дополнительно</a>
+                    </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-stavki-tab" role="tabpanel" aria-labelledby="tab-stavki">
