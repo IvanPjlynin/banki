@@ -223,11 +223,56 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['vozrast-ot']->value) : ?>
+                            <?php if ($this->item->extrafields['trudoustrojstvo']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Доступные биржи</h3>
+                                <h3 class="tab-text-block-title">Трудоустройство</h3>
                                 <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['vozrast-ot']->value;?>
+                                    <?php echo $this->item->extrafields['trudoustrojstvo']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['stazh-raboty-na-poslednem-meste']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Стаж работы на последнем месте</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['stazh-raboty-na-poslednem-meste']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['obshii-stag-rab']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Общий стаж</h3>
+                                <p class="tab-text-block-content">
+                                    от <?php echo $this->item->extrafields['obshii-stag-rab']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['2ndfl']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Подтверждение дохода</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['2ndfl']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['registratsiya']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Регистрация</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['registratsiya']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['grazhdanstvo']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Гражданство</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['grazhdanstvo']->value;?>
                                 </p>
                             </div>
                             <?php endif; ?>
