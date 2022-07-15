@@ -238,48 +238,39 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade" id="tab-trebovaniya-tab" role="tabpanel" aria-labelledby="tab-trebovaniya">
                         <div class="row tab-text">
 
-                            <?php if ($this->item->extrafields['vyplata-protsentov']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Выплата процентов</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['vyplata-protsentov']->value; ?></p>
+                                <h3 class="tab-text-block-title">Приложение</h3>
+                                <p class="tab-text-block-content">
+                                    <?php if($this->item->extrafields['prilozhenie']->value){
+                                        echo 'Есть';
+                                    }else{
+                                        echo 'Нет';
+                                    } ?> 
+                                </p>
                             </div>
-                            <?php endif; ?>
+ 
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Доступ к quik </h3>
+                                <p class="tab-text-block-content">
+                                    <?php if($this->item->extrafields['dostup-k-quik']->value){
+                                        echo 'Есть';
+                                    }else{
+                                        echo 'Нет';
+                                    } ?> 
+                                </p>
+                            </div>
                             
-                            <?php if ($this->item->extrafields['kapitalizatsiya-protsentov']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Капитализация процентов</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['kapitalizatsiya-protsentov']->value; ?></p>
+                                <h3 class="tab-text-block-title">ИИС</h3>
+                                <p class="tab-text-block-content">
+                                    <?php if($this->item->extrafields['iis']->value){
+                                        echo 'Да';
+                                    }else{
+                                        echo 'Нет';
+                                    } ?> 
+                                </p>
                             </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['popolnenie']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Пополнение</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['popolnenie']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['chastichnoe-snyatie']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Частичное снятие</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['chastichnoe-snyatie']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['nesnizhaemyj-ostatok']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Неснижаемый остаток</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['nesnizhaemyj-ostatok']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['dosrochnoe-rastorzhenie']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Досрочное расторжение</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['dosrochnoe-rastorzhenie']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
+   
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
