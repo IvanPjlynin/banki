@@ -133,7 +133,16 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="bank-field stavka">
                         <div class="bank-field-name">Размер портфеля</div>
-                        <div class="bank-field-value">до <?php if ($this->item->extrafields['stavka-vklada']->value){ echo $this->item->extrafields['stavka-vklada']->value; } else { echo '0';} ?> %</div>
+                        <div class="bank-field-value">
+                            <?php
+                            if($this->item->extrafields['razmer-portfelya-ot']->value){
+                                echo 'от '.number_format($this->item->extrafields['razmer-portfelya-ot']->value, 0, ',', ' ').'₽ ';
+                            }
+                            if($this->item->extrafields['razmer-portfelya-do']->value){
+                                echo 'до '.number_format($this->item->extrafields['razmer-portfelya-do']->value, 0, ',', ' ').'₽ ';
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
