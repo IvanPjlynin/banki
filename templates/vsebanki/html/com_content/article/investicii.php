@@ -138,7 +138,7 @@ $attribs['style'] = 'none';
                             if($this->item->extrafields['razmer-portfelya-ot']->value){
                                 echo 'от '.number_format($this->item->extrafields['razmer-portfelya-ot']->value, 0, ',', ' ').' ₽ ';
                             }
-                            if(($this->item->extrafields['razmer-portfelya-ot']->value)||($this->item->extrafields['razmer-portfelya-do']->value)){
+                            if(($this->item->extrafields['razmer-portfelya-ot']->value)&&($this->item->extrafields['razmer-portfelya-do']->value)){
                                 echo '</br>';
                             }
                             if($this->item->extrafields['razmer-portfelya-do']->value){
@@ -147,6 +147,21 @@ $attribs['style'] = 'none';
                             ?>
                         </div>
                     </div>
+                    
+                    <?php if (($this->item->extrafields['prilozhenie']->value)||($this->item->extrafields['dostup-k-quik']->value)) : ?>
+                    <div class="bank-field summa">
+                        <div class="bank-field-name">Особые условия</div>
+                        <div class="bank-field-value">
+                        <?php if($this->item->extrafields['prilozhenie']->value){
+                            echo 'Приложение';
+                        } ?>  
+                        <?php if($this->item->extrafields['dostup-k-quik']->value){
+                            echo 'Quik';
+                        } ?>  
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    
                 </div>
             </div>
             <div class="row">
