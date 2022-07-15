@@ -237,51 +237,25 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
                         <div class="row tab-text">
-
                             
-                            <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
+                            <?php if ($this->item->extrafields['uvelichenie-stavki']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Подтверждение дохода</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['podtverzhdenie-dokhoda']->value; ?></p>
+                                <h3 class="tab-text-block-title">Увеличение ставки</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['uvelichenie-stavki']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
+                            <?php if ($this->item->extrafields['sposob-otkrytiya']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Способ открытия</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['sposob-otkrytiya']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
                             
-
-                            <?php if ($this->item->extrafields['osnovnoj-bonus']->value) : ?>
+                            <?php if ($this->item->extrafields['osobye-usloviya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Основной бонус</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['osnovnoj-bonus']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['bonus-za-oplatu-v']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Бонус за оплату в</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['bonus-za-oplatu-v']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['bonus-u-partnerov']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Бонус у партнеров</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['bonus-u-partnerov']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
-
-                            
-
-                            <?php if ($this->item->extrafields['sposob-polucheniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Способ получения</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['sposob-polucheniya']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Рассмотрение</h3>
-                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин - <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн</p>
+                                <h3 class="tab-text-block-title">Особые условия</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['osobye-usloviya']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
