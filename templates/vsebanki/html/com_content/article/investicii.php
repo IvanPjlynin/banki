@@ -238,7 +238,7 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade" id="tab-trebovaniya-tab" role="tabpanel" aria-labelledby="tab-trebovaniya">
                         <div class="row tab-text">
 
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Приложение</h3>
                                 <p class="tab-text-block-content">
                                     <?php if($this->item->extrafields['prilozhenie']->value){
@@ -249,7 +249,7 @@ $attribs['style'] = 'none';
                                 </p>
                             </div>
  
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Доступ к quik </h3>
                                 <p class="tab-text-block-content">
                                     <?php if($this->item->extrafields['dostup-k-quik']->value){
@@ -260,7 +260,7 @@ $attribs['style'] = 'none';
                                 </p>
                             </div>
                             
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">ИИС</h3>
                                 <p class="tab-text-block-content">
                                     <?php if($this->item->extrafields['iis']->value){
