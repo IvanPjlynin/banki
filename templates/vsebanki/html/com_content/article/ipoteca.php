@@ -131,14 +131,14 @@ $attribs['style'] = 'none';
                         <div class="bank-field-name">Срок</div>
                         <div class="bank-field-value">до <?php echo $this->item->extrafields['srok-ipoteka']->value; ?> мес.</div>
                     </div>
-                                        
+
                     <div class="bank-field stavka">
                         <div class="bank-field-name">Ставка</div>
                         <div class="bank-field-value">
                             от <?php echo $this->item->extrafields['stavka-ipoteka']->value; ?> %
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="row">
@@ -169,7 +169,7 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade show active" id="tab-stavki-tab" role="tabpanel" aria-labelledby="tab-stavki">
                         <div class="row tab-text">
 
-                           
+
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Сумма</h3>
                                 <p class="tab-text-block-content">
@@ -184,7 +184,7 @@ $attribs['style'] = 'none';
                                     ?>
                                 </p>
                             </div>
-                            
+
 
                             <?php if ($this->item->extrafields['stavka-ipoteka']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
@@ -199,75 +199,44 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">до <?php echo number_format($this->item->extrafields['srok-ipoteka']->value/12, 1, ',', ' '); ?> лет.</p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['pervonachalnyj-vznos-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Первоначальный взнос</h3>
                                 <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['pervonachalnyj-vznos-ot']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
                             <?php endif; ?>
-                            
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-trebovaniya-tab" role="tabpanel" aria-labelledby="tab-trebovaniya">
                         <div class="row tab-text">
 
+                            <?php if (($this->item->extrafields['vozrast-ot']->value)||($this->item->extrafields['vozrast-do']->value)) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Приложение</h3>
+                                <h3 class="tab-text-block-title">Возраст</h3>
                                 <p class="tab-text-block-content">
-                                    <?php if($this->item->extrafields['prilozhenie']->value){
-                                        echo 'Есть';
-                                    }else{
-                                        echo 'Нет';
-                                    } ?> 
+                                    <?php if ($this->item->extrafields['vozrast-ot']->value) : echo 'от '.$this->item->extrafields['vozrast-ot']->value;?>
+                                    <?php if ($this->item->extrafields['vozrast-do']->value) : echo 'до '.$this->item->extrafields['vozrast-do']->value;?>
+                                    лет
                                 </p>
                             </div>
- 
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Доступ к quik </h3>
-                                <p class="tab-text-block-content">
-                                    <?php if($this->item->extrafields['dostup-k-quik']->value){
-                                        echo 'Есть';
-                                    }else{
-                                        echo 'Нет';
-                                    } ?> 
-                                </p>
-                            </div>
-                            
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">ИИС</h3>
-                                <p class="tab-text-block-content">
-                                    <?php if($this->item->extrafields['iis']->value){
-                                        echo 'Да';
-                                    }else{
-                                        echo 'Нет';
-                                    } ?> 
-                                </p>
-                            </div>
-                            
-                            <?php if ($this->item->extrafields['dostupnye-birzhi']->value) : ?>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['vozrast-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Доступные биржи</h3>
                                 <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['dostupnye-birzhi']->value;?> 
+                                    <?php echo $this->item->extrafields['vozrast-ot']->value;?>
                                 </p>
                             </div>
                             <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['dostupnye-produkty']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Доступные продукты</h3>
-                                <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['dostupnye-produkty']->value;?> 
-                                </p>
-                            </div>
-                            <?php endif; ?>
-   
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
                         <div class="row tab-text">
-                            
+
                             <?php if ($this->item->extrafields['uvelichenie-stavki']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Увеличение ставки</h3>
@@ -281,7 +250,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['sposob-otkrytiya']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['osobye-usloviya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Особые условия</h3>
