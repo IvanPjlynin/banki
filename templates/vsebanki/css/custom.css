@@ -823,3 +823,7 @@ div.modal {
 .item-page #myTabContent .tab-text-block {
     padding-bottom: 25px;
 }
+
+.item-page #myTabContent .tab-text-block p {
+    line-height: 22px;
+}
