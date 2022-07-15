@@ -139,6 +139,11 @@ $attribs['style'] = 'none';
                         <?php if($this->item->extrafields['prilozhenie']->value){
                             echo 'Приложение';
                         } ?>  
+                        <?php
+                        if(($this->item->extrafields['prilozhenie']->value)&&($this->item->extrafields['dostup-k-quik']->value)){
+                                echo ' / ';
+                            }
+                        ?> 
                         <?php if($this->item->extrafields['dostup-k-quik']->value){
                             echo 'Quik';
                         } ?>  
