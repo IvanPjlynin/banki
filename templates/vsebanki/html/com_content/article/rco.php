@@ -146,13 +146,7 @@ $attribs['style'] = 'none';
             <div class="rl_tabs">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="tab-stavki" data-bs-toggle="tab" data-bs-target="#tab-stavki-tab" type="button" role="tab" aria-controls="tab-stavki" aria-selected="true">Ставки</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="tab-trebovaniya" data-bs-toggle="tab" data-bs-target="#tab-trebovaniya-tab" type="button" role="tab" aria-controls="tab-trebovaniya" aria-selected="false">Требования</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="tab-dopolnitelno" data-bs-toggle="tab" data-bs-target="#tab-dopolnitelno-tab" type="button" role="tab" aria-controls="tab-dopolnitelno" aria-selected="false">Дополнительно</a>
+                        <a class="nav-link active" id="tab-stavki" data-bs-toggle="tab" data-bs-target="#tab-stavki-tab" type="button" role="tab" aria-controls="tab-stavki" aria-selected="true">О тариф</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -199,102 +193,7 @@ $attribs['style'] = 'none';
 
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab-trebovaniya-tab" role="tabpanel" aria-labelledby="tab-trebovaniya">
-                        <div class="row tab-text">
 
-                            <?php if (($this->item->extrafields['vozrast-ot']->value)||($this->item->extrafields['vozrast-do']->value)) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Возраст</h3>
-                                <p class="tab-text-block-content">
-                                    <?php if ($this->item->extrafields['vozrast-ot']->value){ echo 'от '.$this->item->extrafields['vozrast-ot']->value;} ?>
-                                    <?php if ($this->item->extrafields['vozrast-do']->value){ echo 'до '.$this->item->extrafields['vozrast-do']->value;} ?>
-                                    лет
-                                </p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['trudoustrojstvo']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Трудоустройство</h3>
-                                <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['trudoustrojstvo']->value;?>
-                                </p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['stazh-raboty-na-poslednem-meste']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Стаж работы на последнем месте</h3>
-                                <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['stazh-raboty-na-poslednem-meste']->value;?>
-                                </p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['obshii-stag-rab']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Общий стаж</h3>
-                                <p class="tab-text-block-content">
-                                    от <?php echo $this->item->extrafields['obshii-stag-rab']->value;?>
-                                </p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['2ndfl']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Подтверждение дохода</h3>
-                                <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['2ndfl']->value;?>
-                                </p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['registratsiya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Регистрация</h3>
-                                <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['registratsiya']->value;?>
-                                </p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['grazhdanstvo']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Гражданство</h3>
-                                <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['grazhdanstvo']->value;?>
-                                </p>
-                            </div>
-                            <?php endif; ?>
-
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
-                        <div class="row tab-text">
-
-                            <?php if ($this->item->extrafields['dokumenty-dlya-podachi-zayavki']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Документы для подачи заявки</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['dokumenty-dlya-podachi-zayavki']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['vydacha-inostrannym-grazhdanam']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Выдача иностранным гражданам</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['vydacha-inostrannym-grazhdanam']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['srok-rassmotreniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Срок рассмотрения</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['srok-rassmotreniya']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                        </div>
-                    </div>
                 </div>
             </div>
 
