@@ -156,21 +156,35 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['stoimost-tarifa']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Стоимость тарифа</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-tarifa']->value, 0, ',', ' '); ?> ₽/мес.</p>
+                                <p class="tab-text-block-content text-center"><?php echo number_format($this->item->extrafields['stoimost-tarifa']->value, 0, ',', ' '); ?> ₽/мес.</p>
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['srok-ipoteka']->value) : ?>
+                            <?php if ($this->item->extrafields['perevody-fiz-litsam']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Срок</h3>
-                                <p class="tab-text-block-content">до <?php echo number_format($this->item->extrafields['srok-ipoteka']->value/12, 1, ',', ' '); ?> лет.</p>
+                                <h3 class="tab-text-block-title">Переводы физ. лицам</h3>
+                                <p class="tab-text-block-content text-center">до <?php echo $this->item->extrafields['perevody-fiz-litsam']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['pervonachalnyj-vznos-ot']->value) : ?>
+                            <?php if ($this->item->extrafields['vnesenie-nalichnykh']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Первоначальный взнос</h3>
-                                <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['pervonachalnyj-vznos-ot']->value, 0, ',', ' '); ?> ₽</p>
+                                <h3 class="tab-text-block-title">Внесение наличных</h3>
+                                <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['vnesenie-nalichnykh']->value; ?> %</p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['snyatie-nalichnykh']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Снятие наличных</h3>
+                                <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['snyatie-nalichnykh']->value; ?> %</p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['postupleniya-ot']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Поступления</h3>
+                                <p class="tab-text-block-content text-center">от <?php echo $this->item->extrafields['postupleniya-ot']->value; ?> %</p>
                             </div>
                             <?php endif; ?>
 
