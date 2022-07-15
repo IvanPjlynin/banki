@@ -193,10 +193,10 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['obsluzhivanie-v-mesyats']->value) : ?>
+                            <?php if ($this->item->extrafields['srok-ipoteka']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Обслуживание без операций</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['obsluzhivanie-v-mesyats']->value, 0, ',', ' '); ?> ₽/мес.</p>
+                                <h3 class="tab-text-block-title">Срок</h3>
+                                <p class="tab-text-block-content">до <?php echo number_format($this->item->extrafields['srok-ipoteka']->value/12, 1, ',', ' '); ?> лет.</p>
                             </div>
                             <?php endif; ?>
                             
