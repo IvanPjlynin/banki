@@ -175,7 +175,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">
                                     <?php
                                     if($this->item->extrafields['summa-ot']->value){
-                                        echo 'от '.number_format($this->item->extrafields['summa-ot']->value, 0, ',', ' ').' ₽ ';
+                                        echo 'от '.number_format($this->item->extrafields['summa-ot']->value, 0, ',', ' ').' ₽ <br>';
                                     }
                                     
                                     if($this->item->extrafields['summa-ipoteka']->value){
