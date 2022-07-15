@@ -212,10 +212,10 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['srok-vklada']->value) : ?>
+                            <?php if ($this->item->extrafields['komissiya-za-sdelku']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Срок</h3>
-                                <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['srok-vklada']->value, 0, ',', ' '); ?> дн.</p>
+                                <h3 class="tab-text-block-title">Комиссия за сделку</h3>
+                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['komissiya-za-sdelku']->value; ?> %</p>
                             </div>
                             <?php endif; ?>
 
