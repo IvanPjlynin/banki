@@ -124,7 +124,7 @@ $attribs['style'] = 'none';
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields " style="display: flex;align-items: center;">
 
-                    <div class="bank-field srok">
+                    <div class="bank-field srok" style="width: 100%;">
                         <div class="bank-field-name pr-2">Стоимость тарифа</div>
                         <div class="bank-field-value"><?php echo number_format($this->item->extrafields['summa-ipoteka']->value, 0, ',', ' '); ?> ₽/мес.</div>
                     </div>
