@@ -283,21 +283,21 @@ $attribs['style'] = 'none';
                         <div class="row tab-text">
 
                             <?php if ($this->item->extrafields['dokumenty-dlya-podachi-zayavki']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Документы для подачи заявки</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['dokumenty-dlya-podachi-zayavki']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['vydacha-inostrannym-grazhdanam']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Выдача иностранным гражданам</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['vydacha-inostrannym-grazhdanam']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['srok-rassmotreniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок рассмотрения</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['srok-rassmotreniya']->value; ?></p>
                             </div>
