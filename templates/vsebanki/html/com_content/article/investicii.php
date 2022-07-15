@@ -129,7 +129,7 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="bank-field srok">
                         <div class="bank-field-name">Обслуживание в месяц</div>
-                        <div class="bank-field-value"><?php echo $this->item->extrafields['obsluzhivanie-v-mesyats']->value; ?> ₽</div>
+                        <div class="bank-field-value"><?php echo number_format($this->item->extrafields['obsluzhivanie-v-mesyats']->value, 0, ',', ' '); ?> ₽</div>
                     </div>
                                         
                     <?php if (($this->item->extrafields['prilozhenie']->value)||($this->item->extrafields['dostup-k-quik']->value)) : ?>
@@ -219,20 +219,20 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['stavka-vklada']->value) : ?>
+                            <?php if ($this->item->extrafields['obsluzhivanie-v-mesyats']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка</h3>
-                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['stavka-vklada']->value; ?> %</p>
+                                <h3 class="tab-text-block-title">Обслуживание без операций</h3>
+                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['obsluzhivanie-v-mesyats']->value, 0, ',', ' '); ?> ₽/мес.</p>
                             </div>
                             <?php endif; ?>
                             
-                            <?php if ($this->item->extrafields['tablitsa-stavok']->value) : ?>
+                            <?php if ($this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Таблица ставок</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['tablitsa-stavok']->value; ?></p>
+                                <h3 class="tab-text-block-title">Обслуживание с совершением операций</h3>
+                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value, 0, ',', ' '); ?> ₽/мес.</p>
                             </div>
                             <?php endif; ?>
-
+                            
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-trebovaniya-tab" role="tabpanel" aria-labelledby="tab-trebovaniya">
