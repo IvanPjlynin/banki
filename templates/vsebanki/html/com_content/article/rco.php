@@ -154,42 +154,42 @@ $attribs['style'] = 'none';
                         <div class="row tab-text">
 
                             <?php if ($this->item->extrafields['stoimost-tarifa']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Стоимость тарифа</h3>
                                 <p class="tab-text-block-content text-center"><?php echo number_format($this->item->extrafields['stoimost-tarifa']->value, 0, ',', ' '); ?> ₽/мес.</p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['perevody-fiz-litsam']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Переводы физ. лицам</h3>
                                 <p class="tab-text-block-content text-center">до <?php echo $this->item->extrafields['perevody-fiz-litsam']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['vnesenie-nalichnykh']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Внесение наличных</h3>
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['vnesenie-nalichnykh']->value; ?> %</p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['snyatie-nalichnykh']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Снятие наличных</h3>
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['snyatie-nalichnykh']->value; ?> %</p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['postupleniya-ot']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Поступления</h3>
                                 <p class="tab-text-block-content text-center">от <?php echo $this->item->extrafields['postupleniya-ot']->value; ?> %</p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['platezhi']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Платежи</h3>
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['platezhi']->value; ?></p>
                             </div>
