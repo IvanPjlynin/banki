@@ -124,47 +124,18 @@ $attribs['style'] = 'none';
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields">
                     <div class="bank-field summa">
-                        <div class="bank-field-name">Комиссия за сделку</div>
-                        <div class="bank-field-value">от <?php echo $this->item->extrafields['komissiya-za-sdelku']->value; ?> %</div>
+                        <div class="bank-field-name">Сумма кредита</div>
+                        <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['summa-ipoteka']->value, 0, ',', ' '); ?> ₽</div>
                     </div>
                     <div class="bank-field srok">
-                        <div class="bank-field-name">Обслуживание в месяц</div>
-                        <div class="bank-field-value"><?php echo number_format($this->item->extrafields['obsluzhivanie-v-mesyats']->value, 0, ',', ' '); ?> ₽</div>
+                        <div class="bank-field-name">Срок</div>
+                        <div class="bank-field-value">до <?php echo $this->item->extrafields['srok-ipoteka']->value; ?> мес.</div>
                     </div>
                                         
-                    <?php if (($this->item->extrafields['prilozhenie']->value)||($this->item->extrafields['dostup-k-quik']->value)) : ?>
-                    <div class="bank-field summa">
-                        <div class="bank-field-name">Особые условия</div>
-                        <div class="bank-field-value">
-                        <?php if($this->item->extrafields['prilozhenie']->value){
-                            echo 'Приложение';
-                        } ?>  
-                        <?php
-                        if(($this->item->extrafields['prilozhenie']->value)&&($this->item->extrafields['dostup-k-quik']->value)){
-                                echo ' / ';
-                            }
-                        ?> 
-                        <?php if($this->item->extrafields['dostup-k-quik']->value){
-                            echo 'Quik';
-                        } ?>  
-                        </div>
-                    </div>
-                    <?php endif; ?>
-                    
                     <div class="bank-field stavka">
-                        <div class="bank-field-name">Размер портфеля</div>
-                        <div class="bank-field-value text-end">
-                            <?php
-                            if($this->item->extrafields['razmer-portfelya-ot']->value){
-                                echo 'от '.number_format($this->item->extrafields['razmer-portfelya-ot']->value, 0, ',', ' ').' ₽ ';
-                            }
-                            if(($this->item->extrafields['razmer-portfelya-ot']->value)&&($this->item->extrafields['razmer-portfelya-do']->value)){
-                                echo '</br>';
-                            }
-                            if($this->item->extrafields['razmer-portfelya-do']->value){
-                                echo 'до '.number_format($this->item->extrafields['razmer-portfelya-do']->value, 0, ',', ' ').' ₽ ';
-                            }
-                            ?>
+                        <div class="bank-field-name">Ставка</div>
+                        <div class="bank-field-value">
+                            от <?php echo $this->item->extrafields['stavka-ipoteka']->value; ?> %
                         </div>
                     </div>
                     
