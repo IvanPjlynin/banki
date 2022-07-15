@@ -136,7 +136,7 @@ $attribs['style'] = 'none';
                         <div class="bank-field-value">
                             <?php
                             if($this->item->extrafields['razmer-portfelya-ot']->value){
-                                echo 'от '.number_format($this->item->extrafields['razmer-portfelya-ot']->value, 0, ',', ' ').'₽ ';
+                                echo 'от '.number_format($this->item->extrafields['razmer-portfelya-ot']->value, 0, ',', ' ').'₽ </br>';
                             }
                             if($this->item->extrafields['razmer-portfelya-do']->value){
                                 echo 'до '.number_format($this->item->extrafields['razmer-portfelya-do']->value, 0, ',', ' ').'₽ ';
