@@ -122,10 +122,10 @@ $attribs['style'] = 'none';
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-logo">
                     <?php echo LayoutHelper::render('joomla.content.full_image', $this->item); ?>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields">
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields " style="display: flex;align-items: center;">
 
                     <div class="bank-field srok">
-                        <div class="bank-field-name">Стоимость тарифа</div>
+                        <div class="bank-field-name pr-2">Стоимость тарифа</div>
                         <div class="bank-field-value"><?php echo number_format($this->item->extrafields['summa-ipoteka']->value, 0, ',', ' '); ?> ₽/мес.</div>
                     </div>
 
