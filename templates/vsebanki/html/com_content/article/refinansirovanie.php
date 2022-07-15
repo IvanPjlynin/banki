@@ -52,7 +52,7 @@ $attribs['style'] = 'none';
     <?php if ($this->params->get('show_page_heading')) : ?>
     <div class="page-header">
         <h1><?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> - <?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h1>
-        <h3>Получите ипотеку в <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> в Санкт-Петербурге</h3>
+        <h3>Рефинансирование ипотеки в <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> в Санкт-Петербурге</h3>
 
         <?php if ($this->item->extrafields['kredit-pod-zalog']->value) : ?>
         <h3>Под залог - <?php echo $this->item->extrafields['kredit-pod-zalog']->value; ?></h3>
