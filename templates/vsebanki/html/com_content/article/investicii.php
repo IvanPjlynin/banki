@@ -131,6 +131,21 @@ $attribs['style'] = 'none';
                         <div class="bank-field-name">Обслуживание в месяц</div>
                         <div class="bank-field-value"><?php echo $this->item->extrafields['obsluzhivanie-v-mesyats']->value; ?> ₽</div>
                     </div>
+                                        
+                    <?php if (($this->item->extrafields['prilozhenie']->value)||($this->item->extrafields['dostup-k-quik']->value)) : ?>
+                    <div class="bank-field summa">
+                        <div class="bank-field-name">Особые условия</div>
+                        <div class="bank-field-value">
+                        <?php if($this->item->extrafields['prilozhenie']->value){
+                            echo 'Приложение';
+                        } ?>  
+                        <?php if($this->item->extrafields['dostup-k-quik']->value){
+                            echo 'Quik';
+                        } ?>  
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    
                     <div class="bank-field stavka">
                         <div class="bank-field-name">Размер портфеля</div>
                         <div class="bank-field-value text-end">
@@ -147,20 +162,6 @@ $attribs['style'] = 'none';
                             ?>
                         </div>
                     </div>
-                    
-                    <?php if (($this->item->extrafields['prilozhenie']->value)||($this->item->extrafields['dostup-k-quik']->value)) : ?>
-                    <div class="bank-field summa">
-                        <div class="bank-field-name">Особые условия</div>
-                        <div class="bank-field-value">
-                        <?php if($this->item->extrafields['prilozhenie']->value){
-                            echo 'Приложение';
-                        } ?>  
-                        <?php if($this->item->extrafields['dostup-k-quik']->value){
-                            echo 'Quik';
-                        } ?>  
-                        </div>
-                    </div>
-                    <?php endif; ?>
                     
                 </div>
             </div>
