@@ -34,7 +34,11 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 <div class="item-content row eq">
     <?php if ($isUnpublished) : ?>
 
-    <?php
+    <div class="system-unpublished">
+        <?php endif; ?>
+        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
+
+        <?php
          $this->item->extrafields = array();
          if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
             foreach ($this->item->jcfields as $field) {
@@ -43,12 +47,9 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 		       }
 	        }
          }
-    ?>
+        ?>
 
 
-    <div class="system-unpublished">
-        <?php endif; ?>
-        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
         <div class="col-12 col-sm-12 col-md-3 column bank-logo">
             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
             <h3><?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h3>
@@ -60,7 +61,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
                 <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['summa-kredita']->value, 0, ',', ' '); ?> ₽</div>
             </div>
             <div class="bank-field srok">
-                <div class="bank-field-name"><?php echo $this->item->extrafields['nazvanie-produkta']->title; ?></div>
+                <div class="bank-field-name"><?php echo $this->item->extrafields['nazvanie-produktanazvanie-produkta']->title; ?></div>
                 <div class="bank-field-value">до <?php echo $this->item->extrafields['nazvanie-produkta']->value; ?> мес.</div>
             </div>
             <div class="bank-field stavka">
