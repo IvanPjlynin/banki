@@ -126,7 +126,7 @@ $attribs['style'] = 'none';
 
                     <div class="bank-field srok" style="width: 100%;">
                         <div class="bank-field-name pr-2">Стоимость тарифа</div>
-                        <div class="bank-field-value"><?php echo number_format($this->item->extrafields['summa-ipoteka']->value, 0, ',', ' '); ?> ₽/мес.</div>
+                        <div class="bank-field-value"><?php echo number_format($this->item->extrafields['stoimost-tarifa']->value, 0, ',', ' '); ?> ₽/мес.</div>
                     </div>
 
                 </div>
@@ -153,27 +153,10 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade show active" id="tab-stavki-tab" role="tabpanel" aria-labelledby="tab-stavki">
                         <div class="row tab-text">
 
-
+                            <?php if ($this->item->extrafields['stoimost-tarifa']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Сумма</h3>
-                                <p class="tab-text-block-content">
-                                    <?php
-                                    if($this->item->extrafields['summa-ot']->value){
-                                        echo 'от '.number_format($this->item->extrafields['summa-ot']->value, 0, ',', ' ').' ₽ <br>';
-                                    }
-                                    
-                                    if($this->item->extrafields['summa-ipoteka']->value){
-                                        echo 'до '.number_format($this->item->extrafields['summa-ipoteka']->value, 0, ',', ' ').' ₽ ';
-                                    }
-                                    ?>
-                                </p>
-                            </div>
-
-
-                            <?php if ($this->item->extrafields['stavka-ipoteka']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка</h3>
-                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['stavka-ipoteka']->value; ?> %</p>
+                                <h3 class="tab-text-block-title">Стоимость тарифа</h3>
+                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-tarifa']->value, 0, ',', ' '); ?> ₽/мес.</p>
                             </div>
                             <?php endif; ?>
 
