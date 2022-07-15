@@ -178,7 +178,7 @@ $attribs['style'] = 'none';
                                         echo 'от '.number_format($this->item->extrafields['summa-ot']->value, 0, ',', ' ').' ₽ ';
                                     }
                                     
-                                    if($this->item->extrafields['razmer-portfelya-do']->value){
+                                    if($this->item->extrafields['summa-ipoteka']->value){
                                         echo 'до '.number_format($this->item->extrafields['summa-ipoteka']->value, 0, ',', ' ').' ₽ ';
                                     }
                                     ?>
