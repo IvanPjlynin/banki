@@ -216,8 +216,8 @@ $attribs['style'] = 'none';
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст</h3>
                                 <p class="tab-text-block-content">
-                                    <?php if ($this->item->extrafields['vozrast-ot']->value) : echo 'от '.$this->item->extrafields['vozrast-ot']->value;?>
-                                    <?php if ($this->item->extrafields['vozrast-do']->value) : echo 'до '.$this->item->extrafields['vozrast-do']->value;?>
+                                    <?php if ($this->item->extrafields['vozrast-ot']->value){ echo 'от '.$this->item->extrafields['vozrast-ot']->value;} ?>
+                                    <?php if ($this->item->extrafields['vozrast-do']->value){ echo 'до '.$this->item->extrafields['vozrast-do']->value;} ?>
                                     лет
                                 </p>
                             </div>
