@@ -163,7 +163,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['perevody-fiz-litsam']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Переводы физ. лицам</h3>
-                                <p class="tab-text-block-content text-center">до <?php echo $this->item->extrafields['perevody-fiz-litsam']->value; ?></p>
+                                <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['perevody-fiz-litsam']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
@@ -177,7 +177,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['snyatie-nalichnykh']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Снятие наличных</h3>
-                                <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['snyatie-nalichnykh']->value; ?> %</p>
+                                <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['snyatie-nalichnykh']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
