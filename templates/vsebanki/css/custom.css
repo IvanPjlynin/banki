@@ -836,3 +836,12 @@ div.modal {
 .item-page.credit .com-content-article__body .bank-info-full .rl_tabs .tab-content {
     padding: 48px 32px 24px;
 }
+
+
+
+/*Адаптация*/
+@media screen and (max-width: 480px) {
+    .bestdeals .container .row div .nav-tabs button {
+            width: 100%;
+    }
+}
