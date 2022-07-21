@@ -832,3 +832,7 @@ div.modal {
     font-size: 18px;
     line-height: 32px;
 }
+
+.item-page.credit .com-content-article__body .bank-info-full .rl_tabs .tab-content {
+    padding: 48px 32px 24px;
+}
