@@ -827,5 +827,6 @@ div.modal {
 
 .item-page #myTabContent .tab-text-block p,
 .item-page #myTabContent .tab-text-block h3 {
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 32px;
 }
