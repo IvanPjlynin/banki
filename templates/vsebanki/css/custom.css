@@ -827,6 +827,8 @@ div.modal {
 
 .item-page #myTabContent .tab-text-block p,
 .item-page #myTabContent .tab-text-block h3 {
+    font-family: 'Roboto';
+    font-style: normal;
     font-size: 18px;
     line-height: 32px;
 }
