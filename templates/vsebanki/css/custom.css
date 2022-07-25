@@ -856,5 +856,10 @@ div.modal {
         color: #56C182;
         background: transparent;
         transition: all 0.3s linear;
+        margin-bottom: 8px;
+    }
+    .bestdeals .container .row div .nav-tabs button.active {
+        color: #002D4F;
+        border: none;
     }
 }
