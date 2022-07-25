@@ -182,7 +182,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['srok-zajma']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['srok-zajma-ot']->value; ?> мес - <?php echo $this->item->extrafields['srok-zajma']->value; ?> мес</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['srok-zajma-ot']->value; ?> дн. - <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.</p>
                             </div>
                             <?php endif; ?>
 
