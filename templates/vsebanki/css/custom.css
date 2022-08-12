@@ -1420,6 +1420,21 @@ div.modal {
         z-index: -9;
     }
 
+    .main-block .container .row div .service.credit:hover .hover-block .service-button {
+        display: flex;
+        width: auto;
+        justify-content: space-around;
+        padding: 4px 60px;
+        margin-top: 10px;
+        border: 1px solid #56C182;
+        border-radius: 5px;
+        background: #56C182;
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+    }
 
 
 
