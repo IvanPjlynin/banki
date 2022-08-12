@@ -1219,6 +1219,7 @@ div.modal {
     .item-page .com-content-article__body .credit-rating-3-wrapper {
         margin-left: 0 !important;
         min-width: auto;
+        display: block;
     }
 
     .item-page .com-content-article__body .credit-rating-3-wrapper .credit-rating-3 {
