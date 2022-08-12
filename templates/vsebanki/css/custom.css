@@ -1280,6 +1280,15 @@ div.modal {
         line-height: 35px;
     }
 
+    .casko-1 {
+        background-image: none;
+    }
+
+    .blog .category-desc .section.banner2.turist .banner-subtitle {
+        padding-left: 0px;
+        padding-top: 10px;
+    }
+
     /****блок фильтров на главной*/
 
 
