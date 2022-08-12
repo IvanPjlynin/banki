@@ -1216,6 +1216,15 @@ div.modal {
         margin-top: 60px;
     }
 
+    .item-page .com-content-article__body .credit-rating-3-wrapper {
+        margin-left: 0 !important;
+        min-width: auto;
+    }
+
+    .item-page .com-content-article__body .credit-rating-3-wrapper .credit-rating-3 {
+        width: auto;
+    }
+
     /****блок фильтров на главной*/
 
 
