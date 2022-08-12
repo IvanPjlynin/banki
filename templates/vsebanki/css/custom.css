@@ -1405,18 +1405,8 @@ div.modal {
 
     /****блок фильтров на главной*/
 
-    .main-block .container .row div .service.credit:hover .hover-block,
-    .main-block .container .row div .service.credit-card:hover .hover-block,
-    .main-block .container .row div .service.credit:hover .hover-block,
-    .main-block .container .row div .service.loan:hover .hover-block,
-    .main-block .container .row div .service.deposit:hover .hover-block {
-        background: #f6f9f9;
-        z-index: 9;
-    }
-
-    .main-block .container .row div .service .hover-block .top-block .service-name-inside {
-        font-size: 30px !important;
-        padding: 22px 0;
+    .main-block .container .row div .service {
+        background: none !important;
     }
 
 
