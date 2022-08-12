@@ -1044,7 +1044,28 @@ div.modal {
         width: 90%;
     }
 
+    .blog .blog-items .blog-item .item-content .bank-tags .buttons {
+        padding: 0 10px;
+    }
+
+    .blog .blog-items .blog-item .item-content .bank-tags .buttons .button-full {
+        width: 160px;
+    }
+
+    .blog .blog-items .blog-item .item-content .bank-tags .buttons .button-full-send {
+        width: 170px;
+    }
+
     /****блок фильтров на главной*/
+
+
+
+
+
+
+
+
+
 
 
 
