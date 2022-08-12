@@ -1096,6 +1096,10 @@ div.modal {
         margin-top: 35px;
     }
 
+    .item-page.credit .com-content-article__body .bank-info {
+        width: 100%;
+    }
+
     /****блок фильтров на главной*/
 
 
