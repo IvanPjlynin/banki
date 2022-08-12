@@ -840,7 +840,7 @@ div.modal {
 
 
 /*Адаптация*/
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
         width: 98%;
         margin: 0 auto;
@@ -1395,6 +1395,11 @@ div.modal {
 
     .item-page .com-content-article__body .article-full-width .row div .image-absolute-green,
     .item-page .com-content-article__body .article-full-width .row div .image-absolute-like {
+        display: none;
+    }
+
+    .item-page .com-content-article__body .article-full-width .row div .image-mobile-svyaz,
+    .item-page .com-content-article__body .article-full-width .row div .image-absolute-orange {
         display: none;
     }
 
