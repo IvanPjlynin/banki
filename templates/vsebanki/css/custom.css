@@ -860,20 +860,9 @@ div.modal {
     }
 
     .bestdeals .container .row div .nav-tabs button.active {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        padding: 4px 0;
-        margin-top: 10px;
         border: 1px solid #56C182;
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
         background: #56C182;
         color: #fff;
-        font-family: "Roboto", sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 24px;
     }
 
 
