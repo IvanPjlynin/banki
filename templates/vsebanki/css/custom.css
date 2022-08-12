@@ -1269,7 +1269,7 @@ div.modal {
     .blog.menu_id_127 .category-desc .title {
         font-weight: 700;
         font-size: 34px;
-        line-height: 38px;
+        line-height: 42px;
         margin-bottom: 0px;
     }
 
@@ -1292,6 +1292,43 @@ div.modal {
     #casko-3 div.col-12.col-sm-12.col-md-6.pl-0 {
         padding-left: 0px !important;
         padding-right: 0px !important;
+    }
+
+    #casko-3 img.img-absolute {
+        position: absolute;
+        right: 0;
+        bottom: -60px;
+        max-height: 183px;
+    }
+
+    .blog .category-desc .section.banner2 .banner-subtitle {
+        padding-left: 0;
+        padding-top: 60px;
+    }
+
+    #casko-4 .row {
+        background: #fff;
+    }
+
+    .blog .category-desc .section.banner2 .banner-subtitle {
+        padding-left: 0;
+        padding-top: 60px;
+    }
+
+    .banner2 .container .row div .banner-wrapper {
+        margin-bottom: 20px;
+    }
+
+    .blog.menu_id_129 .category-desc .title {
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 42px;
+        margin-bottom: 30px;
+    }
+
+    .blog.menu_id_129 .category-desc .subtitle {
+        font-size: 28px;
+        line-height: 35px;
     }
 
     /****блок фильтров на главной*/
