@@ -911,4 +911,8 @@ div.modal {
         padding-left: 20px !important;
         padding-right: 20px !important;
     }
+
+    .section .container .row .mod-articlesnews__item {
+        margin-bottom: 25px;
+    }
 }
