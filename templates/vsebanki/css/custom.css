@@ -842,7 +842,8 @@ div.modal {
 /*Адаптация*/
 @media screen and (max-width: 480px) {
     .bestdeals .container .row div .nav-tabs button {
-        width: 100%;
+        width: 98%;
+        margin: 0 auto;
         border: 1px solid #D9DEE3;
         box-sizing: border-box;
         border-radius: 6px;
