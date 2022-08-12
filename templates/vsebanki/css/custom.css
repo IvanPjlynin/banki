@@ -1029,4 +1029,10 @@ div.modal {
         padding-right: calc(var(--bs-gutter-x) * .5) !important;
         padding-left: calc(var(--bs-gutter-x) * .5) !important;
     }
+
+    .intro .container .row div .intro-block .subdesc {
+        padding-bottom: 15px;
+    }
+
+
 }

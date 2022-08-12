@@ -1174,4 +1174,8 @@ jQuery(document).ready(function ($) {
             $('.blog-items').html(articlesResult);
         });
     });
+
+    //hover эффект на тач
+    $('body').bind('touchstart', function () {});
+
 });
