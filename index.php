@@ -1,4 +1,5 @@
 <?php
+die();
 /**
  * @package    Joomla.Site
  *
