@@ -1038,6 +1038,11 @@ div.modal {
         width: 100%;
     }
 
+    .blog .blog-items {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     /****блок фильтров на главной*/
 
 
