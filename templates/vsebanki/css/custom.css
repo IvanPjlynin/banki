@@ -870,7 +870,8 @@ div.modal {
     }
 
     .offcanvas .offcanvas-body .mod-menu li {
-        line-height: 36px;
+        line-height: 25px;
+        padding: 5px 0;
     }
 
     .offcanvas .offcanvas-body .mod-menu {
@@ -880,5 +881,7 @@ div.modal {
     .offcanvas .offcanvas-body .mod-menu li ul.small {
         padding-left: 10px;
     }
+
+    .offcanvas .offcanvas-body .mod-menu li.parent a {}
 
 }
