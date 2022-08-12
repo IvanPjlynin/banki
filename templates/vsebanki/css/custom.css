@@ -1034,6 +1034,10 @@ div.modal {
         padding-bottom: 15px;
     }
 
+    .blog .blog-items .blog-item .item-content {
+        width: 100%;
+    }
+
     /****блок фильтров на главной*/
 
 
