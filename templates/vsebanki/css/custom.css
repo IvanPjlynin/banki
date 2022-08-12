@@ -1083,6 +1083,19 @@ div.modal {
         margin-top: 25px;
     }
 
+    .item-page.credit .page-header h1 {
+        margin-top: 0;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 38px;
+        margin-bottom: 13px;
+        padding-top: 0;
+    }
+
+    .item-page.credit {
+        margin-top: 35px;
+    }
+
     /****блок фильтров на главной*/
 
 
