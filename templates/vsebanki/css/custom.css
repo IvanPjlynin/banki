@@ -1100,6 +1100,10 @@ div.modal {
         width: 100%;
     }
 
+    .item-page.credit .com-content-article__body {
+        margin-left: 0 !important;
+    }
+
     /****блок фильтров на главной*/
 
 
