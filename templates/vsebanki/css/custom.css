@@ -886,4 +886,16 @@ div.modal {
         text-transform: uppercase;
         line-height: 35px;
     }
+
+    .intro .container h1 {
+        font-size: 32px;
+        line-height: 41px;
+
+    }
+
+    .intro {
+        margin-top: 25px;
+    }
+
+    body.itemid-101 > main > div.section.intro > div > div > div {}
 }
