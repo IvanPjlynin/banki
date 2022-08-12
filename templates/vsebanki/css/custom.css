@@ -1116,6 +1116,11 @@ div.modal {
         padding: 5px 15px;
     }
 
+    .item-page.credit .com-content-article__body .bank-info-full .rl_tabs {
+        width: auto;
+        margin-bottom: 0;
+    }
+
     /****блок фильтров на главной*/
 
 
