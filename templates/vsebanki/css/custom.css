@@ -954,6 +954,7 @@ div.modal {
         font-size: 38px;
         font-weight: 700;
         line-height: 43px;
+        text-align: center;
     }
 
     .mobile-app .container .row div .apps {
@@ -962,5 +963,9 @@ div.modal {
 
     .mobile-app .container .row div .apps a img {
         margin: 10px auto;
+    }
+
+    .mobile-app .container .row div .apps a {
+        margin-right: 0px;
     }
 }
