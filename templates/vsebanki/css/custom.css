@@ -1412,6 +1412,7 @@ div.modal {
     .main-block .container .row div .service.deposit:hover .hover-block {
         background: #f6f9f9;
         z-index: 9;
+        border-radius: 35px;
     }
 
     .main-block .container .row div .service.credit:hover img,
