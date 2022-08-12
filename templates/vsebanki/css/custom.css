@@ -1200,6 +1200,18 @@ div.modal {
         margin-bottom: 0px;
     }
 
+    .item-page .com-content-article__body .credit-rating-img {
+        display: none;
+    }
+
+    .item-page .page-header h1 {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 38px;
+        margin-bottom: 11px;
+        margin-top: 25px;
+    }
+
     /****блок фильтров на главной*/
 
 
