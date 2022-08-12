@@ -1066,6 +1066,10 @@ div.modal {
         padding: 0;
     }
 
+    #bestdeals-content .mod-articlesnews__item {
+        margin-bottom: 25px;
+    }
+
     /****блок фильтров на главной*/
 
 
