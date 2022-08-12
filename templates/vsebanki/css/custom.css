@@ -1126,7 +1126,7 @@ div.modal {
     }
 
     .item-page.credit .com-content-article__body .bank-info-full .article-content {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 
     /****блок фильтров на главной*/
