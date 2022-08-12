@@ -837,7 +837,9 @@ div.modal {
     padding: 48px 32px 24px;
 }
 
-
+div.mb-service-home {
+    display: none;
+}
 
 /*Адаптация*/
 @media screen and (max-width: 768px) {
@@ -1407,6 +1409,10 @@ div.modal {
 
     div.servise-home.mobi-dp-none {
         display: none !important;
+    }
+
+    div.mb-service-home {
+        display: block !important;
     }
 
 
