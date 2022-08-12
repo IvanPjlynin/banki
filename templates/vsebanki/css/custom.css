@@ -1405,7 +1405,14 @@ div.modal {
 
     /****блок фильтров на главной*/
 
-
+    .main-block .container .row div .service.credit:hover .hover-block,
+    .main-block .container .row div .service.credit-card:hover .hover-block,
+    .main-block .container .row div .service.credit:hover .hover-block,
+    .main-block .container .row div .service.loan:hover .hover-block,
+    .main-block .container .row div .service.deposit:hover .hover-block {
+        background: #f6f9f9;
+        z-index: 9;
+    }
 
 
 
