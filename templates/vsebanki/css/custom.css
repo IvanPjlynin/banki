@@ -860,9 +860,22 @@ div.modal {
     }
 
     .bestdeals .container .row div .nav-tabs button.active {
-        color: #002D4F;
-        border: none;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        padding: 4px 0;
+        margin-top: 10px;
+        border: 1px solid #56C182;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        background: #56C182;
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
     }
+
 
     .offcanvas .offcanvas-body .mod-menu li a {
         color: #000;
@@ -897,5 +910,7 @@ div.modal {
         margin-top: 25px;
     }
 
-    body.itemid-101 > main > div.section.intro > div > div > div {}
+    body.itemid-101 > main > div.section.intro > div > div > div {
+        margin-bottom: 25px;
+    }
 }
