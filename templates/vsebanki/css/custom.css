@@ -1443,4 +1443,19 @@ div.mb-service-home {
     div.mb-service-home a.deposit {
         background: linear-gradient(180deg, #FFD480 0%, #FFC480 47.4%, #FFC480 100%);
     }
+
+    div.mb-service-home a.autostrah {
+        background: linear-gradient(180deg, #86D8EA 0%, #60B4C7 139.74%);
+
+    }
+
+    div.mb-service-home a.property-strah {
+        background: linear-gradient(180deg, #BFA7F1 0%, #9372D8 114.42%);
+
+    }
+
+    div.mb-service-home a.b3p-strah {
+        background: linear-gradient(141.24deg, #6CB4F5 -.46%, #2E73DB 101.31%);
+
+    }
 }
