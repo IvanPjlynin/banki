@@ -98,7 +98,7 @@ $stickyHeader = $this->params->get('sticky-header') ? 'position-sticky sticky-to
                 <div class="d-none d-lg-flex col-lg-9 topmenu">
                     <jdoc:include type="modules" name="menu" style="none" />
                 </div>
-                <div class="col-6 col-sm-2 col-md-5 d-lg-none justify-content-end mobile-menu">
+                <div class="col-6 col-sm-9 col-md-5 d-lg-none justify-content-end mobile-menu">
                     <button class="menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><svg width="32" height="28" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 6.5H27" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             <path d="M8 11.5H24" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
