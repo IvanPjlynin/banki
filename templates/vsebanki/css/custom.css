@@ -1129,6 +1129,12 @@ div.modal {
         margin-left: 0 !important;
     }
 
+    .item-page.credit .com-content-article__body .bank-info-full .article-content .row .col-12 h2 {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 40px;
+    }
+
     /****блок фильтров на главной*/
 
 
