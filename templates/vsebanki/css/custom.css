@@ -1367,6 +1367,24 @@ div.modal {
         padding: 8px 10px;
     }
 
+    .blog .blog-items .blog-item .item-content .bank-fields .bank-field {
+        margin-bottom: 10px !important;
+    }
+
+    .full-item-block .category-button {
+        padding: 8px 20px;
+        margin: 0 auto;
+    }
+
+    .full-item-block .banner-wrapper {
+        margin-bottom: 20px;
+    }
+
+    .ac-container label {
+        height: auto;
+        font-weight: 600;
+    }
+
     /****блок фильтров на главной*/
 
 
