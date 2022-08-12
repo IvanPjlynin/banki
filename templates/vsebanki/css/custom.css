@@ -1436,5 +1436,11 @@ div.mb-service-home {
         background: linear-gradient(139.24deg, #99DA7B 23.15%, #7DC45B 98.05%);
     }
 
+    div.mb-service-home a.ipoteka {
+        background: linear-gradient(131.72deg, #70E1CD 26.43%, #2BBDB4 97.89%);
+    }
 
+    div.mb-service-home a.deposit {
+        background: linear-gradient(180deg, #FFD480 0%, #FFC480 47.4%, #FFC480 100%);
+    }
 }
