@@ -1004,4 +1004,10 @@ div.modal {
     .product .container .row div .product-block .stephead:before {
         left: -50px;
     }
+
+    .section .container .row .col-md-6:first-child,
+    .section .container .row .col-md-6:last-child {
+        padding-right: 20px !important;
+        padding-left: 20px !important;
+    }
 }
