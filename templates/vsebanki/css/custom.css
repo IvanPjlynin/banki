@@ -1045,7 +1045,7 @@ div.modal {
     }
 
     .blog .blog-items .blog-item .item-content .bank-tags .buttons {
-        padding: 0 10px;
+        padding: 0;
     }
 
     .blog .blog-items .blog-item .item-content .bank-tags .buttons .button-full {
@@ -1145,6 +1145,10 @@ div.modal {
 
     footer .container .row div .podpiska .acym_module .acym_fulldiv form .acym_module_form .acym_form tbody tr td .button {
         margin-bottom: 30px;
+    }
+
+    .blog .blog-items .blog-item .item-content .bank-tags {
+        padding-right: 25px;
     }
 
     /****блок фильтров на главной*/
