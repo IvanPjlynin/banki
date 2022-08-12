@@ -1261,6 +1261,25 @@ div.modal {
         line-height: 40px;
     }
 
+    .blog .category-desc {
+        padding-top: 25px;
+    }
+
+    .blog.menu_id_128 .category-desc .title,
+    .blog.menu_id_127 .category-desc .title {
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 38px;
+        margin-bottom: 0px;
+    }
+
+    .blog.menu_id_128 .category-desc .subtitle,
+    .blog.menu_id_127 .category-desc .subtitle {
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 35px;
+    }
+
     /****блок фильтров на главной*/
 
 
