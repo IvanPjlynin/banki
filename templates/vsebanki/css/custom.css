@@ -1415,7 +1415,7 @@ div.modal {
     }
 
     .main-block .container .row div .service .hover-block .top-block .service-name-inside {
-        font-size: 30px;
+        font-size: 30px !important;
         padding: 22px 0;
     }
 
