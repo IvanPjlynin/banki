@@ -1289,6 +1289,11 @@ div.modal {
         padding-top: 10px;
     }
 
+    #casko-3 > div > div > div {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
     /****блок фильтров на главной*/
 
 
