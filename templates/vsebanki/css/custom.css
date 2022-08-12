@@ -1220,6 +1220,7 @@ div.modal {
         margin-left: 0 !important;
         min-width: auto;
         display: block;
+        padding: 0 15px;
     }
 
     .item-page .com-content-article__body .credit-rating-3-wrapper .credit-rating-3 {
