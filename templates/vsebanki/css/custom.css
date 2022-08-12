@@ -858,8 +858,26 @@ div.modal {
         transition: all 0.3s linear;
         margin-bottom: 8px;
     }
+
     .bestdeals .container .row div .nav-tabs button.active {
         color: #002D4F;
         border: none;
     }
+
+    .offcanvas .offcanvas-body .mod-menu li a {
+        color: #000;
+    }
+
+    .offcanvas .offcanvas-body .mod-menu li {
+        line-height: 36px;
+    }
+
+    .offcanvas .offcanvas-body .mod-menu {
+        padding-left: 15px;
+    }
+
+    .offcanvas .offcanvas-body .mod-menu li ul.small {
+        padding-left: 10px;
+    }
+
 }
