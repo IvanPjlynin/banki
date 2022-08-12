@@ -1194,6 +1194,12 @@ div.modal {
         display: none;
     }
 
+    .full-item-block .banner-subtitle {
+        padding-left: 0px;
+        padding-top: 45px;
+        margin-bottom: 24px;
+    }
+
     /****блок фильтров на главной*/
 
 
