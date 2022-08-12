@@ -902,4 +902,13 @@ div.modal {
     body.itemid-101 > main > div.section.intro > div > div > div {
         margin-bottom: 25px;
     }
+
+    .bestdeals .container .row div .nav-tabs .line {
+        display: none;
+    }
+
+    .section .container .row .mod-articlesnews__item:first-child {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
 }
