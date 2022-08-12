@@ -1056,6 +1056,16 @@ div.modal {
         width: 170px;
     }
 
+    .blog .blog-items .blog-item .item-content .bank-logo .item-image a img {
+        max-width: 300px;
+        padding: 0 0 15px 0;
+        height: auto;
+    }
+
+    .blog .blog-items .blog-item .item-content .bank-tags .tags {
+        padding: 0;
+    }
+
     /****блок фильтров на главной*/
 
 
