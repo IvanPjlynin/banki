@@ -1225,6 +1225,34 @@ div.modal {
 
     .item-page .com-content-article__body .credit-rating-3-wrapper .credit-rating-3 {
         width: auto;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .item-page .com-content-article__body .credit-rating-3-wrapper .credit-rating-3 div .credit-rating-text {
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 30px;
+        color: #fff;
+        text-align: center;
+        padding-top: 35px;
+    }
+
+    .item-page .com-content-article__body .credit-rating-3-wrapper .credit-rating-3 div .acym_module {
+        padding: 30px;
+    }
+
+    .item-page .com-content-article__body .credit-rating-4 {
+        padding: 40px;
+    }
+
+    .block-accordion .accordion-button {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .block-accordion .accordion-body {
+        padding: 20px 40px;
     }
 
     /****блок фильтров на главной*/
