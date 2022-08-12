@@ -1000,4 +1000,8 @@ div.modal {
         font-weight: 700;
         line-height: 41px;
     }
+
+    .product .container .row div .product-block .stephead:before {
+        left: -50px;
+    }
 }
