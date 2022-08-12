@@ -1121,6 +1121,14 @@ div.modal {
         margin-bottom: 0;
     }
 
+    .item-page.credit .com-content-article__body .bank-info-full .article-content .row {
+        width: 100%;
+    }
+
+    .item-page.credit .com-content-article__body .bank-info-full .article-content {
+        margin-left: 0;
+    }
+
     /****блок фильтров на главной*/
 
 
