@@ -1335,6 +1335,11 @@ div.modal {
         display: none;
     }
 
+    .banner2 .container .row div.pl-0 {
+        padding-right: calc(var(--bs-gutter-x) * .5) !important;
+        padding-left: calc(var(--bs-gutter-x) * .5) !important;
+    }
+
     /****блок фильтров на главной*/
 
 
