@@ -1046,6 +1046,7 @@ div.modal {
 
     .blog .blog-items .blog-item .item-content .bank-tags .buttons {
         padding: 0;
+        padding-right: 25px;
     }
 
     .blog .blog-items .blog-item .item-content .bank-tags .buttons .button-full {
@@ -1147,9 +1148,7 @@ div.modal {
         margin-bottom: 30px;
     }
 
-    .blog .blog-items .blog-item .item-content .bank-tags {
-        padding-right: 25px;
-    }
+
 
     /****блок фильтров на главной*/
 
