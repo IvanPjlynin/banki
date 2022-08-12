@@ -1390,7 +1390,11 @@ div.modal {
     }
 
     .item-page .com-content-article__body .article-full-width {
-        margin-left: 0;
+        margin-left: 0 !important;
+    }
+
+    .item-page .com-content-article__body .article-full-width .row div .image-absolute-green {
+        display: none;
     }
 
     /****блок фильтров на главной*/
