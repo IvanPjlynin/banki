@@ -935,4 +935,32 @@ div.modal {
     .product .container .row div .product-block img {
         margin: 0 auto 10px;
     }
+
+    footer {
+        padding: 30px 0 0px;
+        margin-top: 0;
+    }
+
+    footer .container .row div .brand-logo {
+        margin-bottom: 30px;
+    }
+
+    footer .container .row div .footer-links {
+        margin-bottom: 20px;
+    }
+
+    .mobile-app .container .row div .banner-text {
+        padding: 50px 0 40px 25px;
+        font-size: 38px;
+        font-weight: 700;
+        line-height: 43px;
+    }
+
+    .mobile-app .container .row div .apps {
+        flex-direction: column;
+    }
+
+    .mobile-app .container .row div .apps a img {
+        margin: 10px auto;
+    }
 }
