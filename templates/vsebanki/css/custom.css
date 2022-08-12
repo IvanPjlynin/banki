@@ -1432,6 +1432,9 @@ div.mb-service-home {
         background: linear-gradient(136.12deg, #99A8FF 24.51%, #7A89E8 112.62%);
     }
 
+    div.mb-service-home a.loan {
+        background: linear-gradient(139.24deg, #99DA7B 23.15%, #7DC45B 98.05%);
+    }
 
 
 }
