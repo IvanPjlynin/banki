@@ -1074,6 +1074,7 @@ div.modal {
     .blog .page-header h1 {
         font-size: 32px;
         font-weight: 700;
+        line-height: 40px;
     }
 
     .blog .page-header {
