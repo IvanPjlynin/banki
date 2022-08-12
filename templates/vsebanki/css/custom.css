@@ -882,5 +882,8 @@ div.modal {
         padding-left: 10px;
     }
 
-    .offcanvas .offcanvas-body .mod-menu li.parent > a {}
+    .offcanvas .offcanvas-body .mod-menu li.parent > a {
+        text-transform: uppercase;
+        line-height: 35px;
+    }
 }
