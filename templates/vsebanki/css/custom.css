@@ -1340,6 +1340,23 @@ div.modal {
         padding-left: calc(var(--bs-gutter-x) * .5) !important;
     }
 
+    .blog .category-desc .category-button {
+        color: #fff;
+        background: #56C182;
+        border: 1px solid #56C182;
+        transition: all 0.3s linear;
+        box-sizing: border-box;
+        border-radius: 6px;
+        padding: 8px 54px;
+        margin: 0 auto;
+        text-align: center;
+        width: auto;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 32px;
+    }
+
     /****блок фильтров на главной*/
 
 
