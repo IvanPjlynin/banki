@@ -907,7 +907,8 @@ div.modal {
         display: none;
     }
 
-    .section .container .row .mod-articlesnews__item:first-child {
+    .section .container .row .mod-articlesnews__item:first-child,
+    .section .container .row .mod-articlesnews__item:last-child {
         padding-left: 20px !important;
         padding-right: 20px !important;
     }
