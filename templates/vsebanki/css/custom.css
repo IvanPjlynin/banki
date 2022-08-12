@@ -1010,4 +1010,8 @@ div.modal {
         padding-right: 20px !important;
         padding-left: 20px !important;
     }
+
+    .section .container .row .col-md-6:first-child {
+        margin-bottom: 20px;
+    }
 }
