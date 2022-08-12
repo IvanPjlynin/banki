@@ -1421,7 +1421,7 @@ div.modal {
         z-index: -9;
     }
 
-    .main-block .container .row div .service.credit:hover .hover-block .service-button {
+    .main-block .container .row div .service:hover .hover-block .service-button {
         display: flex;
         width: auto;
         justify-content: space-around;
