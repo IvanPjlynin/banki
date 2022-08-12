@@ -1034,5 +1034,11 @@ div.modal {
         padding-bottom: 15px;
     }
 
+    .main-block .container .row div .service.credit-card.hover .hover-block,
+    .main-block .container .row div .service.credit.hover .hover-block,
+    .main-block .container .row div .service.loan.hover .hover-block,
+    .main-block .container .row div .service.deposit.hover .hover-block {
+        z-index: 1
+    }
 
 }
