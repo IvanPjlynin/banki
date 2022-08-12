@@ -112,7 +112,6 @@ $stickyHeader = $this->params->get('sticky-header') ? 'position-sticky sticky-to
                         </div>
                         <div class="offcanvas-body">
                             <jdoc:include type="modules" name="mobile-menu" style="none" />
-                            <jdoc:include type="modules" name="menu" style="none" />
                         </div>
                     </div>
                 </div>
