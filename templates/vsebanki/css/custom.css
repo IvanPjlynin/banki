@@ -1414,7 +1414,7 @@ div.modal {
         z-index: 9;
     }
 
-    .main-block .container .row div .service:hover .hover-block .top-block .service-name-inside {
+    .main-block .container .row div .service .hover-block .top-block .service-name-inside {
         font-size: 30px;
         padding: 22px 0;
     }
