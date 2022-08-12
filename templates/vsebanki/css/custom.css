@@ -1022,7 +1022,9 @@ div.modal {
 
     .section .container .row .col-md-3,
     .section .container .row .col-md-3:nth-child(1),
-    .section .container .row .col-md-3:nth-child(5) {
+    .section .container .row .col-md-3:nth-child(5),
+    .section .container .row .col-md-3:nth-child(4),
+    .section .container .row .col-md-3:nth-child(8) {
         padding-right: calc(var(--bs-gutter-x) * .5) !important;
         padding-left: calc(var(--bs-gutter-x) * .5) !important;
     }
