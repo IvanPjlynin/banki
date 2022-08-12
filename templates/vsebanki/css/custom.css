@@ -977,4 +977,27 @@ div.modal {
         margin: 0 auto 20px;
         width: 60%;
     }
+
+    .mobile-app .container .row div .qr {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .articles .container .moduletable .row div .articles-button {
+        margin: 0 2%;
+    }
+
+    .mobile-app {
+        margin-top: 60px;
+    }
+
+    .banner3 .container .row div a {
+        min-width: 290px;
+    }
+
+    .banner3 .container .row div .banner-text {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 41px;
+    }
 }
