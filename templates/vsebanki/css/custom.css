@@ -1409,6 +1409,9 @@ div.modal {
         background: none !important;
     }
 
+    .main-block .container .row div .service img {
+        display: none;
+    }
 
 
 
