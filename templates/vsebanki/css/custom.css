@@ -1014,4 +1014,14 @@ div.modal {
     .section .container .row .col-md-6:first-child {
         margin-bottom: 20px;
     }
+
+    .banner1 .container .row div h2 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .section .container .row .col-md-3 {
+        padding-right: calc(var(--bs-gutter-x) * .5) !important;
+        padding-left: calc(var(--bs-gutter-x) * .5) !important;
+    }
 }
