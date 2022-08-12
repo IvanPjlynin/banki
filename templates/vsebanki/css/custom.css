@@ -1070,6 +1070,19 @@ div.modal {
         margin-bottom: 25px;
     }
 
+    .blog .page-header h1 {
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    .blog .page-header {
+        margin-bottom: 35px;
+    }
+
+    .blog {
+        margin-top: 25px;
+    }
+
     /****блок фильтров на главной*/
 
 
