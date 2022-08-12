@@ -1177,6 +1177,15 @@ div.modal {
         background: none;
     }
 
+    .bg-write {
+        padding: 0 25px;
+        margin: 0;
+    }
+
+    .form-credit-calc .border-right {
+        border-right: none;
+    }
+
     /****блок фильтров на главной*/
 
 
