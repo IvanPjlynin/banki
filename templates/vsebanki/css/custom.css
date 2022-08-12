@@ -1041,6 +1041,7 @@ div.modal {
     .blog .blog-items {
         margin-left: auto !important;
         margin-right: auto !important;
+        width: 90%;
     }
 
     /****блок фильтров на главной*/
