@@ -1135,6 +1135,10 @@ div.modal {
         line-height: 40px;
     }
 
+    .item-page.credit .com-content-article__body .bank-info-full .article-content {
+        padding: 65px 0;
+    }
+
     /****блок фильтров на главной*/
 
 
