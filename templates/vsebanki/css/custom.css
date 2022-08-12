@@ -1385,6 +1385,14 @@ div.modal {
         font-weight: 600;
     }
 
+    .item-page .com-content-article__body .article-full-width .row {
+        width: auto;
+    }
+
+    .item-page .com-content-article__body .article-full-width {
+        margin-left: 0;
+    }
+
     /****блок фильтров на главной*/
 
 
