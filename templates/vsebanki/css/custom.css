@@ -1414,7 +1414,11 @@ div.modal {
         z-index: 9;
     }
 
-
+    .main-block .container .row div .service.credit:hover img,
+    .main-block .container .row div .service.credit:hover .service-name {
+        display: block;
+        z-index: -9;
+    }
 
 
 
