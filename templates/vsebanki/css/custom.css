@@ -916,4 +916,8 @@ div.modal {
     .section .container .row .mod-articlesnews__item {
         margin-bottom: 25px;
     }
+
+    .bestdeals .container .row div .tab-content .tab-pane .row .articles-button {
+        margin: 0 10px;
+    }
 }
