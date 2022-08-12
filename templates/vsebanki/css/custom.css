@@ -1386,14 +1386,15 @@ div.modal {
     }
 
     .item-page .com-content-article__body .article-full-width .row {
-        width: auto;
+        width: 96%;
     }
 
     .item-page .com-content-article__body .article-full-width {
         margin-left: 0 !important;
     }
 
-    .item-page .com-content-article__body .article-full-width .row div .image-absolute-green {
+    .item-page .com-content-article__body .article-full-width .row div .image-absolute-green,
+    .item-page .com-content-article__body .article-full-width .row div .image-absolute-like {
         display: none;
     }
 
