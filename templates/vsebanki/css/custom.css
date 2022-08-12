@@ -1143,13 +1143,39 @@ div.modal {
 
     .item-page.credit .com-content-article__body {
         margin-top: 45px;
+        background: none;
     }
 
     footer .container .row div .podpiska .acym_module .acym_fulldiv form .acym_module_form .acym_form tbody tr td .button {
         margin-bottom: 30px;
     }
 
+    .full-item-block .title {
+        font-size: 36px;
+        line-height: 40px;
+    }
 
+    .full-item-block .subtitle {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 38px;
+    }
+
+    .full-item-block_bg-img {
+        background: none;
+    }
+
+    .full-item-block.block1 {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .full-item-block_full-wight {
+        margin: 0;
+        margin-left: 0 !important;
+        background: none;
+    }
 
     /****блок фильтров на главной*/
 
