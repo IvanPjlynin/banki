@@ -1176,7 +1176,7 @@ jQuery(document).ready(function ($) {
     });
 
     //hover эффект на тач
-    $(".main-block .container .row div .service.credit-card").click(function (e) {
+    $(".main-block .container .row div .service").click(function (e) {
         e.preventDefault();
         $(".main-block .container .row div .service").removeClass('hover');
         $(this).addClass('hover');
