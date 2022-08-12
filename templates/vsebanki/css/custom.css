@@ -1139,6 +1139,10 @@ div.modal {
         padding: 65px 0;
     }
 
+    .item-page.credit .com-content-article__body {
+        margin-top: 45px;
+    }
+
     /****блок фильтров на главной*/
 
 
