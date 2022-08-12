@@ -972,4 +972,9 @@ div.modal {
     body > main > div.section.mobile-app > div > div > div.col-12.col-sm-12.col-md-6.text-end > img {
         width: 100%;
     }
+
+    body > main > div.section.mobile-app > div > div > div:nth-child(1) > div.qr > img {
+        margin: 0 auto 20px;
+        width: 60%;
+    }
 }
