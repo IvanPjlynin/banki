@@ -97,7 +97,7 @@ if ($params->get('enable_css', 1)) {
                     <hr>
 
                     <div class="col-md-12 block-filter">
-                        <h4>Общий трудовой стаж более одного года</h4>
+                        <h4>Смогу подтвердить доход справкой 2-НДФЛП или справкой по форме банка?</h4>
                         <label class="jlmf-sublabel switch" for="podtverzhdenie-dokhoda-109">Да <input type="checkbox" value="1" id="podtverzhdenie-dokhoda-109" name="jlcontentfieldsfilter[41]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
