@@ -841,7 +841,10 @@ div.mb-service-home {
     display: none;
 }
 
-.filter-label {}
+.filter-label {
+    font-size: 18px;
+    font-weight: 600;
+}
 
 /*Адаптация*/
 @media screen and (max-width: 768px) {

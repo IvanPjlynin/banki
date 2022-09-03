@@ -43,46 +43,48 @@ if ($params->get('enable_css', 1)) {
 
             <div class="col-md-4 ">
                 <label class="filter-label">Сумма кредита, ₽</label>
-                <div class="range"><input type="text" id="credit-range-one" name="Сумма" value="" /></div>
+                <input type="text" class="filter-input" id="input-credit-range-one" name="Сумма" value="" />
+            </div>
+            <div class="range"><input type="text" id="credit-range-one" name="Сумма" value="" /></div>
 
-                <div class="jlmf-list-2 range-sliders">
-                    <div id="credit" class="jlmf-range-block">
-                        <div class="range-group one">
-                            <ul class="range-text">
-                                <li><label>Сумма кредита, ₽</label></li>
-                                <li class="range-place">
-                                    <div class="range-value"><span class="range-summary">250 000</span></div>
-                                    <div class="range-input">
-                                        <input id="<?php echo $field->name.'-to-'.$moduleId; ?>" type="text" name="jlcontentfieldsfilter[<?php echo $field->id; ?>][to]" class="form-price form-number jlmf-input input-max" min="20000" max="1000000" step="10000" value="250000" data-to="<?php echo $to ?>" data-min="<?php echo $min ?>" data-max="<?php echo $max ?>" />
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="range-control">
+            <div class="jlmf-list-2 range-sliders">
+                <div id="credit" class="jlmf-range-block">
+                    <div class="range-group one">
+                        <ul class="range-text">
+                            <li><label>Сумма кредита, ₽</label></li>
+                            <li class="range-place">
+                                <div class="range-value"><span class="range-summary">250 000</span></div>
+                                <div class="range-input">
+                                    <input id="<?php echo $field->name.'-to-'.$moduleId; ?>" type="text" name="jlcontentfieldsfilter[<?php echo $field->id; ?>][to]" class="form-price form-number jlmf-input input-max" min="20000" max="1000000" step="10000" value="250000" data-to="<?php echo $to ?>" data-min="<?php echo $min ?>" data-max="<?php echo $max ?>" />
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="range-control">
 
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-            <?php echo $v; ?>
         </div>
-        <?php endif;?>
-        <?php endforeach; ?>
 
-        <?php if($enableOrdering) : ?>
-        <div class="jlmf-section">
-            <?php echo $orderingSelect; ?>
-        </div>
+
+        <?php echo $v; ?>
+    </div>
+    <?php endif;?>
+    <?php endforeach; ?>
+
+    <?php if($enableOrdering) : ?>
+    <div class="jlmf-section">
+        <?php echo $orderingSelect; ?>
+    </div>
+    <?php endif; ?>
+
+    <div class="jlmf-section">
+        <?php if (!$autho_send) : ?>
+        <button type="submit" class="jlmf-button"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
         <?php endif; ?>
-
-        <div class="jlmf-section">
-            <?php if (!$autho_send) : ?>
-            <button type="submit" class="jlmf-button"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
-            <?php endif; ?>
-            <div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>
-        </div>
+        <div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>
+    </div>
 
     </div>
     <?php if($option == 'com_tags'){ ?>
