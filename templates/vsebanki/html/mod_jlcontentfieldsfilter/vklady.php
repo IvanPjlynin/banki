@@ -46,7 +46,7 @@ if ($params->get('enable_css', 1)) {
         </div>
 
         <div class="col-md-3 block-filter">
-            <label class="filter-label">Срок, дн.</label>
+            <label class="filter-label">Срок, мес.</label>
             <input type="text" class="filter-input" id="input-credit-range-two" value="500000" />
 
             <div class="range single"><input type="text" id="credit-range-two" value="" /></div>
