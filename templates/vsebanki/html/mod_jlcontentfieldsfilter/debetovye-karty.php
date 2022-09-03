@@ -38,10 +38,11 @@ if ($params->get('enable_css', 1)) {
     <div class="jlcontentfieldsfilter<?php echo $moduleclass_sfx; ?> row">
 
         <div class="col-md-3 block-filter">
-            <label class="filter-label">Сумма лимита, ₽</label>
-            <input type="text" class="filter-input" id="input-credit-range-one" value="500000" />
-
-            <div class="range single"><input type="text" id="credit-range-one" value="" /></div>
+            <label class="filter-label">Cashback</label>
+            <select name="jlcontentfieldsfilter[47]" id="kredit-pod-zalog-137" class="jlmf-select filter-dropdown-toggle">
+                <option value="1">Нет</option>
+                <option value="2">Да</option>
+            </select>
 
         </div>
 
