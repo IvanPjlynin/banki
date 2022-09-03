@@ -47,10 +47,11 @@ if ($params->get('enable_css', 1)) {
         </div>
 
         <div class="col-md-3 block-filter">
-            <label class="filter-label">Льготный период, дн.</label>
-            <input type="text" class="filter-input" id="input-credit-range-two" value="500000" />
-
-            <div class="range single"><input type="text" id="credit-range-two" value="" /></div>
+            <label class="filter-label">Проценты на остаток</label>
+            <select name="" id="procent-ostatok" class="jlmf-select filter-select">
+                <option value="1">Нет</option>
+                <option value="2">Да</option>
+            </select>
 
         </div>
 
