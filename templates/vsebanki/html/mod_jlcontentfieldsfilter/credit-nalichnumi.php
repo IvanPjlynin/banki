@@ -45,6 +45,14 @@ if ($params->get('enable_css', 1)) {
 
         </div>
 
+        <div class="col-md-4 block-filter">
+            <label class="filter-label">На какой срок, мес.</label>
+            <input type="text" class="filter-input" id="input-credit-range-two" value="500000" />
+
+            <div class="range"><input type="text" id="credit-range-two" value="" /></div>
+
+        </div>
+
         <div class="col-md-4 jlmf-section">
             <?php if (!$autho_send) : ?>
             <button type="submit" class="jlmf-button" id="filter-buttom"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
