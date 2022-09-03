@@ -38,7 +38,7 @@ if ($params->get('enable_css', 1)) {
     <div class="jlcontentfieldsfilter<?php echo $moduleclass_sfx; ?> row">
 
         <div class="col-md-3 block-filter">
-            <label class="filter-label">Сумма кредита, ₽</label>
+            <label class="filter-label">Сумма лимита, ₽</label>
             <input type="text" class="filter-input" id="input-credit-range-one" value="500000" />
 
             <div class="range single"><input type="text" id="credit-range-one" value="" /></div>
@@ -46,7 +46,7 @@ if ($params->get('enable_css', 1)) {
         </div>
 
         <div class="col-md-3 block-filter">
-            <label class="filter-label">На какой срок, дн.</label>
+            <label class="filter-label">Льготный период, дн.</label>
             <input type="text" class="filter-input" id="input-credit-range-two" value="500000" />
 
             <div class="range single"><input type="text" id="credit-range-two" value="" /></div>
@@ -203,23 +203,14 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range2 = $("#input-credit-range-two");
         var instance_filter_range2;
 
-        $("#srok-zajma-ot-from-140").trigger("keypress").val(function(i, val) {
+        $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
             return 0;
         });
 
-        $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
-            return 24;
-        });
-
-
-
-        $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
-            return 24;
-        });
-
-        $("#srok-zajma-to-140").trigger("keypress").val(function(i, val) {
+        $("#lgotnyj-period-to-142").trigger("keypress").val(function(i, val) {
             return 180;
         });
+
 
 
         $filter_range2.ionRangeSlider({
@@ -234,19 +225,13 @@ if ($params->get('enable_css', 1)) {
             max: 180,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
-                    return data.from;
-                });
-                $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
+                $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
-                    return data.from;
-                });
-                $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
+                $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -257,10 +242,7 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
-                return value;
-            });
-            $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
+            $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
