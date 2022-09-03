@@ -842,8 +842,16 @@ div.mb-service-home {
 }
 
 .filter-label {
+    width: 100%;
     font-size: 18px;
     font-weight: 600;
+    display: block;
+}
+
+.filter-input {
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
 }
 
 /*Адаптация*/
