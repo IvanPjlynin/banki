@@ -167,6 +167,29 @@ if ($params->get('enable_css', 1)) {
             }
         });
 
+        //процент на остаток
+        $("#protsent-na-ostatok-from-143").trigger("keypress").val(function(i, val) {
+            return 0;
+        });
+        $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
+            return 0.01;
+        });
+
+        $('#procent-ostatok').change(function() {
+            var value;
+            if ($(this).val() == 1) {
+                value = 0.01;
+                $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
+                    return value;
+                });
+            } else {
+                value = 1000;
+                $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
+                    return value;
+                });
+            }
+        });
+
 
 
 
