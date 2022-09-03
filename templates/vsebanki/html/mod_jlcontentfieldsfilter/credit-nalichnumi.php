@@ -294,7 +294,7 @@ if ($params->get('enable_css', 1)) {
 
         });
 
-        $input_filter_vozrastT.on("change", function() {
+        $input_filter_vozrastTo.on("change", function() {
             var val = $(this).prop("value");
 
             instance_filter_vozrast.update({
