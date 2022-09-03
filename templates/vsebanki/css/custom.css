@@ -860,6 +860,7 @@ div.mb-service-home {
 }
 
 .filter-dropdown-toggle {
+    text-align: left;
     height: 40px;
     color: #002D4F;
     margin-top: 90px;
@@ -870,6 +871,11 @@ div.mb-service-home {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
+}
+
+.dropdown-menu.show {
+    display: block;
+    box-shadow: 1px 6px 4px 2px #0000000f;
 }
 
 .filter-dropdown-toggle:hover {

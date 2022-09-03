@@ -58,11 +58,15 @@ if ($params->get('enable_css', 1)) {
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     Фильтры поиска
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <div class="col-md-3 block-filter">
+                        <label class="filter-label">Сумма кредита, ₽</label>
+                        <input type="text" class="filter-input" id="input-credit-range-one" value="500000" />
+
+                        <div class="range"><input type="text" id="credit-range-one" value="" /></div>
+
+                    </div>
+                </div>
             </div>
         </div>
 
