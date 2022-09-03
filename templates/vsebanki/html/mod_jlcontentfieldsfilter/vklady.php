@@ -150,11 +150,11 @@ if ($params->get('enable_css', 1)) {
         var instance_filter_range2;
 
         $("#srok-vklada-from-144").trigger("keypress").val(function(i, val) {
-            return 30;
+            return 1;
         });
 
         $("#srok-vklada-to-144").trigger("keypress").val(function(i, val) {
-            return 120;
+            return 30;
         });
 
 
@@ -171,13 +171,13 @@ if ($params->get('enable_css', 1)) {
             max: 120,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-vklada-from-144").trigger("keypress").val(function(i, val) {
+                $("#srok-vklada-to-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-vklada-from-144").trigger("keypress").val(function(i, val) {
+                $("#srok-vklada-to-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -188,7 +188,7 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-vklada-from-144").trigger("keypress").val(function(i, val) {
+            $("#srok-vklada-to-144").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
