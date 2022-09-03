@@ -506,14 +506,14 @@ jQuery(document).ready(function ($) {
     instance_filter_range1 = $filter_range1.data("ionRangeSlider");
 
     $input_filter_range1.on("input", function () {
-        var val = $(this).prop("value");
+        var value = $(this).prop("value");
 
         $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
-            return val;
+            return value;
         });
 
         instance_filter_range1.update({
-            from: val
+            from: value
         });
     });
 
