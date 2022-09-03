@@ -507,10 +507,16 @@ jQuery(document).ready(function ($) {
                 $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
                     return data.from;
                 });
+                $("#summa-kredita-from-109").trigger("keypress").val(function (i, val) {
+                    return data.from;
+                });
             },
             onChange: function (data) {
                 $input_filter_range1.prop("value", data.from);
                 $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
+                    return data.from;
+                });
+                $("#summa-kredita-from-109").trigger("keypress").val(function (i, val) {
                     return data.from;
                 });
             }
@@ -522,6 +528,9 @@ jQuery(document).ready(function ($) {
             var value = $(this).prop("value");
 
             $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
+                return value;
+            });
+            $("#summa-kredita-from-109").trigger("keypress").val(function (i, val) {
                 return value;
             });
 
