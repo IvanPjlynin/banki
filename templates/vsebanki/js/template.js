@@ -468,54 +468,7 @@ jQuery(document).ready(function ($) {
 
     //фильтр
     //кредиты
-    var $filter_range1 = $("#credit-range-one");
-    var $input_filter_range1 = $("#input-credit-range-one");
-    var instance_filter_range1;
 
-    $("#summa-kredita-ot-from-109").trigger("keypress").val(function (i, val) {
-        return 0;
-    });
-    $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
-        return 500000;
-    });
-
-    $filter_range1.ionRangeSlider({
-        type: "single",
-        grid: false,
-        from: 500000,
-        postfix: '',
-        min: 10000,
-        step: 10000,
-        grid_num: 4,
-        grid_snap: '',
-        max: 5000000,
-        onStart: function (data) {
-            $input_filter_range1.prop("value", data.from);
-            $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
-                return data.from;
-            });
-        },
-        onChange: function (data) {
-            $input_filter_range1.prop("value", data.from);
-            $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
-                return data.from;
-            });
-        }
-    });
-
-    instance_filter_range1 = $filter_range1.data("ionRangeSlider");
-
-    $input_filter_range1.on("input", function () {
-        var value = $(this).prop("value");
-
-        $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
-            return value;
-        });
-
-        instance_filter_range1.update({
-            from: value
-        });
-    });
 
 
 

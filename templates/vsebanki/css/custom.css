@@ -846,6 +846,7 @@ div.mb-service-home {
 }
 
 .filter-label {
+    padding-top: 20px;
     width: 100%;
     font-size: 18px;
     font-weight: 600;
