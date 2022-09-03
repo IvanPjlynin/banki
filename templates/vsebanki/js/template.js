@@ -475,6 +475,24 @@ jQuery(document).ready(function ($) {
     //$("#jlcontentfieldsfilter-ordering-107").chosen({disable_search_threshold: 10});
     // Calc 
     var $range1 = $("#credit #range-one");
+    $range1.ionRangeSlider({
+        type: "single",
+        grid: false,
+        from: 250000,
+        postfix: '',
+        min: 10000,
+        step: 10000,
+        grid_num: 4,
+        grid_snap: '',
+        max: 5000000
+    });
+
+
+
+
+
+
+
     var $range2 = $("#credit #range-two0");
     var $range3 = $("#credit-card #range-one0");
     var $range4 = $("#loan #range-one0");
