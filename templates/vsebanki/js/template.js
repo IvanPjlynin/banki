@@ -467,7 +467,7 @@ jQuery(document).ready(function ($) {
     $('.filter > .jlmf-section:nth-child(1), .filter > .jlmf-section:nth-child(2), .filter > .jlmf-section:last-child, .filter > .search-filters').addClass('col-md-3').wrapAll("<div class='row eq'></div>");*/
 
     //фильтр
-    //кредиты
+    //кредит наличными
     if ($(".filter-credit-nalichumi").length > 0) {
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
