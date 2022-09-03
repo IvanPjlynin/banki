@@ -94,7 +94,7 @@ if ($params->get('enable_css', 1)) {
         var instance_filter_range1;
 
         $("#summa-vklada-from-144").trigger("keypress").val(function(i, val) {
-            return 0;
+            return 10000;
         });
 
         $("#summa-vklada-to-144").trigger("keypress").val(function(i, val) {
@@ -114,14 +114,14 @@ if ($params->get('enable_css', 1)) {
             max: 5000000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-vklada-from-144").trigger("keypress").val(function(i, val) {
+                $("#summa-vklada-to-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
 
             },
             onChange: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-vklada-from-144").trigger("keypress").val(function(i, val) {
+                $("#summa-vklada-to-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
 
@@ -133,7 +133,7 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range1.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#summa-vklada-from-144").trigger("keypress").val(function(i, val) {
+            $("#summa-vklada-to-144").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
