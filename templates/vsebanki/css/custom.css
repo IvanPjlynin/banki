@@ -780,12 +780,15 @@ div.modal {
     display: none;
 }
 
-.js-irs-1 .irs-bar {
+.irs .irs-bar {
     top: 11px;
     height: 8px;
-    left: 0 !important;
     background: #56C182;
     border-radius: 100px;
+}
+
+.single + .irs-bar {
+    left: 0 !important;
 }
 
 .irs .irs-slider {
