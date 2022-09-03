@@ -37,7 +37,7 @@ if ($params->get('enable_css', 1)) {
 <form id="mod-finder-searchform-<?php echo $module->id; ?>" action="<?php echo $action; ?>" method="<?php echo $form_method; ?>" class="form-search filter-credit-nalichumi">
     <div class="jlcontentfieldsfilter<?php echo $moduleclass_sfx; ?> row">
 
-        <div class="col-md-4 block-filter">
+        <div class="col-md-3 block-filter">
             <label class="filter-label">Сумма кредита, ₽</label>
             <input type="text" class="filter-input" id="input-credit-range-one" value="500000" />
 
@@ -45,7 +45,7 @@ if ($params->get('enable_css', 1)) {
 
         </div>
 
-        <div class="col-md-4 block-filter">
+        <div class="col-md-3 block-filter">
             <label class="filter-label">На какой срок, мес.</label>
             <input type="text" class="filter-input" id="input-credit-range-two" value="500000" />
 
@@ -53,7 +53,7 @@ if ($params->get('enable_css', 1)) {
 
         </div>
 
-        <div class="col-md-4 jlmf-section">
+        <div class="col-md-3 jlmf-section">
             <?php if (!$autho_send) : ?>
             <button type="submit" class="jlmf-button" id="filter-buttom"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
             <?php endif; ?>
