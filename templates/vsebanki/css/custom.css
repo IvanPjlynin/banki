@@ -958,7 +958,8 @@ button.filter-dropdown-toggle span {
     color: #1cba16;
 }
 
-#mod-finder-searchform-137 .filter-dropdown-toggle {
+#mod-finder-searchform-137 .filter-dropdown-toggle,
+#mod-finder-searchform-141 .filter-dropdown-toggle {
     margin-top: 25px;
 }
 
