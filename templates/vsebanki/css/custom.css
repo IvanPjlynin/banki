@@ -842,7 +842,20 @@ div.mb-service-home {
 }
 
 .block-filter {
-    padding-right: 35px;
+    /*padding-right: 35px;*/
+}
+
+.filter-buttom {
+    width: 272px;
+    height: 40px;
+    background: #56C182;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
 .filter-label {
