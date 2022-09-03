@@ -943,6 +943,10 @@ div.mb-service-home {
     display: inline-block;
 }
 
+.dropdown-menu hr {
+    margin-top: 30px;
+}
+
 .dropdown-menu switch {
     display: inline-block;
     float: right;
