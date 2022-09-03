@@ -88,7 +88,7 @@ if ($params->get('enable_css', 1)) {
 
 <script>
     jQuery(document).ready(function($) {
-        //сумма кредита
+        //сумма вклада
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
@@ -106,12 +106,12 @@ if ($params->get('enable_css', 1)) {
         $filter_range1.ionRangeSlider({
             type: "single",
             grid: false,
-            min: 0,
+            min: 10000,
             from: 50000,
             postfix: '',
             step: 1000,
             grid_snap: '',
-            max: 3000000,
+            max: 50000000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", data.from);
                 $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
