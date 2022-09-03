@@ -846,7 +846,7 @@ div.mb-service-home {
 }
 
 #filter-buttom {
-    margin-top: 75px;
+    margin-top: 60px;
     width: 100%;
     height: 40px;
     background: #56C182;
@@ -862,7 +862,7 @@ div.mb-service-home {
 .filter-dropdown-toggle {
     height: 40px;
     color: #002D4F;
-    margin-top: 75px;
+    margin-top: 60px;
     background: #FFFFFF;
     width: 100%;
     border: 1px solid #56C182;
