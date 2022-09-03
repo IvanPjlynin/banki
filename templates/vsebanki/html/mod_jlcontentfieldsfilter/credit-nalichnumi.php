@@ -41,7 +41,7 @@ if ($params->get('enable_css', 1)) {
             <label class="filter-label">Сумма кредита, ₽</label>
             <input type="text" class="filter-input" id="input-credit-range-one" value="500000" />
 
-            <div class="range"><input type="text" id="credit-range-one" value="" /></div>
+            <div class="range single"><input type="text" id="credit-range-one" value="" /></div>
 
         </div>
 
@@ -49,7 +49,7 @@ if ($params->get('enable_css', 1)) {
             <label class="filter-label">На какой срок, мес.</label>
             <input type="text" class="filter-input" id="input-credit-range-two" value="500000" />
 
-            <div class="range"><input type="text" id="credit-range-two" value="" /></div>
+            <div class="range single"><input type="text" id="credit-range-two" value="" /></div>
 
         </div>
 
