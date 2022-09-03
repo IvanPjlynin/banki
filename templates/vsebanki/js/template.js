@@ -466,14 +466,14 @@ jQuery(document).ready(function ($) {
     //$('.jlmf-button').text('Показать ('+articlesCount+')');
     //$("#jlcontentfieldsfilter-ordering-107").chosen({disable_search_threshold: 10});
     // Calc 
-    var $range1 = $("#credit #range-one");
-    var $range2 = $("#credit #range-two");
-    var $range3 = $("#credit-card #range-one");
-    var $range4 = $("#loan #range-one");
-    var $range5 = $("#loan #range-two");
-    var $range6 = $("#deposit #range-one");
-    var $range7 = $("#deposit #range-two");
-    var $range8 = $("#credit #range-three");
+    var $range1 = $("#credit #range-one0");
+    var $range2 = $("#credit #range-two0");
+    var $range3 = $("#credit-card #range-one0");
+    var $range4 = $("#loan #range-one0");
+    var $range5 = $("#loan #range-two0");
+    var $range6 = $("#deposit #range-one0");
+    var $range7 = $("#deposit #range-two0");
+    var $range8 = $("#credit #range-three0");
     $range1.ionRangeSlider({
         type: "single",
         grid: false,
