@@ -49,7 +49,7 @@ if ($params->get('enable_css', 1)) {
             <?php if (!$autho_send) : ?>
             <button type="submit" class="jlmf-button"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
             <?php endif; ?>
-            <div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>
+            <!--<div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>-->
         </div>
 
         <?php foreach($fields as $v) : ?>
