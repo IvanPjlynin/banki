@@ -1,4 +1,4 @@
-<<<<<<< HEAD <?php
+<?php
 /**
  * JL Content Fields Filter
  *
@@ -61,9 +61,9 @@ if ($params->get('enable_css', 1)) {
     <input type="hidden" name="tag_category_id" value="<?php echo $catid; ?>">
     <?php } ?>
     <input type="hidden" name="jlcontentfieldsfilter[is_filter]" value="1">
-    </form>
-    =======
-    <?php
+</form>
+=======
+<?php
 /**
  * JL Content Fields Filter
  *
@@ -99,34 +99,33 @@ if ($params->get('enable_css', 1)) {
 
 ?>
 
-    <form id="mod-finder-searchform-<?php echo $module->id; ?>" action="<?php echo $action; ?>" method="<?php echo $form_method; ?>" class="form-search">
-        <div class="jlcontentfieldsfilter<?php echo $moduleclass_sfx; ?>">
+<form id="mod-finder-searchform-<?php echo $module->id; ?>" action="<?php echo $action; ?>" method="<?php echo $form_method; ?>" class="form-search">
+    <div class="jlcontentfieldsfilter<?php echo $moduleclass_sfx; ?>">
 
-            <?php foreach($fields as $v) : ?>
-            <?php if($v):?>
-            <div class="jlmf-section">
-                <?php echo $v; ?>
-            </div>
-            <?php endif;?>
-            <?php endforeach; ?>
-
-            <?php if($enableOrdering) : ?>
-            <div class="jlmf-section">
-                <?php echo $orderingSelect; ?>
-            </div>
-            <?php endif; ?>
-
-            <div class="jlmf-section">
-                <?php if (!$autho_send) : ?>
-                <button type="submit" class="jlmf-button"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
-                <?php endif; ?>
-                <div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>
-            </div>
-
+        <?php foreach($fields as $v) : ?>
+        <?php if($v):?>
+        <div class="jlmf-section">
+            <?php echo $v; ?>
         </div>
-        <?php if($option == 'com_tags'){ ?>
-        <input type="hidden" name="tag_category_id" value="<?php echo $catid; ?>">
-        <?php } ?>
-        <input type="hidden" name="jlcontentfieldsfilter[is_filter]" value="1">
-    </form>
-    >>>>>>> 60d2c5620e75c78ad8edfc0eedc2add0ab4ccff1
+        <?php endif;?>
+        <?php endforeach; ?>
+
+        <?php if($enableOrdering) : ?>
+        <div class="jlmf-section">
+            <?php echo $orderingSelect; ?>
+        </div>
+        <?php endif; ?>
+
+        <div class="jlmf-section">
+            <?php if (!$autho_send) : ?>
+            <button type="submit" class="jlmf-button"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
+            <?php endif; ?>
+            <div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>
+        </div>
+
+    </div>
+    <?php if($option == 'com_tags'){ ?>
+    <input type="hidden" name="tag_category_id" value="<?php echo $catid; ?>">
+    <?php } ?>
+    <input type="hidden" name="jlcontentfieldsfilter[is_filter]" value="1">
+</form>
