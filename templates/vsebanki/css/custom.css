@@ -872,6 +872,17 @@ div.mb-service-home {
     font-size: 16px;
 }
 
+.filter-dropdown-toggle:hover {
+    border: 1px solid #56C182;
+}
+
+.filter-dropdown-toggle::after {
+    color: #20b714;
+    float: right;
+    right: 10px;
+    margin-top: 10px;
+}
+
 .filter-label {
     padding-top: 20px;
     width: 100%;
