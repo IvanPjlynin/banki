@@ -152,7 +152,7 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#kreditnyj-limit-to-142").trigger("keypress").val(function(i, val) {
-            return 50000;
+            return 3000000;
         });
 
 
@@ -168,14 +168,14 @@ if ($params->get('enable_css', 1)) {
             max: 3000000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#kreditnyj-limit-to-142").trigger("keypress").val(function(i, val) {
+                $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
 
             },
             onChange: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#kreditnyj-limit-to-142").trigger("keypress").val(function(i, val) {
+                $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
 
@@ -187,12 +187,10 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range1.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+            $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
                 return value;
             });
-            $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
-                return value;
-            });
+
 
             instance_filter_range1.update({
                 from: value
