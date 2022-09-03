@@ -61,9 +61,10 @@ if ($params->get('enable_css', 1)) {
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
                         <label class="filter-label">Возраст, от и до</label>
-                        <input type="text" class="filter-input" id="input-credit-vozrast" value="" />
+                        <input type="text" class="filter-input" id="input-credit-vozrast-ot" value="" />
+                        <input type="text" class="filter-input" id="input-credit-vozrast-do" value="" />
 
-                        <div class="range"><input type="text" id="credit-credit-vozrast" value="" /></div>
+                        <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
 
                     </div>
                 </div>
@@ -249,6 +250,30 @@ if ($params->get('enable_css', 1)) {
                 from: value
             });
         });
+
+        //возраст
+        var $filter_vozrast = $("#credit-filter-vozrast");
+        var $input_filter_vozrastFrom = $("#input-credit-vozrast-ot");
+        var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
+        var instance_filter_vozrast;
+
+        $filter_vozrast.ionRangeSlider({
+            type: "single",
+            grid: false,
+            from: 25,
+            to: 60,
+            postfix: '',
+            min: 18,
+            step: 1,
+            grid_num: 4,
+            grid_snap: '',
+            max: 80
+        });
+
+
+
+
+
     });
 
 </script>
