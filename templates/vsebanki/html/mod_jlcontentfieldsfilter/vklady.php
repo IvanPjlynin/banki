@@ -46,7 +46,7 @@ if ($params->get('enable_css', 1)) {
         </div>
 
         <div class="col-md-3 block-filter">
-            <label class="filter-label">Срок, мес.</label>
+            <label class="filter-label">Срок, дн.</label>
             <input type="text" class="filter-input" id="input-credit-range-two" value="500000" />
 
             <div class="range single"><input type="text" id="credit-range-two" value="" /></div>
@@ -143,18 +143,18 @@ if ($params->get('enable_css', 1)) {
             });
         });
 
-        //срок кредита
+        //срок 
 
         var $filter_range2 = $("#credit-range-two");
         var $input_filter_range2 = $("#input-credit-range-two");
         var instance_filter_range2;
 
-        $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
-            return 0;
+        $("#srok-vklada-from-144").trigger("keypress").val(function(i, val) {
+            return 30;
         });
 
-        $("#lgotnyj-period-to-142").trigger("keypress").val(function(i, val) {
-            return 180;
+        $("#srok-vklada-to-144").trigger("keypress").val(function(i, val) {
+            return 120;
         });
 
 
@@ -164,20 +164,20 @@ if ($params->get('enable_css', 1)) {
             grid: false,
             from: 30,
             postfix: '',
-            min: 5,
+            min: 1,
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 180,
+            max: 120,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
+                $("#srok-vklada-from-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
+                $("#srok-vklada-from-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -188,7 +188,7 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
+            $("#srok-vklada-from-144").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
@@ -197,82 +197,7 @@ if ($params->get('enable_css', 1)) {
             });
         });
 
-        //возраст
-        var $filter_vozrast = $("#credit-filter-vozrast");
-        var $input_filter_vozrastFrom = $("#input-credit-vozrast-ot");
-        var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
-        var instance_filter_vozrast;
 
-        $("#vozrast-from-142").trigger("keypress").val(function(i, val) {
-            return 18;
-        });
-
-        $("#vozrast-to-142").trigger("keypress").val(function(i, val) {
-            return 80;
-        });
-
-
-        $filter_vozrast.ionRangeSlider({
-            skin: "round",
-            type: "double",
-            grid: false,
-            from: 18,
-            to: 80,
-            postfix: '',
-            min: 18,
-            step: 1,
-            grid_num: 4,
-            grid_snap: '',
-            max: 80,
-            onStart: updateInputs,
-            onChange: updateInputs,
-            onFinish: updateInputs
-        });
-
-        instance_filter_vozrast = $filter_vozrast.data("ionRangeSlider");
-
-        function updateInputs(data) {
-            from = data.from;
-            to = data.to;
-
-            $input_filter_vozrastFrom.prop("value", from);
-            $input_filter_vozrastTo.prop("value", to);
-
-            $("#vozrast-from-142").trigger("keypress").val(function(i, val) {
-                return from;
-            });
-
-            $("#vozrast-to-142").trigger("keypress").val(function(i, val) {
-                return to;
-            });
-        }
-
-        $input_filter_vozrastFrom.on("change", function() {
-            var val = $(this).prop("value");
-
-            instance_filter_vozrast.update({
-                from: val
-            });
-
-            $(this).prop("value", val);
-
-        });
-
-        $input_filter_vozrastTo.on("change", function() {
-            var val = $(this).prop("value");
-
-            instance_filter_vozrast.update({
-                to: val
-            });
-
-            $(this).prop("value", val);
-        });
-
-        //подсчет чебоксов
-        $('.dropdown-menu .jlmf-checkbox').change(function() {
-            var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + n + ')');
-        });
 
 
     });
