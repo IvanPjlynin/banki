@@ -46,7 +46,7 @@ if ($params->get('enable_css', 1)) {
         </div>
 
         <div class="col-md-3 block-filter">
-            <label class="filter-label">На какой срок, мес.</label>
+            <label class="filter-label">На какой срок, дн.</label>
             <input type="text" class="filter-input" id="input-credit-range-two" value="500000" />
 
             <div class="range single"><input type="text" id="credit-range-two" value="" /></div>
@@ -118,7 +118,7 @@ if ($params->get('enable_css', 1)) {
 
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
-        <div class="jlmf-section ">
+        <div class="jlmf-section visually-hidden">
             <?php echo $v; ?>
         </div>
         <?php endif;?>
