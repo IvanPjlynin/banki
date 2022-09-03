@@ -340,7 +340,9 @@ class BounceHelper extends acymObject
                                 if (strpos($onePart, 'Content-Transfer-Encoding') !== false) {
                                     preg_match('#Content-Transfer-Encoding: (.+)#i', $onePart, $encoding);
                                     $encoding = trim($encoding[1]);
-                                    $content = mb_convert_encoding($content, 'UTF-8', $encoding);
+                                    if (!empty($encoding)) {
+                                        $content = mb_convert_encoding($content, 'UTF-8', $encoding);
+                                    }
                                 }
 
                                 if (strpos($onePart, "Content-Type: text/plain") !== false) {
@@ -966,21 +968,33 @@ class BounceHelper extends acymObject
         }
 
 
+        $donotdelete = false;
+
         if (in_array('save_message', $oneRule->action_message) && !empty($this->_message->userid) && !in_array('delete_user', $oneRule->action_user)) {
             $data = [];
             $data[] = 'SUBJECT::'.@htmlentities($this->_message->subject, ENT_COMPAT, 'UTF-8');
             $data[] = 'ACY_RULE::'.$oneRule->id.' '.$oneRule->name;
             $data[] = 'REPLYTO_ADDRESS::'.$this->_message->header->reply_to_name.' ( '.$this->_message->header->reply_to_email.' )';
             $data[] = 'FROM_ADDRESS::'.$this->_message->header->from_name.' ( '.$this->_message->header->from_email.' )';
-            $data[] = print_r($this->_message->headerinfo, true);
+            $data[] = @htmlentities(print_r($this->_message->headerinfo, true), ENT_COMPAT, 'UTF-8');
             if (empty($this->_message->mailid)) {
                 $this->_message->mailid = 0;
             }
-            $this->historyClass->insert($this->_message->userid, 'bounce', $data, $this->_message->mailid);
-            $message .= ' | '.acym_translationSprintf('ACYM_BOUNCE_MESSAGE_SAVED', $this->_message->userid);
+            try {
+                $this->historyClass->insert($this->_message->userid, 'bounce', $data, $this->_message->mailid);
+                $message .= ' | '.acym_translationSprintf('ACYM_BOUNCE_MESSAGE_SAVED', $this->_message->userid);
+            } catch (\Exception $e) {
+                $message .= ' | '.acym_translationSprintf(
+                        'ACYM_BOUNCE_SAVE_ERROR_USER_MAIL_RULE',
+                        $this->_message->userid,
+                        $this->_message->mailid,
+                        $oneRule->id,
+                        $e->getMessage()
+                    );
+                $donotdelete = true;
+            }
         }
 
-        $donotdelete = false;
 
         if (!empty($oneRule->action_message['forward_to'])) {
             $this->mailer->clearAll();
@@ -1014,6 +1028,7 @@ class BounceHelper extends acymObject
                 $this->mailer->AddReplyTo(trim($this->_message->header->reply_to_email, '<> '), $this->_message->header->reply_to_name);
             }
 
+            $this->mailer->isBounceForward = true;
             if ($this->mailer->send()) {
                 $message .= ' | '.acym_translationSprintf('ACYM_FORWARDED_TO_X', $oneRule->action_message['forward_to']);
             } else {
@@ -1235,8 +1250,7 @@ class BounceHelper extends acymObject
     public function getErrors()
     {
         $return = [];
-        if ($this->usePear) {
-        } else {
+        if (!$this->usePear) {
             if (!function_exists('imap_alerts')) {
                 $return[] = 'The IMAP extension could not be loaded, please change your PHP configuration to enable it or use the pop3 method without imap extension';
 

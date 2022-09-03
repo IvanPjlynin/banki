@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Sourcerer
- * @version         9.2.0
+ * @version         9.2.3
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -29,7 +29,7 @@ use RegularLabs\Plugin\System\Sourcerer\Security;
 // Do not instantiate plugin on install pages
 // to prevent installation/update breaking because of potential breaking changes
 $input = JFactory::getApplication()->input;
-if (in_array($input->get('option'), ['com_installer', 'com_regularlabsmanager']) && $input->get('action') != '')
+if (in_array($input->get('option', ''), ['com_installer', 'com_regularlabsmanager']) && $input->get('action', '') != '')
 {
 	return;
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -62,28 +62,23 @@ class DownloadKey
 	 */
 	public static function store($key)
 	{
-		if (strlen($key) != 16)
+		if ( ! self::isValidFormat($key))
 		{
 			return false;
 		}
-
-		if ( ! RegEx::match('#^[a-zA-Z0-9]{8}[A-Z0-9]{8}$#', $key))
-		{
-			return false;
-		}
-
-		$db = JFactory::getDbo();
 
 		$extra_query = $key ? 'k=' . $key : '';
 
-		$query = $db->getQuery(true)
+		$query = DB::getQuery()
 			->update('#__update_sites')
-			->set($db->quoteName('extra_query') . ' = ' . $db->quote($extra_query))
-			->where($db->quoteName('location') . ' LIKE ' . $db->quote('%download.regularlabs.com%'))
-			->where($db->quoteName('location') . ' LIKE ' . $db->quote('%&pro=%'));
+			->set(DB::is('extra_query', $extra_query))
+			->where(DB::like('location', '%download.regularlabs.com%'))
+			->where(DB::combine([
+				DB::like('location', '%&pro=%'),
+				DB::like('location', '%e=extensionmanager%'),
+			], 'OR'));
 
-		$db->setQuery($query);
-		$result = $db->execute();
+		$result = DB::get()->setQuery($query)->execute();
 
 		JFactory::getCache()->clean('_system');
 
@@ -93,7 +88,7 @@ class DownloadKey
 	/**
 	 * @param string $extension
 	 */
-	public static function getOutputForComponent($extension = 'all')
+	public static function getOutputForComponent($extension = 'all', $use_modal = true, $hidden = true, $callback = '')
 	{
 		$id = 'downloadkey_' . strtolower($extension);
 
@@ -105,10 +100,12 @@ class DownloadKey
 			JPATH_SITE . '/libraries/regularlabs/layouts'
 		))->render(
 			[
-				'id'        => $id,
-				'extension' => strtolower($extension),
-				'use_modal' => true,
-				'hidden'    => true,
+				'id'         => $id,
+				'extension'  => strtolower($extension),
+				'use_modal'  => $use_modal,
+				'hidden'     => $hidden,
+				'callback'   => $callback,
+				'show_label' => true,
 			]
 		);
 	}
@@ -147,6 +144,11 @@ class DownloadKey
 	public static function isValidFormat($key)
 	{
 		$key = trim($key);
+
+		if ($key === '')
+		{
+			return true;
+		}
 
 		if (strlen($key) != 16)
 		{

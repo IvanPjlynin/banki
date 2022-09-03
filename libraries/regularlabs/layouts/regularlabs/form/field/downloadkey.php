@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -20,7 +20,9 @@ defined('_JEXEC') or die;
  * @var   string $extension
  * @var   int    $cloak_length
  * @var   bool   $use_modal
+ * @var   bool   $show_label
  * @var   bool   $hidden
+ * @var   string $callback
  */
 
 extract($displayData);
@@ -29,13 +31,27 @@ $extension    = $extension ?? 'all';
 $cloak_length = $cloak_length ?? 4;
 $use_modal    = $use_modal ?? false;
 $hidden       = $hidden ?? false;
+$show_label   = $show_label ?? false;
+$callback     = htmlspecialchars($callback ?? '', ENT_QUOTES, 'UTF-8');
 ?>
-<div id="downloadKeyWrapper_<?php echo $id; ?>" class="rl-download-key">
-	<div class="<?php echo $hidden ? 'hidden' : ''; ?>">
+<div id="downloadKeyWrapper_<?php echo $id; ?>" class="rl-download-key" data-callback="<?php echo $callback; ?>">
+	<div class="rl-download-key-wrapper mb-4<?php echo $hidden ? ' hidden' : ''; ?>">
+		<div class="<?php echo ! $show_label ? ' hidden' : ''; ?>">
+			<label for="<?php echo $id; ?>">
+				<span class="initialism text-muted">
+					<?php echo JText::_('RL_DOWNLOAD_KEY'); ?>
+				</span>
+				<span class="rl-popover rl-popover-full">
+					<small class="form-text">
+						<?php echo JText::_('RL_DOWNLOAD_KEY_DESC'); ?>
+					</small>
+				</span>
+			</label>
+		</div>
 		<span class="rl-spinner"></span>
 		<div class="input-group">
 			<input type="text" id="<?php echo $id; ?>" data-key-extension="<?php echo $extension; ?>" data-key-cloak-length="<?php echo $cloak_length; ?>"
-			       class="rl-download-key-field form-control inactive rl-code-field hidden">
+			       class="form-control rl-download-key-field form-control inactive rl-code-field hidden">
 			<button type="button" class="btn btn-primary button-edit hidden">
 				<span class="icon-edit" aria-hidden="true"></span><span class="visually-hidden"><?php echo JText::_('JEDIT'); ?></span>
 			</button>

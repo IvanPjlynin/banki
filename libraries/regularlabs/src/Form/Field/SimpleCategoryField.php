@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -27,10 +27,12 @@ class SimpleCategoryField extends RL_FormField
 
 		$options = array_merge($options, $categories);
 
-		$empty_option        = JHtml::_('select.option', $this->get('none_value', ''), '- ' . JText::_('JNONE') . ' -');
-		$empty_option->class = 'hidden';
-
-		array_unshift($options, $empty_option);
+		if ($this->get('show_none', true))
+		{
+			$empty_option        = JHtml::_('select.option', $this->get('none_value', ''), '- ' . JText::_('JNONE') . ' -');
+			$empty_option->class = 'hidden';
+			array_unshift($options, $empty_option);
+		}
 
 		if ($this->get('show_keep_original'))
 		{
@@ -41,7 +43,8 @@ class SimpleCategoryField extends RL_FormField
 
 		$data                = $this->getLayoutData();
 		$data['options']     = $options;
-		$data['placeholder'] = JText::_('RL_SELECT_OR_CREATE_A_CATEGORY');
+		$data['placeholder'] = JText::_($this->get('hint', 'RL_SELECT_OR_CREATE_A_CATEGORY'));
+		$data['allowCustom'] = $this->get('allow_custom', true);
 
 		return (new JFileLayout(
 			'regularlabs.form.field.simplecategory',

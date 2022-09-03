@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -18,6 +18,7 @@ use RegularLabs\Library\Form\FormField as RL_FormField;
 
 class TagsField extends RL_FormField
 {
+	static $options         = null;
 	public $is_select_list  = true;
 	public $use_ajax        = true;
 	public $use_tree_select = true;
@@ -37,6 +38,11 @@ class TagsField extends RL_FormField
 
 	protected function getOptions()
 	{
+		if ( ! is_null(self::$options))
+		{
+			return self::$options;
+		}
+
 		$query = $this->db->getQuery(true)
 			->select('a.id as value, a.title as text, a.parent_id AS parent')
 			->from('#__tags AS a')
@@ -48,6 +54,8 @@ class TagsField extends RL_FormField
 			->order('a.lft ASC');
 		$this->db->setQuery($query);
 
-		return $this->db->loadObjectList();
+		self::$options = $this->db->loadObjectList();
+
+		return self::$options;
 	}
 }

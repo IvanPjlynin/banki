@@ -48,10 +48,14 @@ if ($listPosition == 'before') echo $listsContent;
         echo '<div class="onefield fieldacy'.$field->id.' acyfield_'.$field->type.'" id="field_'.$field->id.'">';
         echo $fieldClass->displayField($field, $field->default_value, $size, $valuesArray, $displayOutside, true, $identifiedUser);
         echo '</div>';
+
+        if ($field->id == 2 && $config->get('email_confirmation')) {
+            echo $fieldClass->setEmailConfirmationField($displayOutside, $size);
+        }
     }
 
     if ($listPosition != 'before') echo $listsContent;
-    
+
     if (empty($identifiedUser->id) && $config->get('captcha', 'none') !== 'none' && acym_level(ACYM_ESSENTIAL)) {
         echo '<div class="onefield fieldacycaptcha" id="field_captcha_'.$formName.'">';
         $captcha = new CaptchaHelper();
@@ -70,10 +74,8 @@ if ($listPosition == 'before') echo $listsContent;
 </div>
 
 <p class="acysubbuttons">
-	<noscript>
-<div class="onefield fieldacycaptcha">
+<noscript>
     <?php echo acym_translation('ACYM_NO_JAVASCRIPT'); ?>
-</div>
 </noscript>
 <input type="button"
 	   class="btn btn-primary button subbutton"

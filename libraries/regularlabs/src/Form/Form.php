@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -196,7 +196,7 @@ class Form
 
 			$url = ! empty($plugin->id)
 				? 'index.php?option=com_plugins&task=plugin.edit&extension_id=' . $plugin->id
-				: 'index.php?option=com_plugins&filter_folder=&filter_search=Regular%20Labs%20Library';
+				: 'index.php?option=com_plugins&&filter[folder]=&filter[search]=Regular%20Labs%20Library';
 
 			$label   = JText::_('RL_ITEM_IDS');
 			$text    = JText::_('RL_MAX_LIST_COUNT_INCREASE');
@@ -292,11 +292,13 @@ class Form
 			$value = implode(',', $value);
 		}
 
+		$input = JFactory::getApplication()->input;
+
 		$ajax_data = [
 			'parent_request'    => [
-				'option' => JFactory::getApplication()->input->get('option'),
-				'view'   => JFactory::getApplication()->input->get('view'),
-				'id'     => JFactory::getApplication()->input->getInt('id'),
+				'option' => $input->get('option', ''),
+				'view'   => $input->get('view', ''),
+				'id'     => $input->getInt('id'),
 			],
 			'field_class'       => $field_class,
 			'value'             => $value,

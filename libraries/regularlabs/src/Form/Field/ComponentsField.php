@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -22,6 +22,7 @@ use RegularLabs\Library\RegEx as RL_RegEx;
 
 class ComponentsField extends RL_FormField
 {
+	static $components     = null;
 	public $attributes     = [
 		'frontend' => true,
 		'admin'    => true,
@@ -77,16 +78,7 @@ class ComponentsField extends RL_FormField
 			return [];
 		}
 
-		$query = $this->db->getQuery(true)
-			->select('e.name, e.element')
-			->from('#__extensions AS e')
-			->where('e.type = ' . $this->db->quote('component'))
-			->where('e.name != ""')
-			->where('e.element != ""')
-			->group('e.element')
-			->order('e.element, e.name');
-		$this->db->setQuery($query);
-		$components = $this->db->loadObjectList();
+		$components = $this->getComponents();
 
 		$comps = [];
 		$lang  = $this->app->getLanguage();
@@ -113,7 +105,8 @@ class ComponentsField extends RL_FormField
 
 			// return if there is no view(s) folder
 			if (
-				! JFolder::exists($component_folder . '/src/View')
+				$component->element !== 'com_ajax'
+				&& ! JFolder::exists($component_folder . '/src/View')
 				&& ! JFolder::exists($component_folder . '/views')
 				&& ! JFolder::exists($component_folder . '/view')
 			)
@@ -142,9 +135,37 @@ class ComponentsField extends RL_FormField
 
 		foreach ($comps as $component)
 		{
-			$options[] = JHtml::_('select.option', $component->element, $component->name);
+			$key = $component->element;
+
+			if ($this->get('no_com_prefix'))
+			{
+				$key = RL_RegEx::replace('^com_', '', $key);
+			}
+
+			$options[] = JHtml::_('select.option', $key, $component->name);
 		}
 
 		return $options;
+	}
+
+	private function getComponents()
+	{
+		if ( ! is_null(self::$components))
+		{
+			return self::$components;
+		}
+
+		$query = $this->db->getQuery(true)
+			->select('e.name, e.element')
+			->from('#__extensions AS e')
+			->where('e.type = ' . $this->db->quote('component'))
+			->where('e.name != ""')
+			->where('e.element != ""')
+			->group('e.element')
+			->order('e.element, e.name');
+		$this->db->setQuery($query);
+		self::$components = $this->db->loadObjectList();
+
+		return self::$components;
 	}
 }

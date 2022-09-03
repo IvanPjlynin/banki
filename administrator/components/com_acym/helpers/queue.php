@@ -138,7 +138,6 @@ class QueueHelper extends acymObject
         $queueDelete = [];
         $queueUpdate = [];
         $statsAdd = [];
-        $actionSubscriber = [];
 
         $maxTry = (int)$this->config->get('queue_try', 0);
 
@@ -167,12 +166,14 @@ class QueueHelper extends acymObject
             }
         }
 
-        $mailIds = [];
+        $sentEmails = [];
         $emailFrequency = $this->fromManual ? 0 : $this->config->get('email_frequency', 0);
 
         foreach ($queueElements as $oneQueue) {
-            if (!in_array($oneQueue->mail_id, $mailIds)) $mailIds[] = $oneQueue->mail_id;
-            if (!empty($emailFrequency) && intval($emailFrequency) > 0) sleep(intval($emailFrequency));
+            if (!empty($emailFrequency) && intval($emailFrequency) > 0) {
+                sleep(intval($emailFrequency));
+            }
+
             $currentMail++;
             $this->nbprocess++;
             if ($this->report) {
@@ -187,6 +188,10 @@ class QueueHelper extends acymObject
 
             $this->triggerSentHook($oneQueue->mail_id);
             $result = $mailHelper->sendOne($oneQueue->mail_id, $oneQueue->user_id);
+
+            if (empty($sentEmails[$oneQueue->mail_id])) {
+                $sentEmails[$oneQueue->mail_id] = $mailHelper->Body;
+            }
 
             $queueDeleteOk = true;
             $otherMessage = '';
@@ -212,7 +217,6 @@ class QueueHelper extends acymObject
                 $queueDeleteOk = $this->_deleteQueue($queueDelete);
                 $queueDelete = [];
             } else {
-
                 $this->errorSend++;
 
                 $newtry = false;
@@ -242,7 +246,7 @@ class QueueHelper extends acymObject
                 }
             }
 
-            $messageOnScreen = '[ ID '.$oneQueue->mail_id.'] '.$mailHelper->reportMessage;
+            $messageOnScreen = '[ID '.$oneQueue->mail_id.'] '.$mailHelper->reportMessage;
             if (!empty($otherMessage)) {
                 $messageOnScreen .= ' => '.$otherMessage;
             }
@@ -273,9 +277,10 @@ class QueueHelper extends acymObject
         }
 
         if ($externalSending) {
-            foreach ($mailIds as $key => $mailId) {
+            foreach ($sentEmails as $mailId => $content) {
                 if (!$queueClass->isSendingFinished($mailId)) continue;
-                acym_trigger('onAcymSendCampaignOnExternalSendingMethod', [$mailId]);
+
+                acym_trigger('onAcymSendCampaignOnExternalSendingMethod', [$mailId, $content]);
             }
         }
 

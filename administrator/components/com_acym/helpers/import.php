@@ -176,7 +176,7 @@ class ImportHelper extends acymObject
         }
 
         $query = 'INSERT IGNORE INTO #__acym_user_has_list (`user_id`,`list_id`,`status`,`subscription_date`) ';
-        $query .= 'SELECT user.`id`, list.`id`, 1, '.acym_escapeDB(date('Y-m-d H:i:s', time())).' 
+        $query .= 'SELECT user.`id`, list.`id`, 1, '.acym_escapeDB(date('Y-m-d H:i:s', time() - date('Z'))).' 
                     FROM #__acym_list AS list, #__acym_user AS user ';
         $conditions = [];
         $conditions[] = 'list.`id` IN ('.implode(',', $listsSubscribe).')';
@@ -286,7 +286,7 @@ class ImportHelper extends acymObject
         }
 
         $query = 'INSERT IGNORE INTO #__acym_user_has_list (`user_id`,`list_id`,`status`,`subscription_date`) ';
-        $query .= 'SELECT user.`id`, list.`id`, 1, '.acym_escapeDB(date('Y-m-d H:i:s', time())).' 
+        $query .= 'SELECT user.`id`, list.`id`, 1, '.acym_escapeDB(date('Y-m-d H:i:s', time() - date('Z'))).' 
                     FROM #__acym_list AS list, #__acym_user AS user 
                     WHERE list.`id` IN ('.implode(',', $listsSubscribe).') 
                         AND user.`email` IN (SELECT '.acym_secureDBColumn($select['`email`']).' FROM '.acym_secureDBColumn($table).')';
@@ -343,7 +343,7 @@ class ImportHelper extends acymObject
         }
 
         $query = 'INSERT IGNORE INTO #__acym_user_has_list (`user_id`,`list_id`,`status`,`subscription_date`) ';
-        $query .= 'SELECT user.`id`, list.`id`, 1, '.acym_escapeDB(date('Y-m-d H:i:s', time())).'
+        $query .= 'SELECT user.`id`, list.`id`, 1, '.acym_escapeDB(date('Y-m-d H:i:s', time() - date('Z'))).'
                     FROM #__acym_list AS list, #__acym_user AS user ';
         $conditions = [];
         $conditions[] = 'list.`id` IN ('.implode(',', $listsSubscribe).')';
@@ -708,6 +708,10 @@ class ImportHelper extends acymObject
 
         $this->_insertUsers($importUsers, $timestamp);
 
+        acym_query('UPDATE #__acym_configuration SET `value` = '.intval($timestamp).' WHERE `name` = \'last_import\'');
+
+        acym_query('DELETE FROM #__acym_user_has_field WHERE `value` = ""');
+
         $countUsersAfterImport = $userClass->getCountTotalUsers();
         $this->totalInserted = $countUsersAfterImport - $countUsersBeforeImport;
 
@@ -755,21 +759,21 @@ class ImportHelper extends acymObject
         $values = [];
         $customFieldsvalues = [];
         $allemails = [];
-        foreach ($users as $a => $oneUser) {
+        foreach ($users as $oneUser) {
             $value = [];
             acym_trigger('onAcymBeforeUserImport', [&$oneUser]);
 
             foreach ($oneUser as $map => $oneValue) {
-                if ($map == 'customfields') continue;
+                if ($map === 'customfields') continue;
 
                 $oneValue = htmlspecialchars_decode($oneValue, ENT_QUOTES);
 
-                if ($map == 'active' && !empty($this->importblocked) && $this->importblocked == true) {
+                if ($map === 'active' && $this->importblocked) {
                     $value[] = 0;
                 } else {
-                    if ($map != 'id') {
+                    if ($map !== 'id') {
                         $oneValue = acym_escapeDB($oneValue);
-                        if ($map == 'email') $allemails[] = $oneValue;
+                        if ($map === 'email') $allemails[] = $oneValue;
                     } else {
                         $oneValue = intval($oneValue);
                     }
@@ -802,8 +806,6 @@ class ImportHelper extends acymObject
 
         acym_query($queryInsertUsers);
 
-        acym_query('UPDATE #__acym_configuration SET `value` = '.intval($timestamp).' WHERE `name` = \'last_import\'');
-
         $importedUsers = acym_loadObjectList('SELECT id, email FROM #__acym_user WHERE email IN ('.implode(',', $allemails).')', 'id');
 
         if (!empty($customFieldsvalues)) {
@@ -826,8 +828,6 @@ class ImportHelper extends acymObject
                     $queryInsertCustomFields .= ' ON DUPLICATE KEY UPDATE `value` = VALUES(`value`)';
                 }
                 acym_query($queryInsertCustomFields);
-
-                acym_query('DELETE FROM #__acym_user_has_field WHERE `value` = ""');
             }
         }
 
@@ -972,7 +972,7 @@ class ImportHelper extends acymObject
     {
         if (empty($this->allSubid)) return true;
 
-        $subdate = date('Y-m-d H:i:s', time());
+        $subdate = date('Y-m-d H:i:s', time() - date('Z'));
 
         $listClass = new ListClass();
         $lists = $this->getImportedLists();

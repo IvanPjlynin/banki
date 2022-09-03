@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -233,6 +233,36 @@ class StringHelper extends \Joomla\String\StringHelper
 
 	/**
 	 * @param string $string
+	 * @param int    $format
+	 *
+	 * @return array|int
+	 */
+	public static function countWords(string $string, int $format = 0)
+	{
+		$words = preg_split('#[^\p{L}\p{N}\']+#u', $string, -1, $format == 2 ? PREG_SPLIT_OFFSET_CAPTURE : null);
+
+		switch ($format)
+		{
+			case 1:
+				return $words;
+
+			case 2:
+				$numbered = [];
+				foreach ($words as $word)
+				{
+					$numbered[$word[1]] = $word[0];
+				}
+
+				return $numbered;
+
+			case 0:
+			default:
+				return count($words);
+		}
+	}
+
+	/**
+	 * @param string $string
 	 *
 	 * @return string
 	 */
@@ -317,7 +347,7 @@ class StringHelper extends \Joomla\String\StringHelper
 		}
 
 		// Normalizer-class missing!
-		if (class_exists('Normalizer', $autoload = false))
+		if (class_exists('Normalizer', false))
 		{
 			$string = Normalizer::normalize($string);
 		}
@@ -483,7 +513,7 @@ class StringHelper extends \Joomla\String\StringHelper
 		}
 
 		// preg_quote all delimiters
-		$array = preg_split('#(' . RegEx::quote($delimiters) . ')#s', $string, null, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+		$array = preg_split('#(' . RegEx::quote($delimiters) . ')#s', $string, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 
 		if ( ! $maximize_parts)
 		{

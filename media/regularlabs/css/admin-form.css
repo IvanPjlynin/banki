@@ -1,6 +1,6 @@
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -285,6 +285,10 @@
   overflow-x: auto;
 }
 
+.rl-pre-wrap {
+  white-space: pre-wrap;
+}
+
 .rl-form .form-control {
   padding: 0.5rem;
 }
@@ -309,6 +313,15 @@
   margin-top: -1px;
   margin-bottom: 0;
   border-radius: 0 0 2.5px 2.5px;
+}
+
+a.rl-no-styling {
+  text-decoration: none !important;
+}
+a.rl-no-styling:before {
+  content: "" !important;
+  -webkit-padding-end: 0 !important;
+  padding-inline-end: 0 !important;
 }
 
 input.rl-code-field.form-control {
@@ -343,6 +356,11 @@ input.rl-key-field.form-control {
 }
 .rl-admin-popover-container.show {
   display: block;
+}
+.rl-admin-popover-container.rl-admin-popover-full {
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 .rl-admin-popover {
@@ -482,6 +500,25 @@ input.rl-key-field.form-control {
   opacity: 0.4;
 }
 
+.rl-bg-transparent {
+  background: none !important;
+}
+
+.table > * > tr.rl-tr-bg-transparent > * {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+@media (min-width: 768px) {
+  .w-md-30 {
+    width: 30%;
+  }
+}
+.rl-badge > small {
+  font-size: 0.85em;
+}
+
 .rl-modal .btn-group > .btn {
   line-height: 1.5;
   margin: 0;
@@ -495,8 +532,13 @@ input.rl-key-field.form-control {
   margin-bottom: 0;
 }
 
+.rl-form-checkboxes-not-inline .form-check-inline,
 .rl-form-check-not-inline .form-check-inline {
   display: block;
+}
+
+.rl-form-checkboxes-style-disabled .rl-checkbox-checked label {
+  color: #c52827;
 }
 
 .rl-button-no-text.header-item-content {
@@ -557,6 +599,10 @@ input.rl-key-field.form-control {
   top: calc(50% - 12px);
 }
 
+.rl-has-spinner {
+  min-height: 24px;
+}
+
 @keyframes rl-spinner {
   0% {
     transform: rotate(0deg);
@@ -591,6 +637,14 @@ joomla-field-subform.rl-subform.rl-move-add-button div.subform-repeatable-group 
 }
 joomla-field-subform.rl-subform .subform-repeatable-group {
   margin-left: 1rem;
+}
+
+.rl-cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.rl-bg-danger-light {
+  background-color: #fef8f8;
 }
 
 /*
@@ -638,4 +692,14 @@ joomla-field-subform .icon-info-circle {
 
 .CodeMirror-fullscreen {
   z-index: 1060 !important;
+}
+
+a.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.disabled .btn.disabled,
+.disabled a.disabled {
+  opacity: 1;
 }

@@ -1,6 +1,6 @@
 <?php
 
-function acym_radio($options, $name, $selected = null, $attributes = [], $params = [], $frontDisplay = false)
+function acym_radio($options, $name, $selected = null, $attributes = [], $params = [], $frontDisplay = false, $disabledOptions = [])
 {
     $id = preg_replace(
         '#[^a-zA-Z0-9_]+#mi',
@@ -22,6 +22,7 @@ function acym_radio($options, $name, $selected = null, $attributes = [], $params
     $return = '<div class="acym_radio_group '.$params['containerClass'].'">';
     $k = 0;
     foreach ($options as $value => $label) {
+        $attributes['class'] = '';
         if (is_object($label)) {
             if (!empty($label->class)) {
                 $attributes['class'] = $label->class;
@@ -42,6 +43,14 @@ function acym_radio($options, $name, $selected = null, $attributes = [], $params
 
         $checked = (string)$value == (string)$selected ? ' checked="checked"' : '';
 
+        $disabled = '';
+        $extraClass = '';
+        if (!empty($disabledOptions[$value])) {
+            $disabled = ' disabled';
+            $extraClass = ' '.$disabledOptions[$value]['disabledClass'];
+            $attributes['class'] .= $extraClass;
+        }
+
         $formattedAttributes = '';
         foreach ($attributes as $attribute => $val) {
             if ($attribute === 'related') continue;
@@ -52,12 +61,19 @@ function acym_radio($options, $name, $selected = null, $attributes = [], $params
             unset($params['required']);
         }
 
+        $currentOption = '';
         if (!$frontDisplay) {
-            $return .= '<i data-radio="'.$currentId.'" class="acymicon-radio_button_checked acym_radio_checked"></i>';
-            $return .= '<i data-radio="'.$currentId.'" class="acymicon-radio_button_unchecked acym_radio_unchecked"></i>';
+            $currentOption .= '<i data-radio="'.$currentId.'" class="acymicon-radio_button_checked acym_radio_checked'.$extraClass.'"></i>';
+            $currentOption .= '<i data-radio="'.$currentId.'" class="acymicon-radio_button_unchecked acym_radio_unchecked'.$extraClass.'"></i>';
         }
-        $return .= '<input'.$formattedAttributes.$checked.' />';
-        $return .= '<label for="'.$currentId.'" id="'.$currentId.'-lbl">'.acym_translation($label).'</label>';
+
+        $currentOption .= '<input'.$formattedAttributes.$checked.$disabled.' />';
+        $currentOption .= '<label for="'.$currentId.'" id="'.$currentId.'-lbl" class="'.$extraClass.'">'.acym_translation($label).'</label>';
+
+        if (!empty($disabledOptions[$value]['tooltipTxt'])) {
+            $currentOption = acym_tooltip($currentOption, $disabledOptions[$value]['tooltipTxt']);
+        }
+        $return .= $currentOption;
 
         if (!empty($params['pluginMode'])) $return .= '<br />';
         $k++;
@@ -200,8 +216,20 @@ function acym_selectOption($value, $text = '', $optKey = 'value', $optText = 'te
     return $option;
 }
 
-function acym_switch($name, $value, $label = null, $attrInput = [], $labelClass = 'medium-6 small-9', $switchContainerClass = 'auto', $switchClass = '', $toggle = null, $toggleOpen = true, $vModel = '', $disabled = false, $disabledMessage = '')
-{
+function acym_switch(
+    $name,
+    $value,
+    $label = null,
+    $attrInput = [],
+    $labelClass = 'medium-6 small-9',
+    $switchContainerClass = 'auto',
+    $switchClass = '',
+    $toggle = null,
+    $toggleOpen = true,
+    $vModel = '',
+    $disabled = false,
+    $disabledMessage = ''
+) {
     static $occurrence = 100;
     $occurrence++;
 
@@ -236,6 +264,15 @@ function acym_switch($name, $value, $label = null, $attrInput = [], $labelClass 
     }
 
     return $switch;
+}
+
+function acym_showMore($toggle, $text = 'ACYM_SHOW_MORE', $class = '')
+{
+    $showMore = '<div class="showmore '.$class.'" data-toggle-showmore="'.$toggle.'">';
+    $showMore .= '<label>'.acym_translation($text).'<i class="acymicon-keyboard_arrow_down"></i></label>';
+    $showMore .= '</div>';
+
+    return $showMore;
 }
 
 function acym_generateCountryNumber($name, $defaultvalue = '')

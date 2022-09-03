@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -20,34 +20,28 @@ class HeaderLibraryField extends HeaderField
 	protected function getInput()
 	{
 		$extensions = [
-//			'Add to Menu',
-//			'Advanced Module Manager',
-//			'Advanced Template Manager',
-//			'Articles Anywhere',
-//			'Articles Field',
-//			'Better Preview',
-//			'Better Trash',
-//			'Cache Cleaner',
-//			'CDN for Joomla!',
-//			'Components Anywhere',
-//			'Conditional Content',
-//			'Content Templater',
-//			'DB Replacer',
-//			'Dummy Content',
-//			'Email Protector',
-//			'GeoIP',
-//			'IP Login',
-//			'Modals',
-//			'Modules Anywhere',
-//			'Quick Index',
-//			'Regular Labs Extension Manager',
-//			'ReReplacer',
-//			'Simple User Notes',
-//			'Snippets',
-//			'Sourcerer',
-//			'Tabs & Accordions',
-//			'Tooltips',
-'What? Nothing!',
+			'Advanced Module Manager',
+			'Articles Anywhere',
+			'Articles Field',
+			'Better Frontend Link',
+			'Cache Cleaner',
+			'CDN for Joomla!',
+			'Conditional Content',
+			//			'Content Templater',
+			'DB Replacer',
+			'GeoIP',
+			'IP Login',
+			//			'Keyboard Shortcuts',
+			//			'Modals',
+			'Modules Anywhere',
+			'Quick Index',
+			'Regular Labs Extension Manager',
+			'ReReplacer',
+			'Snippets',
+			'Sourcerer',
+			//			'Tabs & Accordions',
+			//			'Tooltips',
+			'What? Nothing!',
 		];
 
 		$list = '<ul><li>' . implode('</li><li>', $extensions) . '</li></ul>';

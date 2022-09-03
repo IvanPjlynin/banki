@@ -355,8 +355,20 @@ class FieldClass extends acymClass
         $user = null,
         $display = 1,
         $displayIf = '',
-        $userClasses = ""
+        $userClasses = []
     ) {
+        $allClasses = !empty($userClasses['all']) ? $userClasses['all'] : '';
+        $textClasses = !empty($userClasses['text']) ? $userClasses['text'] : '';
+        $emailClasses = !empty($userClasses['email']) ? $userClasses['email'] : '';
+        $radioClasses = !empty($userClasses['radio']) ? $userClasses['radio'] : '';
+        $checkboxClasses = !empty($userClasses['checkbox']) ? $userClasses['checkbox'] : '';
+        $dateClasses = !empty($userClasses['date']) ? $userClasses['date'] : '';
+        $phoneClasses = !empty($userClasses['phone']) ? $userClasses['phone'] : '';
+        $singleDropdownClasses = !empty($userClasses['single_dropdown']) ? $userClasses['single_dropdown'] : '';
+        $multipleDropdownClasses = !empty($userClasses['multiple_dropdown']) ? $userClasses['multiple_dropdown'] : '';
+        $languageClasses = !empty($userClasses['language']) ? $userClasses['language'] : '';
+
+        $extraErrors = $this->config->get('extra_errors', '0');
         $isCoreField = $field->core == 1;
 
         if (!$isCoreField && !acym_level(ACYM_ENTERPRISE)) return '';
@@ -451,7 +463,7 @@ class FieldClass extends acymClass
                     $field->type,
                     ['text', 'textarea', 'single_dropdown', 'multiple_dropdown', 'custom_text', 'file', 'language']
                 )))) {
-            $return .= '<label '.$displayIf.' class="cell margin-top-1"><div class="acym__users__creation__fields__title">'.$field->name.'</div>';
+            $return .= '<label '.$displayIf.' class="cell margin-top-1"><span class="acym__users__creation__fields__title">'.$field->name.'</span>';
         }
         if ($displayOutside && in_array($field->type, ['date', 'radio', 'checkbox'])) {
             $return .= '<div '.$displayIf.' class="cell margin-top-1"><div class="acym__users__creation__fields__title">'.$field->name.'</div>';
@@ -466,13 +478,13 @@ class FieldClass extends acymClass
 
         if ($field->id == 1) {
             $nameAttribute = ' name="user[name]"';
-            $inputTmp = '<input '.$nameAttribute.$placeholder.$required.$value.$authorizedContent.$style.$maxCharacters.$readonly.' type="text" class="cell '.$userClasses.'"'.'>';
+            $inputTmp = '<input '.$nameAttribute.$placeholder.$required.$value.$authorizedContent.$style.$maxCharacters.$readonly.' type="text" class="cell '.$allClasses.' '.$textClasses.'"'.'>';
             if (!empty($readonly)) $inputTmp = acym_tooltip($inputTmp, acym_translation('ACYM_CF_EDITION_BLOCKED'));
             $return .= $inputTmp;
         } elseif ($field->id == 2) {
             $nameAttribute = ' name="user[email]"';
             $uniqueId = 'email_field_'.rand(100, 900);
-            $inputTmp = '<input id="'.$uniqueId.'" '.$nameAttribute.$placeholder.$value.$authorizedContent.$style.$maxCharacters.$readonly.' required type="email" class="cell acym__user__edit__email '.$userClasses.'"'.($displayFront && $cmsUser
+            $inputTmp = '<input id="'.$uniqueId.'" '.$nameAttribute.$placeholder.$value.$authorizedContent.$style.$maxCharacters.$readonly.' required type="email" class="cell acym__user__edit__email '.$allClasses.' '.$emailClasses.'"'.($displayFront && $cmsUser
                     ? 'disabled' : '').'>';
             if (!empty($readonly)) $inputTmp = acym_tooltip($inputTmp, acym_translation('ACYM_CF_EDITION_BLOCKED'));
             $return .= $inputTmp;
@@ -488,7 +500,7 @@ class FieldClass extends acymClass
                 $this->getLanguagesForDropdown(),
                 'user[language]',
                 empty($defaultValue) ? acym_getLanguageTag() : $defaultValue,
-                'class="acym__select '.$userClasses.'"'.$style.$required.$readonly
+                'class="acym__select '.$allClasses.' '.$languageClasses.'"'.$style.$required.$readonly
             );
             if (!empty($readonly)) $selectTmp = acym_tooltip($selectTmp, acym_translation('ACYM_CF_EDITION_BLOCKED'));
             $return .= $selectTmp;
@@ -503,7 +515,9 @@ class FieldClass extends acymClass
             if ($displayFront) {
                 foreach ($valuesArray as $key => $oneValue) {
                     $isCkecked = $defaultValue == $key ? 'checked' : '';
-                    $return .= '<label><input '.$nameAttribute.$required.' type="radio" value="'.acym_escape($key).'" '.$isCkecked.'> '.$oneValue.'</label>';
+                    $return .= '<label><input '.$nameAttribute.$required.' type="radio" value="'.acym_escape(
+                            $key
+                        ).'" '.$isCkecked.((!empty($allClasses) || !empty($radioClasses)) ? ' class="'.$allClasses.' '.$radioClasses.'"' : '').'> '.$oneValue.'</label>';
                 }
             } else {
                 $return .= acym_radio(
@@ -520,7 +534,7 @@ class FieldClass extends acymClass
                     $checked = !empty($defaultValue) && in_array($key, $defaultValue) ? 'checked' : '';
                     $return .= '<label><input '.$required.' type="checkbox" name="'.$name.'['.acym_escape($key).']" value="'.acym_escape(
                             $key
-                        ).'" '.$checked.(!empty($userClasses) ? ' class="'.$userClasses.'"' : '').'> '.$oneValue.'</label>';
+                        ).'" '.$checked.((!empty($allClasses) || !empty($checkboxClasses)) ? ' class="'.$allClasses.' '.$checkboxClasses.'"' : '').'> '.$oneValue.'</label>';
                 }
             } else {
                 if (!empty($defaultValue) && !is_object($defaultValue)) {
@@ -549,13 +563,13 @@ class FieldClass extends acymClass
                 $valuesArray,
                 $name,
                 empty($defaultValue) ? '' : $defaultValue,
-                'class="acym__custom__fields__select__form acym__select '.$userClasses.'"'.$style.$required
+                'class="acym__custom__fields__select__form acym__select '.$allClasses.' '.$singleDropdownClasses.'"'.$style.$required
             );
         } elseif ($field->type === 'multiple_dropdown') {
             $defaultValue = is_array($defaultValue) ? $defaultValue : explode(',', $defaultValue);
 
             $attributes = [
-                'class' => 'acym__custom__fields__select__multiple__form acym__select '.$userClasses,
+                'class' => 'acym__custom__fields__select__multiple__form acym__select '.$allClasses.' '.$multipleDropdownClasses,
                 'style' => $size,
             ];
             if ($field->required) $attributes['data-required'] = $displayFront ? acym_escape($requiredJson) : $requiredJson;
@@ -563,7 +577,7 @@ class FieldClass extends acymClass
             $return .= acym_selectMultiple($valuesArray, $name, empty($defaultValue) ? [] : $defaultValue, $attributes);
         } elseif ($field->type === 'date') {
             $attributes = [
-                'class' => 'acym__custom__fields__select__form acym__select '.$userClasses,
+                'class' => 'acym__custom__fields__select__form acym__select '.$allClasses.' '.$dateClasses,
                 'acym-field-type' => 'date',
             ];
             if (!empty($required)) {
@@ -591,7 +605,7 @@ class FieldClass extends acymClass
             $return .= '<div class="cell large-5 medium-4 padding-right-1">';
             $return .= acym_generateCountryNumber($name.'[code]', $indicator);
             $return .= '</div>';
-            $return .= '<input '.$placeholder.$required.$style.$maxCharacters.' class="cell large-7 medium-8 '.$userClasses.'"'.' type="tel" name="'.$name.'[phone]" value="'.acym_escape(
+            $return .= '<input '.$placeholder.$required.$style.$maxCharacters.' class="cell large-7 medium-8 '.$allClasses.' '.$phoneClasses.'"'.' type="tel" name="'.$name.'[phone]" value="'.acym_escape(
                     $number
                 ).'">';
             if ($displayOutside) $return .= '</div>';
@@ -608,6 +622,10 @@ class FieldClass extends acymClass
         }
 
         $return .= '<div class="acym__field__error__block" data-acym-field-id="'.intval($field->id).'"></div>';
+        if ($displayFront && $extraErrors && !acym_isAdmin()) {
+            $return .= '<div class="acym__message__invalid__field acym__color__error" style="display: none;">';
+            $return .= '<i class="acymicon-times-circle acym__cross__invalid acym__color__error"></i>'.acym_translation('ACYM_THANKS_TO_FILL_IN_THIS_FIELD').'</div>';
+        }
 
         return $return;
     }
@@ -687,6 +705,33 @@ class FieldClass extends acymClass
         });
 
         return $dataLanguages;
+    }
+
+    public function setEmailConfirmationField($displayOutside, $size, $container = 'div', $displayInline = false)
+    {
+        $uniqueId = 'email_confirmation_field_'.rand(100, 900);
+        $name = acym_translation('ACYM_EMAIL_CONFIRMATION');
+        $placeholder = !$displayOutside ? acym_translation('ACYM_EMAIL_CONFIRMATION') : '';
+        $style = empty($size) ? '' : ' style="'.$size.'"';
+        $extraErrors = $this->config->get('extra_errors', '0');
+
+
+        $return = '<'.$container.' class="onefield acym_email_confirmation_field acyfield_text">';
+        if ($displayOutside) $return .= '<label class="cell margin-top-1"><span class="acym__users__creation__fields__title">'.$name.'</span>';
+        $return .= '<input id="'.$uniqueId.'" '.$style.' required type="email" class="cell acym__user__edit__email" name="user[email_confirmation]" placeholder="'.$placeholder.'">';
+        $return .= '<span class="acym__field__error__block"></span>';
+        if ($extraErrors && !acym_isAdmin()) {
+            $return .= '<span class="acym__message__invalid__field acym__color__error" style="display: none;">';
+            $return .= '<i class="acymicon-times-circle acym__cross__invalid acym__color__error"></i>'.acym_translation('ACYM_THANKS_TO_FILL_IN_THIS_FIELD').'</span>';
+        }
+        if ($displayOutside) $return .= '</label>';
+        $return .= '</'.$container.'>';
+
+        if ($container == 'td' && !$displayInline) {
+            $return .= '</tr>';
+        }
+
+        return $return;
     }
 }
 

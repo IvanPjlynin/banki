@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -41,11 +41,11 @@ $input = JFactory::getApplication()->input;
 // Deal with error reporting when loading pages we don't want to break due to php warnings
 if ( ! in_array($config->error_reporting, ['none', '0'])
 	&& (
-		($input->get('option') == 'com_regularlabsmanager'
-			&& ($input->get('task') == 'update' || $input->get('view') == 'process')
+		($input->get('option', '') == 'com_regularlabsmanager'
+			&& ($input->get('task', '') == 'update' || $input->get('view', '') == 'process')
 		)
 		||
-		($input->getInt('rl_qp') == 1 && $input->get('url') != '')
+		($input->getInt('rl_qp') == 1 && $input->get('url', '') != '')
 	)
 )
 {
@@ -154,21 +154,6 @@ class PlgSystemRegularLabs extends RL_SystemPlugin
 	}
 
 	/**
-	 * @param $displayData
-	 *
-	 * @return string
-	 */
-	public function onCodeMirrorAfterDisplay(&$displayData): string
-	{
-		$modifier = implode(' + ', $displayData->params->get('fullScreenMod', []));
-		$key      = $displayData->params->get('fullScreen', 'F10');
-
-		return '<div class="text-muted fst-italic small">'
-			. JText::sprintf('RL_CODEMIRROR_TOGGLE_FULL_SCREEN', $modifier, $key)
-			. '</div>';
-	}
-
-	/**
 	 * @throws Exception
 	 */
 	private function addStylesheetToInstaller()
@@ -249,9 +234,9 @@ class PlgSystemRegularLabs extends RL_SystemPlugin
 			return;
 		}
 
-		if ($this->app->input->get('option') != 'com_plugins'
-			|| $this->app->input->get('view') != 'plugin'
-			|| $this->app->input->get('layout') != 'edit')
+		if ($this->app->input->get('option', '') != 'com_plugins'
+			|| $this->app->input->get('view', '') != 'plugin'
+			|| $this->app->input->get('layout', '') != 'edit')
 		{
 			return;
 		}
@@ -273,10 +258,12 @@ class PlgSystemRegularLabs extends RL_SystemPlugin
 	 */
 	private function saveColor()
 	{
-		$table     = JFactory::getApplication()->input->get('table');
-		$item_id   = JFactory::getApplication()->input->getInt('item_id');
-		$color     = JFactory::getApplication()->input->getString('color');
-		$id_column = JFactory::getApplication()->input->get('id_column', 'id');
+		$input = JFactory::getApplication()->input;
+
+		$table     = $input->get('table', '');
+		$item_id   = $input->getInt('item_id');
+		$color     = $input->getString('color');
+		$id_column = $input->get('id_column', 'id');
 
 		return RL_Color::save($table, $item_id, $color, $id_column);
 	}

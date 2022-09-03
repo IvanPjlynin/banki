@@ -90,6 +90,12 @@ class OverrideClass extends acymClass
         $translatepressIsActive = acym_isExtensionActive('translatepress-multilingual/index.php');
         $activeOverrides = $this->getActiveOverrides('name');
 
+        $joomlaMailStyle = 'plaintext';
+        if ('joomla' === ACYM_CMS && ACYM_J40) {
+            $params = \Joomla\CMS\Component\ComponentHelper::getParams('com_mails');
+            $joomlaMailStyle = $params->get('mail_style', 'plaintext');
+        }
+       
         foreach ($activeOverrides as $oneOverride) {
             $parameters = [];
             $matches = true;
@@ -98,6 +104,8 @@ class OverrideClass extends acymClass
                 if (empty($oneOverride->$identifier)) continue;
 
                 $decodedValue = json_decode($oneOverride->$identifier, true);
+                if (empty($decodedValue)) continue;
+
                 $oneOverride->$identifier = '';
                 foreach ($decodedValue as $partialTrad) {
                     $oneOverride->$identifier .= acym_translation($partialTrad, false, true, '');
@@ -122,6 +130,11 @@ class OverrideClass extends acymClass
                 );
 
                 $oneOverride->$identifier = str_replace('&amp;', '&', $oneOverride->$identifier);
+
+                if ('plaintext' !== $joomlaMailStyle) {
+                    $$part = str_replace('<br>', '', $$part);
+                }
+
                 $matches = preg_match('/'.trim($oneOverride->$identifier).'/', $$part, $params) === 1 && $matches;
 
                 if (empty($parameters)) {

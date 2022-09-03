@@ -328,6 +328,12 @@ class DashboardController extends acymController
         parent::display($data);
     }
 
+    public function loginForAuth2()
+    {
+        $configurationController = new ConfigurationController();
+        $configurationController->loginForAuth2();
+    }
+
     public function saveStepPhpmail()
     {
         if (!$this->_saveFrom()) {
@@ -426,15 +432,7 @@ class DashboardController extends acymController
 
     public function saveStepFail()
     {
-        $choice = acym_getVar('cmd', 'choice', 'gmail');
-        if ('gmail' === $choice) {
-            $this->_saveGmailInformation();
-            $this->_sendFirstEmail();
-            $this->_saveWalkthrough(['step' => 'stepResult', 'step_fail' => true]);
-            $this->stepResult();
-        } else {
-            $this->_handleContactMe('stepFail');
-        }
+        $this->_handleContactMe('stepFail');
     }
 
     private function _handleContactMe($fromFunction)
@@ -671,37 +669,6 @@ class DashboardController extends acymController
 
         if (empty($statusSaveMail)) {
             acym_enqueueMessage(acym_translation('ACYM_ERROR_SAVING'), 'error');
-
-            return false;
-        }
-
-        return true;
-    }
-
-    private function _saveGmailInformation()
-    {
-        $gmailAddress = acym_getVar('string', 'gmail_address', '');
-        $gmailPassword = acym_getVar('string', 'gmail_password', '');
-
-        if (empty($gmailAddress) || empty($gmailPassword)) {
-            acym_enqueueMessage(acym_translation('ACYM_EMPTY_ADDRESS_OR_PASSWORD'), 'error');
-
-            return false;
-        }
-
-        $newSmtpConfiguration = [
-            'smtp_auth' => '1',
-            'smtp_host' => 'smtp.gmail.com',
-            'smtp_keepalive' => '1',
-            'smtp_port' => '465',
-            'smtp_secured' => 'ssl',
-            'smtp_username' => $gmailAddress,
-            'smtp_password' => $gmailPassword,
-            'mailer_method' => 'smtp',
-        ];
-
-        if (false === $this->config->save($newSmtpConfiguration)) {
-            acym_enqueueMessage(acym_translation('ACYM_ERROR_SAVING', 'error'));
 
             return false;
         }

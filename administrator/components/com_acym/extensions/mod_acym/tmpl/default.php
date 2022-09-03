@@ -15,7 +15,8 @@ if (!empty($visibleLists)) {
                 <tr>
                     <td>
                     	<input type="checkbox" class="acym_checkbox" name="subscription[]" id="acylist_'.$myListId.'_'.$formName.'" '.$check.' value="'.$myListId.'"/>
-                        <label for="acylist_'.$myListId.'_'.$formName.'">'.(!empty($allLists[$myListId]->display_name) ? $allLists[$myListId]->display_name : $allLists[$myListId]->name).'</label>
+                        <label for="acylist_'.$myListId.'_'.$formName.'">'.(!empty($allLists[$myListId]->display_name) ? $allLists[$myListId]->display_name
+                : $allLists[$myListId]->name).'</label>
                     </td>
                 </tr>';
     }
@@ -48,10 +49,15 @@ if ($listPosition == 'before') echo $listsContent;
                 }
             }
             $size = empty($field->option->size) ? '' : 'width:'.$field->option->size.'px';
+
             echo '<td class="onefield acyfield_'.$field->id.' acyfield_'.$field->type.'">';
             echo $fieldClass->displayField($field, $field->default_value, $size, $valuesArray, $displayOutside, true, $identifiedUser);
             echo '</td>';
             if (!$displayInline) echo '</tr><tr>';
+
+            if ($field->id == 2 && $config->get('email_confirmation')) {
+                echo $fieldClass->setEmailConfirmationField($displayOutside, $size, 'td', $displayInline);
+            }
         }
 
         if ($listPosition != 'before') {
@@ -77,9 +83,7 @@ if ($listPosition == 'before') echo $listsContent;
 
 		<td <?php if ($displayOutside && !$displayInline) echo 'colspan="2"'; ?> class="acysubbuttons">
 			<noscript>
-				<div class="onefield fieldacycaptcha">
-                    <?php echo acym_translation('ACYM_NO_JAVASCRIPT'); ?>
-				</div>
+                <?php echo acym_translation('ACYM_NO_JAVASCRIPT'); ?>
 			</noscript>
 			<input type="button"
 				   class="btn btn-primary button subbutton"

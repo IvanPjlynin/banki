@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Sourcerer
- * @version         9.2.0
+ * @version         9.2.3
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -36,11 +36,11 @@ class PlgEditorsXtdSourcererInstallerScript extends PlgEditorsXtdSourcererInstal
 	{
 		$this->delete(
 			[
-				JPATH_SITE . '/plugins/editors-xtd/' . $this->alias . '/layouts',
-				JPATH_SITE . '/plugins/editors-xtd/' . $this->alias . '/fields.xml',
-				JPATH_SITE . '/plugins/editors-xtd/' . $this->alias . '/helper.php',
-				JPATH_SITE . '/plugins/editors-xtd/' . $this->alias . '/popup.php',
-				JPATH_SITE . '/plugins/editors-xtd/' . $this->alias . '/popup.tmpl.php',
+				JPATH_SITE . '/plugins/editors-xtd/' . $this->extname . '/layouts',
+				JPATH_SITE . '/plugins/editors-xtd/' . $this->extname . '/fields.xml',
+				JPATH_SITE . '/plugins/editors-xtd/' . $this->extname . '/helper.php',
+				JPATH_SITE . '/plugins/editors-xtd/' . $this->extname . '/popup.php',
+				JPATH_SITE . '/plugins/editors-xtd/' . $this->extname . '/popup.tmpl.php',
 			]
 		);
 	}

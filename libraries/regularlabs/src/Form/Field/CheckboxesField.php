@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -16,7 +16,6 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Form\Field\CheckboxesField as JCheckboxesField;
 use Joomla\CMS\Form\FormHelper;
 use Joomla\CMS\Language\Text as JText;
-use SimpleXMLElement;
 use UnexpectedValueException;
 use function count;
 
@@ -29,55 +28,55 @@ class CheckboxesField extends JCheckboxesField
 	 */
 	protected $layout = 'regularlabs.form.field.checkboxes';
 
-	/**
-	 * Method to attach a Form object to the field.
-	 *
-	 * @param SimpleXMLElement $element     The SimpleXMLElement object representing the `<field>` tag for the form field object.
-	 * @param mixed            $value       The form field value to validate.
-	 * @param string           $group       The field name group control value. This acts as an array container for the field.
-	 *                                      For example if the field has name="foo" and the group value is set to "bar" then the
-	 *                                      full field name would end up being "bar[foo]".
-	 *
-	 * @return  boolean  True on success.
-	 */
-	public function setup(SimpleXMLElement $element, $value, $group = null)
-	{
-		$return = parent::setup($element, $value, $group);
-
-		if ( ! $return || ! empty($value))
-		{
-			return $return;
-		}
-
-		$checked = [];
-
-		foreach ($this->element->children() as $element)
-		{
-			switch ($element->getName())
-			{
-				// The element is an <option />
-				case 'option':
-					$checked[] = (string) ($element['value'] ?? $element);
-					break;
-
-				// The element is a <group />
-				case 'group':
-					foreach ($element->children() as $option)
-					{
-						$checked[] = (string) ($option['value'] ?? $option);
-					}
-					break;
-
-				// Unknown element type.
-				default:
-					break;
-			}
-		}
-
-		$this->checkedOptions = implode(',', $checked);
-
-		return $return;
-	}
+//	/**
+//	 * Method to attach a Form object to the field.
+//	 *
+//	 * @param SimpleXMLElement $element     The SimpleXMLElement object representing the `<field>` tag for the form field object.
+//	 * @param mixed            $value       The form field value to validate.
+//	 * @param string           $group       The field name group control value. This acts as an array container for the field.
+//	 *                                      For example if the field has name="foo" and the group value is set to "bar" then the
+//	 *                                      full field name would end up being "bar[foo]".
+//	 *
+//	 * @return  boolean  True on success.
+//	 */
+//	public function setup(SimpleXMLElement $element, $value, $group = null)
+//	{
+//		$return = parent::setup($element, $value, $group);
+//
+//		if ( ! $return || ! empty($value))
+//		{
+//			return $return;
+//		}
+//
+//		$checked = [];
+//
+//		foreach ($this->element->children() as $element)
+//		{
+//			switch ($element->getName())
+//			{
+//				// The element is an <option />
+//				case 'option':
+//					$checked[] = (string) ($element['checked'] ?? $element);
+//					break;
+//
+//				// The element is a <group />
+//				case 'group':
+//					foreach ($element->children() as $option)
+//					{
+//						//$checked[] = (string) ($option['checked'] ?? $option);
+//					}
+//					break;
+//
+//				// Unknown element type.
+//				default:
+//					break;
+//			}
+//		}
+//
+//		$this->checkedOptions = implode(',', $checked);
+//
+//		return $return;
+//	}
 
 	protected function getOptions()
 	{

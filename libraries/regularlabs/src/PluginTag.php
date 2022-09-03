@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -572,108 +572,11 @@ class PluginTag
 	 * @param object|string $attributes
 	 * @param array         $key_aliases
 	 * @param bool          $handle_plurals
+	 *
+	 * @deprecated Use ObjectHelper::replaceKeys()
 	 */
 	public static function replaceKeyAliases(&$attributes, $key_aliases = [], $handle_plurals = false)
 	{
-		if (is_string($attributes))
-		{
-			self::replaceAliasesOnString($attributes, $key_aliases, $handle_plurals);
-
-			return;
-		}
-
-		foreach ($key_aliases as $key => $aliases)
-		{
-			if (self::replaceKeyAlias($attributes, $key, $key, $handle_plurals))
-			{
-				continue;
-			}
-
-			foreach ($aliases as $alias)
-			{
-				if ( ! isset($attributes->{$alias}))
-				{
-					continue;
-				}
-
-				if (self::replaceKeyAlias($attributes, $key, $alias, $handle_plurals))
-				{
-					break;
-				}
-			}
-		}
-	}
-
-	/**
-	 * Replace keys aliases with the main key names in an object
-	 *
-	 * @param string $string
-	 * @param array  $key_aliases
-	 * @param bool   $handle_plurals
-	 */
-	public static function replaceAliasesOnString(&$string, $key_aliases = [], $handle_plurals = false)
-	{
-		foreach ($key_aliases as $key => $aliases)
-		{
-			if (in_array($string, $aliases, true))
-			{
-				$string = $key;
-
-				return;
-			}
-
-			if ($handle_plurals
-				&& substr($string, -1) == 's'
-				&& in_array(substr($string, 0, -1), $aliases, true))
-			{
-				$string = $key;
-
-				return;
-			}
-		}
-	}
-
-	/**
-	 * Replace specific key alias with the main key name in an object
-	 *
-	 * @param object $attributes
-	 * @param string $key
-	 * @param string $alias
-	 * @param bool   $handle_plurals
-	 *
-	 * @return bool
-	 */
-	private static function replaceKeyAlias(&$attributes, $key, $alias, $handle_plurals = false)
-	{
-		if ($handle_plurals)
-		{
-			if (self::replaceKeyAlias($attributes, $key, $alias . 's'))
-			{
-				return true;
-			}
-
-			if (substr($alias, -1) == 's' && self::replaceKeyAlias($attributes, $key, substr($alias, 0, -1)))
-			{
-				return true;
-			}
-		}
-
-		if (isset($attributes->{$key}))
-		{
-			return true;
-		}
-
-		if ( ! isset($attributes->{$alias}))
-		{
-			return false;
-		}
-
-		$attributes = json_decode(str_replace(
-			'"' . $alias . '":',
-			'"' . $key . '":',
-			json_encode($attributes)
-		));
-
-		return true;
+		return ObjectHelper::replaceKeys($attributes, $key_aliases);
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -185,13 +185,13 @@ class Protect
 		// return if current page is Regular Labs QuickPage
 		// return if current page is a JoomFish or Josetta page
 		$is_restricted = (
-			in_array($input->get('format'), $restricted_formats, true)
-//			|| in_array($input->get('view'), ['image', 'img'], true)
-			|| in_array($input->get('type'), ['image', 'img'], true)
-			|| in_array($input->get('task'), ['install.install', 'install.ajax_upload'], true)
+			in_array($input->get('format', ''), $restricted_formats, true)
+//			|| in_array($input->get('view', ''), ['image', 'img'], true)
+			|| in_array($input->get('type', ''), ['image', 'img'], true)
+			|| in_array($input->get('task', ''), ['install.install', 'install.ajax_upload'], true)
 			|| ($hastags && $input->getInt('rl_qp', 0))
-			|| ($hastags && in_array($input->get('option'), ['com_joomfishplus', 'com_josetta'], true))
-			|| (Document::isClient('administrator') && in_array($input->get('option'), ['com_jdownloads'], true))
+			|| ($hastags && in_array($input->get('option', ''), ['com_joomfishplus', 'com_josetta'], true))
+			|| (Document::isClient('administrator') && in_array($input->get('option', ''), ['com_jdownloads'], true))
 		);
 
 		return $cache->set($is_restricted);
@@ -207,7 +207,7 @@ class Protect
 	 */
 	public static function isRestrictedComponent($restricted_components, $area = 'component')
 	{
-		if ($area != 'component' && ! ($area == 'article' && JFactory::getApplication()->input->get('option') == 'com_content'))
+		if ($area != 'component' && ! ($area == 'article' && JFactory::getApplication()->input->get('option', '') == 'com_content'))
 		{
 			return false;
 		}
@@ -215,14 +215,16 @@ class Protect
 		$restricted_components = ArrayHelper::toArray(str_replace('|', ',', $restricted_components));
 		$restricted_components = ArrayHelper::clean($restricted_components);
 
-		if ( ! empty($restricted_components) && in_array(JFactory::getApplication()->input->get('option'), $restricted_components, true))
+		if ( ! empty($restricted_components) && in_array(JFactory::getApplication()->input->get('option', ''), $restricted_components, true))
 		{
 			return true;
 		}
 
-		if (JFactory::getApplication()->input->get('option') == 'com_acymailing'
-			&& ! in_array(JFactory::getApplication()->input->get('ctrl'), ['user', 'archive'], true)
-			&& ! in_array(JFactory::getApplication()->input->get('view'), ['user', 'archive'], true)
+		$input = JFactory::getApplication()->input;
+
+		if ($input->get('option', '') == 'com_acymailing'
+			&& ! in_array($input->get('ctrl', ''), ['user', 'archive'], true)
+			&& ! in_array($input->get('view', ''), ['user', 'archive'], true)
 		)
 		{
 			return true;

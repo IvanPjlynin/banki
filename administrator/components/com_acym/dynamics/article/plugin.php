@@ -164,6 +164,12 @@ class plgAcymArticle extends acymPlugin
                     'default' => true,
                 ],
                 [
+                    'title' => 'ACYM_CLICKABLE_IMAGE',
+                    'type' => 'boolean',
+                    'name' => 'clickableimg',
+                    'default' => false,
+                ],
+                [
                     'title' => 'ACYM_TRUNCATE',
                     'type' => 'intextfield',
                     'isNumber' => 1,
@@ -208,6 +214,7 @@ class plgAcymArticle extends acymPlugin
                     'id' => 'ACYM_ID',
                     'publish_up' => 'ACYM_PUBLISHING_DATE',
                     'modified' => 'ACYM_MODIFICATION_DATE',
+                    'ordering' => 'ACYM_ORDERING',
                     'title' => 'ACYM_TITLE',
                     'rand' => 'ACYM_RANDOM',
                 ],
@@ -228,7 +235,7 @@ class plgAcymArticle extends acymPlugin
         ];
         $this->autoContentOptions($catOptions);
 
-        $this->autoCampaignOptions($catOptions);
+        $this->autoCampaignOptions($catOptions, true);
 
         $displayOptions = array_merge($displayOptions, $catOptions);
 
@@ -320,7 +327,9 @@ class plgAcymArticle extends acymPlugin
         foreach ($tags as $oneTag => $parameter) {
             if (isset($this->tags[$oneTag])) continue;
 
-            $query = 'SELECT DISTINCT element.`id` FROM #__content AS element ';
+            $query = 'SELECT DISTINCT element.`id` 
+                    FROM #__content AS element 
+                    LEFT JOIN #__categories AS category ON element.catid = category.id ';
 
             $where = [];
 
@@ -347,9 +356,16 @@ class plgAcymArticle extends acymPlugin
             }
 
             if (!empty($parameter->onlynew)) {
+                $parameter->datefilter = 'onlynew';
+            }
+            if (!empty($parameter->datefilter)) {
                 $lastGenerated = $this->getLastGenerated($email->id);
                 if (!empty($lastGenerated)) {
-                    $where[] = 'element.publish_up > '.acym_escapeDB(acym_date($lastGenerated, 'Y-m-d H:i:s', false));
+                    $condition = 'element.publish_up > '.acym_escapeDB(acym_date($lastGenerated, 'Y-m-d H:i:s', false));
+                    if ($parameter->datefilter === 'onlymodified') {
+                        $condition .= ' OR element.modified > '.acym_escapeDB(acym_date($lastGenerated, 'Y-m-d H:i:s', false));
+                    }
+                    $where[] = $condition;
                 }
             }
 
@@ -373,6 +389,29 @@ class plgAcymArticle extends acymPlugin
         }
 
         return $this->generateCampaignResult;
+    }
+
+    protected function handleOrderBy(&$query, $parameter, $table = null)
+    {
+        if (empty($parameter->order)) return;
+
+        $ordering = explode(',', $parameter->order);
+        if ($ordering[0] === 'rand') {
+            $query .= ' ORDER BY rand()';
+        } elseif ($ordering[0] === 'ordering') {
+            $query .= ' ORDER BY category.`title` '.acym_secureDBColumn(trim($ordering[1])).', element.`ordering` '.acym_secureDBColumn(trim($ordering[1]));
+        } else {
+            $table = null === $table ? '' : $table.'.';
+            $column = $ordering[0];
+
+            if (strpos($column, '.') !== false) {
+                $parts = explode('.', $column, 2);
+                $table = acym_secureDBColumn($parts[0]).'.';
+                $column = $parts[1];
+            }
+
+            $query .= ' ORDER BY '.$table.'`'.acym_secureDBColumn(trim($column)).'` '.acym_secureDBColumn(trim($ordering[1]));
+        }
     }
 
     protected function groupByCategory($elements)
@@ -543,7 +582,7 @@ class plgAcymArticle extends acymPlugin
         $format->imagePath = $imagePath;
         $format->imageCaption = $imageCaption;
         $format->description = $contentText;
-        $format->link = empty($tag->clickable) ? '' : $link;
+        $format->link = empty($tag->clickable) && empty($tag->clickableimg) ? '' : $link;
         $format->customFields = $customFields;
         $format->altImage = $altImage;
         $result = '<div class="acymailing_content">'.$this->pluginHelper->getStandardDisplay($format).'</div>';

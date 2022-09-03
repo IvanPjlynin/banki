@@ -2,7 +2,7 @@
 /**
  * JL Content Fields Filter
  *
- * @version 	2.0.0
+ * @version 	2.0.2
  * @author		Joomline
  * @copyright	(C) 2017-2019 Arkadiy Sedelnikov, Joomline. All rights reserved.
  * @license 	GNU General Public License version 2 or later; see	LICENSE.txt
@@ -360,16 +360,18 @@ class plgSystemJlContentFieldsFilter extends JPlugin
         $autogeneration = $params->get('autogeneration', 0);
 
         $filter = JlcontentfieldsfilterHelper::createFilterString($filterData);
+        $unsafe_filter = JlcontentfieldsfilterHelper::createFilterString($filterData, false);
         $hash = JlcontentfieldsfilterHelper::createHash($filter);
-
+        $unsafe_hash = JlcontentfieldsfilterHelper::createHash($unsafe_filter);
 
         $db = JFactory::getDbo();
         $query = $db->getQuery(true);
         $query->select('*')
             ->from('`#__jlcontentfieldsfilter_data`')
-            ->where('`filter_hash` = '.$db->quote($hash))
-            ->where('`publish`  = 1')
-        ;
+	        ->where('`filter_hash` = '.$db->quote($hash), 'OR')
+	        ->where('`filter_hash` = '.$db->quote($unsafe_hash))
+	        ->andWhere('`publish`  = 1');
+
         $result = $db->setQuery($query,0,1)->loadObject();
         if(empty($result->filter_hash)){
             if(!$autogeneration){

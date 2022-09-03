@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -267,13 +267,13 @@ class SystemPlugin extends JCMSPlugin
 //		$input = JFactory::getApplication()->input;
 //
 //		// Disable on Gridbox edit form: option=com_gridbox&view=gridbox
-//		if ($input->get('option') == 'com_gridbox' && $input->get('view') == 'gridbox')
+//		if ($input->get('option', '') == 'com_gridbox' && $input->get('view', '') == 'gridbox')
 //		{
 //			return false;
 //		}
 //
 //		// Disable on SP PageBuilder edit form: option=com_sppagebuilder&view=form
-//		if ($input->get('option') == 'com_sppagebuilder' && $input->get('view') == 'form')
+//		if ($input->get('option', '') == 'com_sppagebuilder' && $input->get('view', '') == 'form')
 //		{
 //			return false;
 //		}
@@ -294,7 +294,7 @@ class SystemPlugin extends JCMSPlugin
 		}
 
 		if ( ! Document::isFeed()
-			&& JFactory::getApplication()->input->get('option') != 'com_acymailing'
+			&& JFactory::getApplication()->input->get('option', '') != 'com_acymailing'
 		)
 		{
 			return;

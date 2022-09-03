@@ -10,9 +10,10 @@ class DeactivateController extends acymController
     {
         $reason = acym_getVar('string', 'reason', '');
         $otherReason = acym_getVar('string', 'otherReason', '');
+        $email = acym_getVar('string', 'email', '');
 
         $url = ACYM_FEEDBACK_URL.'saveFeedback';
-        acym_makeCurlCall($url, ['reason' => $reason, 'otherReason' => $otherReason]);
+        acym_makeCurlCall($url, ['reason' => $reason, 'otherReason' => $otherReason, 'email' => $email]);
         exit;
     }
 }

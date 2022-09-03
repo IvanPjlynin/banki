@@ -99,9 +99,9 @@ class UsersController extends acymController
         $toolbarHelper->addButton(
             $exportButton,
             ['data-task' => 'export', 'type' => 'submit'],
-            'upload'
+            'download'
         );
-        $toolbarHelper->addButton(acym_translation('ACYM_IMPORT'), ['data-task' => 'import'], 'download');
+        $toolbarHelper->addButton(acym_translation('ACYM_IMPORT'), ['data-task' => 'import'], 'upload');
         $entityHelper = new EntitySelectHelper();
         $otherContent = acym_modal(
             '<i class="acymicon-bell1"></i>'.acym_translation('ACYM_SUBSCRIBE').' (<span id="acym__users__listing__number_to_add_to_list">0</span>)',

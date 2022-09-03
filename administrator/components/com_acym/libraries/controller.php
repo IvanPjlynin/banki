@@ -14,7 +14,8 @@ class acymController extends acymObject
     var $loadScripts = [];
     var $currentClass = null;
     var $authorizedFrontTasks = [];
-    var $urlFrontMenu = '';
+    var $publicFrontTasks = [];
+    var $urlsFrontMenu = [];
     var $sessionName = '';
     var $taskCalled = '';
     protected $menuClass = '';
@@ -334,8 +335,21 @@ class acymController extends acymObject
 
     public function checkTaskFront($task)
     {
-        if (!in_array($task, $this->authorizedFrontTasks)) {
-            acym_menuOnly($this->urlFrontMenu);
+        $menuItemExist = true;
+        if (ACYM_CMS === 'joomla' && !empty($this->urlsFrontMenu)) {
+            $jsite = \JFactory::getApplication('site');
+            $menus = $jsite->getMenu();
+            $menusExists = 0;
+            foreach ($this->urlsFrontMenu as $url) {
+                if (empty($menus->getItems('link', $url))) {
+                    continue;
+                }
+                $menusExists++;
+            }
+            $menuItemExist = !empty($menusExists);
+        }
+        if (!in_array($task, $this->publicFrontTasks) && (!in_array($task, $this->authorizedFrontTasks) || !$menuItemExist)) {
+            acym_menuOnly($this->urlsFrontMenu);
             $currentUserid = acym_currentUserId();
             if (empty($currentUserid)) {
                 acym_askLog(true, 'ACYM_ONLY_LOGGED', 'info');

@@ -3,6 +3,7 @@
 namespace AcyMailing\Helpers;
 
 use AcyMailing\Classes\MailClass;
+use AcyMailing\Classes\ZoneClass;
 use AcyMailing\Libraries\acymObject;
 use Joomla\CMS\Editor\Editor as Editor;
 
@@ -52,6 +53,12 @@ class EditorHelper extends acymObject
                     return strtolower($a->name) > strtolower($b->name) ? 1 : -1;
                 }
             );
+
+            $zoneClass = new ZoneClass();
+            $data['custom_zones'] = $zoneClass->getAll();
+            usort($data['custom_zones'], function ($a, $b) {
+                return strtolower($a->name) > strtolower($b->name) ? 1 : -1;
+            });
 
             acym_setVar('mail_id', $mailId);
             acym_setVar('mail_type', empty($data['mail']->type) ? '' : $data['mail']->type);
@@ -332,5 +339,21 @@ class EditorHelper extends acymObject
         }
 
         return $styles;
+    }
+
+    private function getDefaultColors()
+    {
+        $mailSettings = new \stdClass();
+        if (isset($this->data['mail']->mail_settings) && !empty($this->data['mail']->mail_settings)) {
+            $mailSettings = json_decode($this->data['mail']->mail_settings, false);
+        } elseif (isset($this->data['mailInformation']->mail_settings) && !empty($this->data['mailInformation']->mail_settings)) {
+            $mailSettings = json_decode($this->data['mailInformation']->mail_settings, false);
+        }
+
+        if (!empty($mailSettings->mainColors)) {
+            return $mailSettings->mainColors;
+        }
+
+        return '';
     }
 }

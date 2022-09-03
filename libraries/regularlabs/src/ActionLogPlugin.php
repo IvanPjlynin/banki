@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -201,58 +201,6 @@ class ActionLogPlugin extends JActionLogPlugin
 		$this->addLog([$message], $this->lang_prefix_delete . '_CONTENT_DELETED', $context);
 	}
 
-	public function onExtensionAfterInstall($installer, $eid)
-	{
-		// Prevent duplicate logs
-		if (in_array('install_' . $eid, self::$ids, true))
-		{
-			return;
-		}
-
-		$context = JFactory::getApplication()->input->get('option');
-
-		if (strpos($context, $this->option) === false)
-		{
-			return;
-		}
-
-		if ( ! ArrayHelper::find(['*', 'install'], $this->events))
-		{
-			return;
-		}
-
-		$extension = Extension::getById($eid);
-
-		if (empty($extension->manifest_cache))
-		{
-			return;
-		}
-
-		$manifest = json_decode($extension->manifest_cache);
-
-		if (empty($manifest->name))
-		{
-			return;
-		}
-
-		self::$ids[] = 'install_' . $eid;
-
-		$message = [
-			'action'         => 'install',
-			'type'           => $this->lang_prefix_install . '_TYPE_' . strtoupper($manifest->attributes()->type),
-			'id'             => $eid,
-			'extension_name' => JText::_($manifest->name),
-		];
-
-		$languageKey = $this->lang_prefix_install . '_' . strtoupper($manifest->attributes()->type) . '_INSTALLED';
-		if ( ! JFactory::getApplication()->getLanguage()->hasKey($languageKey))
-		{
-			$languageKey = $this->lang_prefix_install . '_EXTENSION_INSTALLED';
-		}
-
-		$this->addLog([$message], $languageKey, 'com_regularlabsmanager');
-	}
-
 	public function onExtensionAfterSave($context, $table, $isNew)
 	{
 		self::onContentAfterSave($context, $table, $isNew);
@@ -261,7 +209,7 @@ class ActionLogPlugin extends JActionLogPlugin
 	public function onContentAfterSave($context, $table, $isNew, $data = [])
 	{
 		$data = ArrayHelper::toArray($data);
-		
+
 		if (isset($data['ignore_actionlog']) && $data['ignore_actionlog'])
 		{
 			return;
@@ -305,7 +253,7 @@ class ActionLogPlugin extends JActionLogPlugin
 			return;
 		}
 
-		$context = JFactory::getApplication()->input->get('option');
+		$context = JFactory::getApplication()->input->get('option', '');
 
 		if (strpos($context, $this->option) === false)
 		{

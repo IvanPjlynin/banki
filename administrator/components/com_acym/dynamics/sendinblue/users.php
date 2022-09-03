@@ -4,6 +4,7 @@ use AcyMailing\Classes\UserClass;
 
 class SendinblueUsers extends SendinblueClass
 {
+    const MAX_USERS_IMPORT_NB = 5000;
     var $list;
 
     public function __construct(&$plugin, $headers, $list)
@@ -17,7 +18,9 @@ class SendinblueUsers extends SendinblueClass
         $sendingMethod = $this->config->get('mailer_method', 'phpmail');
         if ($sendingMethod != plgAcymSendinblue::SENDING_METHOD_ID) return;
 
-        $nameParts = explode(' ', $user->name, 2);
+        $userName = empty($user->name) ? '' : $user->name;
+
+        $nameParts = explode(' ', $userName, 2);
         $userData = [
             'email' => $user->email,
             'attributes' => [
@@ -41,10 +44,7 @@ class SendinblueUsers extends SendinblueClass
         $sendingMethod = $this->config->get('mailer_method', 'phpmail');
         if ($sendingMethod != plgAcymSendinblue::SENDING_METHOD_ID) return;
 
-        $response = new stdClass();
-        $response->createdFolder = acym_createFolder(ACYM_TMP_FOLDER);
-
-        if (!$response->createdFolder) {
+        if (!acym_createFolder(ACYM_TMP_FOLDER)) {
             if ($ajax) {
                 acym_sendAjaxResponse(acym_translation('ACYM_ERROR_CREATING_EXPORT_FILE'), [], false);
             } else {
@@ -54,9 +54,16 @@ class SendinblueUsers extends SendinblueClass
             return;
         }
 
+        static $listId = null;
+
+        if (empty($listId)) {
+            $listId = $this->list->createList('Import '.time());
+        }
+
+        $this->errors = [];
         $filePath = ACYM_TMP_FOLDER.plgAcymSendinblue::SENDING_METHOD_ID.'.txt';
         file_put_contents($filePath, "LASTNAME;FIRSTNAME;EMAIL\n");
-        $limit = 5000;
+        $limit = self::MAX_USERS_IMPORT_NB;
         $buffer = '';
 
         foreach ($users as $oneUser) {
@@ -68,41 +75,46 @@ class SendinblueUsers extends SendinblueClass
 
             if ($limit === 0) {
                 file_put_contents($filePath, $buffer, FILE_APPEND);
-                $limit = 5000;
+                $this->sendUsers($listId);
+                file_put_contents($filePath, "LASTNAME;FIRSTNAME;EMAIL\n");
+                $limit = self::MAX_USERS_IMPORT_NB;
                 $buffer = '';
             }
         }
         if (!empty($buffer)) {
             file_put_contents($filePath, $buffer, FILE_APPEND);
+            $this->sendUsers($listId);
         }
 
-        static $listId = null;
-
-        if (empty($listId)) {
-            $listId = $this->list->createList('Import '.time());
+        if (empty($this->errors)) {
+            $message = acym_translation('ACYM_USERS_SUNCHRONIZED');
+            if ($ajax) {
+                acym_sendAjaxResponse($message);
+            }
+        } else {
+            $message = implode('<br />', $this->errors);
+            if ($ajax) {
+                acym_sendAjaxResponse($message, [], false);
+            } else {
+                acym_enqueueMessage($message, 'error');
+            }
         }
+    }
 
+    private function sendUsers($listId)
+    {
         $data = [
             'fileUrl' => ACYM_TMP_URL.plgAcymSendinblue::SENDING_METHOD_ID.'.txt',
             'listIds' => [$listId],
             'updateExistingContacts' => true,
         ];
 
-        $response->import = $this->callApiSendingMethod('contacts/import', $data, $this->headers, 'POST');
+        $response = $this->callApiSendingMethod('contacts/import', $data, $this->headers, 'POST');
 
-        $success = false;
-        if (!empty($response->import['error_curl'])) {
-            $message = acym_translationSprintf('ACYM_ERROR_OCCURRED_WHILE_CALLING_API', $response->import['error_curl']);
-        } elseif (!empty($response->import['code'])) {
-            $message = acym_translationSprintf('ACYM_API_RETURN_THIS_ERROR', $response->import['message']);
-        } else {
-            $message = acym_translation('ACYM_USERS_SUNCHRONIZED');
-            $success = true;
-        }
-        if ($ajax) {
-            acym_sendAjaxResponse($message, [], $success);
-        } else {
-            if (!$success) acym_enqueueMessage($message, 'error');
+        if (!empty($response['error_curl'])) {
+            $this->errors[] = acym_translationSprintf('ACYM_ERROR_OCCURRED_WHILE_CALLING_API', $response['error_curl']);
+        } elseif (!empty($response['code']) && !empty($response['message'])) {
+            $this->errors[] = acym_translationSprintf('ACYM_API_RETURN_THIS_ERROR', $response['message']);
         }
     }
 
@@ -123,20 +135,32 @@ class SendinblueUsers extends SendinblueClass
 
     public function createAttribute($mailId)
     {
-        $data = [
-            'type' => 'text',
-        ];
-
-        $attributeName = $this->getAttributeName($mailId);
-
         $existingAttributes = $this->config->get('sendinblue_attributes', '{}');
         $existingAttributes = json_decode($existingAttributes, true);
 
-        if (empty($existingAttributes[$attributeName])) {
-            $this->callApiSendingMethod('contacts/attributes/normal/'.$attributeName, $data, $this->headers, 'POST');
-            $existingAttributes[$attributeName] = true;
+        $subjectAttributeName = $this->getSubjectAttributeName($mailId);
+        $contentAttributeName = $this->getAttributeName($mailId);
+
+        $added = $this->addAttribute($existingAttributes, $subjectAttributeName);
+        $added = $this->addAttribute($existingAttributes, $contentAttributeName) || $added;
+
+        if ($added) {
             $this->config->save(['sendinblue_attributes' => json_encode($existingAttributes)]);
         }
+    }
+
+    private function addAttribute(&$existingAttributes, $attributeName)
+    {
+        if (!empty($existingAttributes[$attributeName])) return false;
+        $this->callApiSendingMethod(
+            'contacts/attributes/normal/'.$attributeName,
+            ['type' => 'text'],
+            $this->headers,
+            'POST'
+        );
+        $existingAttributes[$attributeName] = true;
+
+        return true;
     }
 
     public function addUserToList($email, $mailId, &$warnings)
@@ -171,13 +195,21 @@ class SendinblueUsers extends SendinblueClass
         $this->callApiSendingMethod('contacts/lists/'.$listId.'/contacts/remove', ['all' => true], $this->headers, 'POST');
     }
 
-    public function addAttributeToUser($email, $htmlContent, $mailId)
+    public function addAttributeToUser($email, $subjectContent, $htmlContent, $mailId)
     {
-        $attribute = $this->getAttributeName($mailId);
+        $subjectAttribute = $this->getSubjectAttributeName($mailId);
+        $contentAttribute = $this->getAttributeName($mailId);
+
+        if (strpos($htmlContent, 'acym__wysid__template') === false || strpos($htmlContent, '<body') === false) {
+            $personalContent = $htmlContent;
+        } else {
+            $personalContent = preg_replace('#^.*<body[^>]*>(.*)</body>.*$#Uis', '$1', $htmlContent);
+        }
 
         $data = [
             'attributes' => [
-                $attribute => $htmlContent,
+                $subjectAttribute => $subjectContent,
+                $contentAttribute => $personalContent,
             ],
             'email' => $email,
             'updateEnabled' => true,
@@ -190,18 +222,36 @@ class SendinblueUsers extends SendinblueClass
         return 'HTML_CONTENT_'.$mailId;
     }
 
+    public function getSubjectAttributeName($mailId)
+    {
+        return 'SUBJECT_'.$mailId;
+    }
+
     public function deleteAttribute($mailId)
     {
-        $this->callApiSendingMethod(plgAcymSendinblue::SENDING_METHOD_API_URL.'contacts/attributes/normal/'.$this->getAttributeName($mailId), [], $this->headers, 'DELETE');
+        $subjectAttributeName = $this->getSubjectAttributeName($mailId);
+        $contentAttributeName = $this->getAttributeName($mailId);
 
         $existingAttributes = $this->config->get('sendinblue_attributes', '{}');
         $existingAttributes = json_decode($existingAttributes, true);
-        $attributeName = $this->getAttributeName($mailId);
 
-        if (!empty($existingAttributes[$attributeName])) {
-            unset($existingAttributes[$attributeName]);
+        $removedAnAttribute = $this->removeAttribute($existingAttributes, $subjectAttributeName);
+        $removedAnAttribute = $this->removeAttribute($existingAttributes, $contentAttributeName) || $removedAnAttribute;
+
+        if ($removedAnAttribute) {
             $this->config->save(['sendinblue_attributes' => json_encode($existingAttributes)]);
         }
+    }
+
+    private function removeAttribute(&$existingAttributes, $attributeName)
+    {
+        $this->callApiSendingMethod(plgAcymSendinblue::SENDING_METHOD_API_URL.'contacts/attributes/normal/'.$attributeName, [], $this->headers, 'DELETE');
+
+        if (empty($existingAttributes[$attributeName])) return false;
+
+        unset($existingAttributes[$attributeName]);
+
+        return true;
     }
 
     public function synchronizeExistingUsers()

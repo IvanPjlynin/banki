@@ -1,6 +1,6 @@
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -193,6 +193,19 @@
 			});
 		},
 
+		setParentClassOnCheckboxes: function() {
+			document.querySelectorAll('fieldset.rl-form-checkboxes-set-parent-classes input').forEach((el) => {
+				this.setParentClassOnCheckbox(el);
+				document.addEventListener('change', (event) => {
+					this.setParentClassOnCheckbox(el);
+				});
+			});
+		},
+
+		setParentClassOnCheckbox: function(el) {
+			el.parentElement.classList.toggle('rl-checkbox-checked', el.checked);
+		},
+
 		updateForm: function() {
 			this.loadAjaxFields();
 			this.removeEmptyControlGroups();
@@ -200,6 +213,7 @@
 	};
 
 	RegularLabs.AdminForm.updateForm();
+	RegularLabs.AdminForm.setParentClassOnCheckboxes();
 
 	document.addEventListener('subform-row-add', () => {
 		RegularLabs.AdminForm.updateForm();

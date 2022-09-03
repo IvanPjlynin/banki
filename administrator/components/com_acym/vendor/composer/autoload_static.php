@@ -3,7 +3,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit621c9c90031d23133d364b119f138ba8
+class ComposerStaticInit32b4e7ec39d178be30764ad50d441211
 {
     public static $prefixLengthsPsr4 = array (
         'A' => 
@@ -44,6 +44,7 @@ class ComposerStaticInit621c9c90031d23133d364b119f138ba8
         'AcyMailing\\Classes\\UrlClickClass' => __DIR__ . '/../..' . '/classes/urlclick.php',
         'AcyMailing\\Classes\\UserClass' => __DIR__ . '/../..' . '/classes/user.php',
         'AcyMailing\\Classes\\UserStatClass' => __DIR__ . '/../..' . '/classes/userstat.php',
+        'AcyMailing\\Classes\\ZoneClass' => __DIR__ . '/../..' . '/classes/zone.php',
         'AcyMailing\\Controllers\\AutomationController' => __DIR__ . '/../..' . '/controllers/automation.php',
         'AcyMailing\\Controllers\\BouncesController' => __DIR__ . '/../..' . '/controllers/bounces.php',
         'AcyMailing\\Controllers\\CampaignsController' => __DIR__ . '/../..' . '/controllers/campaigns.php',
@@ -68,6 +69,7 @@ class ComposerStaticInit621c9c90031d23133d364b119f138ba8
         'AcyMailing\\Controllers\\ToggleController' => __DIR__ . '/../..' . '/controllers/toggle.php',
         'AcyMailing\\Controllers\\UpdateController' => __DIR__ . '/../..' . '/controllers/update.php',
         'AcyMailing\\Controllers\\UsersController' => __DIR__ . '/../..' . '/controllers/users.php',
+        'AcyMailing\\Controllers\\ZonesController' => __DIR__ . '/../..' . '/controllers/zones.php',
         'AcyMailing\\FrontControllers\\ArchiveController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/archive.php',
         'AcyMailing\\FrontControllers\\CronController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/cron.php',
         'AcyMailing\\FrontControllers\\FrontcampaignsController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/frontcampaigns.php',
@@ -76,10 +78,12 @@ class ComposerStaticInit621c9c90031d23133d364b119f138ba8
         'AcyMailing\\FrontControllers\\FrontfileController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/frontfile.php',
         'AcyMailing\\FrontControllers\\FrontlistsController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/frontlists.php',
         'AcyMailing\\FrontControllers\\FrontmailsController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/frontmails.php',
+        'AcyMailing\\FrontControllers\\FrontservicesController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/frontservices.php',
         'AcyMailing\\FrontControllers\\FrontstatsController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/frontstats.php',
         'AcyMailing\\FrontControllers\\FronttoggleController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/fronttoggle.php',
         'AcyMailing\\FrontControllers\\FronturlController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/fronturl.php',
         'AcyMailing\\FrontControllers\\FrontusersController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/frontusers.php',
+        'AcyMailing\\FrontControllers\\FrontzonesController' => __DIR__ . '/../..' . '/../../../components/com_acym/controllers/frontzones.php',
         'AcyMailing\\FrontViews\\ArchiveViewArchive' => __DIR__ . '/../..' . '/../../../components/com_acym/views/archive/view.html.php',
         'AcyMailing\\FrontViews\\FrontcampaignsViewFrontcampaigns' => __DIR__ . '/../..' . '/../../../components/com_acym/views/frontcampaigns/view.html.php',
         'AcyMailing\\FrontViews\\FrontdynamicsViewFrontdynamics' => __DIR__ . '/../..' . '/../../../components/com_acym/views/frontdynamics/view.html.php',
@@ -123,6 +127,7 @@ class ComposerStaticInit621c9c90031d23133d364b119f138ba8
         'AcyMailing\\Init\\acyGutenberg' => __DIR__ . '/../..' . '/wpinit/gutenberg.php',
         'AcyMailing\\Init\\acyMenu' => __DIR__ . '/../..' . '/wpinit/menu.php',
         'AcyMailing\\Init\\acyMessage' => __DIR__ . '/../..' . '/wpinit/message.php',
+        'AcyMailing\\Init\\acyOauth' => __DIR__ . '/../..' . '/wpinit/Oauth.php',
         'AcyMailing\\Init\\acyOverrideEmail' => __DIR__ . '/../..' . '/wpinit/override_email.php',
         'AcyMailing\\Init\\acyRouter' => __DIR__ . '/../..' . '/wpinit/router.php',
         'AcyMailing\\Init\\acySecurity' => __DIR__ . '/../..' . '/wpinit/security.php',
@@ -168,9 +173,9 @@ class ComposerStaticInit621c9c90031d23133d364b119f138ba8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit621c9c90031d23133d364b119f138ba8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit621c9c90031d23133d364b119f138ba8::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit621c9c90031d23133d364b119f138ba8::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit32b4e7ec39d178be30764ad50d441211::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit32b4e7ec39d178be30764ad50d441211::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit32b4e7ec39d178be30764ad50d441211::$classMap;
 
         }, null, ClassLoader::class);
     }

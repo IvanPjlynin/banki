@@ -669,33 +669,34 @@ class PluginHelper extends acymObject
         }
 
         $result = '';
-        if ($format->tag->format == 'TITLE_IMG' || $format->tag->format == 'TITLE_IMG_RIGHT') {
+        if (in_array($format->tag->format, ['TITLE_IMG', 'TITLE_IMG_RIGHT'])) {
             $format->title = $image.$format->title;
             $image = '';
         }
 
-        if (!empty($format->link) && !empty($image)) {
+        if (!empty($format->link) && !empty($image) && !empty($format->tag->clickableimg)) {
             $image = '<a target="_blank" href="'.$format->link.'" '.$linkStyle.'>'.$image.'</a>';
         }
 
-        if ($format->tag->format == 'TOP_IMG' && !empty($image)) {
+        if ($format->tag->format === 'TOP_IMG' && !empty($image)) {
             $result = $image;
             $image = '';
         }
 
         if (in_array($format->tag->format, ['COL_LEFT', 'COL_RIGHT'])) {
+            $maxWidth = empty($format->tag->maxwidth) ? '' : ' width: '.$format->tag->maxwidth.'px;';
             if (empty($image)) {
                 $format->tag->format = 'TOP_LEFT';
             } else {
-                $result = '<table><tr><td valign="middle" style="vertical-align: middle; padding-right: 7px;" class="acyleftcol">';
-                if ($format->tag->format == 'COL_LEFT') {
+                $result = '<table><tr><td valign="middle" style="vertical-align: middle; padding-right: 7px;'.$maxWidth.'" class="acyleftcol">';
+                if ($format->tag->format === 'COL_LEFT') {
                     $result .= $image.'</td><td valign="top" class="acyrightcol">';
                 }
             }
         }
 
         if (!empty($format->title)) {
-            if (!empty($format->link)) {
+            if (!empty($format->link) && !empty($format->tag->clickable)) {
                 if (empty($format->tag->type) || $format->tag->type !== 'title') {
                     $format->title = '<h2 class="acym_title">'.$format->title.'</h2>';
                 }
@@ -715,7 +716,9 @@ class PluginHelper extends acymObject
             $result .= $format->title;
         }
 
-        if (!empty($format->afterTitle)) $result .= $format->afterTitle;
+        if (!empty($format->afterTitle)) {
+            $result .= $format->afterTitle;
+        }
 
         if (!empty($format->description)) {
             $format->description = $this->wrapText($format->description, $format->tag);
@@ -742,8 +745,8 @@ class PluginHelper extends acymObject
                 $result .= $rowText.$format->description.$endRow;
             }
 
-            if ($format->tag->format == 'COL_RIGHT') {
-                $result .= '</td><td valign="middle" style="vertical-align: middle; padding-left: 7px;" class="acyrightcol">'.$image;
+            if ($format->tag->format === 'COL_RIGHT') {
+                $result .= '</td><td valign="middle" style="vertical-align: middle; padding-left: 7px;'.$maxWidth.'" class="acyrightcol">'.$image;
             }
             $result .= '</td></tr></table>';
         }
@@ -1021,7 +1024,7 @@ class PluginHelper extends acymObject
                     class="'.acym_escape($class).'" '.$placeholder.'/>';
                 $jsOptionsMerge[] = 'otherinfo += "| '.$option['name'].':" + jQuery(\'input[name="'.$option['name'].$suffix.'"]\').val();';
             } elseif ($option['type'] === 'number') {
-                $min = empty($option['min']) ? '' : ' min="'.$option['min'].'"';
+                $min = empty($option['min']) ? ' min="0"' : ' min="'.$option['min'].'"';
                 $max = empty($option['max']) ? '' : ' max="'.$option['max'].'"';
                 $class = empty($option['class']) ? 'acym_plugin_text_field' : $option['class'];
                 $currentOption .= '<input type="number"'.$min.$max.' name="'.$option['name'].$suffix.'" id="'.$option['name'].$suffix.'" onchange="'.$updateFunction.'();" value="'.intval(
@@ -1041,7 +1044,9 @@ class PluginHelper extends acymObject
             } elseif ($option['type'] === 'date') {
                 $relativeTime = '-';
                 if (!empty($option['relativeDate'])) $relativeTime = $option['relativeDate'];
-                if (!empty($option['default']) && !is_numeric($option['default'])) $option['default'] = strtotime($option['default']);
+                if (!empty($option['default']) && !is_numeric($option['default']) && false === strpos($option['default'], '[time]')) {
+                    $option['default'] = strtotime($option['default']);
+                }
                 $currentOption .= acym_dateField($option['name'].$suffix, $option['default'], '', ' onchange="'.$updateFunction.'();"', $relativeTime);
                 $jsOptionsMerge[] = 'otherinfo += "| '.$option['name'].':" + jQuery(\'input[name="'.$option['name'].$suffix.'"]\').val();';
             } elseif ($option['type'] === 'language') {
@@ -1163,8 +1168,7 @@ class PluginHelper extends acymObject
         }
 
         $output .= '
-            <script language="javascript" type="text/javascript">
-                <!--
+            <script type="text/javascript">
                 var _selectedRows'.$suffix.' = [];
                 var _selectedRows = [];
                 if("undefined" === typeof _additionalInfo'.$suffix.') {
@@ -1251,7 +1255,6 @@ class PluginHelper extends acymObject
                 	_additionalInfo'.$suffix.'[index] = value;
                 	'.$updateFunction.'();
                 }
-                //-->
             </script>';
 
         if ($type == 'individual') {

@@ -1,6 +1,6 @@
 /**
  * @package         Sourcerer
- * @version         9.2.0
+ * @version         9.2.3
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -100,7 +100,7 @@
 
 				// Style plugin tags
 				string = string.replace(
-					/(\{\/?[a-z].*?\})/gim,
+					/({\/?[a-z].*?})/gim,
 					`<span style="color:${color_plugin_tags};">$1</span>`
 				);
 

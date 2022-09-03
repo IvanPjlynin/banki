@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -31,9 +31,8 @@ class DownloadKeyField extends RL_FormField
 			[
 				'id'        => $this->id,
 				'extension' => strtolower($this->get('extension', 'all')),
-				'use_modal' => true,
+				'use_modal' => $this->get('use-modal', true),
 			]
 		);
 	}
 }
-

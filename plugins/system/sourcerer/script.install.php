@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Sourcerer
- * @version         9.2.0
+ * @version         9.2.3
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -35,12 +35,12 @@ class PlgSystemSourcererInstallerScript extends PlgSystemSourcererInstallerScrip
 	{
 		$this->delete(
 			[
-				JPATH_SITE . '/media/' . $this->alias . '/css',
-				JPATH_SITE . '/media/' . $this->alias . '/js/script.js',
-				JPATH_SITE . '/media/' . $this->alias . '/js/script.min.js',
-				JPATH_SITE . '/media/' . $this->alias . '/less',
-				JPATH_SITE . '/plugins/system/' . $this->alias . '/src/Code.php',
-				JPATH_SITE . '/plugins/system/' . $this->alias . '/vendor',
+				JPATH_SITE . '/media/' . $this->extname . '/css',
+				JPATH_SITE . '/media/' . $this->extname . '/js/script.js',
+				JPATH_SITE . '/media/' . $this->extname . '/js/script.min.js',
+				JPATH_SITE . '/media/' . $this->extname . '/less',
+				JPATH_SITE . '/plugins/system/' . $this->extname . '/src/Code.php',
+				JPATH_SITE . '/plugins/system/' . $this->extname . '/vendor',
 			]
 		);
 	}

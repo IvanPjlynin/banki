@@ -177,7 +177,7 @@ class plgAcymSendgrid extends acymPlugin
         ];
     }
 
-    public function onAcymSendingMethodEmbedImage(&$data)
+    public function onAcymSendingMethodOptions(&$data)
     {
         $data['embedImage'][self::SENDING_METHOD_ID] = false;
     }

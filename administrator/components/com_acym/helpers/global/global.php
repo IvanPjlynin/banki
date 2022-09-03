@@ -7,7 +7,7 @@ function acydump($arg, $ajax = false, $indent = true, $htmlentities = false)
     ob_start();
     var_dump($arg);
     $result = ob_get_clean();
-    
+
     if ($ajax) {
         file_put_contents(ACYM_ROOT.'acydebug.txt', $result, FILE_APPEND);
     } else {
@@ -89,7 +89,7 @@ function acym_display($messages, $type = 'success', $close = true)
 
         echo '<div class="cell auto"><div>'.$message.'</div></div>';
 
-        if ($close) {
+        if ($close && strpos($message, 'acym__do__not__remindme') === false) {
             echo '<i data-id="'.acym_escape($id).'" class="cell shrink acym__message__close acymicon-remove"></i>';
         }
         echo '</div>';
@@ -104,8 +104,7 @@ function acym_increasePerf()
 
 function acym_session()
 {
-    $sessionID = session_id();
-    if (empty($sessionID)) {
+    if (empty(session_id()) || session_status() !== PHP_SESSION_ACTIVE) {
         @session_start();
     }
 }

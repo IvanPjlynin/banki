@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -59,13 +59,13 @@ class OnlyProField extends RL_FormField
 			return $element;
 		}
 
-		$component = $this->app->input->get('component');
+		$component = $this->app->input->get('component', '');
 		if ($component)
 		{
 			return str_replace('com_', '', $component);
 		}
 
-		$folder = $this->app->input->get('folder');
+		$folder = $this->app->input->get('folder', '');
 		if ($folder)
 		{
 			$extension = explode('.', $folder);
@@ -73,7 +73,7 @@ class OnlyProField extends RL_FormField
 			return array_pop($extension);
 		}
 
-		$option = $this->app->input->get('option');
+		$option = $this->app->input->get('option', '');
 		if ($option)
 		{
 			return str_replace('com_', '', $option);

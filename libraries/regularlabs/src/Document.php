@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -69,10 +69,10 @@ class Document
 		$is_admin = (
 			self::isClient('administrator')
 			&& ( ! $exclude_login || ! $user->get('guest'))
-			&& $input->get('task') != 'preview'
+			&& $input->get('task', '') != 'preview'
 			&& ! (
-				$input->get('option') == 'com_finder'
-				&& $input->get('format') == 'json'
+				$input->get('option', '') == 'com_finder'
+				&& $input->get('format', '') == 'json'
 			)
 		);
 
@@ -180,13 +180,13 @@ class Document
 		$input = $app->input;
 
 		// Return false if it is not a category page
-		if ($context != 'com_content.category' || $input->get('view') != 'category')
+		if ($context != 'com_content.category' || $input->get('view', '') != 'category')
 		{
 			return $cache->set(false);
 		}
 
 		// Return false if layout is set and it is not a list layout
-		if ($input->get('layout') && $input->get('layout') != 'list')
+		if ($input->get('layout', '') && $input->get('layout', '') != 'list')
 		{
 			return $cache->set(false);
 		}
@@ -217,7 +217,7 @@ class Document
 
 		$input = JFactory::getApplication()->input;
 
-		$option = $input->get('option');
+		$option = $input->get('option', '');
 
 		// always return false for these components
 		if (in_array($option, ['com_rsevents', 'com_rseventspro'], true))
@@ -225,7 +225,7 @@ class Document
 			return $cache->set(false);
 		}
 
-		$task = $input->get('task');
+		$task = $input->get('task', '');
 
 		if (strpos($task, '.') !== false)
 		{
@@ -233,7 +233,7 @@ class Document
 			$task = array_pop($task);
 		}
 
-		$view = $input->get('view');
+		$view = $input->get('view', '');
 
 		if (strpos($view, '.') !== false)
 		{
@@ -246,8 +246,8 @@ class Document
 			|| ($option == 'com_comprofiler' && in_array($task, ['', 'userdetails'], true))
 			|| in_array($task, ['edit', 'form', 'submission'], true)
 			|| in_array($view, ['edit', 'form'], true)
-			|| in_array($input->get('do'), ['edit', 'form'], true)
-			|| in_array($input->get('layout'), ['edit', 'form', 'write'], true)
+			|| in_array($input->get('do', ''), ['edit', 'form'], true)
+			|| in_array($input->get('layout', ''), ['edit', 'form', 'write'], true)
 			|| self::isAdmin()
 		);
 
@@ -336,7 +336,7 @@ class Document
 			return $cache->get();
 		}
 
-		$is_json = JFactory::getApplication()->input->get('format') == 'json';
+		$is_json = JFactory::getApplication()->input->get('format', '') == 'json';
 
 		return $cache->set($is_json);
 	}

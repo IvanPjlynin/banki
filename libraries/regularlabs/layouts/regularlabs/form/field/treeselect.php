@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -10,6 +10,7 @@
  */
 
 use Joomla\CMS\Language\Text;
+use RegularLabs\Library\Document as RL_Document;
 
 defined('_JEXEC') or die;
 
@@ -27,6 +28,11 @@ if (empty($options))
 {
 	return;
 }
+
+RL_Document::script('regularlabs.treeselect');
+RL_Document::scriptDeclaration("
+	document.addEventListener('DOMContentLoaded', () => {RegularLabs.TreeSelect.init('" . $id . "')});
+");
 
 if ( ! is_array($value))
 {

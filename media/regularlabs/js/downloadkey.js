@@ -1,6 +1,6 @@
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -75,13 +75,6 @@
 				};
 
 				const checkDownloadKey = async function() {
-					if ( ! key.length) {
-						emptyError.classList.remove('hidden');
-
-						showModal();
-						return;
-					}
-
 					const result = await RegularLabs.DownloadKey.check(extension, key, container, false);
 
 					if (['empty', 'invalid'].indexOf(result.error) > -1) {
@@ -170,6 +163,10 @@
 
 					key = inputField.value;
 
+					container.dataset.callback && eval(`(() => {
+						${container.dataset.callback}
+					})()`);
+
 					reset();
 				};
 
@@ -211,6 +208,10 @@
 		showError: function(type, element, focus = true) {
 			element.querySelector(`.key-error-${type}`) && element.querySelector(`.key-error-${type}`).classList.remove('hidden');
 
+			if (type === 'empty' || type === 'expired' || type === 'invalid') {
+				element.querySelector('div.rl-download-key-wrapper') && element.querySelector('div.rl-download-key-wrapper').classList.remove('hidden');
+			}
+
 			if ( ! focus) {
 				return;
 			}
@@ -243,7 +244,7 @@
 
 				await RegularLabs.DownloadKey.store(extension, key);
 
-				if (window.bootstrap.Modal.getInstance(element)) {
+				if (window.bootstrap.Modal && window.bootstrap.Modal.getInstance(element)) {
 					const mainId      = element.id.replace('downloadKeyModal_', 'downloadKeyWrapper_');
 					const mainElement = document.querySelector(`#${mainId}`);
 					RegularLabs.DownloadKey.resetErrors(mainElement);
@@ -270,7 +271,9 @@
 				if ( ! key) {
 					result.error = 'empty';
 					RegularLabs.DownloadKey.showError(result.error, element, focus);
+					inputField.value = RegularLabs.DownloadKey.cloak(key);
 
+					result.pass = true;
 					resolve(result);
 					return;
 				}

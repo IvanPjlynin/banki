@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -274,30 +274,7 @@ class Version
 			return [$url, ''];
 		}
 
-		$config = JComponentHelper::getParams('com_regularlabsmanager');
-
-		$key = trim($config->get('key'));
-
-		if ($is_pro && ! $key)
-		{
-			return ['index.php?option=com_regularlabsmanager', ''];
-		}
-
-		Document::script('regularlabs.script');
-
-		Document::scriptDeclaration("
-			var RLEM_TIMEOUT = " . (int) $config->get('timeout', 5) . ";
-			var RLEM_TOKEN = '" . JSession::getFormToken() . "';
-		");
-
-		$url = 'https://download.regularlabs.com?ext=' . $alias . '&j=3';
-
-		if ($is_pro)
-		{
-			$url .= '&k=' . strtolower(substr($key, 0, 8) . md5(substr($key, 8)));
-		}
-
-		return ['', 'RegularLabsManager.openModal(\'update\', [\'' . $alias . '\'], [\'' . $url . '\'], true);'];
+		return ['index.php?option=com_regularlabsmanager', ''];
 	}
 
 	/**

@@ -9,6 +9,13 @@
                 'automan' => acym_translation('ACYM_CONFIGURATION_QUEUE_AUTOMAN'),
                 'manual' => acym_translation('ACYM_CONFIGURATION_QUEUE_MANUAL'),
             ];
+            $disabledOptions = [];
+            if (!acym_level(ACYM_ESSENTIAL)) {
+                $disabledOptions = [
+                    'auto' => ['tooltipTxt' => acym_translation('ACYM_PRO_ONLY'), 'disabledClass' => 'acym__disabled'],
+                    'automan' => ['tooltipTxt' => acym_translation('ACYM_PRO_ONLY'), 'disabledClass' => 'acym__disabled'],
+                ];
+            }
             echo acym_radio(
                 $queueModes,
                 'config[queue_type]',
@@ -19,7 +26,10 @@
                         'automan' => 'automatic_manual',
                         'manual' => 'manual_only',
                     ],
-                ]
+                ],
+                [],
+                false,
+                $disabledOptions
             );
             ?>
 		</div>
@@ -62,6 +72,26 @@
                 $delayTypeAuto->display('config[email_frequency]', $this->config->get('email_frequency', 0), 0)
             );
             ?>
+		</div>
+		<div class="cell medium-3 automatic_only automatic_manual"></div>
+		<div class="cell medium-9 automatic_only automatic_manual acym_auto_send_time">
+            <?php
+            $hoursFrom = acym_select($data['listHours'], 'config[queue_send_from_hour]', $this->config->get('queue_send_from_hour', '00'), 'class="intext_select"');
+            $minutesFrom = acym_select($data['listAllMinutes'], 'config[queue_send_from_minute]', $this->config->get('queue_send_from_minute', '00'), 'class="intext_select"');
+            $hoursTo = acym_select($data['listHours'], 'config[queue_send_to_hour]', $this->config->get('queue_send_to_hour', '23'), 'class="intext_select"');
+            $minutesTo = acym_select($data['listAllMinutes'], 'config[queue_send_to_minute]', $this->config->get('queue_send_to_minute', '59'), 'class="intext_select"');
+            echo acym_translationSprintf('ACYM_SEND_FROM_TO', $hoursFrom, $minutesFrom, $hoursTo, $minutesTo);
+            ?>
+		</div>
+		<div class="cell medium-3 automatic_only automatic_manual"></div>
+		<div class="cell medium-9 grid-x automatic_only automatic_manual">
+			<div class="cell shrink margin-right-1">
+                <?php echo acym_translation('ACYM_DONT_SEND_WEEKEND'); ?>
+			</div>
+			<div class="cell shrink">
+                <?php echo acym_switch('config[queue_stop_weekend]', $this->config->get('queue_stop_weekend', 0)); ?>
+			</div>
+			<div class="cell auto"></div>
 		</div>
 		<div class="cell medium-3 manual_only automatic_manual"><?php echo acym_translation('ACYM_MANUAL_SEND_PROCESS'); ?></div>
 		<div class="cell medium-9 manual_only automatic_manual">
@@ -128,7 +158,16 @@
 		<div class="cell medium-3"><?php echo acym_translation('ACYM_NUMBER_OF_DAYS_TO_CLEAN_QUEUE').acym_info('ACYM_NUMBER_OF_DAYS_TO_CLEAN_QUEUE_DESC'); ?></div>
 		<div class="cell medium-9 grid-x">
 			<div class="cell medium-6 large-4 xlarge-3 xxlarge-2">
-				<input type="number" class="intext_input" min="0" name="config[queue_delete_days]" value="<?php echo $this->config->get('queue_delete_days', 0); ?>">
+                <?php
+                $queueDelete = $this->config->get('queue_delete_days', 0);
+                if (!acym_level(ACYM_ESSENTIAL)) {
+                    $inputContent = '<input type="number" class="intext_input" disabled min="0" name="config[queue_delete_days]" value="'.$queueDelete.'">';
+                    $inputContent = acym_tooltip($inputContent, acym_translation('ACYM_PRO_ONLY'));
+                } else {
+                    $inputContent = '<input type="number" class="intext_input" min="0" name="config[queue_delete_days]" value="'.$queueDelete.'">';
+                }
+                echo $inputContent;
+                ?>
 			</div>
 		</div>
         <?php

@@ -486,7 +486,7 @@ class UserClass extends acymClass
                 $subscription->user_id = $userId;
                 $subscription->list_id = $oneListId;
                 $subscription->status = 1;
-                $subscription->subscription_date = date('Y-m-d H:i:s', time());
+                $subscription->subscription_date = date('Y-m-d H:i:s', time() - date('Z'));
 
                 if (empty($currentSubscription[$oneListId])) {
                     acym_insertObject('#__acym_user_has_list', $subscription);
@@ -580,7 +580,7 @@ class UserClass extends acymClass
                 $subscription->user_id = $userId;
                 $subscription->list_id = $oneListId;
                 $subscription->status = 0;
-                $subscription->unsubscribe_date = date('Y-m-d H:i:s', time());
+                $subscription->unsubscribe_date = date('Y-m-d H:i:s', time() - date('Z'));
                 if (empty($currentSubscription[$oneListId])) {
                     acym_insertObject('#__acym_user_has_list', $subscription);
                 } else {
@@ -662,7 +662,7 @@ class UserClass extends acymClass
         );
     }
 
-    public function delete($elements)
+    public function delete($elements, $fromAutomations = false)
     {
         if (!is_array($elements)) $elements = [$elements];
         acym_arrayToInteger($elements);
@@ -670,7 +670,7 @@ class UserClass extends acymClass
 
         if (empty($elements)) return 0;
 
-        if (acym_isAdmin() || 'delete' === $this->config->get('frontend_delete_button', 'delete')) {
+        if (acym_isAdmin() || $fromAutomations || 'delete' === $this->config->get('frontend_delete_button', 'delete')) {
             acym_query('DELETE FROM #__acym_user_has_list WHERE user_id IN ('.implode(',', $elements).')');
             acym_query('DELETE FROM #__acym_queue WHERE user_id IN ('.implode(',', $elements).')');
             acym_query('DELETE FROM #__acym_user_has_field WHERE user_id IN ('.implode(',', $elements).')');
@@ -743,11 +743,11 @@ class UserClass extends acymClass
 
             if (empty($user->key)) $user->key = acym_generateKey(14);
 
-            $user->creation_date = date('Y-m-d H:i:s', time());
+            $user->creation_date = date('Y-m-d H:i:s', time() - date('Z'));
         } elseif (!empty($user->confirmed)) {
             $oldUser = $this->getOneByIdWithCustomFields($user->id);
             if (!empty($oldUser) && empty($oldUser['confirmed'])) {
-                $user->confirmation_date = date('Y-m-d H:i:s', time());
+                $user->confirmation_date = date('Y-m-d H:i:s', time() - date('Z'));
                 $user->confirmation_ip = acym_getIP();
 
                 acym_trigger('onAcymAfterUserConfirm', [&$user]);
@@ -995,7 +995,7 @@ class UserClass extends acymClass
         $user = $this->getOneById($userId);
         if (empty($user)) return;
 
-        $confirmDate = date('Y-m-d H:i:s', time());
+        $confirmDate = date('Y-m-d H:i:s', time() - date('Z'));
         $ip = acym_getIP();
         $query = 'UPDATE `#__acym_user`';
         $query .= ' SET `confirmed` = 1, `confirmation_date` = '.acym_escapeDB($confirmDate).', `confirmation_ip` = '.acym_escapeDB($ip);
@@ -1035,10 +1035,10 @@ class UserClass extends acymClass
         $user = get_object_vars($user);
 
         $fieldsValue = acym_loadObjectList(
-            'SELECT user_field.value as value, field.name as name 
-            FROM #__acym_user_has_field as user_field 
-            LEFT JOIN #__acym_field as field ON user_field.field_id = field.id 
-            WHERE user_field.user_id = '.intval($id),
+            'SELECT user_field.`value`, field.`name` 
+            FROM #__acym_user_has_field AS `user_field` 
+            LEFT JOIN #__acym_field AS `field` ON user_field.`field_id` = field.`id` 
+            WHERE user_field.`user_id` = '.intval($id),
             'name'
         );
 

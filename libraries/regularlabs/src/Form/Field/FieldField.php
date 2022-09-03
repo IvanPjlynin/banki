@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -23,6 +23,7 @@ use RegularLabs\Library\Form\FormField as RL_FormField;
 
 class FieldField extends RL_FormField
 {
+	static $fields         = null;
 	public $is_select_list = true;
 
 	function getNameById($value, $attributes)
@@ -48,18 +49,7 @@ class FieldField extends RL_FormField
 
 	function getOptions()
 	{
-		$db    = JFactory::getDbo();
-		$query = $db->getQuery(true)
-			->select('DISTINCT a.id, a.type, a.title')
-			->from('#__fields AS a')
-			->where('a.state = 1')
-			->where('a.only_use_in_subform = 0')
-			->where(RL_DB::isNot('a.type', ['subform', 'repeatable']))
-			->order('a.title');
-
-		$db->setQuery($query);
-
-		$fields = $db->loadObjectList();
+		$fields = $this->getFields();
 
 		$options = [];
 
@@ -67,7 +57,8 @@ class FieldField extends RL_FormField
 
 		foreach ($fields as $field)
 		{
-			$options[] = JHtml::_('select.option', $field->id, ($field->title . ' [' . $field->type . ']'));
+			$key       = $field->{$this->get('key', 'id')} ?? $field->id;
+			$options[] = JHtml::_('select.option', $key, ($field->title . ' [' . $field->type . ']'));
 		}
 
 		if ($this->get('show_custom'))
@@ -76,5 +67,28 @@ class FieldField extends RL_FormField
 		}
 
 		return $options;
+	}
+
+	private function getFields()
+	{
+		if ( ! is_null(self::$fields))
+		{
+			return self::$fields;
+		}
+
+		$db    = JFactory::getDbo();
+		$query = $db->getQuery(true)
+			->select('DISTINCT a.id, a.type, a.name, a.title')
+			->from('#__fields AS a')
+			->where('a.state = 1')
+			->where('a.only_use_in_subform = 0')
+			->where(RL_DB::isNot('a.type', ['subform', 'repeatable']))
+			->order('a.title');
+
+		$db->setQuery($query);
+
+		self::$fields = $db->loadObjectList();
+
+		return self::$fields;
 	}
 }

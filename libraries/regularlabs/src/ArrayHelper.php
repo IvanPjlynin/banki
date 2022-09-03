@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -217,7 +217,7 @@ class ArrayHelper
 			);
 		}
 
-		return json_decode($json);
+		return json_decode($json, true);
 	}
 
 	/**
@@ -460,12 +460,12 @@ class ArrayHelper
 			|| count($pieces) < 2
 		)
 		{
-			return implode($glue, $pieces);
+			return implode($glue ?? '', $pieces);
 		}
 
 		$last_item = array_pop($pieces);
 
-		return implode($glue, $pieces) . $last_glue . $last_item;
+		return implode($glue ?? '', $pieces) . $last_glue . $last_item;
 	}
 
 	/**

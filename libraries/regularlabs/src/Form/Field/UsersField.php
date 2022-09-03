@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -21,6 +21,8 @@ use RegularLabs\Library\Form\FormField as RL_FormField;
 
 class UsersField extends RL_FormField
 {
+	static $users          = null;
+	static $users_count    = null;
 	public $attributes     = [
 		'show_current' => false,
 	];
@@ -53,24 +55,19 @@ class UsersField extends RL_FormField
 
 	protected function getListOptions($attributes)
 	{
-		$query = $this->db->getQuery(true)
-			->select('COUNT(*)')
-			->from('#__users AS u');
-		$this->db->setQuery($query);
-		$total = $this->db->loadResult();
-
-		if ($total > $this->max_list_count)
+		if ($this->getUsersCount() > $this->max_list_count)
 		{
 			return -1;
 		}
 
-		$query->clear('select')
-			->select('u.name, u.username, u.id, u.block as disabled')
-			->order('name');
-		$this->db->setQuery($query);
-		$list = $this->db->loadObjectList();
+		$users = $this->getUsers();
 
-		$options = $this->getOptionsByList($list, ['username', 'id', 'disabled']);
+		$options = $this->getOptionsByList(
+			$users,
+			['username', 'id', 'disabled'],
+			0,
+			$this->get('username_as_value') ? 'username' : 'id'
+		);
 
 		if ( ! empty($attributes['show_current']))
 		{
@@ -78,5 +75,40 @@ class UsersField extends RL_FormField
 		}
 
 		return $options;
+	}
+
+	private function getUsersCount()
+	{
+		if ( ! is_null(self::$users_count))
+		{
+			return self::$users_count;
+		}
+
+		$query = $this->db->getQuery(true)
+			->select('COUNT(*)')
+			->from('#__users AS u');
+		$this->db->setQuery($query);
+
+		self::$users_count = $this->db->loadResult();
+
+		return self::$users_count;
+	}
+
+	private function getUsers()
+	{
+		if ( ! is_null(self::$users))
+		{
+			return self::$users;
+		}
+
+		$query = $this->db->getQuery(true)
+			->select('u.name, u.username, u.id, u.block as disabled')
+			->from('#__users AS u')
+			->order('name');
+		$this->db->setQuery($query);
+
+		self::$users = $this->db->loadObjectList();
+
+		return self::$users;
 	}
 }

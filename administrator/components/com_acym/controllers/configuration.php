@@ -43,6 +43,8 @@ class ConfigurationController extends acymController
         $this->prepareSecurity($data);
         $this->checkConfigMail();
         $this->prepareToolbar($data);
+        $this->prepareHoursMinutes($data);
+        $this->resetQueueProcess();
 
 
         $this->prepareMailSettings($data);
@@ -57,8 +59,14 @@ class ConfigurationController extends acymController
         $batchesNumber = $this->config->get('queue_batch_auto', 1);
         $emailsPerBatch = $this->config->get('queue_nbmail_auto', 70);
         $cronFrequency = $this->config->get('cron_frequency', 900);
-        if ($queueType !== 'manual' && ($batchesNumber > 4 || $emailsPerBatch > 300 || $cronFrequency < 300)) {
-            acym_enqueueMessage(acym_translation('ACYM_SEND_CONFIGURATION_WARNING'), 'warning');
+        if ($queueType !== 'manual') {
+            if (($batchesNumber > 1 || $cronFrequency < 900) && !function_exists('curl_multi_exec')) {
+                acym_enqueueMessage(acym_translation('ACYM_NEED_CURL_MULTI'), 'error');
+            }
+
+            if ($batchesNumber > 4 || $emailsPerBatch > 300 || $cronFrequency < 300) {
+                acym_enqueueMessage(acym_translation('ACYM_SEND_CONFIGURATION_WARNING'), 'warning');
+            }
         }
     }
 
@@ -77,10 +85,8 @@ class ConfigurationController extends acymController
         acym_trigger('onAcymGetSendingMethodsHtmlSetting', [&$data]);
 
         $data['embedImage'] = [];
-        acym_trigger('onAcymSendingMethodEmbedImage', [&$data]);
-
         $data['embedAttachment'] = [];
-        acym_trigger('onAcymSendingMethodEmbedAttachment', [&$data]);
+        acym_trigger('onAcymSendingMethodOptions', [&$data]);
     }
 
     public function prepareToolbar(&$data)
@@ -238,6 +244,7 @@ class ConfigurationController extends acymController
             [
                 'none' => acym_translation('ACYM_NONE'),
                 'acym_ireCaptcha' => acym_translation('ACYM_CAPTCHA_INVISIBLE'),
+                'acym_reCaptcha_v3' => acym_translation('ACYM_CAPTCHA_V3'),
             ],
             acym_getCmsCaptcha()
         );
@@ -259,6 +266,28 @@ class ConfigurationController extends acymController
         if (!is_array($data['export_data_changes_fields'])) {
             $data['export_data_changes_fields'] = explode(',', $data['export_data_changes_fields']);
         }
+    }
+
+    private function prepareHoursMinutes(&$data)
+    {
+        $listHours = [];
+        for ($i = 0 ; $i < 24 ; $i++) {
+            $value = $i < 10 ? '0'.$i : $i;
+            $listHours[] = acym_selectOption($value, $value);
+        }
+        $listMinutes = [];
+        for ($i = 0 ; $i < 60 ; $i += 5) {
+            $value = $i < 10 ? '0'.$i : $i;
+            $listMinutes[] = acym_selectOption($value, $value);
+        }
+        $listAllMinutes = [];
+        for ($i = 0 ; $i < 60 ; $i++) {
+            $value = $i < 10 ? '0'.$i : $i;
+            $listAllMinutes[] = acym_selectOption($value, $value);
+        }
+        $data['listHours'] = $listHours;
+        $data['listMinutes'] = $listMinutes;
+        $data['listAllMinutes'] = $listAllMinutes;
     }
 
     public function checkDB($returnMode = '', $fromConfiguration = true)
@@ -1231,7 +1260,7 @@ class ConfigurationController extends acymController
         acym_trigger('onAcymSynchronizeExistingUsers', [$sendingMethod]);
     }
 
-    function downloadLogFile()
+    function seeLogs()
     {
         $filename = acym_getVar('string', 'filename');
 
@@ -1252,13 +1281,10 @@ class ConfigurationController extends acymController
         }
 
         if (ACYM_CMS === 'wordpress') @ob_get_clean();
+
         $final = acym_fileGetContent($reportPath);
-        if (substr($filename, -4) === '.txt') {
-            $filename = substr($filename, 0, strlen($filename) - 4);
-        }
-        $exportHelper = new ExportHelper();
-        $exportHelper->setDownloadHeaders($filename, 'txt');
-        echo $final;
+        echo nl2br($final);
+
         exit;
     }
 
@@ -1308,5 +1334,63 @@ class ConfigurationController extends acymController
         acym_deleteFile($filename.'.zip');
 
         exit;
+    }
+
+    public function loginForAuth2()
+    {
+        $auth2Smtp = [
+            'smtp.gmail.com' => [
+                'baseUrl' => 'https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&',
+                'scope' => 'https%3A%2F%2Fmail.google.com%2F',
+            ],
+            'smtp-mail.outlook.com' => [
+                'baseUrl' => 'https://login.microsoftonline.com/%s/oauth2/v2.0/authorize?response_mode=query&',
+                'scope' => 'openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read%20https%3A%2F%2Foutlook.office.com%2FSMTP.Send',
+            ],
+            'smtp.office365.com' => [
+                'baseUrl' => 'https://login.microsoftonline.com/%s/oauth2/v2.0/authorize?response_mode=query&',
+                'scope' => 'openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read%20https%3A%2F%2Foutlook.office.com%2FSMTP.Send',
+            ],
+        ];
+
+        $this->store();
+
+        $smtpHost = strtolower($this->config->get('smtp_host'));
+        $clientId = $this->config->get('smtp_clientId');
+        $clientSecret = $this->config->get('smtp_secret');
+        $redirect_url = $this->config->get('smtp_redirectUrl');
+
+        if (empty($clientId) || empty($clientSecret) || empty($smtpHost) || !array_key_exists($smtpHost, $auth2Smtp)) {
+            $this->listing();
+
+            return;
+        }
+
+        if (in_array($smtpHost, ['smtp.office365.com', 'smtp-mail.outlook.com'])) {
+            $tenant = $this->config->get('smtp_tenant');
+            if (empty($tenant)) {
+                acym_enqueueMessage(acym_translation('ACYM_TENANT_FIELD_IS_MISSING'), 'error');
+                $this->listing();
+
+                return;
+            }
+            $auth2Smtp[$smtpHost]['baseUrl'] = sprintf($auth2Smtp[$smtpHost]['baseUrl'], $tenant);
+        }
+
+        $redirectLink = $auth2Smtp[$smtpHost]['baseUrl'];
+        $redirectLink .= 'client_id='.urlencode($clientId);
+        $redirectLink .= '&response_type=code';
+        $redirectLink .= '&redirect_uri='.urlencode($redirect_url);
+        $redirectLink .= '&scope='.$auth2Smtp[$smtpHost]['scope'];
+        $redirectLink .= '&state=acymailing';
+
+        acym_redirect($redirectLink);
+    }
+
+    private function resetQueueProcess()
+    {
+        if (!acym_level(ACYM_ESSENTIAL) && $this->config->get('queue_type', 'manual') !== 'manual') {
+            $this->config->save(['queue_type' => 'manual']);
+        }
     }
 }

@@ -15,13 +15,18 @@
                 } else {
                     ?>
 					<input type="text" name="acym_search" value="<?php echo acym_escape($data['search']); ?>">
-                <?php } ?>
-				<button class="button btn btn-primary subbutton"><?php echo acym_translation('ACYM_SEARCH'); ?></button>
+                <?php }
+                $disableSearch = '';
+                if (isset($data['disableButtons']) && $data['disableButtons']) {
+                    $disableSearch = 'disabled';
+                }
+                ?>
+				<button class="button btn btn-primary subbutton" <?php echo $disableSearch; ?>><?php echo acym_translation('ACYM_SEARCH'); ?></button>
 			</div>
 
             <?php
             foreach ($data['newsletters'] as $oneNewsletter) {
-                $archiveURL = acym_frontendLink('archive&task=view&id='.$oneNewsletter->id.'&'.acym_noTemplate(false));
+                $archiveURL = acym_frontendLink('archive&task=view&id='.$oneNewsletter->id.'&'.acym_noTemplate());
 
                 if ($data['popup']) {
                     $iframeClass = 'acym__modal__iframe';
@@ -35,10 +40,9 @@
                 } else {
                     echo '<p class="acym__front__archive__raw"><a href="'.$archiveURL.'" target="_blank">'.$oneNewsletter->subject.'</a></p>';
                 }
-                echo '<p class="acym__front__archive__newsletter_sending-date">'.acym_translation('ACYM_SENDING_DATE').' : '.acym_date(
-                        $oneNewsletter->sending_date,
-                        'd M Y'
-                    ).'</p>';
+                echo '<p class="acym__front__archive__newsletter_sending-date">';
+                echo acym_translation('ACYM_SENDING_DATE').' : '.acym_date($oneNewsletter->sending_date, 'd M Y');
+                echo '</p>';
             }
 
             echo $data['pagination']->display('archive');

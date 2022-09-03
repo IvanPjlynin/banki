@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -139,8 +139,15 @@ class FormField extends JFormField
 
 		$attributes = array_diff_key($attributes, ['name' => '', 'type' => '']);
 
+		$options = $this->getListOptions($attributes);
+
+		if ($this->get('text_as_value'))
+		{
+			$this->setTextAsValue($options);
+		}
+
 		return Form::selectList(
-			$this->getListOptions($attributes),
+			$options,
 			$name,
 			$value,
 			$id,
@@ -203,6 +210,19 @@ class FormField extends JFormField
 	protected function getListOptions($attributes)
 	{
 		return $this->getOptions();
+	}
+
+	private function setTextAsValue(&$options)
+	{
+		if (empty($options))
+		{
+			return;
+		}
+
+		foreach ($options as &$option)
+		{
+			$option->value = $option->text;
+		}
 	}
 
 	/**
@@ -284,12 +304,12 @@ class FormField extends JFormField
 	 *
 	 * @return array
 	 */
-	public function getOptionsByList($list, $extras = [], $levelOffset = 0)
+	public function getOptionsByList($list, $extras = [], $levelOffset = 0, $key = 'id')
 	{
 		$options = [];
 		foreach ($list as $id => $item)
 		{
-			$options[$id] = $this->getOptionByListItem($item, $extras, $levelOffset);
+			$options[$id] = $this->getOptionByListItem($item, $extras, $levelOffset, $key);
 		}
 
 		return $options;
@@ -304,11 +324,11 @@ class FormField extends JFormField
 	 *
 	 * @return mixed
 	 */
-	public function getOptionByListItem($item, $extras = [], $levelOffset = 0)
+	public function getOptionByListItem($item, $extras = [], $levelOffset = 0, $key = 'id')
 	{
 		$name = Form::getNameWithExtras($item, $extras);
 
-		$option = JHtml::_('select.option', $item->id, $name, 'value', 'text', 0);
+		$option = JHtml::_('select.option', $item->{$key}, $name, 'value', 'text', 0);
 
 		if (isset($item->level))
 		{

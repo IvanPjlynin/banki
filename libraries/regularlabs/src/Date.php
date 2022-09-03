@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -93,17 +93,17 @@ class Date
 	}
 
 	/**
-	 * Convert string to a correct date format ('00-00-00 00:00:00' or '00-00-00') or null
+	 * Convert string to a correct date format ('00-00-00 00:00:00' or '00-00-00') or empty string
 	 *
 	 * @param string $date
 	 *
-	 * @return null|string
+	 * @return string
 	 */
 	public static function fix($date)
 	{
 		if ( ! $date)
 		{
-			return null;
+			return '';
 		}
 
 		$date = trim($date);
@@ -129,8 +129,31 @@ class Date
 			return $match[1] . ' 00:00:00';
 		}
 
-		// Date format is not correct, so return null
-		return null;
+		// Date format is not correct, so return empty string
+		return '';
+	}
+
+	/**
+	 * Convert string to a correct time format: 1:23 to 01:23
+	 *
+	 * @param string $time
+	 *
+	 * @return string
+	 */
+	public static function fixTime($time, $include_seconds = true)
+	{
+		[$hours, $minutes, $seconds] = explode(':', $time . '::');
+
+		$hours   = str_pad($hours, 2, '0', STR_PAD_LEFT);
+		$minutes = str_pad($minutes, 2, '0', STR_PAD_LEFT);
+		$seconds = str_pad($seconds, 2, '0', STR_PAD_LEFT);
+
+		if ( ! $include_seconds)
+		{
+			return $hours . ':' . $minutes;
+		}
+
+		return $hours . ':' . $minutes . ':' . $seconds;
 	}
 
 	/**

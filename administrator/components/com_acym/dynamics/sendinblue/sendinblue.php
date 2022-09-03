@@ -31,6 +31,10 @@ class SendinblueClass extends acymPlugin
                 }
                 $this->plugin->errors[] = $response['message'];
             }
+
+            if (strpos($response['message'], 'Your account is under validation.') !== false) {
+                $this->config->save(['sendinblue_validation' => 1]);
+            }
         }
 
         return $response;

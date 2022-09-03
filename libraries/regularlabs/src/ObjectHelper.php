@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -19,14 +19,14 @@ class ObjectHelper
 	 * Change the case of object keys
 	 *
 	 * @param object $object
-	 * @param array  $key_format ('camel',  'dash', 'dot', 'underscore')
+	 * @param array  $key_format ('camel', 'dash', 'dot', 'underscore')
 	 * @param bool   $to_lowercase
 	 *
 	 * @return object
 	 */
 	public static function changeKeyCase($object, $format, $to_lowercase = true)
 	{
-		return ArrayHelper::applyMethodToKeys(
+		return (object) ArrayHelper::applyMethodToKeys(
 			[$object, $format, $to_lowercase],
 			'\RegularLabs\Library\StringHelper',
 			'toCase'
@@ -82,5 +82,48 @@ class ObjectHelper
 	public static function merge($object1, $object2)
 	{
 		return (object) array_merge((array) $object1, (array) $object2);
+	}
+
+	/**
+	 * Replace key names
+	 *
+	 * @param object $object
+	 * @param array  $replacements
+	 *
+	 * @return object
+	 */
+	public static function replaceKeys($object, $replacements, $include_prefixes = false, $prefix_delimiter = '_')
+	{
+		$json = json_encode($object);
+
+		foreach ($replacements as $to => $froms)
+		{
+			if ( ! is_array($froms))
+			{
+				$froms = [$froms];
+			}
+
+			foreach ($froms as $from)
+			{
+				$json = str_replace(
+					'"' . $from . '":',
+					'"' . $to . '":',
+					$json
+				);
+
+				if ( ! $include_prefixes)
+				{
+					continue;
+				}
+
+				$json = RegEx::replace(
+					'"' . RegEx::quote($from . $prefix_delimiter) . '([^"]+":)',
+					'"' . $to . $prefix_delimiter . '\1',
+					$json
+				);
+			}
+		}
+
+		return json_decode($json);
 	}
 }

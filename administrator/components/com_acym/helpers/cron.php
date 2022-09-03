@@ -135,6 +135,30 @@ class CronHelper extends acymObject
             }
         }
 
+        $fromHour = $this->config->get('queue_send_from_hour', '00');
+        $fromMinute = $this->config->get('queue_send_from_minute', '00');
+        $toHour = $this->config->get('queue_send_to_hour', '23');
+        $toMinute = $this->config->get('queue_send_to_minute', '59');
+        if ($fromHour != '00' || $fromMinute != '00' || $toHour != '23' || $toMinute != '59') {
+            $dayBasedOnCMSTimezone = acym_date('now', 'Y-m-d');
+            $fromBasedOnCMSTimezoneAtSpecifiedHour = acym_getTimeFromCMSDate($dayBasedOnCMSTimezone.' '.$fromHour.':'.$fromMinute);
+            $toBasedOnCMSTimezoneAtSpecifiedHour = acym_getTimeFromCMSDate($dayBasedOnCMSTimezone.' '.$toHour.':'.$toMinute);
+            $time = time();
+            if ($fromBasedOnCMSTimezoneAtSpecifiedHour > $toBasedOnCMSTimezoneAtSpecifiedHour) {
+                if ($time > $fromBasedOnCMSTimezoneAtSpecifiedHour) {
+                    $toBasedOnCMSTimezoneAtSpecifiedHour = acym_getTimeFromCMSDate(acym_date('tomorrow', 'Y-m-d').' '.$toHour.':'.$toMinute);
+                } elseif ($time < $toBasedOnCMSTimezoneAtSpecifiedHour) {
+                    $fromBasedOnCMSTimezoneAtSpecifiedHour = acym_getTimeFromCMSDate(acym_date('yesterday', 'Y-m-d').' '.$fromHour.':'.$fromMinute);
+                }
+            }
+            if ($time < $fromBasedOnCMSTimezoneAtSpecifiedHour || $time > $toBasedOnCMSTimezoneAtSpecifiedHour) {
+                $this->skip[] = 'send';
+            }
+        }
+        $dayOfWeek = acym_date('now', 'N');
+        if ($this->config->get('queue_stop_weekend', 0) && $dayOfWeek >= 6) {
+            $this->skip[] = 'send';
+        }
         if ($this->config->get('queue_type') != 'manual' && !in_array('send', $this->skip)) {
             $this->multiCron();
             $queueHelper = new QueueHelper();

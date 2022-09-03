@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Sourcerer
- * @version         9.2.0
+ * @version         9.2.3
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -152,7 +152,7 @@ class Replace
 
 		$params = Params::get();
 
-		$data = RL_PluginTag::getAttributesFromString($match['data'], []);
+		$data = RL_PluginTag::getAttributesFromString($match['data']);
 
 		$content = trim($match['content']);
 

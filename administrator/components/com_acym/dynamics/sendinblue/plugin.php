@@ -9,13 +9,14 @@ class plgAcymSendinblue extends acymPlugin
     const SENDING_METHOD_NAME = 'Sendinblue';
     const SENDING_METHOD_API_URL = 'https://api.sendinblue.com/v3/';
 
-    var $credentials;
-    var $integration;
-    var $transactional;
-    var $campaign;
-    var $list;
-    var $users;
-    var $sender;
+    private $credentials;
+    private $integration;
+    private $transactional;
+    private $campaign;
+    private $list;
+    private $users;
+    private $sender;
+    private $webhooks;
 
     public function __construct()
     {
@@ -30,6 +31,7 @@ class plgAcymSendinblue extends acymPlugin
         include_once __DIR__.DS.'list.php';
         include_once __DIR__.DS.'users.php';
         include_once __DIR__.DS.'sender.php';
+        include_once __DIR__.DS.'webhooks.php';
 
         $this->credentials = new SendinblueCredentials($this);
         $headers = $this->credentials->getHeadersSendingMethod(self::SENDING_METHOD_ID);
@@ -40,6 +42,7 @@ class plgAcymSendinblue extends acymPlugin
         $this->users = new SendinblueUsers($this, $headers, $this->list);
         $this->sender = new SendinblueSender($this, $headers);
         $this->campaign = new SendinblueCampaign($this, $headers, $this->sender, $this->users, $this->list);
+        $this->webhooks = new SendinblueWebhooks($this, $headers);
     }
 
     public function onAcymGetSendingMethods(&$data, $isMailer = false)
@@ -89,12 +92,12 @@ class plgAcymSendinblue extends acymPlugin
         $this->users->createAttribute($mailId);
     }
 
-    public function onAcymRegisterReceiverContentAndList(&$result, $htmlContent, $receiverEmail, $mailId, &$warnings)
+    public function onAcymRegisterReceiverContentAndList(&$result, $subjectContent, $htmlContent, $receiverEmail, $mailId, &$warnings)
     {
         if ($this->config->get('mailer_method') != self::SENDING_METHOD_ID) return;
 
         $result = $this->users->addUserToList($receiverEmail, $mailId, $warnings);
-        $this->users->addAttributeToUser($receiverEmail, $htmlContent, $mailId);
+        $this->users->addAttributeToUser($receiverEmail, $subjectContent, $htmlContent, $mailId);
     }
 
     public function onAcymAfterUserModify($user, &$oldUser)
@@ -117,15 +120,17 @@ class plgAcymSendinblue extends acymPlugin
         $this->users->deleteUsers($users);
     }
 
-    public function onAcymSendCampaignOnExternalSendingMethod($mailId)
+    public function onAcymSendCampaignOnExternalSendingMethod($mailId, $content)
     {
         if ($this->config->get('mailer_method') != self::SENDING_METHOD_ID) return true;
+
         $mailClass = new MailClass();
         $mail = $mailClass->getOneById($mailId, true);
 
         if (empty($mail)) return false;
 
-        $this->campaign->createNewCampaign($mail);
+        $this->campaign->createNewCampaign($mail, $content);
+        $this->webhooks->addWebhooks();
 
         return true;
     }
@@ -147,11 +152,6 @@ class plgAcymSendinblue extends acymPlugin
         return $this->campaign->cleanCampaigns();
     }
 
-    public function onAcymSendingMethodEmbedAttachment(&$data)
-    {
-        $data['embedAttachment'][self::SENDING_METHOD_ID] = false;
-    }
-
     public function onAcymSynchronizeExistingUsers($sendingMethod)
     {
         if ($sendingMethod !== self::SENDING_METHOD_ID) return;
@@ -161,7 +161,13 @@ class plgAcymSendinblue extends acymPlugin
 
     public function onAcymResendCampaign($mailId)
     {
-        if ($this->config->get('mailer_method') != self::SENDING_METHOD_ID) return true;
+        if ($this->config->get('mailer_method') != self::SENDING_METHOD_ID) return;
         $this->users->removeUserFromList($mailId);
+    }
+
+    public function onAcymSendingMethodOptions(&$data)
+    {
+        $data['embedImage'][self::SENDING_METHOD_ID] = false;
+        $data['embedAttachment'][self::SENDING_METHOD_ID] = false;
     }
 }

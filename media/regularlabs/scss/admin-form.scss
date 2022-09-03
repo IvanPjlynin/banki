@@ -121,6 +121,10 @@
 	}
 }
 
+.rl-pre-wrap {
+	white-space: pre-wrap;
+}
+
 .rl-form {
 	//.control-group {
 	//	.form-select {
@@ -165,6 +169,16 @@
 	}
 }
 
+a.rl-no-styling {
+	text-decoration: none !important;
+
+	&:before {
+		content:             "" !important;
+		-webkit-padding-end: 0 !important;
+		padding-inline-end:  0 !important;
+	}
+}
+
 input.rl-code-field {
 	&.form-control {
 		font-family: $font-family-monospace;
@@ -205,6 +219,12 @@ input.rl-key-field {
 
 	&.show {
 		display: block;
+	}
+
+	&.rl-admin-popover-full {
+		position: absolute;
+		left:     0;
+		right:    0;
 	}
 }
 
@@ -392,6 +412,40 @@ input.rl-key-field {
 	}
 }
 
+.rl-bg-transparent {
+	background: none !important;
+}
+
+tr.rl-tr-bg-transparent {
+	.table > * > & > * {
+		background: none !important;
+		border:     none !important;
+		box-shadow: none !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.w-md-30 {
+		width: 30%;
+	}
+}
+
+//tr.rl-tr-title {
+//	.table > * > & > * {
+//		padding: 4rem .5rem .5rem;
+//	}
+//
+//	.table > *:first-child > &:first-child > * {
+//		padding-top: 0;
+//	}
+//}
+
+.rl-badge {
+	> small {
+		font-size: .85em;
+	}
+}
+
 .rl-modal .btn-group > .btn {
 	line-height: 1.5;
 	margin:      0;
@@ -408,8 +462,13 @@ input.rl-key-field {
 	}
 }
 
+.rl-form-checkboxes-not-inline .form-check-inline,
 .rl-form-check-not-inline .form-check-inline {
 	display: block;
+}
+
+.rl-form-checkboxes-style-disabled .rl-checkbox-checked label {
+	color: $red;
 }
 
 .rl-button-no-text {
@@ -479,6 +538,10 @@ input.rl-key-field {
 	}
 }
 
+.rl-has-spinner {
+	min-height: 24px;
+}
+
 @keyframes rl-spinner {
 	0% {
 		transform: rotate(0deg);
@@ -521,6 +584,14 @@ joomla-field-subform.rl-subform {
 	.subform-repeatable-group {
 		margin-left: 1rem;
 	}
+}
+
+.rl-cursor-not-allowed {
+	cursor: not-allowed;
+}
+
+.rl-bg-danger-light {
+	background-color: $state-danger-bg;
 }
 
 /*
@@ -570,4 +641,16 @@ joomla-field-subform .icon-info-circle {
 
 .CodeMirror-fullscreen {
 	z-index: 1060 !important;
+}
+
+a.disabled {
+	pointer-events: none;
+	opacity:        0.4;
+}
+
+.disabled {
+	.btn.disabled,
+	a.disabled {
+		opacity: 1;
+	}
 }

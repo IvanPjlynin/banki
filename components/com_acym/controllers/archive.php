@@ -45,6 +45,7 @@ class ArchiveController extends acymController
 
         acym_addMetadata('og:url', acym_frontendLink('archive&task=view&mailid='.$oneMail->id));
         acym_addMetadata('og:title', $oneMail->subject);
+        acym_setPageTitle($oneMail->subject);
 
         if (!empty($oneMail->metadesc)) {
             acym_addMetadata('og:description', $oneMail->metadesc);
@@ -141,11 +142,13 @@ class ArchiveController extends acymController
             acym_addMetadata('robots', $menuParams->get('robots'));
         }
 
+        $nbNewslettersPerPage = $menuParams->get('archiveNbNewslettersPerPage', 10);
         $listsSent = $menuParams->get('lists', '');
         $popup = $menuParams->get('popup', '1');
         $displayUserListOnly = $menuParams->get('displayUserListOnly', '1');
 
         $viewParams = [
+            'nbNewslettersPerPage' => $nbNewslettersPerPage,
             'listsSent' => $listsSent,
             'popup' => $popup,
             'paramsCMS' => $paramsJoomla,
@@ -193,13 +196,18 @@ class ArchiveController extends acymController
             $params['displayUserListOnly'] = $viewParams['displayUserListOnly'];
         }
 
-        $params['page'] = $this->getVarFiltersListing('int', 'archive_pagination_page', 1);;
+        $params['page'] = $this->getVarFiltersListing('int', 'archive_pagination_page', 1);
         $campaignClass = new CampaignClass();
         $pagination = new PaginationHelper();
-        
-        $params['numberPerPage'] = $pagination->getListLimit();
+        $params['numberPerPage'] = $pagination->getListLimit($viewParams['nbNewslettersPerPage']);
+
         $returnLastNewsletters = $campaignClass->getLastNewsletters($params);
         $pagination->setStatus($returnLastNewsletters['count'], $params['page'], $params['numberPerPage']);
+
+        $disableButtons = '';
+        if (isset($viewParams['disableButtons'])) {
+            $disableButtons = $viewParams['disableButtons'];
+        }
 
         return [
             'newsletters' => $returnLastNewsletters['matchingNewsletters'],
@@ -210,6 +218,7 @@ class ArchiveController extends acymController
             'displayUserListOnly' => '1' === $viewParams['displayUserListOnly'],
             'search' => $viewParams['search'],
             'actionUrl' => acym_currentURL(),
+            'disableButtons' => $disableButtons,
         ];
     }
 }

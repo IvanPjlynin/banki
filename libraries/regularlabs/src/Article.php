@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -158,8 +158,8 @@ class Article
 
 		if ( ! $id
 			|| ! (
-				($input->get('option') == 'com_content' && $input->get('view') == 'article')
-				|| ($input->get('option') == 'com_flexicontent' && $input->get('view') == 'item')
+				($input->get('option', '') == 'com_content' && $input->get('view', '') == 'article')
+				|| ($input->get('option', '') == 'com_flexicontent' && $input->get('view', '') == 'item')
 			)
 		)
 		{
@@ -208,7 +208,7 @@ class Article
 			return [''];
 		}
 
-		return preg_split('#(<hr class="system-pagebreak" .*?>)#s', $string, null, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+		return preg_split('#(<hr class="system-pagebreak" .*?>)#s', $string, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 	}
 
 	/**
@@ -285,7 +285,7 @@ class Article
 		self::processText('introtext', $article, $class, $method, $params, $ignore_types);
 
 		// Don't handle fulltext on category blog views
-		if ($context == 'com_content.category' && JFactory::getApplication()->input->get('view') == 'category')
+		if ($context == 'com_content.category' && JFactory::getApplication()->input->get('view', '') == 'category')
 		{
 			return;
 		}

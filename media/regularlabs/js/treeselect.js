@@ -1,6 +1,6 @@
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -37,7 +37,7 @@
 			});
 
 			items.forEach((item) => {
-				const checkbox = item.querySelector('input');
+				const checkbox = item.querySelector(':scope > .treeselect-item > input');
 
 				if ( ! checkbox) {
 					return;
@@ -49,7 +49,7 @@
 					item.classList.toggle('rl-item-checked', checkbox.checked);
 				});
 
-				const child_list = item.querySelector('ul.treeselect-sub');
+				const child_list = item.querySelector(':scope > ul.treeselect-sub');
 
 				if ( ! child_list) {
 					return;

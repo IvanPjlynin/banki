@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -36,9 +36,9 @@ class Php
 
 		if ( ! $rl_article && strpos($rl_string, '$article') !== false)
 		{
-			if (JFactory::getApplication()->input->get('option') == 'com_content' && JFactory::getApplication()->input->get('view') == 'article')
+			if (JFactory::getApplication()->input->get('option', '') == 'com_content' && JFactory::getApplication()->input->get('view', '') == 'article')
 			{
-				$rl_article = Article::get(JFactory::getApplication()->input->get('id'));
+				$rl_article = Article::get(JFactory::getApplication()->input->getInt('id'));
 			}
 		}
 
@@ -186,7 +186,7 @@ class Php
 
 	public static function getApplication()
 	{
-		if (JFactory::getApplication()->input->get('option') == 'com_finder')
+		if (JFactory::getApplication()->input->get('option', '') == 'com_finder')
 		{
 			return JFactory::getApplication();
 		}
@@ -196,7 +196,7 @@ class Php
 
 	public static function getDocument()
 	{
-		if (JFactory::getApplication()->input->get('option') != 'com_finder')
+		if (JFactory::getApplication()->input->get('option', '') != 'com_finder')
 		{
 			return Document::get();
 		}

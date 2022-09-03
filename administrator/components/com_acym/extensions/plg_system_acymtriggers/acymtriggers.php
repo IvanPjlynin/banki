@@ -98,6 +98,13 @@ class plgSystemAcymtriggers extends JPlugin
         acym_trigger('onAfterOrderUpdate', [&$order], 'plgAcymHikashop');
     }
 
+    public function onAfterCartSave(&$element)
+    {
+        if (!$this->initAcy()) return;
+
+        acym_trigger('onAfterCartSave', [&$element], 'plgAcymHikashop');
+    }
+
     public function onBeforeCompileHead()
     {
         if (!empty($_REQUEST['tmpl']) && in_array($_REQUEST['tmpl'], ['component', 'raw'])) return;
@@ -324,6 +331,14 @@ class plgSystemAcymtriggers extends JPlugin
 
         if (!$this->initAcy()) return true;
         acym_trigger('onRegacyAfterRoute', []);
+        
+        if (empty($_GET['code']) || empty($_GET['state'])) {
+            return;
+        }
+
+        if ($_GET['state'] === 'acymailing') {
+            acym_redirect(acym_completeLink('configuration&code='.$_GET['code'], false, true));
+        }
     }
 
     function onAfterUserCreate(&$element)

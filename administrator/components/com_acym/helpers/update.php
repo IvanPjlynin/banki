@@ -73,7 +73,7 @@ class UpdateHelper extends acymObject
         $object = new \stdClass();
         $object->enabled = 1;
         $object->type = 'extension';
-        $object->location = ACYM_UPDATEMEURL.'updatexml&version=7.8.0';
+        $object->location = ACYM_UPDATEMEURL.'updatexml&version=7.9.4';
 
         if (empty($extension)) {
             $type = 'component';
@@ -320,15 +320,15 @@ class UpdateHelper extends acymObject
         ];
 
         $newAutomation = new \stdClass();
-        $newAutomation->name = $title;
-        $newAutomation->description = $info[$title]->desc;
+        $newAutomation->name = acym_translation($title);
+        $newAutomation->description = acym_translation($info[$title]->desc);
         $newAutomation->active = 0;
         $newAutomation->admin = 1;
         $newAutomation->id = $automationClass->save($newAutomation);
         if (empty($newAutomation->id)) return false;
 
         $newStep = new \stdClass();
-        $newStep->name = 'ACYM_ADMIN_USER_CREATE';
+        $newStep->name = acym_translation($title);
         $newStep->triggers = $info[$title]->triggers;
         $newStep->automation_id = $newAutomation->id;
         $newStep->id = $stepClass->save($newStep);
@@ -344,7 +344,7 @@ class UpdateHelper extends acymObject
         $mailAutomation->type = $mailClass::TYPE_AUTOMATION;
         $mailAutomation->drag_editor = 1;
         $mailAutomation->creator_id = acym_currentUserId();
-        $mailAutomation->creation_date = date('Y-m-d H:i:s', time());
+        $mailAutomation->creation_date = date('Y-m-d H:i:s', time() - date('Z'));
         $mailAutomation->name = acym_translation($info[$title]->emailTitle);
         $mailAutomation->subject = acym_translation($info[$title]->emailSubject);
         $mailAutomation->body = $this->getFormatedNotification($info[$title]->emailContent);
@@ -565,7 +565,7 @@ class UpdateHelper extends acymObject
                 $notif->settings = empty($oneNotif['settings']) ? '' : $oneNotif['settings'];
                 $notif->drag_editor = 1;
                 $notif->creator_id = acym_currentUserId();
-                $notif->creation_date = date('Y-m-d H:i:s', time());
+                $notif->creation_date = date('Y-m-d H:i:s', time() - date('Z'));
                 $notif->name = $oneNotif['name'];
                 $notif->subject = $oneNotif['subject'];
                 $notif->body = $oneNotif['content'];
@@ -667,7 +667,7 @@ class UpdateHelper extends acymObject
 
             $mail = new \stdClass();
             $mail->name = $oneOverride['name'];
-            $mail->creation_date = date('Y-m-d H:i:s', time());
+            $mail->creation_date = date('Y-m-d H:i:s', time() - date('Z'));
             $mail->type = $mailClass::TYPE_OVERRIDE;
             $mail->subject = $oneOverride['new_subject'];
             $mail->body = $this->getFormatedNotification($oneOverride['new_body']);

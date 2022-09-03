@@ -26,7 +26,7 @@ class FrontusersController extends UsersController
             }
         }
 
-        $this->authorizedFrontTasks = [
+        $this->publicFrontTasks = [
             'subscribe',
             'unsubscribe',
             'unsubscribeAll',
@@ -34,12 +34,16 @@ class FrontusersController extends UsersController
             'unsubscribePage',
             'confirm',
             'profile',
+        ];
+
+        $this->authorizedFrontTasks = [
             'prepareParams',
             'savechanges',
             'exportdata',
             'ajaxGetEnqueuedMessages',
+            'listing',
         ];
-        $this->urlFrontMenu = 'index.php?option=com_acym&view=frontusers&layout=listing';
+        $this->urlsFrontMenu = ['index.php?option=com_acym&view=frontusers&layout=listing'];
         parent::__construct();
     }
 
@@ -71,14 +75,13 @@ class FrontusersController extends UsersController
 
     protected function prepareUsersSubscriptions(&$data)
     {
-        $usersId = [];
-        foreach ($data['allUsers'] as $oneUser) {
-            $usersId[] = $oneUser->id;
-        }
-
         $subscriptions = [];
 
-        if (!empty($usersId)) {
+        if (!empty($data['allUsers'])) {
+            $usersId = [];
+            foreach ($data['allUsers'] as $oneUser) {
+                $usersId[] = $oneUser->id;
+            }
             $subscriptionsArray = $this->currentClass->getUsersSubscriptionsByIds($usersId, acym_currentUserId());
 
             foreach ($subscriptionsArray as $oneSubscription) {

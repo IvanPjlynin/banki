@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -46,6 +46,7 @@ extract($displayData);
  * @var   string  $value          Value attribute of the field.
  * @var   array   $checkedOptions Options that will be set as checked.
  * @var   boolean $hasValue       Has this field a value assigned?
+ * @var   boolean $allowCustom    Allow custom values.
  * @var   array   $options        Options available for this field.
  * @var   array   $inputType      Options available for this field.
  * @var   string  $accept         File types that are accepted.
@@ -53,22 +54,26 @@ extract($displayData);
 
 $attributes = [
 	'class="' . $class . '"',
-	' allow-custom',
-	' search-placeholder="' . $this->escape(Text::_('RL_SELECT_OR_CREATE_A_CATEGORY')) . '" ',
+	'search-placeholder="' . $this->escape($hint) . '" ',
 ];
+
+if ($allowCustom)
+{
+	$attributes[] = 'allow-custom';
+}
 
 $selectAttr = [
 	$disabled ? 'disabled' : '',
 	$readonly ? 'readonly' : '',
 	strlen($hint) ? 'placeholder="' . $this->escape($hint) . '"' : '',
-	$onchange ? ' onchange="' . $onchange . '"' : '',
-	$autofocus ? ' autofocus' : '',
+	$onchange ? 'onchange="' . $onchange . '"' : '',
+	$autofocus ? 'autofocus' : '',
 ];
 
 if ($required)
 {
-	$selectAttr[] = ' required class="required"';
-	$attributes[] = ' required';
+	$selectAttr[] = 'required class="required"';
+	$attributes[] = 'required';
 }
 
 Text::script('JGLOBAL_SELECT_NO_RESULTS_MATCH');

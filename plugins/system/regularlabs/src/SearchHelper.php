@@ -1,7 +1,7 @@
 <?php
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -21,7 +21,7 @@ class SearchHelper
 	public static function load()
 	{
 		// Only in frontend search component view
-		if ( ! RL_Document::isClient('site') || JFactory::getApplication()->input->get('option') != 'com_search')
+		if ( ! RL_Document::isClient('site') || JFactory::getApplication()->input->get('option', '') != 'com_search')
 		{
 			return;
 		}

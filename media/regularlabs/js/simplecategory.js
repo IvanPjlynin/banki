@@ -1,6 +1,6 @@
 /**
  * @package         Regular Labs Library
- * @version         22.3.8203
+ * @version         22.6.8549
  * 
  * @author          Peter van Westen <info@regularlabs.com>
  * @link            http://regularlabs.com
@@ -45,9 +45,6 @@
 
 		const setNewCategory =  (() => {
 			const new_category = input.value;
-			console.log('----');
-			console.log(input.value);
-			console.log(select.value);
 			choices.clearInput();
 
 
@@ -64,8 +61,6 @@
 			choices._triggerChange(new_category);
 			choices.setChoiceByValue(new_category);
 			choices.clearInput();
-			console.log('----');
-			console.log(new_category);
 		});
 	});
 })();
