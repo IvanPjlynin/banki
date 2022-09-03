@@ -142,7 +142,19 @@ if ($params->get('enable_css', 1)) {
 
 <script>
     jQuery(document).ready(function($) {
-        //сумма кредита
+        //Cashback
+        $("#cashback-from-143").trigger("keypress").val(function(i, val) {
+            return 0;
+        });
+        $("#cashback-to-143").trigger("keypress").val(function(i, val) {
+            return 0.01;
+        });
+
+
+
+
+
+
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
