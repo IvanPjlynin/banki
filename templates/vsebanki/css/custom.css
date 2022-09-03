@@ -841,6 +841,8 @@ div.mb-service-home {
     display: none;
 }
 
+.filter-label {}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {

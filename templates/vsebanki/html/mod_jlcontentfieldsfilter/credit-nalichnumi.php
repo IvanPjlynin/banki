@@ -41,7 +41,8 @@ if ($params->get('enable_css', 1)) {
         <?php if($v):?>
         <div class="jlmf-section">
 
-            <div class="col-md-4">
+            <div class="col-md-4 ">
+                <label class="filter-label">Сумма кредита, ₽</label>
                 <div class="range"><input type="text" id="credit-range-one" name="Сумма" value="" /></div>
 
                 <div class="jlmf-list-2 range-sliders">
