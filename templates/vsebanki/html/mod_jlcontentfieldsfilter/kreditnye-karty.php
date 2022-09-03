@@ -147,51 +147,38 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
 
-        $("#summa-zajma-ot-from-140").trigger("keypress").val(function(i, val) {
+        $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
             return 0;
         });
 
-        $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
-            return 5000;
+        $("#kreditnyj-limit-to-142").trigger("keypress").val(function(i, val) {
+            return 50000;
         });
 
-
-
-        $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
-            return 5000;
-        });
-
-        $("#summa-zajma-to-140").trigger("keypress").val(function(i, val) {
-            return 80000;
-        });
 
 
         $filter_range1.ionRangeSlider({
             type: "single",
             grid: false,
             min: 0,
-            from: 5000,
+            from: 50000,
             postfix: '',
             step: 1000,
             grid_snap: '',
             max: 3000000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+                $("#kreditnyj-limit-to-142").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
-                    return data.from;
-                });
+
             },
             onChange: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+                $("#kreditnyj-limit-to-142").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
-                    return data.from;
-                });
+
             }
         });
 
