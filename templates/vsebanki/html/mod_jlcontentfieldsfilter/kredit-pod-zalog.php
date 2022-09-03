@@ -294,7 +294,7 @@ if ($params->get('enable_css', 1)) {
             return 18;
         });
 
-        $("#vozrast-to-1137").trigger("keypress").val(function(i, val) {
+        $("#vozrast-to-137").trigger("keypress").val(function(i, val) {
             return 80;
         });
 
