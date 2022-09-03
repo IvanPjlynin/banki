@@ -841,6 +841,10 @@ div.mb-service-home {
     display: none;
 }
 
+.block-filter {
+    padding-right: 35px;
+}
+
 .filter-label {
     width: 100%;
     font-size: 18px;
