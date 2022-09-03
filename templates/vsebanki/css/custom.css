@@ -862,7 +862,7 @@ div.mb-service-home {
 .filter-dropdown-toggle {
     height: 40px;
     color: #002D4F;
-    margin-top: 60px;
+    margin-top: 90px;
     background: #FFFFFF;
     width: 100%;
     border: 1px solid #56C182;
@@ -870,7 +870,6 @@ div.mb-service-home {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 32px;
 }
 
 .filter-label {
