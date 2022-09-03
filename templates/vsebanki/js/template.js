@@ -476,9 +476,21 @@ jQuery(document).ready(function ($) {
         $("#summa-kredita-ot-from-109").trigger("keypress").val(function (i, val) {
             return 0;
         });
+
         $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
             return 500000;
         });
+
+
+
+        $("#summa-kredita-from-109").trigger("keypress").val(function (i, val) {
+            return 500000;
+        });
+
+        $("#summa-kredita-to-109").trigger("keypress").val(function (i, val) {
+            return 5000000;
+        });
+
 
         $filter_range1.ionRangeSlider({
             type: "single",
