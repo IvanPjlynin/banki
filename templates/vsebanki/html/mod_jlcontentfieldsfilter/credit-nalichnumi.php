@@ -66,6 +66,12 @@ if ($params->get('enable_css', 1)) {
 
                         <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
 
+
+
+                        <label class="jlmf-sublabel switch" for="stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev-1-109">Да <input type="checkbox" value="1" id="" class="jlmf-checkbox">
+                            <span class="slider round"></span>
+                        </label>
+
                     </div>
                 </div>
             </div>
