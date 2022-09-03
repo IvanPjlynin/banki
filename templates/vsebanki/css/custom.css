@@ -954,6 +954,10 @@ div.mb-service-home {
     margin-bottom: 40px;
 }
 
+button.filter-dropdown-toggle span {
+    color: #1cba16;
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
