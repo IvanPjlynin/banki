@@ -857,6 +857,7 @@ div.mb-service-home {
     line-height: 32px;
     text-align: center;
     color: #FFFFFF;
+    text-transform: inherit;
 }
 
 .filter-dropdown-toggle {
