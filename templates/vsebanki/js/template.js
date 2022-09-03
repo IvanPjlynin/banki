@@ -507,13 +507,13 @@ jQuery(document).ready(function ($) {
 
 
 
-    var $range2 = $("#credit #range-two0");
-    var $range3 = $("#credit-card #range-one0");
-    var $range4 = $("#loan #range-one0");
-    var $range5 = $("#loan #range-two0");
-    var $range6 = $("#deposit #range-one0");
-    var $range7 = $("#deposit #range-two0");
-    var $range8 = $("#credit #range-three0");
+    var $range2 = $("#credit #range-two");
+    var $range3 = $("#credit-card #range-one");
+    var $range4 = $("#loan #range-one");
+    var $range5 = $("#loan #range-two");
+    var $range6 = $("#deposit #range-one");
+    var $range7 = $("#deposit #range-two");
+    var $range8 = $("#credit #range-three");
 
     $range2.ionRangeSlider({
         type: "single",
