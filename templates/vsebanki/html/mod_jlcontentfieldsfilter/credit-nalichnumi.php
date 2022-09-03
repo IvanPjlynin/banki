@@ -267,9 +267,42 @@ if ($params->get('enable_css', 1)) {
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 80
+            max: 80,
+            onStart: updateInputs,
+            onChange: updateInputs,
+            onFinish: updateInputs
         });
 
+        instance_filter_vozrast = $filter_vozrast.data("ionRangeSlider");
+
+        function updateInputs(data) {
+            from = data.from;
+            to = data.to;
+
+            $input_filter_vozrastFrom.prop("value", from);
+            $input_filter_vozrastTo.prop("value", to);
+        }
+
+        $input_filter_vozrastFrom.on("change", function() {
+            var val = $(this).prop("value");
+
+            instance_filter_vozrast.update({
+                from: val
+            });
+
+            $(this).prop("value", val);
+
+        });
+
+        $input_filter_vozrastT.on("change", function() {
+            var val = $(this).prop("value");
+
+            instance_filter_vozrast.update({
+                to: val
+            });
+
+            $(this).prop("value", val);
+        });
 
 
 
