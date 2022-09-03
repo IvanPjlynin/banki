@@ -59,11 +59,11 @@ if ($params->get('enable_css', 1)) {
                     Фильтры поиска
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <div class="col-md-3 block-filter">
+                    <div class="col-md-12 block-filter">
                         <label class="filter-label">Возраст, от и до</label>
-                        <input type="text" class="filter-input" id="input-credit-range-one" value="500000" />
+                        <input type="text" class="filter-input" id="input-credit-vozrast" value="" />
 
-                        <div class="range"><input type="text" id="credit-range-one" value="" /></div>
+                        <div class="range"><input type="text" id="credit-credit-vozrast" value="" /></div>
 
                     </div>
                 </div>
