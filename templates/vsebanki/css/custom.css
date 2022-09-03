@@ -859,7 +859,19 @@ div.mb-service-home {
     color: #FFFFFF;
 }
 
-.filter-dropdown-toggle {}
+.filter-dropdown-toggle {
+    height: 40px;
+    color: #002D4F;
+    margin-top: 75px;
+    background: #FFFFFF;
+    width: 100%;
+    border: 1px solid #56C182;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+}
 
 .filter-label {
     padding-top: 20px;
