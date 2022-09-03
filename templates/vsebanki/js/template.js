@@ -490,6 +490,23 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    instance_filter_range1 = $filter_range1.data("ionRangeSlider");
+
+    $input_filter_range1.on("input", function () {
+        var val = $(this).prop("value");
+
+        // validate
+        if (val < min) {
+            val = min;
+        } else if (val > max) {
+            val = max;
+        }
+
+        instance_filter_range1.update({
+            from: val
+        });
+    });
+
 
 
     //$('.yrvote_box').appendTo($('.bank-info-row .rating'));
