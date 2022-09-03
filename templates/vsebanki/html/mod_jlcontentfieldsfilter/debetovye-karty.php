@@ -283,11 +283,11 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
         var instance_filter_vozrast;
 
-        $("#vozrast-from-142").trigger("keypress").val(function(i, val) {
+        $("#vozrast-from-143").trigger("keypress").val(function(i, val) {
             return 18;
         });
 
-        $("#vozrast-to-142").trigger("keypress").val(function(i, val) {
+        $("#vozrast-to-143").trigger("keypress").val(function(i, val) {
             return 80;
         });
 
@@ -318,11 +318,11 @@ if ($params->get('enable_css', 1)) {
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
 
-            $("#vozrast-from-142").trigger("keypress").val(function(i, val) {
+            $("#vozrast-from-143").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
-            $("#vozrast-to-142").trigger("keypress").val(function(i, val) {
+            $("#vozrast-to-143").trigger("keypress").val(function(i, val) {
                 return to;
             });
         }
