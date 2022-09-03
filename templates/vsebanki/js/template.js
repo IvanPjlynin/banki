@@ -473,6 +473,7 @@ jQuery(document).ready(function ($) {
     var instance_filter_range1;
 
     $("#summa-kredita-ot-from-109").val(0);
+    $("#summa-kredita-ot-to-109").val(500000);
 
     $filter_range1.ionRangeSlider({
         type: "single",
@@ -486,9 +487,11 @@ jQuery(document).ready(function ($) {
         max: 5000000,
         onStart: function (data) {
             $input_filter_range1.prop("value", data.from);
+            $("#summa-kredita-ot-to-109").val(data.from);
         },
         onChange: function (data) {
             $input_filter_range1.prop("value", data.from);
+            $("#summa-kredita-ot-to-109").val(data.from);
         }
     });
 
