@@ -496,11 +496,11 @@ jQuery(document).ready(function ($) {
         var val = $(this).prop("value");
 
         // validate
-        if (val < min) {
+        /*if (val < min) {
             val = min;
         } else if (val > max) {
             val = max;
-        }
+        }*/
 
         instance_filter_range1.update({
             from: val
