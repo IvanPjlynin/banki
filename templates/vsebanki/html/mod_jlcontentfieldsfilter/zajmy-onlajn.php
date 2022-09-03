@@ -152,29 +152,29 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
-            return 500000;
+            return 5000;
         });
 
 
 
         $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
-            return 500000;
+            return 5000;
         });
 
         $("#summa-zajma-to-140").trigger("keypress").val(function(i, val) {
-            return 50000000;
+            return 80000;
         });
 
 
         $filter_range1.ionRangeSlider({
             type: "single",
             grid: false,
-            min: 10000,
-            from: 500000,
+            min: 500,
+            from: 5000,
             postfix: '',
-            step: 10000,
+            step: 500,
             grid_snap: '',
-            max: 5000000,
+            max: 80000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", data.from);
                 $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
@@ -233,20 +233,20 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#srok-zajma-to-140").trigger("keypress").val(function(i, val) {
-            return 1000;
+            return 180;
         });
 
 
         $filter_range2.ionRangeSlider({
             type: "single",
             grid: false,
-            from: 24,
+            from: 30,
             postfix: '',
-            min: 1,
+            min: 5,
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 84,
+            max: 180,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
                 $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
