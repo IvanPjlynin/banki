@@ -474,7 +474,7 @@ jQuery(document).ready(function ($) {
     //$('.jlmf-button').text('Показать ('+articlesCount+')');
     //$("#jlcontentfieldsfilter-ordering-107").chosen({disable_search_threshold: 10});
     // Calc 
-    var $range1 = $("#credit #range-one");
+    var $range1 = $("#credit-range-one");
     $range1.ionRangeSlider({
         type: "single",
         grid: false,
