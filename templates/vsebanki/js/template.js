@@ -453,11 +453,15 @@ jQuery(document).ready(function ($) {
     $('.filter-fields > .jlmf-section .jlmf-list-1 div div label input[type="chekbox"]').on('click', function () {
         number++;
     });
-    $('.filter > .jlmf-section').eq(1).after('<div class="search-filters">Фильтры поиска<span class="number">' + number + '</span><span class="arrow"></span></div>');
+
+    //всплывающее окно в фильтре
+    /*$('.filter > .jlmf-section').eq(1).after('<div class="search-filters">Фильтры поиска<span class="number">' + number + '</span><span class="arrow"></span></div>');
     $('.search-filters').on('click', function () {
         $(this).toggleClass('active');
         $('.filter-fields').slideToggle('300');
-    });
+    });*/
+
+
     let field = $('.filter > .jlmf-section');
     field.slice(2, 7).wrapAll("<div class='filter-fields'></div>");
     $('.filter > .jlmf-section:nth-child(1), .filter > .jlmf-section:nth-child(2), .filter > .jlmf-section:last-child, .filter > .search-filters').addClass('col-md-3').wrapAll("<div class='row eq'></div>");
