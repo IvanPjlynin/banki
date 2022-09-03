@@ -134,7 +134,7 @@ if ($params->get('enable_css', 1)) {
 
         $filter_range1.ionRangeSlider({
             type: "single",
-            grid: false,
+            grid: true,
             min: 10000,
             from: 500000,
             postfix: '',
