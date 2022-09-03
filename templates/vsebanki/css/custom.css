@@ -921,6 +921,18 @@ div.mb-service-home {
     border-color: #D9DEE3 !important;
 }
 
+#input-credit-vozrast-ot {
+    width: 40%;
+    display: inline-block;
+}
+
+#input-credit-vozrast-do {
+    width: 40%;
+    display: inline-block;
+    float: right;
+    text-align: right;
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
