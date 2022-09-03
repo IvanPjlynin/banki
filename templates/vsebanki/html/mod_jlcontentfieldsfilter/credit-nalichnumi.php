@@ -37,11 +37,6 @@ if ($params->get('enable_css', 1)) {
 <form id="mod-finder-searchform-<?php echo $module->id; ?>" action="<?php echo $action; ?>" method="<?php echo $form_method; ?>" class="form-search">
     <div class="jlcontentfieldsfilter<?php echo $moduleclass_sfx; ?>">
 
-        <?php 
-        echo "<pre>";
-        print_r($fields);
-        echo "</pre>";
-        ?>
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
         <div class="jlmf-section">
