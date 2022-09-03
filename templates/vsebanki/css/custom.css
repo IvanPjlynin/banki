@@ -849,9 +849,15 @@ div.mb-service-home {
 }
 
 .filter-input {
+    width: 100%;
     font-size: 18px;
     font-weight: 600;
     display: block;
+    background: #FFFFFF;
+    /* Gray 2 */
+
+    border: 1px solid #D9DEE3;
+    border-radius: 4px;
 }
 
 /*Адаптация*/

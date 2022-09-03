@@ -47,8 +47,6 @@ if ($params->get('enable_css', 1)) {
 
                 <div class="range"><input type="text" id="credit-range-one" name="Сумма" value="" /></div>
 
-
-
             </div>
 
 
