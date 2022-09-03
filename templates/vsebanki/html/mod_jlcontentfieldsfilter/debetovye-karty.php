@@ -152,16 +152,16 @@ if ($params->get('enable_css', 1)) {
         });
 
         $('#carta-cashback').change(function() {
-            var val;
+            var value;
             if ($(this).val() == 1) {
-                val = 0.01;
+                value = 0.01;
                 $("#cashback-to-143").trigger("keypress").val(function(i, val) {
-                    return val;
+                    return value;
                 });
             } else {
-                val = 1000;
+                value = 1000;
                 $("#cashback-to-143").trigger("keypress").val(function(i, val) {
-                    return val;
+                    return value;
                 });
             }
         });
