@@ -47,7 +47,7 @@ if ($params->get('enable_css', 1)) {
 
         <div class="col-md-4 jlmf-section">
             <?php if (!$autho_send) : ?>
-            <button type="submit" class="jlmf-button"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
+            <button type="submit" class="jlmf-button filter-buttom"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
             <?php endif; ?>
             <!--<div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>-->
         </div>
