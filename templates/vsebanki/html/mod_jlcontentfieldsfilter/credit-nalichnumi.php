@@ -66,6 +66,7 @@ if ($params->get('enable_css', 1)) {
 
                         <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
                     </div>
+                    <br>
 
                     <hr>
 
