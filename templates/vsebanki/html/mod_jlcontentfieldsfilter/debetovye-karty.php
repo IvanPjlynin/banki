@@ -120,7 +120,7 @@ if ($params->get('enable_css', 1)) {
 
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
-        <div class="jlmf-section ">
+        <div class="jlmf-section visually-hidden">
             <?php echo $v; ?>
         </div>
         <?php endif;?>
@@ -192,114 +192,6 @@ if ($params->get('enable_css', 1)) {
 
 
 
-
-        var $filter_range1 = $("#credit-range-one");
-        var $input_filter_range1 = $("#input-credit-range-one");
-        var instance_filter_range1;
-
-        $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
-            return 0;
-        });
-
-        $("#kreditnyj-limit-to-142").trigger("keypress").val(function(i, val) {
-            return 3000000;
-        });
-
-
-
-        $filter_range1.ionRangeSlider({
-            type: "single",
-            grid: false,
-            min: 0,
-            from: 50000,
-            postfix: '',
-            step: 1000,
-            grid_snap: '',
-            max: 3000000,
-            onStart: function(data) {
-                $input_filter_range1.prop("value", data.from);
-                $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
-                    return data.from;
-                });
-
-            },
-            onChange: function(data) {
-                $input_filter_range1.prop("value", data.from);
-                $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
-                    return data.from;
-                });
-
-            }
-        });
-
-        instance_filter_range1 = $filter_range1.data("ionRangeSlider");
-
-        $input_filter_range1.on("input", function() {
-            var value = $(this).prop("value");
-
-            $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
-                return value;
-            });
-
-
-            instance_filter_range1.update({
-                from: value
-            });
-        });
-
-        //срок кредита
-
-        var $filter_range2 = $("#credit-range-two");
-        var $input_filter_range2 = $("#input-credit-range-two");
-        var instance_filter_range2;
-
-        $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
-            return 0;
-        });
-
-        $("#lgotnyj-period-to-142").trigger("keypress").val(function(i, val) {
-            return 180;
-        });
-
-
-
-        $filter_range2.ionRangeSlider({
-            type: "single",
-            grid: false,
-            from: 30,
-            postfix: '',
-            min: 5,
-            step: 1,
-            grid_num: 4,
-            grid_snap: '',
-            max: 180,
-            onStart: function(data) {
-                $input_filter_range2.prop("value", data.from);
-                $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
-                    return data.from;
-                });
-            },
-            onChange: function(data) {
-                $input_filter_range2.prop("value", data.from);
-                $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
-                    return data.from;
-                });
-            }
-        });
-
-        instance_filter_range2 = $filter_range2.data("ionRangeSlider");
-
-        $input_filter_range2.on("input", function() {
-            var value = $(this).prop("value");
-
-            $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
-                return value;
-            });
-
-            instance_filter_range2.update({
-                from: value
-            });
-        });
 
         //возраст
         var $filter_vozrast = $("#credit-filter-vozrast");
