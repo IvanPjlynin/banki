@@ -56,7 +56,7 @@ if ($params->get('enable_css', 1)) {
         <div class="col-md-3 block-filter">
 
 
-            <select name="jlcontentfieldsfilter[47]" id="kredit-pod-zalog-137" class="jlmf-select">
+            <select name="jlcontentfieldsfilter[47]" id="kredit-pod-zalog-137" class="jlmf-select filter-dropdown-toggle">
                 <option value="">Залог</option>
                 <option value="1">Недвижимости</option>
                 <option value="2">ПТС</option>
