@@ -492,13 +492,13 @@ jQuery(document).ready(function ($) {
         onStart: function (data) {
             $input_filter_range1.prop("value", data.from);
             $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
-                return 500000;
+                return data.from;
             });
         },
         onChange: function (data) {
             $input_filter_range1.prop("value", data.from);
             $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
-                return 500000;
+                return data.from;
             });
         }
     });
@@ -508,12 +508,9 @@ jQuery(document).ready(function ($) {
     $input_filter_range1.on("input", function () {
         var val = $(this).prop("value");
 
-        // validate
-        /*if (val < min) {
-            val = min;
-        } else if (val > max) {
-            val = max;
-        }*/
+        $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
+            return val;
+        });
 
         instance_filter_range1.update({
             from: val
