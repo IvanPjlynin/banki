@@ -469,6 +469,8 @@ jQuery(document).ready(function ($) {
     //фильтр
     //кредит наличными
     if ($(".filter-credit-nalichumi").length > 0) {
+
+        //сумма кредита
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
@@ -535,6 +537,78 @@ jQuery(document).ready(function ($) {
             });
 
             instance_filter_range1.update({
+                from: value
+            });
+        });
+
+        //срок кредита
+
+        var $filter_range2 = $("#credit-range-two");
+        var $input_filter_range2 = $("#input-credit-range-two");
+        var instance_filter_range2;
+
+        $("#summa-kredita-ot-from-109").trigger("keypress").val(function (i, val) {
+            return 0;
+        });
+
+        $("#summa-kredita-ot-to-109").trigger("keypress").val(function (i, val) {
+            return 500000;
+        });
+
+
+
+        $("#summa-kredita-from-1090").trigger("keypress").val(function (i, val) {
+            return 500000;
+        });
+
+        $("#summa-kredita-to-1090").trigger("keypress").val(function (i, val) {
+            return 5000000;
+        });
+
+
+        $filter_range2.ionRangeSlider({
+            type: "single",
+            grid: false,
+            from: 500000,
+            postfix: '',
+            min: 3,
+            step: 1,
+            grid_num: 4,
+            grid_snap: '',
+            max: 84,
+            onStart: function (data) {
+                $input_filter_range2.prop("value", data.from);
+                $("#summa-kredita-ot-to-1090").trigger("keypress").val(function (i, val) {
+                    return data.from;
+                });
+                $("#summa-kredita-from-1090").trigger("keypress").val(function (i, val) {
+                    return data.from;
+                });
+            },
+            onChange: function (data) {
+                $input_filter_range2.prop("value", data.from);
+                $("#summa-kredita-ot-to-1090").trigger("keypress").val(function (i, val) {
+                    return data.from;
+                });
+                $("#summa-kredita-from-1090").trigger("keypress").val(function (i, val) {
+                    return data.from;
+                });
+            }
+        });
+
+        instance_filter_range2 = $filter_range2.data("ionRangeSlider");
+
+        $input_filter_range2.on("input", function () {
+            var value = $(this).prop("value");
+
+            $("#summa-kredita-ot-to-1090").trigger("keypress").val(function (i, val) {
+                return value;
+            });
+            $("#summa-kredita-from-1090").trigger("keypress").val(function (i, val) {
+                return value;
+            });
+
+            instance_filter_range2.update({
                 from: value
             });
         });
