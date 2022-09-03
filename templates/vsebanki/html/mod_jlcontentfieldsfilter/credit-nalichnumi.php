@@ -41,7 +41,7 @@ if ($params->get('enable_css', 1)) {
         <?php if($v):?>
         <div class="jlmf-section">
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="jlmf-list-2 range-sliders">
                     <div id="credit" class="jlmf-range-block">
                         <div class="range-group one">
