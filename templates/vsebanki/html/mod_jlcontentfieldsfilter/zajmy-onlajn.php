@@ -147,21 +147,21 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
 
-        $("#summa-kredita-ot-from-140").trigger("keypress").val(function(i, val) {
+        $("#summa-zajma-ot-from-140").trigger("keypress").val(function(i, val) {
             return 0;
         });
 
-        $("#summa-kredita-ot-to-140").trigger("keypress").val(function(i, val) {
+        $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
             return 500000;
         });
 
 
 
-        $("#summa-kredita-from-140").trigger("keypress").val(function(i, val) {
+        $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
             return 500000;
         });
 
-        $("#summa-kredita-to-140").trigger("keypress").val(function(i, val) {
+        $("#summa-zajma-to-140").trigger("keypress").val(function(i, val) {
             return 50000000;
         });
 
@@ -177,19 +177,19 @@ if ($params->get('enable_css', 1)) {
             max: 5000000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-kredita-ot-to-140").trigger("keypress").val(function(i, val) {
+                $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-kredita-from-140").trigger("keypress").val(function(i, val) {
+                $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-kredita-ot-to-140").trigger("keypress").val(function(i, val) {
+                $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-kredita-from-140").trigger("keypress").val(function(i, val) {
+                $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -200,10 +200,10 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range1.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#summa-kredita-ot-to-140").trigger("keypress").val(function(i, val) {
+            $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
                 return value;
             });
-            $("#summa-kredita-from-140").trigger("keypress").val(function(i, val) {
+            $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
@@ -218,21 +218,21 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range2 = $("#input-credit-range-two");
         var instance_filter_range2;
 
-        $("#srok-ot-from-140").trigger("keypress").val(function(i, val) {
+        $("#srok-zajma-ot-from-140").trigger("keypress").val(function(i, val) {
             return 0;
         });
 
-        $("#srok-ot-to-140").trigger("keypress").val(function(i, val) {
+        $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
             return 24;
         });
 
 
 
-        $("#srok-from-140").trigger("keypress").val(function(i, val) {
+        $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
             return 24;
         });
 
-        $("#srok-to-140").trigger("keypress").val(function(i, val) {
+        $("#srok-zajma-to-140").trigger("keypress").val(function(i, val) {
             return 1000;
         });
 
@@ -249,19 +249,19 @@ if ($params->get('enable_css', 1)) {
             max: 84,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ot-to-140").trigger("keypress").val(function(i, val) {
+                $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#srok-from-140").trigger("keypress").val(function(i, val) {
+                $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ot-to-140").trigger("keypress").val(function(i, val) {
+                $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#srok-from-140").trigger("keypress").val(function(i, val) {
+                $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -272,10 +272,10 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-ot-to-140").trigger("keypress").val(function(i, val) {
+            $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
                 return value;
             });
-            $("#srok-from-140").trigger("keypress").val(function(i, val) {
+            $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
