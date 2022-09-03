@@ -873,9 +873,11 @@ div.mb-service-home {
     font-size: 16px;
 }
 
-.dropdown-menu.show {
+.form-search .dropdown-menu.show {
     display: block;
     box-shadow: 1px 6px 4px 2px #0000000f;
+    min-width: 370px;
+    padding: 0 20px 20px;
 }
 
 .filter-dropdown-toggle:hover {
