@@ -985,9 +985,7 @@ button.filter-dropdown-toggle span {
     margin-top: 30px;
 }
 
-.form-search {
-    margin-top: -60px;
-}
+
 
 /*Адаптация*/
 @media screen and (max-width: 768px) {
