@@ -977,6 +977,14 @@ button.filter-dropdown-toggle span {
     font-size: 16px;
 }
 
+.filter-debit-card .filter-dropdown-toggle {
+    margin-top: 60px;
+}
+
+.filter-debit-card #filter-buttom {
+    margin-top: 30px;
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
