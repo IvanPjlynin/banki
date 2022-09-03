@@ -147,21 +147,21 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
 
-        $("#summa-zajma-ot-from-140").trigger("keypress").val(function(i, val) {
+        $("#summa-zajma-ot-from-141").trigger("keypress").val(function(i, val) {
             return 0;
         });
 
-        $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+        $("#summa-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
             return 5000;
         });
 
 
 
-        $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
+        $("#summa-zajma-from-141").trigger("keypress").val(function(i, val) {
             return 5000;
         });
 
-        $("#summa-zajma-to-140").trigger("keypress").val(function(i, val) {
+        $("#summa-zajma-to-141").trigger("keypress").val(function(i, val) {
             return 80000;
         });
 
@@ -177,19 +177,19 @@ if ($params->get('enable_css', 1)) {
             max: 80000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+                $("#summa-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
+                $("#summa-zajma-from-141").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+                $("#summa-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
+                $("#summa-zajma-from-141").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -200,10 +200,10 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range1.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+            $("#summa-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
                 return value;
             });
-            $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
+            $("#summa-zajma-from-141").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
@@ -218,21 +218,21 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range2 = $("#input-credit-range-two");
         var instance_filter_range2;
 
-        $("#srok-zajma-ot-from-140").trigger("keypress").val(function(i, val) {
+        $("#srok-zajma-ot-from-141").trigger("keypress").val(function(i, val) {
             return 0;
         });
 
-        $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+        $("#srok-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
             return 24;
         });
 
 
 
-        $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
+        $("#srok-zajma-from-141").trigger("keypress").val(function(i, val) {
             return 24;
         });
 
-        $("#srok-zajma-to-140").trigger("keypress").val(function(i, val) {
+        $("#srok-zajma-to-141").trigger("keypress").val(function(i, val) {
             return 180;
         });
 
@@ -249,19 +249,19 @@ if ($params->get('enable_css', 1)) {
             max: 180,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+                $("#srok-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
+                $("#srok-zajma-from-141").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+                $("#srok-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
+                $("#srok-zajma-from-141").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -272,10 +272,10 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
+            $("#srok-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
                 return value;
             });
-            $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
+            $("#srok-zajma-from-141").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
@@ -290,11 +290,11 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
         var instance_filter_vozrast;
 
-        $("#vozrast-from-140").trigger("keypress").val(function(i, val) {
+        $("#vozrast-from-141").trigger("keypress").val(function(i, val) {
             return 18;
         });
 
-        $("#vozrast-to-140").trigger("keypress").val(function(i, val) {
+        $("#vozrast-to-141").trigger("keypress").val(function(i, val) {
             return 80;
         });
 
@@ -325,11 +325,11 @@ if ($params->get('enable_css', 1)) {
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
 
-            $("#vozrast-from-140").trigger("keypress").val(function(i, val) {
+            $("#vozrast-from-141").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
-            $("#vozrast-to-140").trigger("keypress").val(function(i, val) {
+            $("#vozrast-to-141").trigger("keypress").val(function(i, val) {
                 return to;
             });
         }
