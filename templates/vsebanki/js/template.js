@@ -472,7 +472,7 @@ jQuery(document).ready(function ($) {
     var $input_filter_range1 = $("#input-credit-range-one");
     var instance_filter_range1;
 
-    $frange1.ionRangeSlider({
+    $filter_range1.ionRangeSlider({
         type: "single",
         grid: false,
         from: 250000,
