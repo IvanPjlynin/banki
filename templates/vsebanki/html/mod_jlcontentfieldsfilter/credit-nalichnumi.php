@@ -48,27 +48,27 @@ if ($params->get('enable_css', 1)) {
                 <div class="range"><input type="text" id="credit-range-one" name="Сумма" value="" /></div>
 
 
+
             </div>
+
+
+            <?php echo $v; ?>
         </div>
+        <?php endif;?>
+        <?php endforeach; ?>
 
-
-        <?php echo $v; ?>
-    </div>
-    <?php endif;?>
-    <?php endforeach; ?>
-
-    <?php if($enableOrdering) : ?>
-    <div class="jlmf-section">
-        <?php echo $orderingSelect; ?>
-    </div>
-    <?php endif; ?>
-
-    <div class="jlmf-section">
-        <?php if (!$autho_send) : ?>
-        <button type="submit" class="jlmf-button"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
+        <?php if($enableOrdering) : ?>
+        <div class="jlmf-section">
+            <?php echo $orderingSelect; ?>
+        </div>
         <?php endif; ?>
-        <div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>
-    </div>
+
+        <div class="jlmf-section">
+            <?php if (!$autho_send) : ?>
+            <button type="submit" class="jlmf-button"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
+            <?php endif; ?>
+            <div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>
+        </div>
 
     </div>
     <?php if($option == 'com_tags'){ ?>
