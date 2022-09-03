@@ -490,7 +490,7 @@ jQuery(document).ready(function ($) {
         });
 
         $("#summa-kredita-to-109").trigger("keypress").val(function (i, val) {
-            return 5000000;
+            return 50000000;
         });
 
 
@@ -562,7 +562,7 @@ jQuery(document).ready(function ($) {
         });
 
         $("#srok-to-109").trigger("keypress").val(function (i, val) {
-            return 84;
+            return 1000;
         });
 
 
