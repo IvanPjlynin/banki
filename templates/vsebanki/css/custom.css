@@ -933,6 +933,16 @@ div.mb-service-home {
     text-align: right;
 }
 
+.filter-dropdown-toggle h4 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #002D4F;
+    width: 70%;
+    display: inline-block;
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
