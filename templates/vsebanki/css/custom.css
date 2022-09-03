@@ -947,7 +947,7 @@ div.mb-service-home {
     margin-top: 30px;
 }
 
-.dropdown-menu switch {
+.dropdown-menu .switch {
     display: inline-block;
     float: right;
     top: 15px;
