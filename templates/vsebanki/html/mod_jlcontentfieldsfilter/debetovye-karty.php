@@ -39,7 +39,7 @@ if ($params->get('enable_css', 1)) {
 
         <div class="col-md-3 block-filter">
             <label class="filter-label">Cashback</label>
-            <select name="" id="carta-cashback" class="jlmf-select filter-dropdown-toggle">
+            <select name="" id="carta-cashback" class="jlmf-select filter-select">
                 <option value="1">Нет</option>
                 <option value="2">Да</option>
             </select>

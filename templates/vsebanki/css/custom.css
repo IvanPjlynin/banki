@@ -963,6 +963,20 @@ button.filter-dropdown-toggle span {
     margin-top: 25px;
 }
 
+.filter-select {
+    text-align: left;
+    height: 40px;
+    color: #002D4F;
+    margin-top: 10px;
+    background: #FFFFFF;
+    width: 100%;
+    border: 1px solid #56C182;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
