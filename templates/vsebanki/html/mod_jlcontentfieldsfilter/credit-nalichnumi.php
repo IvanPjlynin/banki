@@ -66,6 +66,9 @@ if ($params->get('enable_css', 1)) {
 
                         <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
                     </div>
+
+                    <hr>
+
                     <div class="col-md-12 block-filter">
                         <h4>Стаж на последнем месте работы более 3-х месяцев</h4>
                         <label class="jlmf-sublabel switch" for="stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev-109">Да <input type="checkbox" value="1" id="stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev-109" name="jlcontentfieldsfilter[6]" class="jlmf-checkbox">

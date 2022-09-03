@@ -943,6 +943,12 @@ div.mb-service-home {
     display: inline-block;
 }
 
+.dropdown-menu switch {
+    display: inline-block;
+    float: right;
+    top: 15px;
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
