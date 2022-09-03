@@ -42,6 +42,8 @@ if ($params->get('enable_css', 1)) {
         <div class="jlmf-section">
 
             <div class="col-md-4">
+                <div class="range"><input type="text" id="range-one" name="Сумма" value="" /></div>
+
                 <div class="jlmf-list-2 range-sliders">
                     <div id="credit" class="jlmf-range-block">
                         <div class="range-group one">
@@ -55,7 +57,7 @@ if ($params->get('enable_css', 1)) {
                                 </li>
                             </ul>
                             <div class="range-control">
-                                <div class="range"><input type="text" id="range-one" name="Сумма" value="" /></div>
+
                             </div>
                         </div>
                     </div>
