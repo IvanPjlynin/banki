@@ -256,6 +256,15 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
         var instance_filter_vozrast;
 
+        $("#vozrast-from-109").trigger("keypress").val(function(i, val) {
+            return 25;
+        });
+
+        $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
+            return 60;
+        });
+
+
         $filter_vozrast.ionRangeSlider({
             skin: "round",
             type: "double",
@@ -281,6 +290,14 @@ if ($params->get('enable_css', 1)) {
 
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
+
+            $("#vozrast-from-109").trigger("keypress").val(function(i, val) {
+                return from;
+            });
+
+            $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
+                return to;
+            });
         }
 
         $input_filter_vozrastFrom.on("change", function() {
