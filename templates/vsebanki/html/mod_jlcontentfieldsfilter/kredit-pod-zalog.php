@@ -157,11 +157,11 @@ if ($params->get('enable_css', 1)) {
 
 
 
-        $("#summa-kredita-from-109").trigger("keypress").val(function(i, val) {
+        $("#summa-kredita-from-137").trigger("keypress").val(function(i, val) {
             return 500000;
         });
 
-        $("#summa-kredita-to-109").trigger("keypress").val(function(i, val) {
+        $("#summa-kredita-to-137").trigger("keypress").val(function(i, val) {
             return 50000000;
         });
 
@@ -180,7 +180,7 @@ if ($params->get('enable_css', 1)) {
                 $("#summa-kredita-ot-to-137").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-kredita-from-109").trigger("keypress").val(function(i, val) {
+                $("#summa-kredita-from-137").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
@@ -189,7 +189,7 @@ if ($params->get('enable_css', 1)) {
                 $("#summa-kredita-ot-to-137").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-kredita-from-109").trigger("keypress").val(function(i, val) {
+                $("#summa-kredita-from-137").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -203,7 +203,7 @@ if ($params->get('enable_css', 1)) {
             $("#summa-kredita-ot-to-137").trigger("keypress").val(function(i, val) {
                 return value;
             });
-            $("#summa-kredita-from-109").trigger("keypress").val(function(i, val) {
+            $("#summa-kredita-from-137").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
