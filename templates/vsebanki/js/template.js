@@ -466,6 +466,20 @@ jQuery(document).ready(function ($) {
     field.slice(2, 7).wrapAll("<div class='filter-fields'></div>");
     $('.filter > .jlmf-section:nth-child(1), .filter > .jlmf-section:nth-child(2), .filter > .jlmf-section:last-child, .filter > .search-filters').addClass('col-md-3').wrapAll("<div class='row eq'></div>");*/
 
+    //фильтр
+    //кредиты
+    var $frange1 = $("#credit-range-one");
+    $frange1.ionRangeSlider({
+        type: "single",
+        grid: false,
+        from: 250000,
+        postfix: '',
+        min: 10000,
+        step: 10000,
+        grid_num: 4,
+        grid_snap: '',
+        max: 5000000
+    });
 
 
 
@@ -474,7 +488,7 @@ jQuery(document).ready(function ($) {
     //$('.jlmf-button').text('Показать ('+articlesCount+')');
     //$("#jlcontentfieldsfilter-ordering-107").chosen({disable_search_threshold: 10});
     // Calc 
-    var $range1 = $("#credit-range-one");
+    var $range1 = $("#range-one");
     $range1.ionRangeSlider({
         type: "single",
         grid: false,
@@ -500,17 +514,7 @@ jQuery(document).ready(function ($) {
     var $range6 = $("#deposit #range-one0");
     var $range7 = $("#deposit #range-two0");
     var $range8 = $("#credit #range-three0");
-    $range1.ionRangeSlider({
-        type: "single",
-        grid: false,
-        from: 250000,
-        postfix: '',
-        min: 10000,
-        step: 10000,
-        grid_num: 4,
-        grid_snap: '',
-        max: 5000000
-    });
+
     $range2.ionRangeSlider({
         type: "single",
         grid: false,
