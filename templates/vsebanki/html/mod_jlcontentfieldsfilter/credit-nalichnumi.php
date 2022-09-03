@@ -60,7 +60,7 @@ if ($params->get('enable_css', 1)) {
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-3 block-filter">
-                        <label class="filter-label">Сумма кредита, ₽</label>
+                        <label class="filter-label">Возраст, от и до</label>
                         <input type="text" class="filter-input" id="input-credit-range-one" value="500000" />
 
                         <div class="range"><input type="text" id="credit-range-one" value="" /></div>
