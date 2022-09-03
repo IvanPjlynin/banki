@@ -263,11 +263,11 @@ if ($params->get('enable_css', 1)) {
         var instance_filter_vozrast;
 
         $("#vozrast-from-109").trigger("keypress").val(function(i, val) {
-            return 25;
+            return 18;
         });
 
         $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
-            return 60;
+            return 80;
         });
 
 
@@ -275,8 +275,8 @@ if ($params->get('enable_css', 1)) {
             skin: "round",
             type: "double",
             grid: false,
-            from: 25,
-            to: 60,
+            from: 18,
+            to: 80,
             postfix: '',
             min: 18,
             step: 1,
