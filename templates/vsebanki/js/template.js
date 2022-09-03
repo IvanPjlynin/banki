@@ -475,7 +475,7 @@ jQuery(document).ready(function ($) {
     $filter_range1.ionRangeSlider({
         type: "single",
         grid: false,
-        from: 250000,
+        from: 500000,
         postfix: '',
         min: 10000,
         step: 10000,

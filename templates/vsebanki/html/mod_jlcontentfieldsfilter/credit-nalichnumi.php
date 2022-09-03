@@ -43,7 +43,7 @@ if ($params->get('enable_css', 1)) {
 
             <div class="col-md-4 ">
                 <label class="filter-label">Сумма кредита, ₽</label>
-                <input type="text" class="filter-input" id="input-credit-range-one" value="" />
+                <input type="text" class="filter-input" id="input-credit-range-one" value="500000" />
 
                 <div class="range"><input type="text" id="credit-range-one" value="" /></div>
 
