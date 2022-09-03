@@ -468,7 +468,10 @@ jQuery(document).ready(function ($) {
 
     //фильтр
     //кредиты
-    var $frange1 = $("#credit-range-one");
+    var $filter_range1 = $("#credit-range-one");
+    var $input_filter_range1 = $("#input-credit-range-one");
+    var instance_filter_range1;
+
     $frange1.ionRangeSlider({
         type: "single",
         grid: false,
@@ -478,7 +481,13 @@ jQuery(document).ready(function ($) {
         step: 10000,
         grid_num: 4,
         grid_snap: '',
-        max: 5000000
+        max: 5000000,
+        onStart: function (data) {
+            $input_filter_range1.prop("value", data.from);
+        },
+        onChange: function (data) {
+            $input_filter_range1.prop("value", data.from);
+        }
     });
 
 
