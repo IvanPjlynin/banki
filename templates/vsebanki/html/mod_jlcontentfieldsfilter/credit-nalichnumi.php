@@ -84,6 +84,17 @@ if ($params->get('enable_css', 1)) {
                             <span class="slider round"></span>
                         </label>
                     </div>
+
+                    <hr>
+
+                    <div class="col-md-12 block-filter">
+                        <h4>Общий трудовой стаж более одного года</h4>
+                        <label class="jlmf-sublabel switch" for="obshchij-trudovoj-stazh-bolee-odnogo-goda-109">Да <input type="checkbox" value="1" id="obshchij-trudovoj-stazh-bolee-odnogo-goda-109" name="jlcontentfieldsfilter[7]" class="jlmf-checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+
                 </div>
             </div>
         </div>
