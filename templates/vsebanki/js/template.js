@@ -468,6 +468,10 @@ jQuery(document).ready(function ($) {
 
     //фильтр
     //кредит наличными
+
+    const dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+    const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl));
+
     if ($(".filter-credit-nalichumi").length > 0) {
 
         //сумма кредита
