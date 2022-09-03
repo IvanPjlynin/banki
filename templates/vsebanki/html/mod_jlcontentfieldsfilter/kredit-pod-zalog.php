@@ -218,21 +218,21 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range2 = $("#input-credit-range-two");
         var instance_filter_range2;
 
-        $("#srok-ot-from-109").trigger("keypress").val(function(i, val) {
+        $("#srok-ot-from-137").trigger("keypress").val(function(i, val) {
             return 0;
         });
 
-        $("#srok-ot-to-109").trigger("keypress").val(function(i, val) {
+        $("#srok-ot-to-137").trigger("keypress").val(function(i, val) {
             return 24;
         });
 
 
 
-        $("#srok-from-109").trigger("keypress").val(function(i, val) {
+        $("#srok-from-137").trigger("keypress").val(function(i, val) {
             return 24;
         });
 
-        $("#srok-to-109").trigger("keypress").val(function(i, val) {
+        $("#srok-to-137").trigger("keypress").val(function(i, val) {
             return 1000;
         });
 
@@ -249,19 +249,19 @@ if ($params->get('enable_css', 1)) {
             max: 84,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ot-to-109").trigger("keypress").val(function(i, val) {
+                $("#srok-ot-to-137").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#srok-from-109").trigger("keypress").val(function(i, val) {
+                $("#srok-from-137").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ot-to-109").trigger("keypress").val(function(i, val) {
+                $("#srok-ot-to-137").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#srok-from-109").trigger("keypress").val(function(i, val) {
+                $("#srok-from-137").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -272,10 +272,10 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-ot-to-109").trigger("keypress").val(function(i, val) {
+            $("#srok-ot-to-137").trigger("keypress").val(function(i, val) {
                 return value;
             });
-            $("#srok-from-109").trigger("keypress").val(function(i, val) {
+            $("#srok-from-137").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
@@ -290,11 +290,11 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
         var instance_filter_vozrast;
 
-        $("#vozrast-from-109").trigger("keypress").val(function(i, val) {
+        $("#vozrast-from-137").trigger("keypress").val(function(i, val) {
             return 18;
         });
 
-        $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
+        $("#vozrast-to-1137").trigger("keypress").val(function(i, val) {
             return 80;
         });
 
@@ -325,11 +325,11 @@ if ($params->get('enable_css', 1)) {
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
 
-            $("#vozrast-from-109").trigger("keypress").val(function(i, val) {
+            $("#vozrast-from-137").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
-            $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
+            $("#vozrast-to-137").trigger("keypress").val(function(i, val) {
                 return to;
             });
         }
