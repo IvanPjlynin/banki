@@ -54,6 +54,14 @@ if ($params->get('enable_css', 1)) {
         </div>
 
         <div class="col-md-3 block-filter">
+
+            <select name="jlcontentfieldsfilter[47]" id="kredit-pod-zalog-137" class="jlmf-select filter-dropdown-toggle">
+                <option value="">Залог</option>
+                <option value="1">Недвижимости</option>
+                <option value="2">ПТС</option>
+                <option value="3">Автомобиля</option>
+            </select>
+
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                     Фильтры поиска <span>(0)</span>
