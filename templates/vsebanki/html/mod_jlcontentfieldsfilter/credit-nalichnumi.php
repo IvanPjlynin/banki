@@ -7,7 +7,6 @@
  * @copyright	(C) 2017-2019 Arkadiy Sedelnikov, Joomline. All rights reserved.
  * @license 	GNU General Public License version 2 or later; see	LICENSE.txt
  */
-die();
 
 defined('_JEXEC') or die;
 $doc = JFactory::getDocument();
