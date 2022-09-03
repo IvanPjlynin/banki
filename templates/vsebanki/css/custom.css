@@ -950,6 +950,10 @@ div.mb-service-home {
     top: 15px;
 }
 
+.jlcontentfieldsfilter {
+    margin-bottom: 40px;
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
