@@ -80,15 +80,6 @@ if ($params->get('enable_css', 1)) {
                     <hr>
 
                     <div class="col-md-12 block-filter">
-                        <h4>Стаж на последнем месте работы более 3-х месяцев</h4>
-                        <label class="jlmf-sublabel switch" for="stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev-109">Да <input type="checkbox" value="1" id="stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev-109" name="jlcontentfieldsfilter[6]" class="jlmf-checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-
-                    <hr>
-
-                    <div class="col-md-12 block-filter">
                         <h4>Общий трудовой стаж более одного года</h4>
                         <label class="jlmf-sublabel switch" for="obshchij-trudovoj-stazh-bolee-odnogo-goda-109">Да <input type="checkbox" value="1" id="obshchij-trudovoj-stazh-bolee-odnogo-goda-109" name="jlcontentfieldsfilter[7]" class="jlmf-checkbox">
                             <span class="slider round"></span>
@@ -98,8 +89,8 @@ if ($params->get('enable_css', 1)) {
                     <hr>
 
                     <div class="col-md-12 block-filter">
-                        <h4>Смогу подтвердить доход справкой 2-НДФЛП или справкой по форме банка?</h4>
-                        <label class="jlmf-sublabel switch" for="podtverzhdenie-dokhoda-109">Да <input type="checkbox" value="1" id="podtverzhdenie-dokhoda-109" name="jlcontentfieldsfilter[41]" class="jlmf-checkbox">
+                        <h4>Выдача иностранным <br> гражданам</h4>
+                        <label class="jlmf-sublabel switch" for="podtverzhdenie-dokhoda-109">Да <input type="checkbox" value="1" id="podtverzhdenie-dokhoda-109" name="jlcontentfieldsfilter[94]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
