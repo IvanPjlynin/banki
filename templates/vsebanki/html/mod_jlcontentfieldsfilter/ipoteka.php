@@ -118,7 +118,7 @@ if ($params->get('enable_css', 1)) {
 
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
-        <div class="jlmf-section  ">
+        <div class="jlmf-section visually-hidden ">
             <?php echo $v; ?>
         </div>
         <?php endif;?>
@@ -239,13 +239,13 @@ if ($params->get('enable_css', 1)) {
             max: 360,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ipoteka-to-145").trigger("keypress").val(function(i, val) {
+                $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ipoteka-to-145").trigger("keypress").val(function(i, val) {
+                $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -256,7 +256,7 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-ipoteka-to-145").trigger("keypress").val(function(i, val) {
+            $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
