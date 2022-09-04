@@ -147,22 +147,22 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
 
-        $("#summa-kredita-ot-from-109").trigger("keypress").val(function(i, val) {
+        $("#summa-ot-from-145").trigger("keypress").val(function(i, val) {
             return 0;
         });
 
-        $("#summa-kredita-ot-to-109").trigger("keypress").val(function(i, val) {
-            return 500000;
+        $("#summa-ot-to-145").trigger("keypress").val(function(i, val) {
+            return 2000000;
         });
 
 
 
-        $("#summa-kredita-from-109").trigger("keypress").val(function(i, val) {
-            return 500000;
+        $("#summa-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+            return 2000000;
         });
 
-        $("#summa-kredita-to-109").trigger("keypress").val(function(i, val) {
-            return 50000000;
+        $("#summa-ipoteka-to-145").trigger("keypress").val(function(i, val) {
+            return 60000000;
         });
 
 
@@ -177,19 +177,19 @@ if ($params->get('enable_css', 1)) {
             max: 60000000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-kredita-ot-to-109").trigger("keypress").val(function(i, val) {
+                $("#summa-ot-to-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-kredita-from-109").trigger("keypress").val(function(i, val) {
+                $("#summa-ipoteka-from-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-kredita-ot-to-109").trigger("keypress").val(function(i, val) {
+                $("#summa-ot-to-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-kredita-from-109").trigger("keypress").val(function(i, val) {
+                $("#summa-ipoteka-from-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -200,10 +200,10 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range1.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#summa-kredita-ot-to-109").trigger("keypress").val(function(i, val) {
+            $("#summa-ot-to-145").trigger("keypress").val(function(i, val) {
                 return value;
             });
-            $("#summa-kredita-from-109").trigger("keypress").val(function(i, val) {
+            $("#summa-ipoteka-from-145").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
