@@ -218,22 +218,12 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range2 = $("#input-credit-range-two");
         var instance_filter_range2;
 
-        $("#srok-ot-from-109").trigger("keypress").val(function(i, val) {
-            return 0;
+        $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+            return 12;
         });
 
-        $("#srok-ot-to-109").trigger("keypress").val(function(i, val) {
-            return 24;
-        });
-
-
-
-        $("#srok-from-109").trigger("keypress").val(function(i, val) {
-            return 24;
-        });
-
-        $("#srok-to-109").trigger("keypress").val(function(i, val) {
-            return 1000;
+        $("#srok-ipoteka-to-145").trigger("keypress").val(function(i, val) {
+            return 360;
         });
 
 
@@ -246,22 +236,16 @@ if ($params->get('enable_css', 1)) {
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 160,
+            max: 360,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ot-to-109").trigger("keypress").val(function(i, val) {
-                    return data.from;
-                });
-                $("#srok-from-109").trigger("keypress").val(function(i, val) {
+                $("#srok-ipoteka-to-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ot-to-109").trigger("keypress").val(function(i, val) {
-                    return data.from;
-                });
-                $("#srok-from-109").trigger("keypress").val(function(i, val) {
+                $("#srok-ipoteka-to-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -272,10 +256,7 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-ot-to-109").trigger("keypress").val(function(i, val) {
-                return value;
-            });
-            $("#srok-from-109").trigger("keypress").val(function(i, val) {
+            $("#srok-ipoteka-to-145").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
