@@ -138,21 +138,21 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
 
-        $("#summa-ot-from-145").trigger("keypress").val(function(i, val) {
+        $("#summa-ot-from-146").trigger("keypress").val(function(i, val) {
             return 0;
         });
 
-        $("#summa-ot-to-145").trigger("keypress").val(function(i, val) {
+        $("#summa-ot-to-146").trigger("keypress").val(function(i, val) {
             return 2000000;
         });
 
 
 
-        $("#summa-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+        $("#summa-ipoteka-from-146").trigger("keypress").val(function(i, val) {
             return 2000000;
         });
 
-        $("#summa-ipoteka-to-145").trigger("keypress").val(function(i, val) {
+        $("#summa-ipoteka-to-146").trigger("keypress").val(function(i, val) {
             return 60000000;
         });
 
@@ -168,19 +168,19 @@ if ($params->get('enable_css', 1)) {
             max: 60000000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-ot-to-145").trigger("keypress").val(function(i, val) {
+                $("#summa-ot-to-146").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+                $("#summa-ipoteka-from-146").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range1.prop("value", data.from);
-                $("#summa-ot-to-145").trigger("keypress").val(function(i, val) {
+                $("#summa-ot-to-146").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
-                $("#summa-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+                $("#summa-ipoteka-from-146").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -191,10 +191,10 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range1.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#summa-ot-to-145").trigger("keypress").val(function(i, val) {
+            $("#summa-ot-to-146").trigger("keypress").val(function(i, val) {
                 return value;
             });
-            $("#summa-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+            $("#summa-ipoteka-from-146").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
@@ -209,11 +209,11 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range2 = $("#input-credit-range-two");
         var instance_filter_range2;
 
-        $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+        $("#srok-ipoteka-from-146").trigger("keypress").val(function(i, val) {
             return 12;
         });
 
-        $("#srok-ipoteka-to-145").trigger("keypress").val(function(i, val) {
+        $("#srok-ipoteka-to-146").trigger("keypress").val(function(i, val) {
             return 360;
         });
 
@@ -230,13 +230,13 @@ if ($params->get('enable_css', 1)) {
             max: 360,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+                $("#srok-ipoteka-from-146").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+                $("#srok-ipoteka-from-146").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -247,7 +247,7 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+            $("#srok-ipoteka-from-146").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
@@ -262,19 +262,19 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
         var instance_filter_vozrast;
 
-        $("#vozrast-ot-from-145").trigger("keypress").val(function(i, val) {
+        $("#vozrast-ot-from-146").trigger("keypress").val(function(i, val) {
             return 18;
         });
 
-        $("#vozrast-ot-to-145").trigger("keypress").val(function(i, val) {
+        $("#vozrast-ot-to-146").trigger("keypress").val(function(i, val) {
             return 80;
         });
 
-        $("#vozrast-do-from-145").trigger("keypress").val(function(i, val) {
+        $("#vozrast-do-from-146").trigger("keypress").val(function(i, val) {
             return 18;
         });
 
-        $("#vozrast-do-to-145").trigger("keypress").val(function(i, val) {
+        $("#vozrast-do-to-146").trigger("keypress").val(function(i, val) {
             return 80;
         });
 
@@ -305,11 +305,11 @@ if ($params->get('enable_css', 1)) {
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
 
-            $("#vozrast-ot-from-145").trigger("keypress").val(function(i, val) {
+            $("#vozrast-ot-from-146").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
-            $("#vozrast-do-to-145").trigger("keypress").val(function(i, val) {
+            $("#vozrast-do-to-146").trigger("keypress").val(function(i, val) {
                 return to;
             });
         }
