@@ -53,11 +53,11 @@ $attribs['style'] = 'none';
     <div class="page-header">
         <h1><?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> - <?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h1>
         <h3><?php echo JText::_('GET_CREDIT_IN'); ?> <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?></h3>
-        
+
         <?php if ($this->item->extrafields['kredit-pod-zalog']->value) : ?>
-        <h3>Под залог - <?php echo $this->item->extrafields['kredit-pod-zalog']->value; ?></h3>   
+        <h3>Под залог - <?php echo $this->item->extrafields['kredit-pod-zalog']->value; ?></h3>
         <?php endif; ?>
-        
+
     </div>
     <?php endif;
 	if (!empty($this->item->pagination) && !$this->item->paginationposition && $this->item->paginationrelative)
@@ -176,26 +176,26 @@ $attribs['style'] = 'none';
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка без страховки</h3>
                                 <p class="tab-text-block-content">
-                                    
-                                <?php if (!$this->item->extrafields['stavka-bez-strahov-do']->value) : ?>
-                                  от 
-                                <?php endif; ?>                                                 
-                                                            
-                                <?php echo $this->item->extrafields['stavka-bez-strahov-ot']->value; ?>%
-                                
-                                <?php if ($this->item->extrafields['stavka-bez-strahov-do']->value) : ?>
-                                  - <?php echo $this->item->extrafields['stavka-bez-strahov-do']->value; ?>%</p>
+
+                                    <?php if (!$this->item->extrafields['stavka-bez-strahov-do']->value) : ?>
+                                    от
+                                    <?php endif; ?>
+
+                                    <?php echo $this->item->extrafields['stavka-bez-strahov-ot']->value; ?>%
+
+                                    <?php if ($this->item->extrafields['stavka-bez-strahov-do']->value) : ?>
+                                    - <?php echo $this->item->extrafields['stavka-bez-strahov-do']->value; ?>%</p>
                                 <?php endif; ?>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['stavka']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка cо страховкой</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka']->value; ?>% - <?php echo $this->item->extrafields['stavka-do']->value; ?>%</p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['srok-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок</h3>
@@ -214,7 +214,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">от <?php echo $this->item->extrafields['vozrast']->value; ?> лет(года)</p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
                                 <h3 class="tab-text-block-title">Возраст для погашения</h3>
@@ -236,12 +236,14 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
+                            <?php if ($this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
                                 <h3 class="tab-text-block-title">Стаж на последнем месте работы</h3>
                                 <p class="tab-text-block-content">
                                     <?php echo $this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value; ?>
                                 </p>
                             </div>
+                            <?php endif; ?>
 
                             <?php if ($this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
@@ -262,14 +264,14 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                           
-                           <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
+
+                            <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Подтверждение дохода</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['podtverzhdenie-dokhoda']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['sposob-polucheniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Способ получения</h3>
@@ -281,14 +283,14 @@ $attribs['style'] = 'none';
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Рассмотрение</h3>
                                 <p class="tab-text-block-content">
-                                
-                                <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
-                                от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин. 
-                                <?php endif; ?>
-                                
-                                <?php if ($this->item->extrafields['rassmotrenie-do-dn']->value) : ?>                                
-                                до <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн.
-                                <?php endif; ?>
+
+                                    <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
+                                    от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин.
+                                    <?php endif; ?>
+
+                                    <?php if ($this->item->extrafields['rassmotrenie-do-dn']->value) : ?>
+                                    до <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн.
+                                    <?php endif; ?>
                                 </p>
                             </div>
                             <?php endif; ?>
