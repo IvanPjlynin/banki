@@ -993,6 +993,12 @@ button.filter-dropdown-toggle span {
     height: auto;
 }
 
+.blog .blog-items .blog-item .item-content .bank-logo .item-image a img {
+    max-width: 185px;
+    height: auto;
+    width: 100%;
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
