@@ -193,13 +193,13 @@ $attribs['style'] = 'none';
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка cо страховкой</h3>
                                 <p class="tab-text-block-content">
-                                    <?php if ($this->item->extrafields['stavka-do']->value == 'нет') : ?>
+                                    <?php if ($this->item->extrafields['stavka-do']->value == 100) : ?>
                                     от
                                     <?php endif; ?>
 
                                     <?php echo $this->item->extrafields['stavka']->value; ?>%
 
-                                    <?php if ($this->item->extrafields['stavka-do']->value != 'нет') : ?>
+                                    <?php if ($this->item->extrafields['stavka-do']->value != 100) : ?>
                                     - <?php echo $this->item->extrafields['stavka-do']->value; ?>%
                                     <?php endif; ?>
                                 </p>
