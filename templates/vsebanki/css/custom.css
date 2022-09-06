@@ -988,7 +988,10 @@ button.filter-dropdown-toggle span {
     width: 100%;
     height: auto;
 }
-
+.com-content-article__body div.bank-logo figure {
+    width: 60%;
+    height: auto;
+}
 
 /*Адаптация*/
 @media screen and (max-width: 768px) {
