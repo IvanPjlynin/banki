@@ -224,7 +224,7 @@ $attribs['style'] = 'none';
 
                             <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Зарплата</h3>
+                                <h3 class="tab-text-block-title">Ваш совокупный доход</h3>
                                 <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
                             <?php endif; ?>
