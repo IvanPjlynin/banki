@@ -196,7 +196,7 @@ $attribs['style'] = 'none';
 
                                     <?php if ($this->item->extrafields['stavka-do']->value == 'нет') : ?>
 
-                                    <?php elseif; ?>
+                                    <?php else; ?>
                                     - <?php echo $this->item->extrafields['stavka-do']->value; ?>%</p>
                                 <?php endif; ?>
                             </div>
