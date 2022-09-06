@@ -576,6 +576,11 @@ document.addEventListener('DOMContentLoaded', function(){
                             str += '<span class="submission-data-label">'+item.title+'</span>'
                             str += '<div class="submission-data-message">'+div.innerHTML+'</div>';
                             str += '</div>';
+                        } else if (item.type == 'signature') {
+                            str += '<div class="submission-data-row">';
+                            str += '<span class="submission-data-label">'+item.title+'</span>'
+                            str += '<div class="submission-data-message"><img src="'+JUri+item.message+'" class="ba-signature-img"></div>';
+                            str += '</div>';
                         } else if (item.message) {
                             let message = item.message.replace(/;/g, '');
                             str += '<div class="submission-data-row">';

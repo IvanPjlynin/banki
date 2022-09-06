@@ -82,7 +82,10 @@ $attributes .= ' data-type="'.$field->options->type.'"';
     </div>
 <?php
 if ($field->options->type == 'email' && $field->options->confirm->enable) {
-    $help = '<span class="required-star">*</span>';
+    $help = '';
+    if (!empty($field->options->confirm->title)) {
+        $help .= '<span class="required-star">*</span>';
+    }
     if (!empty($field->options->confirm->description)) {
         $help .= '<span class="ba-input-help"><i class="zmdi zmdi-help"></i><span class="ba-tooltip ba-top ba-hide-element">';
         $help .= $field->options->confirm->description.'</span></span>';

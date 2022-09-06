@@ -278,7 +278,7 @@ abstract class baformsHelper
         $array = array('google_drive','google_maps', 'google_sheets', 'paypal', 'twocheckout', 'mailchimp', 'mollie',
             'stripe', 'activecampaign', 'authorize', 'liqpay', 'payupl', 'cloudpayments', 'campaign_monitor', 
             'getresponse', 'zoho_crm', 'zoho_auth', 'robokassa', 'payu_latam', 'yandex_kassa', 'redsys',
-            'payfast', 'paypal_sdk');
+            'payfast', 'paypal_sdk', 'hcaptcha');
         $where = array();
         foreach ($array as $value) {
             $where[] = 'service = '.$db->quote($value);

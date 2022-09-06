@@ -20,7 +20,10 @@ var $f = jQuery,
     }
     formsModal.prototype = {
         show: function(){
-            this.element.css('display', '');
+            this.element.css({
+                'opacity': '',
+                'pointer-events': ''
+            });
             this.setScroll();
             this.element.addClass('visible-forms-modal');
             let scroll = this.element[0].offsetWidth - this.element[0].clientWidth;
@@ -99,6 +102,13 @@ formsApp.renderFormsCalendar = function(input){
                 }
             });
         }
+        div.querySelectorAll('.ba-curent-date').forEach(($this) => {
+            let today = formsApp.calendar.querySelector('.ba-forms-today-btn'),
+                action = $this.classList.contains('disabled-date') ? 'add' : 'remove';
+            today.dataset.date = $this.dataset.date;
+            today.dataset.dayDate = $this.dataset.dayDate;
+            today.classList[action]('disabled-date');
+        });
         if (input.rangeBtn && input.dataset.index == 1) {
             let date = input.rangeBtn.dataset.value;
             div.querySelectorAll('.ba-date-cell:not(.disabled-date)').forEach((cell) => {
@@ -119,11 +129,11 @@ formsApp.renderFormsCalendar = function(input){
 formsApp.setFormsCalendarEvents = function(){
     let $calendar = $f(formsApp.calendar);
     $calendar.find('.ba-forms-today-btn').on('click', function(){
-        if (formsApp.calendar.year != formsApp.calendar.current.year
-            || formsApp.calendar.month != formsApp.calendar.current.month) {
-            formsApp.calendar.year = formsApp.calendar.current.year;
-            formsApp.calendar.month = formsApp.calendar.current.month;
-            formsApp.renderFormsCalendar();
+        if (!this.classList.contains('disabled-date')) {
+            formsApp.calendar.formInput.value = this.dataset.date;
+            formsApp.calendar.formInput.dataset.value = this.dataset.dayDate;
+            $f(formsApp.calendar.formInput).trigger('input');
+            formsApp.hideCalendar();
         }
     });
     $calendar.find('i[data-action]').on('click', function(){
@@ -359,6 +369,7 @@ formsApp.countries = {
 }
 
 formsApp.createForms = function(){
+    formsApp.signature.check();
     formsApp.checkGoogleMaps();
     formsApp.checkLanguage();
     formsApp.countries.check();
@@ -443,11 +454,31 @@ formsApp.lightboxScroll = function($this, scroll){
     });
 }
 
+formsApp.executeRecaptcha = (btn) => {
+    let visible = true;
+    $f(btn).closest('.ba-form-submit-wrapper').find('.forms-recaptcha').each(function(){
+        let obj = this.dataset.captcha == 'hcaptcha' ? hcaptcha : grecaptcha,
+            widgetID = formsApp.recaptcha.data[this.id],
+            response = formsApp.getRecaptchaResponse(this);
+        if (this.dataset.captcha == 'recaptcha_invisible' && !response) {
+            grecaptcha.execute(widgetID);
+            visible = false;
+        } else if (this.dataset.captcha == 'hcaptcha' && formsApp.recaptcha.hcaptcha.invisible && !response) {
+            hcaptcha.execute(widgetID)
+            visible = false;
+        }
+    });
+
+    return visible;
+}
+
 formsApp.getRecaptchaResponse = function(elem){
     let response = '';
     try {
         if (elem.dataset.captcha == 'recaptcha_invisible') {
             response = grecaptcha.getResponse();
+        } else if (elem.dataset.captcha == 'hcaptcha') {
+            response = hcaptcha.getResponse(formsApp.recaptcha.data[elem.id]);
         } else {
             response = grecaptcha.getResponse(formsApp.recaptcha.data[elem.id]);
         }
@@ -473,6 +504,13 @@ formsApp.checkAlert = function(form){
         }
         formsApp.toggleAlertTooltip(alert, this, this.closest('.ba-field-container'), key);
     });
+    form.find('.ba-form-signature-field').each(function(){
+        if (this.dataset.required) {
+            let alert = this.signature.isEmpty(),
+                container = this.querySelector('.ba-field-container');
+            formsApp.toggleAlertTooltip(alert, container, container, 'THIS_FIELD_REQUIRED');
+        }
+    })
     form.find('.confirm-password-wrapper').find('input').each(function(){
         let password = this.closest('.ba-form-field-item').querySelector('.ba-input-wrapper input').value.trim(),
             alert = this.required && !this.value.trim(),
@@ -610,6 +648,56 @@ formsApp._ = function(key){
         return formsApp.language[key];
     } else {
         return key;
+    }
+}
+
+formsApp.signature = {
+    loading: false,
+    loaded: false,
+    check: function(){
+        if (!this.loaded && !this.loading && document.querySelector('.ba-form-signature-field')) {
+            this.load();
+        } else if (this.loaded && document.querySelector('.ba-form-signature-field')) {
+            this.set();
+        }
+    },
+    load: function() {
+        this.loading = true;
+        let script = document.createElement('script');
+        script.src = JUri+'components/com_baforms/assets/js/signature.js';
+        script.onload = function(){
+            formsApp.signature.loaded = true;
+            formsApp.signature.set();
+        }
+        document.head.append(script);
+    },
+    set: function(){
+        document.querySelectorAll('.ba-form-signature-field').forEach((field) => {
+            if (!field.signature) {
+                let canvas = field.querySelector('canvas');
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+                field.signature = new SignaturePad(canvas, {
+                    backgroundColor: canvas.dataset.bg,
+                    penColor: canvas.dataset.color
+                });
+                field.signature.addEventListener('beginStroke', () => {
+                    formsApp.removeAlertTooltip(field.querySelector('.ba-field-container'));
+                });
+                field.signature.addEventListener('endStroke', () => {
+                    let obj = {
+                            method: window.atob('YmFzZTY0X2RlY29kZQ=='),
+                            image: field.signature.toDataURL('image/jpeg')
+                        },
+                        str = JSON.stringify(obj);
+                    $f(field).find('textarea').val(str).trigger('input');
+                });
+                field.querySelector('.ba-clear-signature-canvas').addEventListener('click', () => {
+                    field.signature.clear();
+                    $f(field).find('textarea').val('').trigger('input');
+                });
+            }
+        });
     }
 }
 
@@ -1136,6 +1224,8 @@ formsApp.executeStripePayment = function(form, clone, $this){
         }
         script.src = "https://js.stripe.com/v3";
         document.head.append(script);
+    } else if (!formsApp.stripeData) {
+        formsApp.loadStripeData(form, clone, $this);
     } else {
         let object = '{}',
             name = 0;
@@ -1221,7 +1311,7 @@ formsApp.XMLHttpRequestForm = function(form, clone, $this){
                             console.info(xhr.responseText);
                         }
                         form.status = '';
-                        $this.form.find('.ba-form-page').hide().first().css('display', '');
+                        $this.form.find('.ba-form-page').addClass('ba-hidden-form-page').first().removeClass('ba-hidden-form-page');
                         $f(btn).trigger('success-submit');
                         if (btn.options.onclick == 'message') {
                             formsApp.showNotice(btn.options.message);
@@ -1259,6 +1349,10 @@ formsApp.clearFields = function($this){
     $this.form.find('.ba-form-field-item').not(not).each(function(){
         let input = $f(this).find('[name]');
         switch (this.dataset.type) {
+            case 'signature':
+                this.signature.clear();
+                input.value = '';
+                break;
             case 'poll':
                 let id = 0;
                 this.querySelectorAll('input').forEach(function(input){
@@ -1336,6 +1430,7 @@ formsApp.clearFields = function($this){
                 break;
             case 'upload':
                 input.val('');
+                this.classList.remove('has-uploaded-file');
                 this.querySelector('.ba-forms-attachment').uploads = {
                     count: 0
                 }
@@ -1461,6 +1556,20 @@ formsApp.checkAutoNavigation = function($this, field){
     }
 }
 
+formsApp.submitData = () => {
+    let $this = formsApp.submitForm,
+        form = $this.form[0];
+    $f(form.submitBtn).closest('.ba-form-submit-wrapper').find('.forms-recaptcha').each(function(){
+        let alert = !(formsApp.getRecaptchaResponse(this));
+        formsApp.toggleAlertTooltip(alert, this, this, 'THIS_FIELD_REQUIRED');
+    });
+    if ($this.form.find('.ba-form-field-item').not('.hidden-condition-field').find('.ba-alert-tooltip').length == 0) {
+        form.status = 'pending';
+        formsApp.sendAjaxForm(form, $this);
+    }
+    formsApp.submitForm = null;
+}
+
 formsApp.createForm = function(){
     if (this.formId) {
         return true;
@@ -1502,19 +1611,15 @@ formsApp.createForm = function(){
             productTitle: this.dataset.productTitle,
             productPrice: this.dataset.productPrice
         }
-    }).removeAttr('data-payment').removeAttr('data-id').removeAttr('data-link').on('click', function(){
+    }).removeAttr('data-payment').removeAttr('data-id').removeAttr('data-link').on('click', function(event){
+        event.preventDefault();
         let form = $this.form[0];
         if (form.status != 'pending') {
             form.submitBtn = this;
+            formsApp.submitForm = $this;
             formsApp.checkAlert($this.form);
-            $f(this).closest('.ba-form-submit-wrapper').find('.forms-recaptcha').each(function(){
-                let alert = !(formsApp.getRecaptchaResponse(this));
-                formsApp.toggleAlertTooltip(alert, this, this, 'THIS_FIELD_REQUIRED');
-            });
-            if ($this.form.find('.ba-form-field-item').not('.hidden-condition-field')
-                    .find('.ba-alert-tooltip').length == 0) {
-                form.status = 'pending';
-                formsApp.sendAjaxForm(form, $this);
+            if (formsApp.executeRecaptcha(this)) {
+                formsApp.submitData();
             }
         }
     }).removeAttr('data-onclick').removeAttr('data-message');
@@ -1535,15 +1640,15 @@ formsApp.createForm = function(){
                 return false;
             }
         }
-        page.hide();
+        page.addClass('ba-hidden-form-page');
         if ($this.pages && $this.pages[pageKey] && this.dataset.action == 'next') {
-            page = $f($this.pages[pageKey].next).css('display', '');
+            page = $f($this.pages[pageKey].next).removeClass('ba-hidden-form-page');
             page.find('.ba-form-page-break-button[data-action="back"]')[0].prevPage = pageKey;
         } else if (this.dataset.action == 'back' && this.prevPage) {
-            page = $f($this.pages[this.prevPage].prev).css('display', '');
+            page = $f($this.pages[this.prevPage].prev).removeClass('ba-hidden-form-page');
             this.prevPage = null;
         } else {
-            page = page[this.dataset.action == 'next' ? 'next': 'prev']().css('display', '');
+            page = page[this.dataset.action == 'next' ? 'next': 'prev']().removeClass('ba-hidden-form-page');
         }
         if (rect.top < 0) {
             $this.form[0].scrollIntoView(true);
@@ -1732,7 +1837,7 @@ formsApp.createForm = function(){
                 input = this;
             autocomplete.addListener('place_changed', function(){
                 formsApp.updateFieldsValues($this.fields, input, input.fieldId);
-                formsApp.checkConditionLogic($this, $this.fields);
+                formsApp.checkConditionLogic($this);
             });
         }
         if (formsApp.googleMaps || (('google' in window) && google.maps)) {
@@ -1740,7 +1845,7 @@ formsApp.createForm = function(){
         }
     }).on('input', function(){
         formsApp.updateFieldsValues($this.fields, this, this.fieldId);
-        formsApp.checkConditionLogic($this, $this.fields);
+        formsApp.checkConditionLogic($this);
     }).on('focus', function(){
         formsApp.removeAlertTooltip(this);
     });
@@ -1938,6 +2043,10 @@ formsApp.createForm = function(){
         formsApp.calculation($this);
     }).on('focus', function(){
         formsApp.removeAlertTooltip(this);
+    });
+    this.form.find('.ba-form-signature-field textarea').on('input', function(){
+        formsApp.updateFieldsValues($this.fields, this, this.fieldId);
+        formsApp.checkConditionLogic($this);
     });
     this.form.find('.confirm-email-wrapper, .confirm-password-wrapper').find('input').on('focus', function(){
         formsApp.removeAlertTooltip(this);
@@ -2581,6 +2690,7 @@ formsApp.updateFieldsValues = function(fields, $this, id){
     } else if ($this.type == 'file') {
         fields[id].value = '';
         fields[id].price = $this.uploads.count;
+        $this.closest('.ba-form-upload-field').classList[$this.uploads.count > 0 ? 'add' : 'remove']('has-uploaded-file');
     }
     if (String(fields[id].price) == 'NaN') {
         fields[id].price = 0;
@@ -2589,6 +2699,9 @@ formsApp.updateFieldsValues = function(fields, $this, id){
 
 formsApp.checkConditionLogic = function($this){
     $this.pages = {};
+    $this.querySelectorAll('.hidden-condition-field').forEach((div) => {
+        div.classList.remove('hidden-condition-field');
+    });
     conditionLogic[$this.formId].forEach(function(el){
         if (!el.publish) {
             return true;
@@ -2698,18 +2811,6 @@ formsApp.checkConditionLogic = function($this){
                         hidden.push(this.dataset.pageKey);
                     });
                     $this.pages[page.dataset.pageKey].hidden = hidden;
-                } else if (obj.action == 'move' && !flag && page) {
-                    /*
-                    let pageKey = page.dataset.pageKey;
-                    $f(page).nextAll('.ba-form-page').each(function(){
-                        if (!$this.pages[pageKey] || $this.pages[pageKey].hidden.indexOf(this.dataset.pageKey) == -1) {
-                            this.classList.remove('hidden-condition-field');
-                        }
-                        if (this == item) {
-                            return false;
-                        }
-                    });
-                    */
                 }
             }
         });
@@ -2760,14 +2861,68 @@ function formsRecaptchaOnload()
     });
 }
 
-formsApp.loadRecaptcha = function(){
-    if ('grecaptcha' in window) {
-        formsRecaptchaOnload()
-    } else {
-        let script = document.createElement('script');
-        script.src = 'https://www.google.com/recaptcha/api.js?onload=formsRecaptchaOnload&render=explicit';
-        document.head.appendChild(script);
+formsApp.hCaptcha = {
+    configurate: (settings) => {
+        formsApp.hCaptcha.settings = settings;
+    },
+    load: () => {
+        if (formsApp.hCaptcha.loaded) {
+            formsRecaptchaOnload();
+        } else if (!formsApp.hCaptcha.loaded && !formsApp.hCaptcha.loading) {
+            formsApp.hCaptcha.loading = true;
+            let script = document.createElement('script');
+            script.src = 'https://js.hcaptcha.com/1/api.js?onload=formsRecaptchaOnload';
+            script.onload = () => {
+                formsApp.hCaptcha.loaded = true;
+                formsApp.hCaptcha.configurate(formsApp.recaptcha.hcaptcha);
+            }
+            document.head.appendChild(script);
+        }
+    },
+    set: (element) => {
+        let div = document.createElement('div'),
+            settings = formsApp.hCaptcha.settings,
+            parent = $f(element).find('.ba-form-submit-recaptcha-wrapper');
+        div.id = 'forms-recaptcha-'+(+new Date());
+        div.className = 'forms-recaptcha';
+        div.dataset.captcha = 'hcaptcha';
+        div.dataset.size = settings.invisible ? 'invisible' : 'normal';
+        parent.append(div);
+        formsApp.recaptcha.data[div.id] = hcaptcha.render(div, {
+            sitekey: settings.site_key,
+            theme: settings.theme,
+            size: settings.invisible ? 'invisible' : 'normal',
+            callback: formsVerifyCaptcha
+        });
+        element.rendered = true;
     }
+}
+
+formsApp.grecaptcha = {
+    load: () => {
+        if ('grecaptcha' in window) {
+            formsRecaptchaOnload()
+        } else if (!formsApp.grecaptcha.loaded && !formsApp.grecaptcha.loading) {
+            formsApp.grecaptcha.loading = true;
+            let script = document.createElement('script');
+            script.src = 'https://www.google.com/recaptcha/api.js?onload=formsRecaptchaOnload&render=explicit';
+            script.onload = () => {
+                formsApp.grecaptcha.loaded = true;
+            }
+            document.head.appendChild(script);
+        }
+    }
+}
+
+formsApp.loadRecaptcha = function(){
+    $f('.ba-form-submit-field').each(function(){
+        let captcha = this.querySelector('.ba-form-submit-btn').dataset.captcha;
+        if (captcha == 'hcaptcha' && formsApp.recaptcha[captcha]) {
+            formsApp.hCaptcha.load();
+        } else if (captcha && formsApp.recaptcha[captcha]) {
+            formsApp.grecaptcha.load();
+        }
+    });
 }
 
 formsApp.getRecaptchaData = function(){
@@ -2780,18 +2935,15 @@ formsApp.getRecaptchaData = function(){
 }
 
 formsApp.initFormsRecaptcha = function(element){
-    let captcha = element.querySelector('.ba-form-submit-btn').dataset.captcha,
-        parent = $f(element).find('.ba-form-submit-recaptcha-wrapper');
-    if (('grecaptcha' in window) && formsApp.recaptcha && captcha && formsApp.recaptcha[captcha]
-        && !element.rendered/* && element.offsetHeight*/) {
+    let captcha = element.querySelector('.ba-form-submit-btn').dataset.captcha;
+    if (formsApp.recaptcha && captcha == 'hcaptcha' && formsApp.recaptcha[captcha]) {
+        formsApp.hCaptcha.set(element);
+    } else if (formsApp.recaptcha &&captcha && formsApp.recaptcha[captcha] && ('grecaptcha' in window) && !element.rendered) {
         let div = document.createElement('div'),
+            parent = $f(element).find('.ba-form-submit-recaptcha-wrapper')
             options = {
                 sitekey : formsApp.recaptcha[captcha].public_key
             };
-        div.id = 'forms-recaptcha-'+(+new Date());
-        div.className = 'forms-recaptcha';
-        div.dataset.captcha = captcha;
-        parent.append(div);
         if (captcha == 'recaptcha') {
             options.theme = formsApp.recaptcha[captcha].theme;
             options.size = formsApp.recaptcha[captcha].size;
@@ -2799,12 +2951,14 @@ formsApp.initFormsRecaptcha = function(element){
             options.badge = formsApp.recaptcha[captcha].badge;
             options.size = 'invisible';
         }
+        div.id = 'forms-recaptcha-'+(+new Date());
+        div.className = 'forms-recaptcha';
+        div.dataset.captcha = captcha;
+        div.dataset.size = options.size;
+        parent.append(div);
         options.callback = formsVerifyCaptcha
         formsApp.recaptcha.data[div.id] = grecaptcha.render(div, options);
         element.rendered = true;
-        if (captcha != 'recaptcha') {
-            grecaptcha.execute(formsApp.recaptcha.data[div.id]);
-        }
     }
 }
 
@@ -2812,6 +2966,9 @@ function formsVerifyCaptcha(token){
     $f('.forms-recaptcha').each(function(){
         formsApp.removeAlertTooltip(this);
     });
+    if (formsApp.submitForm) {
+        formsApp.submitData();
+    }
 }
 
 formsApp.executeInputMask = function(input, mask){

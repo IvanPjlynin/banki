@@ -8,8 +8,6 @@
 
 defined('_JEXEC') or die;
 
-$language = JFactory::getLanguage();
-$language->load('com_languages', JPATH_ADMINISTRATOR);
 $stateStr = baformsHelper::checkFormsState();
 $state = json_decode($stateStr);
 $stateCount = !isset($state->data) ? 1 : 0;
@@ -28,7 +26,7 @@ var JUri = '<?php echo JUri::root(); ?>',
 document.addEventListener('DOMContentLoaded', function(){
     var str = "<div class='btn-wrapper' id='toolbar-language'>";
     str += "<button value='About' class='btn btn-small'><span class='icon-star'>";
-    str += "</span><?php echo $language->_('COM_LANGUAGES_HEADING_LANGUAGE'); ?></button></div>";
+    str += "</span><?php echo JText::_('LANGUAGE'); ?></button></div>";
     str += "<div class='btn-wrapper ba-dashboard-popover-trigger' id='toolbar-about' data-target='ba-dashboard-about'>";
     str += "<button class='btn btn-small'><span class='icon-bookmark' data-notification='<?php echo $stateCount; ?>'></span>";
     str += "<?php echo JText::_('ABOUT') ?></button></div>";

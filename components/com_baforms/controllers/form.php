@@ -273,7 +273,7 @@ class BaformsControllerForm extends JControllerForm
         $cardCode = $input->get('cardCode', '', 'string');
         $cardNumber = str_replace(' ', '', $cardNumber);
         $expArray = explode('/', $expirationDate);
-        $expirationDate = $expArray[1].'-20'.$expArray[0];
+        $expirationDate = '20'.$expArray[1].'-'.$expArray[0];
         $model = $this->getModel('form');
         $model->payAuthorize($id, $total, $cardNumber, $expirationDate, $cardCode);
     }

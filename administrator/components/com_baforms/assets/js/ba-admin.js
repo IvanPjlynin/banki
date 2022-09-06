@@ -24,9 +24,11 @@ function showNotice(message, className)
 
 function formsRecaptchaOnload()
 {
-    $f('.ba-form-submit-field').each(function(){
-        app.initFormsRecaptcha(this);
-    })
+    app.grecaptcha.loaded = true;
+    app.grecaptcha.captcha = grecaptcha;
+    delete window.hcaptcha;
+    delete window.grecaptcha;
+    app.grecaptcha.init();
 }
 
 function addNoticeText(message, className)
@@ -215,6 +217,7 @@ function columnResizer(event)
         leftEl[0].style.width = '';
         leftEl.removeClass('ba-column-resize');
         rightEl.removeClass('ba-column-resize');
+        app.updateSignatures();
     });
     return false;
 }
@@ -259,6 +262,7 @@ function pageResizer(event)
         $f(document).off('mouseup.resize contextmenu.resize mousemove.resize');
         info.removeClass('visible-info left right');
         document.body.classList.remove('page-resize-started');
+        app.updateSignatures();
     });
     return false;
 }
@@ -2250,7 +2254,7 @@ app.loadDraggable = function(){
 }
 
 app.buttonsPrevent = function(search){
-    search = search ? search : 'a:not(.brand):not(.d-flex), input[type="submit"], button'
+    search = search ? search : 'a:not(.brand):not(.d-flex):not(.header-item-content), input[type="submit"], button'
     $f(search).not('.default-action').on('click', function(event){
         if (!this.parentNode.classList.contains('viewsite')) {
             event.preventDefault();
@@ -2550,20 +2554,28 @@ app.dropField = function(data, field){
         loadMap = loadMap ? '#'+loadMap.id : null;
         if (data.item.classList.contains('ba-form-column')) {
             $f(data.item).find(' > .empty-item').before(content);
+        } else if (data.next) {
+            $f(data.item).after(content);
         } else {
-            if (data.next) {
-                $f(data.item).after(content);
-            } else {
-                $f(data.item).before(content);
-            }
+            $f(data.item).before(content);
         }
         if (loadMap) {
             app.loadGoogleMaps(loadMap);
         }
+        app.updateSignatures();
         $f(editBtn).trigger('mousedown');
     } else {
         return content;
     }
+}
+
+app.updateSignatures = function(){
+    $f('.ba-form-signature-field').each(function(){
+        let canvas = this.querySelector('canvas'),
+            ctx = canvas.getContext('2d');
+        ctx.fillStyle = app.design.field.background.color;
+        ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+    })
 }
 
 app.setPollColor = function(rgba){
@@ -2612,6 +2624,7 @@ app.setMinicolor = function(input){
                     $f('[data-group="'+group+'"][data-subgroup="background"][data-option="color"]').not($this).each(function(){
                         updateInput($f(this), rgba);
                     });
+                    app.updateSignatures();
                     app.setDesignCssVariable(group, subgroup, option, app.design, document.body);
                 } else if (group == 'theme' && subgroup == 'typography' && option == 'color') {
                     let str = '[data-group="label"][data-subgroup="typography"][data-option="color"],'+
@@ -3092,6 +3105,7 @@ app.checkConditionFieldType = function(div, obj){
     div.querySelector('.condition-when-value-wrapper').remove();
     let content = null,
         state =  $f(div).find('.select-condition-when-state'),
+        types = ['acceptance', 'address', 'signature'],
         item = document.querySelector('#baform-'+obj.field);
     if (obj.field && !app.items['baform-'+obj.field]) {
         obj.value = '';
@@ -3107,8 +3121,11 @@ app.checkConditionFieldType = function(div, obj){
     } else {
         content = templates['condition-when-value-input'].content.cloneNode(true);
     }
+    state.find('option[value="equal"], option[value="not-equal"]').each(function(){
+        this.style.display = item && item.dataset.type == 'signature' ? 'none' : '';
+    });
     state.find('option[value="greater"], option[value="less"], option[value="contain"], option[value="not-contain"]').each(function(){
-        let flag = item && (app.items['baform-'+obj.field].items || item.dataset.type == 'acceptance' || item.dataset.type == 'address');
+        let flag = item && (app.items['baform-'+obj.field].items || types.indexOf(item.dataset.type));
         this.style.display = flag ? 'none' : '';
     });
     div.insertBefore(content, div.querySelector('.ba-settings-icon-type'));
@@ -3288,12 +3305,6 @@ app.navigationAction = function(value, group, subgroup, option){
     }
 }
 
-app.loadRecaptcha = function(){
-    let script = document.createElement('script');
-    script.src = 'https://www.google.com/recaptcha/api.js?onload=formsRecaptchaOnload&render=explicit';
-    document.head.appendChild(script);
-}
-
 app.acceptanceFieldAction = function(value, group, subgroup, option){
     if (option == 'html') {
         value = renderDefaultValue(value);
@@ -3326,10 +3337,18 @@ app.submitFieldAction = function(value, group, subgroup, option){
     } else if (option == 'onclick' || ((group == 'reply' || group == 'notifications') && option == 'enable')) {
         prepareSubmitOptions();
     } else if (option == 'recaptcha') {
-        if (value && !window.grecaptcha) {
-            app.loadRecaptcha();
+        if (value == 'hcaptcha') {
+            app.hCaptcha.set(item);
+        } else if (value) {
+            app.grecaptcha.set(item);
         } else {
-            app.initFormsRecaptcha(item);
+            $f(item).find('.ba-form-submit-recaptcha-wrapper').each(function(){
+                this.querySelectorAll('forms-recaptcha').forEach((div) => {
+                    if (recaptchaData.data[div.id]) {
+                        delete(recaptchaData.data[div.id]);
+                    }
+                });
+            }).empty();
         }
     } else if (option == 'animation') {
         document.querySelectorAll('#submit-button-settings-dialog select[data-option="animation"] option').forEach(function(el){
@@ -3699,40 +3718,45 @@ function setFieldValues(modal)
 }
 
 app.showMapEditor = function(){
-    var modal = $f('#google-maps-field-settings-dialog');
+    let modal = $f('#google-maps-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showCheckboxEditor = function(){
-    var modal = $f('#checkbox-field-settings-dialog');
+    let modal = $f('#checkbox-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showPollEditor = function(){
-    var modal = $f('#poll-field-settings-dialog');
+    let modal = $f('#poll-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showRadioEditor = function(){
-    var modal = $f('#radio-field-settings-dialog');
+    let modal = $f('#radio-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showSelectEditor = function(){
-    var modal = $f('#dropdown-field-settings-dialog');
+    let modal = $f('#dropdown-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showSelectMultipleEditor = function(){
-    var modal = $f('#select-multiple-field-settings-dialog');
+    let modal = $f('#select-multiple-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showImageEditor = function(){
-    var modal = $f('#image-field-settings-dialog');
+    let modal = $f('#image-field-settings-dialog');
     if (!('admin-label' in app.edit)) {
         app.edit['admin-label'] = app._('IMAGE');
     }
+    setFieldValues(modal);
+}
+
+app.showSignatureEditor = function(){
+    let modal = $f('#signature-field-settings-dialog');
     setFieldValues(modal);
 }
 
@@ -3754,7 +3778,7 @@ app.showSubmitEditor = function(){
         app.edit.reply['custom-name'] = '';
         app.edit.notifications['custom-name'] = '';
     }
-    var modal = $f('#submit-button-settings-dialog');
+    let modal = $f('#submit-button-settings-dialog');
     modal.find('.reply-custom-email, .notifications-custom-email').each(function(){
         let group = this.querySelector('input').dataset.group;
         this.classList[app.edit[group].email == 'custom' ? 'remove' : 'add']('empty-content');
@@ -3763,12 +3787,12 @@ app.showSubmitEditor = function(){
 }
 
 app.showHeadlineEditor = function(){
-    var modal = $f('#headline-field-settings-dialog');
+    let modal = $f('#headline-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showCalendarEditor = function(){
-    var modal = $f('#calendar-field-settings-dialog');
+    let modal = $f('#calendar-field-settings-dialog');
     setFieldValues(modal);
 }
 
@@ -3786,12 +3810,12 @@ app.showHtmlEditor = function(){
 }
 
 app.showSliderEditor = function(){
-    var modal = $f('#slider-field-settings-dialog');
+    let modal = $f('#slider-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showTotalEditor = function(){
-    var modal = $f('#total-field-settings-dialog'),
+    let modal = $f('#total-field-settings-dialog'),
         array = app.edit.promo.expires.split('-'),
         str;
     if (!app.edit.promo.expires) {
@@ -3818,7 +3842,7 @@ app.toggleCartOptions = function(){
 }
 
 app.showCalculationEditor = function(){
-    var modal = $f('#calculation-field-settings-dialog');
+    let modal = $f('#calculation-field-settings-dialog');
     if (!('design' in app.edit)) {
         app.edit.design = true;
     }
@@ -3857,33 +3881,33 @@ app.showFieldDesign = function(){
 }
 
 app.showPhoneEditor = function(){
-    var modal = $f('#phone-field-settings-dialog');
+    let modal = $f('#phone-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showInputEditor = function(){
     prepareInputType();
-    var modal = $f('#input-field-settings-dialog');
+    let modal = $f('#input-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showAddressEditor = function(){
-    var modal = $f('#address-field-settings-dialog');
+    let modal = $f('#address-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showRatingEditor = function(){
-    var modal = $f('#rating-field-settings-dialog');
+    let modal = $f('#rating-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showAcceptanceEditor = function(){
-    var modal = $f('#acceptance-field-settings-dialog');
+    let modal = $f('#acceptance-field-settings-dialog');
     setFieldValues(modal);
 }
 
 app.showUploadEditor = function(){
-    var modal = $f('#upload-field-settings-dialog');
+    let modal = $f('#upload-field-settings-dialog');
     $f('.multiple-upload-options').css({
         'display': app.edit.multiple ? '' : 'none'
     });
@@ -3891,7 +3915,7 @@ app.showUploadEditor = function(){
 }
 
 app.showTextEditor = function(){
-    var modal = $f('#text-editor-dialog');
+    let modal = $f('#text-editor-dialog');
     CKE.setData(app.edit.html);
     CKE.on('selectionChange', function(){
         CKE.plugins.myTextColor.setBtnColorEvent(CKE);
@@ -5016,32 +5040,107 @@ app.renderCKE = function(){
     });
 }
 
-app.initFormsRecaptcha = function(element){
-    let parent = $f(element).find('.ba-form-submit-recaptcha-wrapper').each(function(){
-        let div = this.querySelector('forms-recaptcha');
-        if (div && recaptchaData.data[div.id]) {
-            delete(recaptchaData.data[div.id]);
+function formshCaptchaOnload()
+{
+    app.hCaptcha.captcha = hcaptcha;
+    delete window.hcaptcha;
+    delete window.grecaptcha;
+    app.hCaptcha.loaded = true;
+    app.hCaptcha.init();
+}
+
+app.hCaptcha = {
+    captcha: null,
+    configurate: (settings) => {
+        app.hCaptcha.settings = settings;
+    },
+    load: () => {
+        app.hCaptcha.loading = true;
+        app.hCaptcha.script = document.createElement('script');
+        app.hCaptcha.script.src = 'https://js.hcaptcha.com/1/api.js?onload=formshCaptchaOnload';
+        document.head.append(app.hCaptcha.script);
+    },
+    tryLoad: () => {
+        if (!app.hCaptcha.loaded && !app.hCaptcha.loading && app.hCaptcha.settings.site_key && app.hCaptcha.settings.secret_key) {
+            app.hCaptcha.load();
         }
-    }).empty();
-    if (app.items[element.id].recaptcha) {
-        let captcha = app.items[element.id].recaptcha,
-            div = document.createElement('div'),
-            options = {
-                sitekey : recaptchaData[captcha].public_key
-            };
-        div.id = 'forms-recaptcha-'+(+new Date());
-        div.className = 'forms-recaptcha';
-        parent.append(div);
-        if (captcha == 'recaptcha') {
-            options.theme = recaptchaData[captcha].theme;
-            options.size = recaptchaData[captcha].size;
-        } else {
-            options.badge = recaptchaData[captcha].badge;
-            options.size = 'invisible';
+    },
+    init: () => {
+        $f('.ba-form-submit-field').each(function(){
+            if (app.items[this.id].recaptcha == 'hcaptcha') {
+                app.hCaptcha.set(this);
+            }
+        });
+    },
+    set: (item) => {
+        let div = null,
+            parent = $f(item).find('.ba-form-submit-recaptcha-wrapper').each(function(){
+                div = this.querySelector('forms-recaptcha');
+                if (div && recaptchaData.data[div.id]) {
+                    delete(recaptchaData.data[div.id]);
+                }
+            }).empty();
+        app.hCaptcha.tryLoad();
+        if (app.hCaptcha.loaded && app.items[item.id].recaptcha == 'hcaptcha') {
+            div = document.createElement('div');
+            div.id = 'forms-recaptcha-'+(+new Date());
+            div.className = 'forms-recaptcha';
+            parent.append(div);
+            recaptchaData.data[div.id] = app.hCaptcha.captcha.render(div, {
+                sitekey: app.hCaptcha.settings.site_key,
+                theme: app.hCaptcha.settings.theme,
+                size: app.hCaptcha.settings.invisible ? 'invisible' : 'normal',
+            });
         }
-        recaptchaData.data[div.id] = grecaptcha.render(div, options);
-        if (captcha != 'recaptcha') {
-            //grecaptcha.execute(recaptchaData.data[div.id]);
+    }
+}
+
+app.grecaptcha = {
+    captcha: null,
+    load: () => {
+        let script = document.createElement('script');
+        app.grecaptcha.loading = true;
+        script.src = 'https://www.google.com/recaptcha/api.js?onload=formsRecaptchaOnload&render=explicit';
+        document.head.appendChild(script);
+    },
+    tryLoad: () => {
+        if (!app.grecaptcha.loaded && !app.grecaptcha.loading) {
+            app.grecaptcha.load();
+        }
+    },
+    init: () => {
+        $f('.ba-form-submit-field').each(function(){
+            if (app.items[this.id].recaptcha && app.items[this.id].recaptcha != 'hcaptcha') {
+                app.grecaptcha.set(this);
+            }
+        });
+    },
+    set: (element) => {
+        let parent = $f(element).find('.ba-form-submit-recaptcha-wrapper').each(function(){
+                this.querySelectorAll('forms-recaptcha').forEach((div) => {
+                    if (recaptchaData.data[div.id]) {
+                        delete(recaptchaData.data[div.id]);
+                    }
+                });
+            }).empty();
+        app.grecaptcha.tryLoad();
+        if (app.items[element.id].recaptcha && app.items[element.id].recaptcha != 'hcaptcha' && app.grecaptcha.loaded) {
+            let captcha = app.items[element.id].recaptcha,
+                div = document.createElement('div'),
+                options = {
+                    sitekey : recaptchaData[captcha].public_key
+                };
+            div.id = 'forms-recaptcha-'+(+new Date());
+            div.className = 'forms-recaptcha';
+            parent.append(div);
+            if (captcha == 'recaptcha') {
+                options.theme = recaptchaData[captcha].theme;
+                options.size = recaptchaData[captcha].size;
+            } else {
+                options.badge = recaptchaData[captcha].badge;
+                options.size = 'invisible';
+            }
+            recaptchaData.data[div.id] = app.grecaptcha.captcha.render(div, options);
         }
     }
 }
@@ -5084,6 +5183,18 @@ function checkIntegrationsActiveState(ind)
         flag = obj.code && obj.folder && (obj.pdf || obj.files);
     } else if (ind == 'google_sheets') {
         flag = obj.spreadsheet && obj.worksheet;
+    } else if (ind == 'hcaptcha') {
+        flag = obj.site_key && obj.secret_key;
+        app.hCaptcha.configurate(integrations.hcaptcha.key);
+        app.hCaptcha.init();
+    }
+    if (ind == 'hcaptcha' && !flag) {
+        $f('select[data-option="recaptcha"] option[value="hcaptcha"]').remove();
+    } else if (ind == 'hcaptcha') {
+        $f('select[data-option="recaptcha"]').each(function(){
+            $f(this).find('option[value="hcaptcha"]').remove();
+            $f(this).append('<option value="hcaptcha">hCaptcha</option>');
+        });
     }
     if (payments.indexOf(ind) != -1) {
         let parent = $f('select[data-option="payment"][data-callback="submitFieldAction"]');
@@ -5650,16 +5761,12 @@ app.setSubmitDesign = function(obj, wrapper){
 }
 
 app.prepareFormsPages = function(){
-    let loadRecaptcha = false;
     $f('.ba-form-submit-field').each(function(){
         app.setSubmitDesign(app.items[this.id], this.querySelector('.ba-form-submit-wrapper'));
-        if (app.items[this.id].recaptcha) {
-            loadRecaptcha = true;
+        if (app.items[this.id].recaptcha && app.items[this.id].recaptcha != 'hcaptcha') {
+            app.grecaptcha.set(this);
         }
     });
-    if (loadRecaptcha && !window.grecaptcha) {
-        app.loadRecaptcha();
-    }
     if (document.querySelector('.ba-form-map-field')) {
         app.loadGoogleMaps();
     }

@@ -9,10 +9,9 @@
 defined('_JEXEC') or die;
 
 ob_start();
-$style = $key != 0 ? 'display: none;' : '';
 $percentage = floor(100 / $pagesCount * $key).'%';
 ?>
-<div class="ba-form-page" style="<?php echo $style; ?>" data-page-key="<?php echo $page->key; ?>">
+<div class="ba-form-page<?php echo $key != 0 ? ' ba-hidden-form-page' : ''; ?>" data-page-key="<?php echo $page->key; ?>">
 <?php
 if (self::$design->theme->layout == 'lightbox') {
 ?>

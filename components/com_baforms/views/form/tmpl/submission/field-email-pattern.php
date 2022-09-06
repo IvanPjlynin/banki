@@ -14,9 +14,19 @@ ob_start();
     <span style="color:#333;font-weight: bold;line-height:28px;font-size:16px;white-space: normal;display:block;">
         <?php echo $field->title; ?>:
     </span>
+<?php
+if ($field->type == 'signature') {
+?>
+    <img src="<?php echo JUri::root().$value; ?>">
+<?php
+} else {
+?>
     <span style="color: #999;text-align: left;line-height: 28px;font-size: 16px;word-break: break-word;margin-bottom: 30px;display:block;">
         <?php echo $value; ?>
     </span>
+<?php
+}
+?>
 </div>
 <?php
 if ($field->type == 'poll') {

@@ -17,6 +17,9 @@ if (!defined('UPLOADS_STORAGE')) {
 if (!defined('PDF_STORAGE')) {
     define('PDF_STORAGE', $params->get('pdf_storage', 'images/baforms/pdf'));
 }
+if (!defined('SIGNATURE_STORAGE')) {
+    define('SIGNATURE_STORAGE', 'images/baforms/signatures');
+}
 $controller = JControllerLegacy::getInstance('baforms');
 $controller->execute(JFactory::getApplication()->input->getCmd('task', 'display'));
 $controller->redirect();

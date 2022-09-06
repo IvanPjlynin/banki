@@ -100,7 +100,10 @@ if (in_array($field->options->type, $masks)) {
     </div>
 <?php
 if ($field->options->type == 'email' && $field->options->confirm->enable) {
-    $help = '<span class="required-star">*</span>';
+    $help = '';
+    if (!empty($field->options->confirm->title)) {
+        $help .= '<span class="required-star">*</span>';
+    }
     if (!empty($field->options->confirm->description)) {
         $help .= '<span class="ba-input-help"><i class="ba-form-icons ba-icon-help"></i>';
         $help .= '<span class="ba-tooltip ba-top ba-hide-element">';

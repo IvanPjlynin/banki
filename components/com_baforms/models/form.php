@@ -92,6 +92,11 @@ class baformsModelForm extends JModelItem
             }
             $data->{$value->element} = $object;
         }
+        $hcaptcha = $this->getServiceData('hcaptcha');
+        if (empty($hcaptcha->site_key) || empty($hcaptcha->secret_key)) {
+            $hcaptcha = null;
+        }
+        $data->hcaptcha = $hcaptcha;
         $str = json_encode($data);
 
         return $str;
@@ -115,6 +120,36 @@ class baformsModelForm extends JModelItem
         $str = preg_replace("/_{2,}/", "-", $str);
 
         return $str;
+    }
+
+    public function saveSignature($data, $id)
+    {
+        $obj = json_decode($data);
+        $array = explode(',', $obj->image);
+        $method = $obj->method;
+        $str = $method($array[1]);
+        $dir = JPATH_ROOT.'/'.SIGNATURE_STORAGE;
+        if (SIGNATURE_STORAGE == 'images/baforms/signatures' && !JFolder::exists($dir)) {
+            JFolder::create(JPATH_ROOT.'/images/baforms');
+            JFolder::create($dir);
+        }
+        if (!JFolder::exists($dir)) {
+            return '';
+        }
+        $dir .= '/form-'.$id.'/';
+        if (!JFolder::exists($dir)) {
+            JFolder::create($dir);
+        }
+        $name = $fileName = 'signature';
+        $i = 2;
+        $name = $fileName;
+        while (JFile::exists($dir.$name.'.jpg')) {
+            $name = $fileName.'-'.($i++);
+        }
+        $fileName = $name.'.jpg';
+        JFile::write($dir.$fileName, $str);
+
+        return SIGNATURE_STORAGE.'/form-'.$id.'/'.$fileName; 
     }
 
     public function uploadAttachmentFile($file, $id, $field_id)
@@ -226,7 +261,7 @@ class baformsModelForm extends JModelItem
         $this->paymentData->id = $id;
         $this->paymentData->userEmail = $userEmail;
         $this->paymentData->total = $object->total;
-        $this->paymentData->products = array();
+        $this->paymentData->products = [];
         $this->paymentData->title = $field->options->title;
         $this->paymentData->decimals = $field->options->decimals;
         $this->paymentData->position = $field->options->position;
@@ -277,7 +312,7 @@ class baformsModelForm extends JModelItem
     protected function updatePoll($field, $value)
     {
         $ip = $_SERVER['REMOTE_ADDR'];
-        $values = array();
+        $values = [];
         $allow = true;
         if (!$field->options->again) {
             $allow = baformsHelper::checkUserPoll($field);
@@ -307,15 +342,15 @@ class baformsModelForm extends JModelItem
         baformsHelper::prepareHelper();
         $this->db = JFactory::getDbo();
         $this->integrationsFields = new stdClass();
-        $this->files = array();
+        $this->files = [];
         JFactory::getLanguage()->load('com_baforms', JPATH_ADMINISTRATOR);
         $submit = $this->getFormField($btn, $id);
         baformsHelper::getFormShortCodes($id);
         $userEmail = '';
         $fields = new stdClass();
-        $attachmentFiles = array();
-        $files = array();
-        $messageArray = array();
+        $attachmentFiles = [];
+        $files = [];
+        $messageArray = [];
         foreach ($data as $key => $value) {
             if (is_numeric($key) && $value != '') {
                 $field = $this->getFormField($key * 1, $id);
@@ -325,6 +360,8 @@ class baformsModelForm extends JModelItem
                 } else if ($field->type == 'poll') {
                     $value = self::updatePoll($field, $value);
                     $fields->{$field->key}->results = baformsHelper::getPollResults($field->id, $field->options->items);
+                } else if ($field->type == 'signature') {
+                    $value = $this->saveSignature($value, $id);
                 }
                 $this->integrationsFields->{str_replace('baform-', '', $field->key)} = $value;
                 $fields->{$field->key}->id = $field->id;
@@ -346,7 +383,7 @@ class baformsModelForm extends JModelItem
                         break;
                     case 'upload':
                         $filesData = json_decode($value);
-                        $integration = array();
+                        $integration = [];
                         foreach ($filesData as $file) {
                             if (!is_numeric($file->id)) {
                                 continue;
@@ -477,7 +514,7 @@ class baformsModelForm extends JModelItem
             try {
                 $mailer = JFactory::getMailer();
                 $config = JFactory::getConfig();
-                $recipients = array();
+                $recipients = [];
                 $sender = array($config->get('mailfrom'), $config->get('fromname'));
                 $notifications = $submit->options->notifications;
                 if ($notifications->email == 'customer-email' && !empty($userEmail)) {
@@ -496,9 +533,9 @@ class baformsModelForm extends JModelItem
                     $recipients[] = $config->get('mailfrom');
                 }
                 $reply = empty($userEmail) ? null : $userEmail;
-                $mailFiles = array();
+                $mailFiles = [];
                 if ($submit->options->notifications->attach) {
-                    $mailFiles = array_merge(array(), $files);
+                    $mailFiles = array_merge([], $files);
                 }
                 if (isset($notifications->attach_pdf) && $notifications->attach_pdf && !empty($this->pdf)) {
                     $mailFiles[] = $this->pdf;
@@ -506,14 +543,14 @@ class baformsModelForm extends JModelItem
                 $subject = baformsHelper::renderDefaultValue($notifications->subject);
                 $body = baformsHelper::renderDefaultValue($notifications->body);
                 $cc = $bcc = null;
-                $array = array();
+                $array = [];
                 foreach ($notifications->cc as $email => $value) {
                    $array[] = $email;
                 }
                 if (!empty($array)) {
                     $cc = $array;
                 }
-                $array = array();
+                $array = [];
                 foreach ($notifications->bcc as $email => $value) {
                    $array[] = $email;
                 }
@@ -536,16 +573,16 @@ class baformsModelForm extends JModelItem
                     $sender = array($reply->{'custom-email'});
                     $sender[] = isset($reply->{'custom-name'}) ? $reply->{'custom-name'} : '';
                 }
-                $mailFiles = array();
+                $mailFiles = [];
                 if ($submit->options->reply->attach) {
-                    $mailFiles = array_merge(array(), $files);
+                    $mailFiles = array_merge([], $files);
                 }
                 if (isset($reply->attach_pdf) && $reply->attach_pdf && !empty($this->pdf)) {
                     $mailFiles[] = $this->pdf;
                 }
                 $subject = baformsHelper::renderDefaultValue($reply->subject);
                 $body = baformsHelper::renderDefaultValue($reply->body);
-                $mailer->sendMail($sender[0], $sender[1], $recipients, $subject, $body, true, null, null, $mailFiles);
+                $mailer->sendMail($sender[0], $sender[1], $recipients, $subject, $body, true, null, null, $mailFiles, $sender[0]);
             } catch (Exception $e) {
                 
             }
@@ -618,7 +655,7 @@ class baformsModelForm extends JModelItem
         }
         include JPATH_ROOT.'/components/com_baforms/libraries/wrappers/drive.php';
         $drive = new drive($obj->client_id, $obj->client_secret);
-        $data = array();
+        $data = [];
         if ($obj->files) {
             foreach ($files as $file) {
                 $object = new stdClass();
@@ -682,7 +719,7 @@ class baformsModelForm extends JModelItem
         if (!empty($obj->client_id) && !empty($obj->client_secret) && !empty($obj->code) && JFolder::exists($dir)) {
             $data = json_decode($google_sheets);
             if (!empty($data->spreadsheet) && $data->worksheet != '') {
-                $row = array();
+                $row = [];
                 foreach ($data->columns as $key => $value) {
                     if (empty($value) || !isset($this->integrationsFields->{$value})) {
                         continue;
@@ -726,7 +763,7 @@ class baformsModelForm extends JModelItem
             && !empty($fields->name) && isset($this->integrationsFields->{$fields->name})) {
             require_once JPATH_ROOT.'/components/com_baforms/libraries/getresponse/getresponse.php';
             $getresponse = new getresponse($obj->api_key, $fields->list_id);
-            $custom = array();
+            $custom = [];
             if ($obj->custom_fields) {
                 foreach ($fields as $key => $field) {
                     if ($key == 'name' || $key == 'email' || $key == 'list_id' || !isset($this->integrationsFields->{$field})) {
@@ -751,7 +788,7 @@ class baformsModelForm extends JModelItem
             && !empty($fields->Name) && isset($this->integrationsFields->{$fields->Name})) {
             require_once $dir;
             $campaign = new campaign($obj->api_key, $obj->client_id, $fields->list_id);
-            $custom = array();
+            $custom = [];
             foreach ($fields as $key => $field) {
                 if ($key == 'Name' || $key == 'EmailAddress' || $key == 'list_id' || !isset($this->integrationsFields->{$field})) {
                     continue;
@@ -771,7 +808,7 @@ class baformsModelForm extends JModelItem
             $memberId = md5(strtolower($email));
             $dataCenter = substr($api_key,strpos($api_key,'-') + 1);
             $url = 'https://'.$dataCenter.'.api.mailchimp.com/3.0/lists/'.$listid.'/members/'.$memberId;
-            $merge_fields = array();
+            $merge_fields = [];
             foreach ($fields as $key => $value) {
                 if ($key != 'EMAIL' && isset($this->integrationsFields->{$value})) {
                     $merge_fields[$key] = $this->integrationsFields->{$value};
@@ -832,7 +869,7 @@ class baformsModelForm extends JModelItem
             $data = $this->getContentsCurl($url.'/getUpdates');
             $data = json_decode($data);
             if (!empty($data->result)) {
-                $chats = array();
+                $chats = [];
                 foreach ($fields as $field) {
                     if ($field->type != 'upload') {
                         $text = str_replace('<br>', '', $field->value);
@@ -1012,7 +1049,7 @@ class baformsModelForm extends JModelItem
     {
         $mollie = $this->getServiceData('mollie');
         $price = baformsHelper::renderPrice((string)$this->paymentData->total, '', '.', '2');
-        $title = array();
+        $title = [];
         foreach ($this->paymentData->products as $product) {
             $title[] = $product->title;
         }
@@ -1025,7 +1062,7 @@ class baformsModelForm extends JModelItem
         );
         $headers = array('Authorization: Bearer '.$mollie->api_key, 'Content-Type: application/json');
         $curl = curl_init();
-        $options = array();
+        $options = [];
         $options[CURLOPT_POST] = 1;
         $options[CURLOPT_POSTFIELDS] = json_encode($array);
         $options[CURLOPT_URL] = 'https://api.mollie.com/v2/payments';
@@ -1069,7 +1106,7 @@ class baformsModelForm extends JModelItem
         $allowedCurrency = array('USD', 'EUR', 'KZT');
         $OutSumCurrency = in_array($this->paymentData->code, $allowedCurrency);
         $receiptData = new stdClass();
-        $receiptData->items = array();
+        $receiptData->items = [];
         $tax = !empty($robokassa->tax) ? $robokassa->tax : 'none';
         foreach ($this->paymentData->products as $product) {
             $item = new stdClass();
@@ -1121,7 +1158,7 @@ class baformsModelForm extends JModelItem
         } else {
             $url = 'https://gateway.payulatam.com/ppp-web-gateway/';
         }
-        $title = array();
+        $title = [];
         foreach ($this->paymentData->products as $product) {
             $title[] = $product->title;
         }
@@ -1158,7 +1195,7 @@ class baformsModelForm extends JModelItem
     public function yandexKassa()
     {
         $yandex = $this->getServiceData('yandex_kassa');
-        $title = array();
+        $title = [];
         foreach ($this->paymentData->products as $product) {
             $title[] = $product->title;
         }
@@ -1177,10 +1214,9 @@ class baformsModelForm extends JModelItem
             'capture' => true,
             'description' => $name,
         );
-        $encodedAuth = base64_encode($yandex->shop_id.':'.$yandex->secret_key);
-        $headers = array('Idempotence-Key: '.$orderId, 'Content-Type: application/json',
-            'Authorization: Basic '.$encodedAuth);
-        $curl = curl_init('https://payment.yandex.net/api/v3/payments');
+        $headers = array('Idempotence-Key: '.$orderId, 'Content-Type: application/json');
+        $curl = curl_init('https://api.yookassa.ru/v3/payments');
+        curl_setopt($curl, CURLOPT_USERPWD, $yandex->shop_id.':'.$yandex->secret_key);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($curl, CURLOPT_POST, 1);
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($array));
@@ -1200,7 +1236,7 @@ class baformsModelForm extends JModelItem
     public function payupl()
     {
         $payupl = $this->getServiceData('payupl');
-        $title = array();
+        $title = [];
         foreach ($this->paymentData->products as $product) {
             $title[] = $product->title;
         }
@@ -1247,7 +1283,7 @@ class baformsModelForm extends JModelItem
     public function payfast()
     {
         $payfast = $this->getServiceData('payfast');
-        $title = array();
+        $title = [];
         foreach ($this->paymentData->products as $product) {
             $title[] = $product->title;
         }
@@ -1279,7 +1315,7 @@ class baformsModelForm extends JModelItem
     public function liqpay()
     {
         $liqpay = $this->getServiceData('liqpay');
-        $title = array();
+        $title = [];
         foreach ($this->paymentData->products as $product) {
             $title[] = $product->title;
         }
@@ -1306,7 +1342,7 @@ class baformsModelForm extends JModelItem
             $url = 'https://www.2checkout.com/checkout/purchase';
         }
         $price = baformsHelper::renderPrice((string)$this->paymentData->total, '', '.', 2);
-        $title = array();
+        $title = [];
         foreach ($this->paymentData->products as $product) {
             $title[] = $product->title;
         }
@@ -1340,7 +1376,7 @@ class baformsModelForm extends JModelItem
 
 
         $price = baformsHelper::renderPrice((string)$this->paymentData->total, '', '.', 2);
-        $title = array();
+        $title = [];
         foreach ($this->paymentData->products as $product) {
             $title[] = $product->title;
         }
@@ -1378,16 +1414,16 @@ class baformsModelForm extends JModelItem
         $this->preparePaymentData($id, '', $object, $field);
         $array = array(
             'payment_method_types' => array('card'/*, 'ideal', 'fpx', 'bacs_debit', 'bancontact', 'giropay', 'p24', 'eps'*/),
-            'line_items' => array(),
+            'line_items' => [],
             'success_url' => $stripe->return_url,
             'cancel_url' => $stripe->return_url
             );
-        $title = array();
+        $title = [];
         foreach ($this->paymentData->products as $product) {
             $title[] = $product->title;
         }
         $price = baformsHelper::renderPrice((string)$this->paymentData->total, '', '.', '2');
-        $line_item = array();
+        $line_item = [];
         $line_item['name'] = implode(', ', $title);
         $line_item['amount'] = $price * 100;
         $line_item['quantity'] = 1;
@@ -1399,7 +1435,7 @@ class baformsModelForm extends JModelItem
             'User-Agent: Stripe/v1 PhpBindings/7.17.0',
             'Authorization: Bearer '.$stripe->secret_key);
         $curl = curl_init();
-        $options = array();
+        $options = [];
         $options[CURLOPT_POST] = 1;
         $options[CURLOPT_POSTFIELDS] = $this->encode($array);
         $options[CURLOPT_URL] = 'https://api.stripe.com/v1/checkout/sessions';
@@ -1417,7 +1453,7 @@ class baformsModelForm extends JModelItem
     {
         if (!is_array($arr))
             return $arr;
-        $r = array();
+        $r = [];
         foreach ($arr as $k => $v) {
             if (is_null($v))
                 continue;
@@ -1470,7 +1506,7 @@ class baformsModelForm extends JModelItem
         print_r($str);exit;
     }
 
-    public function getForm($data = array(), $loadData = true)
+    public function getForm($data = [], $loadData = true)
     {
         
     }

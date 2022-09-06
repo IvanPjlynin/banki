@@ -82,6 +82,14 @@ body.forms-modal-opened:not(.forms-modal-position-center) {
     width: var(--form-width-value);
 }
 
+.ba-form-page.ba-hidden-form-page {
+    border: none!important;
+    height: 0!important;
+    overflow: hidden!important;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+}
+
 .upload-file-btn,
 .ba-form-page .ba-form-page-break-button {
     transition: all .3s ease-in-out !important;
@@ -129,7 +137,7 @@ body.forms-modal-opened:not(.forms-modal-position-center) {
     margin-top: var(--field-margin-top);
 }
 
-.ba-form-submit-recaptcha-wrapper .forms-recaptcha:not([data-captcha="recaptcha_invisible"]) {
+.ba-form-submit-recaptcha-wrapper .forms-recaptcha:not([data-size="invisible"]) {
     margin-bottom: var(--field-margin-bottom);
 }
 
@@ -327,6 +335,7 @@ body.forms-modal-opened:not(.forms-modal-position-center) {
     line-height: var(--field-typography-line-height);
 }
 
+.ba-form-signature-field .ba-signature-canvas,
 .ba-form-field-item .ba-form-products-cart .ba-form-product-quantity-cell input,
 .ba-form-page-navigation-title,
 .upload-file-btn,
@@ -547,6 +556,49 @@ body.forms-modal-opened:not(.forms-modal-position-center) {
     padding-right: var(--calculation-padding-right);
     padding-bottom: var(--calculation-padding-bottom);
     padding-left: var(--calculation-padding-left);
+}
+
+/* ========================================================================
+    Signature Field
+ ========================================================================== */
+
+.ba-form-signature-field .ba-signature-canvas {
+    height: 150px !important;
+}
+
+.ba-form-signature-field .ba-signature-canvas {
+    padding: 0 !important
+}
+
+.ba-form-signature-field .ba-field-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.ba-form-signature-field .ba-clear-signature-canvas {
+    cursor: pointer;
+    color: var(--label-typography-color);
+    font-family: var(--field-typography-font-family);
+    font-size: var(--field-typography-font-size);
+    font-weight: 400;
+    margin-top: 10px;
+    opacity: .5;
+    text-align: right;
+    transition: .3s;
+}
+
+.ba-form-signature-field .ba-clear-signature-canvas:hover {
+    opacity: 1;
+}
+
+.ba-form-signature-field .ba-field-container i {
+    color: var(--field-icon-color);
+    height: 90px;
+    justify-content: center;
+    left: calc(50% - 45px - var(--field-border-width)/2);
+    position: absolute !important;
+    top: 30px;
+    width: 90px;
 }
 
 /* ========================================================================
@@ -793,6 +845,10 @@ body.forms-modal-opened:not(.forms-modal-position-center) {
 
 .upload-file-input ~ div .ba-form-xhr-attachment:first-child {
     padding-top: 15px;
+}
+
+.ba-form-field-item.ba-form-upload-field.has-uploaded-file .upload-file-empty-text {
+    display: none;
 }
 
 .ba-form-xhr-attachment i {
@@ -3989,6 +4045,13 @@ ul.ba-phone-countries-list li:hover {
     font-size: 14px;
     margin-top: 5px;
     width: 100%;
+}
+
+.ba-forms-today-btn.disabled-date:hover,
+.ba-forms-today-btn.disabled-date {
+    opacity: .5;
+    cursor: not-allowed;
+    background: #343749;
 }
 
 .ba-forms-calendar-title-wrapper .forms-calendar-btn {

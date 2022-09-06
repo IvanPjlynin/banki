@@ -47,6 +47,13 @@ if ($field->options->multiple) {
             }
 ?>
                 <span class="upload-file-btn"><?php echo JText::_('BROWSE_FILES'); ?></span>
+<?php
+            if (!$field->options->drag) {
+?>
+                <span class="upload-file-empty-text"><?php echo JText::_('NO_FILE_CHOSEN'); ?></span>
+<?php
+            }
+?>
                 <input type="file" style="display: none !important;" class="ba-forms-attachment"
                     data-field-id="<?php echo $field->key; ?>" data-id="<?php echo $field->id;?>"
                     aria-labelledby="label-<?php echo $field->id; ?>"

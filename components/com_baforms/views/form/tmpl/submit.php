@@ -55,8 +55,8 @@ if (!$closedPoll) {
                 $dataAttributes .= '" data-id="'.$field->id.'"';
                 $dataAttributes .= ' data-payment="'.$field->options->payment.'" data-field-id="'.$field->key.'"';
     ?>
-                <span class="ba-form-submit-btn" <?php echo $dataAttributes; ?>
-                    ><?php echo $icon; ?><span class="ba-form-submit-title"><?php echo $title; ?></span></span>
+                <a href="#" class="ba-form-submit-btn" <?php echo $dataAttributes; ?>
+                    ><?php echo $icon; ?><span class="ba-form-submit-title"><?php echo $title; ?></span></a>
             </div>
         </div>
     </div>

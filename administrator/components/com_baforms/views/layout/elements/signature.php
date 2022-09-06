@@ -10,7 +10,6 @@ defined('_JEXEC') or die;
 
 ob_start();
 $help = '';
-$drag = $field->options->drag ? ' drag-drop-upload-file' : '';
 if ($field->options->required && !empty($field->options->title)) {
     $help .= '<span class="required-star">*</span>';
 }
@@ -19,7 +18,7 @@ if (!empty($field->options->description)) {
     $help .= $field->options->description.'</span></span>';
 }
 ?>
-<div class="ba-form-field-item ba-form-upload-field <?php echo $field->options->suffix; ?>" data-type="upload"
+<div class="ba-form-field-item ba-form-signature-field <?php echo $field->options->suffix ?>" data-type="signature"
     data-id="<?php echo $field->id ?>" id="<?php echo $field->key; ?>">
     <div class="ba-input-wrapper">
         <div class="ba-field-label-wrapper">
@@ -27,12 +26,10 @@ if (!empty($field->options->description)) {
                 contenteditable="true"><?php echo $field->options->title; ?></span><?php echo $help; ?>
         </div>
         <div class="ba-field-container">
-            <div class="upload-file-input<?php echo $drag; ?>">
-                <i class="zmdi zmdi-cloud-upload"></i>
-                <span class="upload-file-drag-drop-title"><?php echo JText::_('DRAG_AND_DROP_HERE'); ?></span>
-                <span class="upload-file-btn"><?php echo JText::_('BROWSE_FILES'); ?></span>
-                <span class="upload-file-empty-text"><?php echo JText::_('NO_FILE_CHOSEN'); ?></span>
-            </div>
+            <canvas class="ba-signature-canvas"></canvas>
+            <span class="ba-clear-signature-canvas"><?php echo JText::_('CLEAR'); ?></span>
+            <i class="zmdi zmdi-gesture"></i>
+            <textarea style="display: none !important;"></textarea>
         </div>
     </div>
     <div class="ba-edit-item close-all-modals">
@@ -55,7 +52,7 @@ if (!empty($field->options->description)) {
                     <?php echo JText::_('DELETE_ITEM'); ?>
                 </span>
             </span>
-            <span class="ba-edit-text ba-hide-element"><?php echo JText::_('INPUT'); ?></span>
+            <span class="ba-edit-text ba-hide-element"><?php echo JText::_('IMAGE'); ?></span>
         </div>
     </div>
 </div>

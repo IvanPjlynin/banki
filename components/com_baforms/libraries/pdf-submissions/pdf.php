@@ -103,6 +103,8 @@ class pdf
                     $price = $this->renderPrice($total, $thousand, $separator, $decimals, $position, $symbol);
                     $str = JText::_('TOTAL').': '.$price;
                     $pdf->MultiCell(0, 10, $str, 0, 'L');
+                } else if ($obj->type == 'signature') {
+                    $this->addImage($pdf, JPATH_ROOT.'/'.$obj->message, 80);
                 } else if ($obj->type != 'upload') {
                     if ($obj->type == 'poll' || $obj->type == 'checkbox' || $obj->type == 'selectMultiple') {
                         $array = explode('<br>', $obj->message);
@@ -117,8 +119,49 @@ class pdf
                     }
                 }
             }
+        }$pdf->Output('D', 'baforms.pdf');
+    }
+
+    public static function imageCreate($path) {
+        $info = getimagesize($path);
+        $ext = image_type_to_extension($info[2], false);
+        switch ($ext) {
+            case 'png':
+                $imageCreate = 'imagecreatefrompng';
+                break;
+            case 'gif':
+                $imageCreate = 'imagecreatefromgif';
+                break;
+            case 'webp':
+                $imageCreate = 'imagecreatefromwebp';
+                break;
+            default:
+                $imageCreate = 'imagecreatefromjpeg';
         }
-        $pdf->Output('D', 'baforms.pdf');
+        return $imageCreate;
+    }
+
+    public function addImage($pdf, $path, $w = null)
+    {
+        if (!is_file($path)) {
+            return;
+        }
+        if (!$w) {
+            $w = $pdf->GetPageWidth() - $this->margin * 2;
+        }
+        $y = $pdf->getY();
+        $imageCreate = $this->imageCreate($path);
+        $img = $imageCreate($path);
+        $width = imagesx($img);
+        $height = imagesy($img);
+        $ratio = $width / $height;
+        $h = $w / $ratio;
+        if ($y + $h > $pdf->GetPageHeight() - $this->margin) {
+            $pdf->AddPage();
+            $y = $pdf->getY();
+        }
+        $pdf->Image($path, $this->left, $y, $w, $h);
+        $pdf->setY($y + $h);
     }
 
     public function renderPrice($price, $thousand, $separator, $decimals, $position, $symbol)

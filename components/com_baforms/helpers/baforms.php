@@ -179,6 +179,7 @@ abstract class baformsHelper
         self::$shortCodes->{'[Username]'} = $user->username;
         self::$shortCodes->{'[User Name]'} = $user->name;
         self::$shortCodes->{'[User Email]'} = $user->email;
+        self::$shortCodes->{'[User ID]'} = $user->id;
         self::$shortCodes->{'[User IP Address]'} = $_SERVER['REMOTE_ADDR'];
         self::$shortCodes->{'[Date]'} = JHtml::date(time(), 'j F Y');
         self::$shortCodes->{'[Time]'} = JHtml::date(time(), 'H:i:s');
@@ -200,6 +201,14 @@ abstract class baformsHelper
             $value = str_replace($ind, $shortCode, $value);
         }
         $value = preg_replace('/\[Field ID=\d+\]/', '', $value);
+        preg_match_all('/\[URL parametr = (.*?)\]/', $value, $matches, PREG_SET_ORDER);
+        if (!empty($matches)) {
+            $input = JFactory::getApplication()->input;
+            foreach ($matches as $match) {
+                $result = $input->get->get($match[1], '', 'string');
+                $value = str_replace($match[0], $result, $value);
+            }
+        }
         preg_match_all('/\[SQL query = (.*?)\]/', $value, $matches, PREG_SET_ORDER);
         if (!empty($matches)) {
             $db = JFactory::getDbo();
@@ -296,21 +305,19 @@ abstract class baformsHelper
     {
         $doc = JFactory::getDocument();
         $scripts = $doc->_scripts;
-        $array = array();
-        $map = true;
+        $array = [];
         $loadFormsMap = new stdClass();
         $loadFormsMap->load = false;
         foreach ($scripts as $key => $script) {
             if (strpos($key, 'maps.googleapis.com/maps/api/js?libraries=places')) {
-                $map = false;
+                $loadFormsMap->load = false;
             }
             $key = explode('/', $key);
             $array[] = end($key);
         }
         foreach ($cid as $id => $value) {
-            $count = self::getScriptItemsCount($id, 'map');
-            $addressCount = self::getScriptItemsCount($id, 'address');
-            if (($count || $addressCount) && $map) {
+            $signatures = self::getScriptItemsCount($id, 'signature');
+            if (!$loadFormsMap->load && (self::getScriptItemsCount($id, 'map') || self::getScriptItemsCount($id, 'address'))) {
                 $loadFormsMap->load = true;
                 $loadFormsMap->api_key = self::getMapsKey();
             }

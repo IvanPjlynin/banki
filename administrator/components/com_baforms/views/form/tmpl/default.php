@@ -282,6 +282,10 @@ document.body.classList.add('disabled-licence');
         <i class="zmdi zmdi-image-o"></i>
         <span><?php echo JText::_('IMAGE'); ?></span>
     </div>
+    <div class="ba-form-field" data-key="signature">
+        <i class="zmdi zmdi-gesture"></i>
+        <span><?php echo JText::_('SIGNATURE'); ?></span>
+    </div>
     <div class="ba-form-field" data-key="html">
         <i class="zmdi zmdi-code-setting"></i>
         <span>HTML</span>
@@ -677,6 +681,35 @@ document.body.classList.add('disabled-licence');
                         <option value="vat120">VAT of the check at the estimated rate of 20/120</option>
                     </select>
                 </div>
+            </div>
+        </div>
+        <div class="integration-options" data-group="hcaptcha">
+            <div class="ba-settings-group">
+                <div class="ba-settings-item ba-settings-input-type">
+                    <span class="ba-settings-item-title">Site Key</span>
+                    <input type="text" data-key="site_key">
+                </div>
+                <div class="ba-settings-item ba-settings-input-type">
+                    <span class="ba-settings-item-title">Secret Key</span>
+                    <input type="text" data-key="secret_key">
+                </div>
+                <div class="ba-settings-item ba-settings-select-type">
+                    <span class="ba-settings-item-title">Theme</span>
+                    <select data-key="theme">
+                        <option value="" hidden></option>
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <div class="ba-settings-item ba-settings-checkbox-type">
+                        <span class="ba-settings-item-title">
+                            Invisible Captcha
+                        </span>
+                        <label class="ba-form-toggle">
+                            <input type="checkbox" data-key="invisible" value="1">
+                            <span></span>
+                        </label>
+                    </div>
             </div>
         </div>
         <div class="integration-options" data-group="liqpay">
@@ -1917,16 +1950,20 @@ document.body.classList.add('disabled-licence');
             </div>
             <div class="ba-settings-group user-data-tags">
                 <div class="ba-settings-item ba-settings-input-type">
-                    <span class="ba-settings-item-title">Username</span>
+                    <span class="ba-settings-item-title">Joomla Username</span>
                     <input type="text" readonly onfocus="this.blur()" class="select-input" value="[Username]">
                 </div>
                 <div class="ba-settings-item ba-settings-input-type">
-                    <span class="ba-settings-item-title"><?php echo JText::_('USER_NAME'); ?></span>
+                    <span class="ba-settings-item-title">Joomla <?php echo JText::_('USER_NAME'); ?></span>
                     <input type="text" readonly onfocus="this.blur()" class="select-input" value="[User Name]">
                 </div>
                 <div class="ba-settings-item ba-settings-input-type">
-                    <span class="ba-settings-item-title"><?php echo JText::_('USER_EMAIL'); ?></span>
+                    <span class="ba-settings-item-title">Joomla <?php echo JText::_('USER_EMAIL'); ?></span>
                     <input type="text" readonly onfocus="this.blur()" class="select-input" value="[User Email]">
+                </div>
+                <div class="ba-settings-item ba-settings-input-type">
+                    <span class="ba-settings-item-title">Joomla User ID</span>
+                    <input type="text" readonly onfocus="this.blur()" class="select-input" value="[User ID]">
                 </div>
                 <div class="ba-settings-item ba-settings-input-type">
                     <span class="ba-settings-item-title"><?php echo JText::_('USER_IP_ADDRESS'); ?></span>
@@ -1949,6 +1986,10 @@ document.body.classList.add('disabled-licence');
                 <div class="ba-settings-item ba-settings-input-type">
                     <span class="ba-settings-item-title"><?php echo JText::_('SQL_QUERY'); ?></span>
                     <input type="text" readonly onfocus="this.blur()" class="select-input" value="[SQL query = SELECT]">
+                </div>
+                <div class="ba-settings-item ba-settings-input-type">
+                    <span class="ba-settings-item-title">URL parameters</span>
+                    <input type="text" readonly onfocus="this.blur()" class="select-input" value="[URL parametr = Key]">
                 </div>
             </div>
         </div>
@@ -2309,6 +2350,72 @@ document.body.classList.add('disabled-licence');
                                     <i class="zmdi zmdi-copy"></i>
                                     <span class="ba-tooltip ba-top ba-hide-element"><?php echo JText::_('COPY_TO_CLIPBOARD'); ?></span>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <i class="zmdi zmdi-more resize-handle-bottom"></i>
+    </div>
+</div>
+<div id="signature-field-settings-dialog" class="ba-modal-cp fields-editor-panel draggable-modal-cp modal hide hidden-modal-backdrop">
+    <div class="modal-header">
+        <h3 class="ba-modal-title"><?php echo JText::_('SIGNATURE'); ?></h3>
+        <div class="modal-header-icon">
+            <i class="zmdi zmdi-close" data-dismiss="modal"></i>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="accordion">
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse">
+                        <?php echo JText::_('GENERAL'); ?>
+                        <i class="zmdi zmdi-caret-right"></i>
+                    </a>
+                </div>
+                <div class="accordion-body in collapse">
+                    <div class="accordion-inner">
+                        <div class="ba-settings-group">
+                            <div class="ba-settings-item ba-settings-input-type">
+                                <span class="ba-settings-item-title"><?php echo JText::_('LABEL'); ?></span>
+                                <input type="text" data-option="title" data-callback="calendarFieldAction">
+                            </div>
+                            <div class="ba-settings-item ba-settings-input-type">
+                                <span class="ba-settings-item-title"><?php echo JText::_('HELP_TEXT'); ?></span>
+                                <input type="text" data-option="description" data-callback="calendarFieldAction">
+                            </div>
+                        </div>
+                        <div class="ba-settings-group">
+                            <div class="ba-settings-item ba-settings-checkbox-type email-type-options" style="">
+                                <span class="ba-settings-item-title">
+                                    <?php echo JText::_('REQUIRED'); ?>
+                                </span>
+                                <label class="ba-form-toggle">
+                                    <input type="checkbox" data-option="required" data-callback="inputFieldAction">
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle" data-toggle="collapse">
+                        <?php echo JText::_('ADVANCED'); ?>
+                        <i class="zmdi zmdi-caret-right"></i>
+                    </a>
+                </div>
+                <div class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        <div class="ba-settings-group">
+                            <div class="ba-settings-item ba-settings-input-type">
+                                <span class="ba-settings-item-title"><?php echo JText::_('CLASS_SUFFIX'); ?></span>
+                                <input type="text" class="modify-item-suffix">
                             </div>
                         </div>
                     </div>
@@ -6552,6 +6659,11 @@ if ($this->about->tag == 'pro') {
                         <img src="<?php echo $imgPath.'google-sheets.png' ?>">
                         <i class="zmdi zmdi-check-circle"></i>
                         <span>Google Sheets</span>
+                    </div>
+                    <div class="integrations-element ba-work-area-element" data-group="other" data-type="hcaptcha">
+                        <img src="<?php echo $imgPath.'hcaptcha.png' ?>">
+                        <i class="zmdi zmdi-check-circle"></i>
+                        <span>hCaptcha</span>
                     </div>
                     <div class="integrations-element ba-work-area-element" data-group="payment" data-type="liqpay">
                         <img src="<?php echo $imgPath.'liqpay.png' ?>">

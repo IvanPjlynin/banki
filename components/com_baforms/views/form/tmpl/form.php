@@ -29,7 +29,7 @@ if (self::$design->theme->layout == 'lightbox') {
 ?>
 <div class="<?php echo $lightboxClassName; ?>" data-position="<?php echo self::$design->lightbox->position; ?>"
     data-id="<?php echo $id; ?>" data-trigger="<?php echo $trigger; ?>" data-session="<?php echo $session; ?>"
-    style="display: none;">
+    style="opacity: 0; pointer-events: none;">
     <div class="ba-forms-modal-backdrop" data-dismiss="formsModal"></div>
     <div class="ba-forms-modal">
 <?php
