@@ -984,7 +984,10 @@ button.filter-dropdown-toggle span {
 .filter-debit-card #filter-buttom {
     margin-top: 30px;
 }
-
+.com-content-article__body div.bank-logo img {
+    width: 100%;
+    height: auto;
+}
 
 
 /*Адаптация*/
