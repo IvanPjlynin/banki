@@ -283,12 +283,13 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">
                                 
                                 <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
-                                от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин. - 
+                                от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин. 
                                 <?php endif; ?>
                                 
                                 <?php if ($this->item->extrafields['rassmotrenie-do-dn']->value) : ?>                                
-                                <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн.</p>
+                                до <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн.
                                 <?php endif; ?>
+                                </p>
                             </div>
                             <?php endif; ?>
 
