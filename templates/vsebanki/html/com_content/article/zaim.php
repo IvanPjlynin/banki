@@ -262,10 +262,27 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['sposob-polucheniya']->value; ?></p>
                             </div>
 
-                            <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
+                            <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value || $this->item->extrafields['rassmotrenie-do-dn']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Рассмотрение</h3>
-                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин - <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн</p>
+                                <p class="tab-text-block-content">
+
+                                    <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
+                                    
+                                        <?php if (is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
+                                        от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин.
+                                        <?php endif; ?>
+                                    
+                                        <?php if (!is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
+                                            <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                    
+
+                                    <?php if ($this->item->extrafields['rassmotrenie-do-dn']->value) : ?>
+                                        до <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн.
+                                    <?php endif; ?>
+                                </p>
                             </div>
                             <?php endif; ?>
 
