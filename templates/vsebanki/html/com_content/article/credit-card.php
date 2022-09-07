@@ -168,7 +168,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['summa-kreditnogo-limita']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Сумма кредитного лимита</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['summa-kreditnogo-limita']->value, 0, ',', ' '); ?> ₽</p>
+                                <p class="tab-text-block-content"> ₽</p>
                             </div>
                             <?php endif; ?>
 
@@ -210,7 +210,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['snyatie-kreditnykh-sredstv']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Снятие кредитных средств</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['snyatie-kreditnykh-sredstv']->value, 0, ',', ' '); ?> ₽</p>
+                                <p class="tab-text-block-content"> ₽</p>
                             </div>
                             <?php endif; ?>
 
@@ -243,7 +243,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Зарплата</h3>
-                                <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽</p>
+                                <p class="tab-text-block-content">от  ₽</p>
                             </div>
                             <?php endif; ?>
 
@@ -291,7 +291,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['stoimost-dostavki-karty']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Стоимость доставки карты</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-dostavki-karty']->value, 0, ',', ' '); ?> ₽</p>
+                                <p class="tab-text-block-content"> ₽</p>
                             </div>
                             <?php endif; ?>
 
