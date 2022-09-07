@@ -175,14 +175,14 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['kreditnyj-limit']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Кредитный лимит</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['kreditnyj-limit']->value, 0, ',', ' '); ?> ₽</p>
+                                <p class="tab-text-block-content">до <?php echo number_format($this->item->extrafields['kreditnyj-limit']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['stavka-kredit']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-kredit']->value; ?>%</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-kredit']->value; ?> % - <?php echo $this->item->extrafields['protsenty-za-kredit-do']->value; ?> %</p>
                             </div>
                             <?php endif; ?>
 
