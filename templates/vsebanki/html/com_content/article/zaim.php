@@ -217,14 +217,7 @@ $attribs['style'] = 'none';
                                 <h3 class="tab-text-block-title">Общий трудовой стаж</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value; ?></p>
                             </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Стаж на последнем месте работы</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
+                            <?php endif; ?>                            
 
                             <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
@@ -255,6 +248,15 @@ $attribs['style'] = 'none';
                                 <h3 class="tab-text-block-title">Требование для подачи заявки</h3>
                                 <p class="tab-text-block-content">
                                     <?php echo $this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value; ?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['trebovaniya-k-zalogu']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                                <h3 class="tab-text-block-title">Требования к залогу</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['trebovaniya-k-zalogu']->value; ?>
                                 </p>
                             </div>
                             <?php endif; ?>
