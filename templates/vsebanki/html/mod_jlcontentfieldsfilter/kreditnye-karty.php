@@ -192,7 +192,7 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#lgotnyj-period-to-142").trigger("keypress").val(function(i, val) {
-            return 180;
+            return 365;
         });
 
 
@@ -206,7 +206,7 @@ if ($params->get('enable_css', 1)) {
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 180,
+            max: 365,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
                 $("#lgotnyj-period-from-142").trigger("keypress").val(function(i, val) {
