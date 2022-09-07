@@ -200,13 +200,6 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['snyatie-kreditnykh-sredstv']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Снятие кредитных средств</h3>
-                                <p class="tab-text-block-content"> ₽</p>
-                            </div>
-                            <?php endif; ?>
-
                             <?php if ($this->item->extrafields['stoimost-obsluzhivaniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
