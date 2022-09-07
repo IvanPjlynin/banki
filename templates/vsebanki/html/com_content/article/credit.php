@@ -246,11 +246,11 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">
                                 
                                 <?php if (is_numeric($this->item->extrafields['zarplata-ot']->value))  : ?>
-                                    от <?php echo $this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽
+                                    от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽
                                 <?php endif; ?>
                                 
                                 <?php if (!is_numeric($this->item->extrafields['zarplata-ot']->value))  : ?>
-                                    <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?>
+                                    <?php echo $this->item->extrafields['zarplata-ot']->value; ?>
                                 <?php endif; ?>
                                 
                                 </p>
