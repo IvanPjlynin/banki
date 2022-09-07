@@ -160,17 +160,17 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#summa-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
-            return 5000;
+            return 60000;
         });
 
 
 
         $("#summa-zajma-from-141").trigger("keypress").val(function(i, val) {
-            return 5000;
+            return 60000;
         });
 
         $("#summa-zajma-to-141").trigger("keypress").val(function(i, val) {
-            return 80000;
+            return 6000000;
         });
 
 
@@ -178,11 +178,11 @@ if ($params->get('enable_css', 1)) {
             type: "single",
             grid: false,
             min: 500,
-            from: 5000,
+            from: 60000,
             postfix: '',
             step: 500,
             grid_snap: '',
-            max: 80000,
+            max: 6000000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", data.from);
                 $("#summa-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
