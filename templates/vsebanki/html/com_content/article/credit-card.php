@@ -248,7 +248,7 @@ $attribs['style'] = 'none';
                             <?php endif; ?>
                             
                             <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст для погашения</h3>
                                 <p class="tab-text-block-content">до <?php echo $this->item->extrafields['vozrast-dlya-pogasheniya']->value; ?> лет</p>
                             </div>
@@ -264,7 +264,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Совокупный доход</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value; ?></p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['zarplata-ot']->value; ?></p>
                             </div>
                             <?php endif; ?>
                             
