@@ -165,13 +165,6 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade show active" id="tab-stavki-tab" role="tabpanel" aria-labelledby="tab-stavki">
                         <div class="row tab-text">
 
-                            <?php if ($this->item->extrafields['summa-kreditnogo-limita']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Сумма кредитного лимита</h3>
-                                <p class="tab-text-block-content"> ₽</p>
-                            </div>
-                            <?php endif; ?>
-
                             <?php if ($this->item->extrafields['kreditnyj-limit']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Кредитный лимит</h3>
@@ -186,10 +179,10 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['stavka-za-vydachu-nalichnykh']->value) : ?>
+                            <?php if ($this->item->extrafields['snyatie-kreditnykh-sredstv']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка за выдачу наличных</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-za-vydachu-nalichnykh']->value; ?>%</p>
+                                <h3 class="tab-text-block-title">Снятие наличных</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['snyatie-kreditnykh-sredstv']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
