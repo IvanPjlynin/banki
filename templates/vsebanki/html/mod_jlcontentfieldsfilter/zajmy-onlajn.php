@@ -233,7 +233,7 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#srok-zajma-to-140").trigger("keypress").val(function(i, val) {
-            return 365;
+            return 366;
         });
 
 
@@ -246,7 +246,7 @@ if ($params->get('enable_css', 1)) {
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 365,
+            max: 366,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
                 $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
