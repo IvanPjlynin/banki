@@ -118,7 +118,7 @@ if ($params->get('enable_css', 1)) {
 
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
-        <div class="jlmf-section ">
+        <div class="jlmf-section visually-hidden">
             <?php echo $v; ?>
         </div>
         <?php endif;?>
@@ -223,17 +223,17 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#srok-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
-            return 24;
+            return 30;
         });
 
 
 
         $("#srok-zajma-from-140").trigger("keypress").val(function(i, val) {
-            return 24;
+            return 30;
         });
 
         $("#srok-zajma-to-140").trigger("keypress").val(function(i, val) {
-            return 180;
+            return 365;
         });
 
 
