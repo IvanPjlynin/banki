@@ -214,8 +214,15 @@ $attribs['style'] = 'none';
 
                             <?php if ($this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Общий стаж</h3>
+                                <h3 class="tab-text-block-title">Общий трудовой стаж</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Стаж на последнем месте работы</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
