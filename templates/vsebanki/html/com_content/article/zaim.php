@@ -211,6 +211,13 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">от <?php echo $this->item->extrafields['vozrast']->value; ?> года</p>
                             </div>
                             <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                                <h3 class="tab-text-block-title">Возраст для погашения</h3>
+                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['vozrast-dlya-pogasheniya']->value; ?> лет</p>
+                            </div>
+                            <?php endif; ?>
 
                             <?php if ($this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
@@ -223,14 +230,6 @@ $attribs['style'] = 'none';
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Зарплата</h3>
                                 <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-
-
-                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
-                                <h3 class="tab-text-block-title">Возраст для погашения</h3>
-                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['vozrast-dlya-pogasheniya']->value; ?> лет</p>
                             </div>
                             <?php endif; ?>
 
