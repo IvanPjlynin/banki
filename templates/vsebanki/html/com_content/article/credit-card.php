@@ -206,6 +206,34 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content"> ₽</p>
                             </div>
                             <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['poluchenie-karty']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Получение карты</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['poluchenie-karty']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['lgotnyj-period']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Льготный период</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['lgotnyj-period']->value; ?> дн.</p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['limit-na-snyatie']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Лимит на снятие</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['limit-na-snyatie']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['stoimost-obslug']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stoimost-obslug']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
 
                         </div>
                     </div>
@@ -254,18 +282,13 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">Гражданство РФ, постоянная регистрация</p>
                             </div>
                             <?php endif; ?>
+                            
+                            
 
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
                         <div class="row tab-text">
-
-                            <?php if ($this->item->extrafields['lgotnyj-period']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Льготный период</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['lgotnyj-period']->value; ?> дн.</p>
-                            </div>
-                            <?php endif; ?>
                             
                             <?php if ($this->item->extrafields['protsenty-v-techenie-lgotnogo-perioda']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
@@ -279,21 +302,9 @@ $attribs['style'] = 'none';
                                 <h3 class="tab-text-block-title">Расширение срока кредита</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['rasshirenie-sroka-kredita']->value; ?></p>
                             </div>
-                            <?php endif; ?>
+                            <?php endif; ?>                            
                             
-                            <?php if ($this->item->extrafields['limit-na-snyatie']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Лимит на снятие</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['limit-na-snyatie']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
                             
-                            <?php if ($this->item->extrafields['stoimost-obslug']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stoimost-obslug']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
                             
                             <?php if ($this->item->extrafields['keshbek-na-vse']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
@@ -323,12 +334,6 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
                             
-                            <?php if ($this->item->extrafields['poluchenie-karty']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Получение карты</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['poluchenie-karty']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
 
                         </div>
                     </div>
