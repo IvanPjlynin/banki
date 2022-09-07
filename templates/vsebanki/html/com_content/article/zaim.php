@@ -271,6 +271,15 @@ $attribs['style'] = 'none';
                                 </p>
                             </div>
                             <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['treb-zalog-z']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                                <h3 class="tab-text-block-title">Требования к залогу</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['treb-zalog-z']->value; ?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
 
                         </div>
                     </div>
