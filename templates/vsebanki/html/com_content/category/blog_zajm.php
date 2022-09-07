@@ -56,7 +56,13 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
             </div>
             <div class="bank-field srok">
                 <div class="bank-field-name"><?php echo $this->item->extrafields['srok-zajma']->title; ?></div>
-                <div class="bank-field-value">до <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.</div>
+                <div class="bank-field-value">
+                    <?php if ($this->item->extrafields['srok-zajma']->value < 300) : ?>
+                        до <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.
+                    <? else: ?>
+                        до <?php echo $this->item->extrafields['srok-zajma']->value/30; ?> мес.
+                    <? endif; ?>
+                </div>
             </div>
             <div class="bank-field stavka">
                 <div class="bank-field-name"><?php echo $this->item->extrafields['stavka-zajma']->title; ?></div>
