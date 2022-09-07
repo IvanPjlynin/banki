@@ -118,7 +118,7 @@ if ($params->get('enable_css', 1)) {
 
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
-        <div class="jlmf-section ">
+        <div class="jlmf-section visually-hidden">
             <?php echo $v; ?>
         </div>
         <?php endif;?>
@@ -162,7 +162,7 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#summa-zajma-to-140").trigger("keypress").val(function(i, val) {
-            return 80000;
+            return 100000;
         });
 
 
