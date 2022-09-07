@@ -227,7 +227,7 @@ $attribs['style'] = 'none';
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст для погашения</h3>
                                 <p class="tab-text-block-content">до <?php echo $this->item->extrafields['vozrast-dlya-pogasheniya']->value; ?> лет</p>
                             </div>
@@ -258,7 +258,7 @@ $attribs['style'] = 'none';
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Стаж на последнем месте работы</h3>
                                 <p class="tab-text-block-content">
                                     <?php echo $this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value; ?>
@@ -267,14 +267,14 @@ $attribs['style'] = 'none';
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Требование для подачи заявки</h3>
                                 <p class="tab-text-block-content">Гражданство РФ, постоянная регистрация</p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['zarplata-credits']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Зарплата</h3>
                                 <p class="tab-text-block-content">
                                     <?php echo $this->item->extrafields['zarplata-credits']->value; ?>
@@ -283,7 +283,7 @@ $attribs['style'] = 'none';
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['trebovaniya-k-zalogu']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Требования к залогу</h3>
                                 <p class="tab-text-block-content">
                                     <?php echo $this->item->extrafields['trebovaniya-k-zalogu']->value; ?>
