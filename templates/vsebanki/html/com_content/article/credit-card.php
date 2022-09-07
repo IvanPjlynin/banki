@@ -260,66 +260,73 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
                         <div class="row tab-text">
 
-                            <?php if ($this->item->extrafields['obyazatelnye-dokumenty']->value) : ?>
+                            <?php if ($this->item->extrafields['lgotnyj-period']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Обязательные документы</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['obyazatelnye-dokumenty']->value; ?></p>
+                                <h3 class="tab-text-block-title">Льготный период</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['lgotnyj-period']->value; ?> дн.</p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['protsenty-v-techenie-lgotnogo-perioda']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Проценты в течение льготного периода</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['protsenty-v-techenie-lgotnogo-perioda']->value; ?>%</p>
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
+                            <?php if ($this->item->extrafields['rasshirenie-sroka-kredita']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Подтверждение дохода</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['podtverzhdenie-dokhoda']->value; ?></p>
+                                <h3 class="tab-text-block-title">Расширение срока кредита</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['rasshirenie-sroka-kredita']->value; ?></p>
                             </div>
                             <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['stoimost-dostavki-karty']->value) : ?>
+                            
+                            <?php if ($this->item->extrafields['limit-na-snyatie']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Стоимость доставки карты</h3>
-                                <p class="tab-text-block-content"> ₽</p>
+                                <h3 class="tab-text-block-title">Лимит на снятие</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['limit-na-snyatie']->value; ?></p>
                             </div>
                             <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['osnovnoj-bonus']->value) : ?>
+                            
+                            <?php if ($this->item->extrafields['stoimost-obslug']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Основной бонус</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['osnovnoj-bonus']->value; ?>%</p>
+                                <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stoimost-obslug']->value; ?></p>
                             </div>
                             <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['bonus-za-oplatu-v']->value) : ?>
+                            
+                            <?php if ($this->item->extrafields['keshbek-na-vse']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Бонус за оплату в</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['bonus-za-oplatu-v']->value; ?></p>
+                                <h3 class="tab-text-block-title">Кэшбэк на все</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['keshbek-na-vse']->value; ?></p>
                             </div>
                             <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['bonus-u-partnerov']->value) : ?>
+                            
+                            <?php if ($this->item->extrafields['uvelichennyj-keshbek']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Бонус у партнеров</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['bonus-u-partnerov']->value; ?>%</p>
+                                <h3 class="tab-text-block-title">Увеличенный кэшбэк</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['uvelichennyj-keshbek']->value; ?></p>
                             </div>
                             <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['protsenty-na-ostatok']->value) : ?>
+                            
+                            <?php if ($this->item->extrafields['u-partnerov']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Проценты на остаток</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['protsenty-na-ostatok']->value; ?>%</p>
+                                <h3 class="tab-text-block-title">У партнеров</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['u-partnerov']->value; ?></p>
                             </div>
                             <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['sposob-polucheniya']->value) : ?>
+                            
+                            <?php if ($this->item->extrafields['nachislenie-na-ostatok']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Способ получения</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['sposob-polucheniya']->value; ?></p>
+                                <h3 class="tab-text-block-title">Начисление % на остаток</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['nachislenie-na-ostatok']->value; ?></p>
                             </div>
                             <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
+                            
+                            <?php if ($this->item->extrafields['poluchenie-karty']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Рассмотрение</h3>
-                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин - <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн</p>
+                                <h3 class="tab-text-block-title">Получение карты</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['poluchenie-karty']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
