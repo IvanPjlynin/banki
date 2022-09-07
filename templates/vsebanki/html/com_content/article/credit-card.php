@@ -264,7 +264,13 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Совокупный доход</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['zarplata-ot']->value; ?></p>
+                                <p class="tab-text-block-content">
+                                    <?php if (is_numeric($this->item->extrafields['zarplata-ot']->value))  : ?>
+                                        от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽
+                                    <? else: ?>
+                                        <?php echo number_format($this->item->extrafields['zarplata-ot']->value; ?>
+                                    <?php endif; ?>
+                                </p>
                             </div>
                             <?php endif; ?>
                             
