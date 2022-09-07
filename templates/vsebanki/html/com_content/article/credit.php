@@ -329,7 +329,7 @@ $attribs['style'] = 'none';
                                         от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин.
                                         <?php endif; ?>
                                     
-                                        <?php if (is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
+                                        <?php if (!is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
                                             <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?>
                                         <?php endif; ?>
                                     <?php endif; ?>
