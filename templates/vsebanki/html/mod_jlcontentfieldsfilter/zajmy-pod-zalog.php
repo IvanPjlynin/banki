@@ -231,13 +231,13 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#srok-zajma-ot-to-141").trigger("keypress").val(function(i, val) {
-            return 24;
+            return 90;
         });
 
 
 
         $("#srok-zajma-from-141").trigger("keypress").val(function(i, val) {
-            return 24;
+            return 90;
         });
 
         $("#srok-zajma-to-141").trigger("keypress").val(function(i, val) {
@@ -248,7 +248,7 @@ if ($params->get('enable_css', 1)) {
         $filter_range2.ionRangeSlider({
             type: "single",
             grid: false,
-            from: 30,
+            from: 90,
             postfix: '',
             min: 5,
             step: 1,
