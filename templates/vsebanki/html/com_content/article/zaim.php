@@ -240,7 +240,7 @@ $attribs['style'] = 'none';
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
                                 <h3 class="tab-text-block-title">Требование для подачи заявки</h3>
                                 <p class="tab-text-block-content">
-                                    
+                                    <?php echo $this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value; ?>
                                 </p>
                             </div>
                             <?php endif; ?>
