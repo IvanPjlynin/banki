@@ -246,22 +246,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">от <?php echo $this->item->extrafields['vozrast']->value; ?> года</p>
                             </div>
                             <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Общий стаж</h3>
-                                <p class="tab-text-block-content">от 12 месяцев</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Зарплата</h3>
-                                <p class="tab-text-block-content">от  ₽</p>
-                            </div>
-                            <?php endif; ?>
-
-
+                            
                             <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
                                 <h3 class="tab-text-block-title">Возраст для погашения</h3>
@@ -269,20 +254,44 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
-                                <h3 class="tab-text-block-title">Стаж на последнем месте работы, <br>более 3-х месяцев</h3>
-                                <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev']->value ? 'Требуется' : 'Не требуется'; ?>
-                                </p>
+                            <?php if ($this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Общий стаж</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value; ?></p>
                             </div>
+                            <?php endif; ?>                            
 
-                            <?php if ($this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
-                                <h3 class="tab-text-block-title">Требование для подачи заявки</h3>
-                                <p class="tab-text-block-content">Гражданство РФ, постоянная регистрация</p>
+                            <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                                <h3 class="tab-text-block-title">Совокупный доход</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value; ?></p>
                             </div>
                             <?php endif; ?>
                             
+                            <?php if ($this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                                <h3 class="tab-text-block-title">Требование для подачи заявки</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['obizat-dokuments']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                                <h3 class="tab-text-block-title">Обязательные документы</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['obizat-dokuments']->value; ?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+                                <h3 class="tab-text-block-title">Подтверждение дохода</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['podtverzhdenie-dokhoda']->value; ?>
+                                </p>
+                            </div>
+                            <?php endif; ?>                           
                             
 
                         </div>
