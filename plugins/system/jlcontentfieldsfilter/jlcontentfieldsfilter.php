@@ -230,7 +230,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 			if(!empty($where)){
                 
                 echo '<pre>';
-        var_dump($filterData);
+        var_dump($where);
         echo '</pre>';
         die();
                 
