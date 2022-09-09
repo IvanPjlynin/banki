@@ -110,5 +110,3 @@ if(count($fields)){
 }
 
 
-$app->setUserState($context . 'filter.article_id_include', null);
-$app->setUserState($context . 'filter.article_id', null);

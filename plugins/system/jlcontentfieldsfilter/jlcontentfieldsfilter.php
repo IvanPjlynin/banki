@@ -30,7 +30,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 	 * @since version
 	 * @throws Exception
 	 */
-	public function onContentPrepareForm($form, $data)
+	/*public function onContentPrepareForm($form, $data)
 	{
 		if(!($form instanceof JForm))
 		{
@@ -68,7 +68,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 		$form->setFieldAttribute('disabled_categories', 'extension', $category_extension, 'params');
 
 		return true;
-	}
+	}*/
 
 	public function onBeforeCompileHead(){
         if(JFactory::getApplication()->isClient('administrator'))
