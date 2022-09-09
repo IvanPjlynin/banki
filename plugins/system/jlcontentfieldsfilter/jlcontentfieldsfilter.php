@@ -204,11 +204,17 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                             }*/
                             
                             if($val == '1'){
-                                $newVal = array('', '0','2','3','4','5','6','7','8','9','10');
+                                $newVal = 'none';
                             }
 						}
 						if(count($newVal)){
+                            
+                            if($newVal == 'none'){
+                                $where = '(field_id = '.(int)$k.' AND value != "1"'.')';
+                            } else {
+                            
 							$where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
+                            }
 						}
 					}
 					else if(!empty($v)){
