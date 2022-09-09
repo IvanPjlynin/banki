@@ -64,8 +64,8 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 			$dataType = $form->getFieldAttribute('type', 'default');
 		}
 
-		/*$form->setFieldAttribute('content_filter', 'dataType', $dataType, 'params');
-		$form->setFieldAttribute('disabled_categories', 'extension', $category_extension, 'params');*/
+		$form->setFieldAttribute('content_filter', 'dataType', $dataType, 'params');
+		$form->setFieldAttribute('disabled_categories', 'extension', $category_extension, 'params');
 
 		return true;
 	}
@@ -81,7 +81,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 	/** Подмена модели категории контента.
 	 * @throws Exception
 	 */
-	public function onAfterRoute()
+	/*public function onAfterRoute()
 	{
 		if(JFactory::getApplication()->isClient('administrator'))
 		{
@@ -313,7 +313,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				$app->setUserState($option.'.category.list.' . $itemid . '.filter_order_Dir', $dirn);
 			}
 		}
-	}
+	}*/
 
 	private function doMeta(){
 	    if(!JComponentHelper::isEnabled('com_jlcontentfieldsfilter')){
