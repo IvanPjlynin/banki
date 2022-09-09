@@ -81,8 +81,8 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 	/** Подмена модели категории контента.
 	 * @throws Exception
 	 */
-	public function onAfterRoute()
-	/*{
+	/*public function onAfterRoute()
+	{
 		if(JFactory::getApplication()->isClient('administrator'))
 		{
 			return;
