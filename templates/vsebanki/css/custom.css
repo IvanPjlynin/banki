@@ -999,6 +999,14 @@ button.filter-dropdown-toggle span {
     width: 100%;
 }
 
+.block-filter .dropdown .switch .slider {
+    background-color: #56C182;
+}
+
+.block-filter .dropdown .switch input:checked + .slider {
+    background-color: #E4E9EB;
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
