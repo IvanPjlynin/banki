@@ -1007,6 +1007,12 @@ button.filter-dropdown-toggle span {
     background-color: #E4E9EB;
 }
 
+.block-filter .dropdown .switch input:checked + .slider:before {
+    -webkit-transform: translateX(-14px);
+    -ms-transform: translateX(-14px);
+    transform: translateX(-14px);
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
