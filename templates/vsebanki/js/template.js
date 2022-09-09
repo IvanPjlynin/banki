@@ -1186,7 +1186,7 @@ jQuery(document).ready(function ($) {
             dataType: 'html',
         });
     }
-    $('.jlmf-button').off('click.first');
+    /*$('.jlmf-button').off('click.first');
     $('.jlmf-button').on('click', function (e) {
         e.preventDefault(); //отменить выполнение действия по умолчанию
         //e.stopPropagation();
@@ -1197,7 +1197,7 @@ jQuery(document).ready(function ($) {
             //alert (articlesResult);
             $('.blog-items').html(articlesResult);
         });
-    });
+    });*/
 
     //hover эффект на тач
     //$(".main-block .container .row div .service").click(function (e) {
