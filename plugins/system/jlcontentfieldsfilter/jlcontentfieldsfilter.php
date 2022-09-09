@@ -205,9 +205,6 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                             
                             if($val == '1'){
                                 $newVal = array('', '0','2','3','4','5','6','7','8','9','10');
-
-var_dump($newVal);
-
                             }
 						}
 						if(count($newVal)){
@@ -244,7 +241,7 @@ var_dump($newVal);
 			if(!empty($where)){
                 
 //die();
-                
+                var_dump($where);
                 
 				$query->clear()->select(' DISTINCT item_id');
 				$query->from('#__fields_values');
