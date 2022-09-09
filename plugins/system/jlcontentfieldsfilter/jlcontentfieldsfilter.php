@@ -315,7 +315,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 		}
 	}
 
-	/*private function doMeta(){
+	private function doMeta(){
 	    if(!JComponentHelper::isEnabled('com_jlcontentfieldsfilter')){
 	        return;
         }
@@ -356,7 +356,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             return;
         }
 
-        $params = JComponentHelper::getParams('com_jlcontentfieldsfilter');
+        //$params = JComponentHelper::getParams('com_jlcontentfieldsfilter');
         $autogeneration = $params->get('autogeneration', 0);
 
         $filter = JlcontentfieldsfilterHelper::createFilterString($filterData);
@@ -394,5 +394,5 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             $doc->setMetaData('keywords', $result->meta_keywords);
         }
 
-    }*/
+    }
 }
