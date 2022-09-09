@@ -84,7 +84,7 @@ else{
     $context = $option.'.cat_'.$catid.'.jlcontentfieldsfilter';
 }
 
-$jlContentFieldsFilter = $app->getUserStateFromRequest($context, 'jlcontentfieldsfilter', array(), 'array');
+//$jlContentFieldsFilter = $app->getUserStateFromRequest($context, 'jlcontentfieldsfilter', array(), 'array');
 
 if($option == 'com_content'){
 	$action = JRoute::_(ContentHelperRoute::getCategoryRoute($catid));
