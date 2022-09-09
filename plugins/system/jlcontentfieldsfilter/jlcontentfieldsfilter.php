@@ -64,8 +64,8 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 			$dataType = $form->getFieldAttribute('type', 'default');
 		}
 
-		$form->setFieldAttribute('content_filter', 'dataType', $dataType, 'params');
-		$form->setFieldAttribute('disabled_categories', 'extension', $category_extension, 'params');
+		/*$form->setFieldAttribute('content_filter', 'dataType', $dataType, 'params');
+		$form->setFieldAttribute('disabled_categories', 'extension', $category_extension, 'params');*/
 
 		return true;
 	}
@@ -345,7 +345,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 	    $doc = JFactory::getDocument();
 
-        /*if(isset($filterData['ordering'])){
+        if(isset($filterData['ordering'])){
             unset($filterData['ordering']);
         }
         if(isset($filterData['is_filter'])){
@@ -354,7 +354,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
         if (!is_array($filterData) || !count($filterData)) {
             return;
-        }*/
+        }
 
         $params = JComponentHelper::getParams('com_jlcontentfieldsfilter');
         $autogeneration = $params->get('autogeneration', 0);
