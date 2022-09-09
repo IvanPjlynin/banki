@@ -117,9 +117,9 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             $context = $option.'.cat_'.$catid.'.jlcontentfieldsfilter';
         }
 
-		//$filterData = $app->getUserStateFromRequest($context, 'jlcontentfieldsfilter', array(), 'array');
+		$filterData = $app->getUserStateFromRequest($context, 'jlcontentfieldsfilter', array(), 'array');
 
-        $filterData = '';
+        
 		if(!count($filterData))
 		{
 			return;
