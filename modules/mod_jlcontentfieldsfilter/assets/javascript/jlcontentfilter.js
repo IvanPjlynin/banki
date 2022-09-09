@@ -79,7 +79,7 @@ var JlContentFieldsFilter = {
             data: form.serialize() + '&tmpl=jlcomponent_ajax',
             dataType: 'html',
             success: function (data) {
-                jQuery(params.ajax_selector).html(data.find('.blog-item'));
+                jQuery(params.ajax_selector).html($(data).find('.blog-item'));
                 let event = document.dispatchEvent(new CustomEvent('JlContentFieldsFilterLoadDataSuccess'));
                 $this.HideLoadingScreen();
             }
