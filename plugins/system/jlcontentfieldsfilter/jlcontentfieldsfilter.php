@@ -356,8 +356,8 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             return;
         }
 
-        //$params = JComponentHelper::getParams('com_jlcontentfieldsfilter');
-        $autogeneration = $params->get('autogeneration', 0);
+        $params = JComponentHelper::getParams('com_jlcontentfieldsfilter');
+        //$autogeneration = $params->get('autogeneration', 0);
 
         $filter = JlcontentfieldsfilterHelper::createFilterString($filterData);
         $unsafe_filter = JlcontentfieldsfilterHelper::createFilterString($filterData, false);
