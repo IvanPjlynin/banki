@@ -100,7 +100,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             }
             $catid = $app->getUserStateFromRequest($option.'.jlcontentfieldsfilter.tag_category_id', 'tag_category_id', 0, 'int');
             $tagids = $app->getUserStateFromRequest($option.'.jlcontentfieldsfilter.tag_ids', 'id', array(), 'array');
-            $itemid = implode(',', $tagids) . ':' . $app->input->get('Itemid', 0, 'int');
+            //$itemid = implode(',', $tagids) . ':' . $app->input->get('Itemid', 0, 'int');
         }
 		else if(!in_array($option, array('com_content', 'com_contact')) || $view != 'category' || $catid == 0)
 		{
