@@ -315,11 +315,8 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 			}
             
             
-		}
-        
-        $app->setUserState($context . 'filter.article_id_include', null);
-        $app->setUserState($context . 'filter.article_id', null);
-        
+		}      
+                
 	}
 
 	private function doMeta(){
