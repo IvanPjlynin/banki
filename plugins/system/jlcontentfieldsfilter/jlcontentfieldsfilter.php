@@ -315,7 +315,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 		}
 	}
 
-	private function doMeta0(){
+	/*private function doMeta(){
 	    if(!JComponentHelper::isEnabled('com_jlcontentfieldsfilter')){
 	        return;
         }
@@ -394,5 +394,5 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             $doc->setMetaData('keywords', $result->meta_keywords);
         }
 
-    }
+    }*/
 }
