@@ -177,8 +177,10 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 		$count = 0;
 		$filterArticles = array();
         
+        echo '<pre>';
         var_dump($filterData);
-
+        echo '</pre>';
+        
 		foreach($filterData as $k=>$v)
 		{
 			if(!isset($fieldsTypes[$k])){
