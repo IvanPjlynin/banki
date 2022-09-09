@@ -81,7 +81,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 	/** Подмена модели категории контента.
 	 * @throws Exception
 	 */
-	/*public function onAfterRoute()
+	public function onAfterRoute()
 	{
 		if(JFactory::getApplication()->isClient('administrator'))
 		{
@@ -117,7 +117,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             $context = $option.'.cat_'.$catid.'.jlcontentfieldsfilter';
         }
 
-		$filterData = $app->getUserStateFromRequest($context, 'jlcontentfieldsfilter', array(), 'array');
+		//$filterData = $app->getUserStateFromRequest($context, 'jlcontentfieldsfilter', array(), 'array');
 
 
 		if(!count($filterData))
@@ -313,7 +313,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				$app->setUserState($option.'.category.list.' . $itemid . '.filter_order_Dir', $dirn);
 			}
 		}
-	}*/
+	}
 
 	private function doMeta(){
 	    if(!JComponentHelper::isEnabled('com_jlcontentfieldsfilter')){
