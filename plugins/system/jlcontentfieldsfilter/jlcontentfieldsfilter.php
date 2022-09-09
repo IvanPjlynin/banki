@@ -177,10 +177,6 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 		$count = 0;
 		$filterArticles = array();
         
-        echo '<pre>';
-        var_dump($filterData);
-        echo '</pre>';
-        die();
         
 		foreach($filterData as $k=>$v)
 		{
@@ -232,6 +228,13 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 			}
 
 			if(!empty($where)){
+                
+                echo '<pre>';
+        var_dump($filterData);
+        echo '</pre>';
+        die();
+                
+                
 				$query->clear()->select(' DISTINCT item_id');
 				$query->from('#__fields_values');
 				$query->where($where);
