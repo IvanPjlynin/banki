@@ -176,6 +176,8 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 		$count = 0;
 		$filterArticles = array();
+        
+        var_dump($filterData);
 
 		foreach($filterData as $k=>$v)
 		{
