@@ -82,7 +82,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 	 * @throws Exception
 	 */
 	public function onAfterRoute()
-	{
+	/*{
 		if(JFactory::getApplication()->isClient('administrator'))
 		{
 			return;
@@ -176,7 +176,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 		$count = 0;
 		$filterArticles = array();
 
-		/*foreach($filterData as $k=>$v)
+		foreach($filterData as $k=>$v)
 		{
 			if(!isset($fieldsTypes[$k])){
 				continue;
@@ -246,7 +246,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 					break;
 				}
 			}
-		}*/
+		}
 
 		$context = $option.'.category.list.' . $itemid;
 
@@ -313,7 +313,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				$app->setUserState($option.'.category.list.' . $itemid . '.filter_order_Dir', $dirn);
 			}
 		}
-	}
+	}*/
 
 	private function doMeta(){
 	    if(!JComponentHelper::isEnabled('com_jlcontentfieldsfilter')){
