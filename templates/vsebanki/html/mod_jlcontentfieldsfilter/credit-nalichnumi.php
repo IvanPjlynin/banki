@@ -56,7 +56,7 @@ if ($params->get('enable_css', 1)) {
         <div class="col-md-3 block-filter">
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    Фильтры поиска <span>(0)</span>
+                    Фильтры поиска <span>(+4)</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
@@ -72,7 +72,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Есть российский паспорт с регистрацией в любом регионе</h4>
-                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[5]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" checked="checked" value="0" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[5]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
