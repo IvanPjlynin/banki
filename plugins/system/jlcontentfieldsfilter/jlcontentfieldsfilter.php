@@ -119,7 +119,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 		//$filterData = $app->getUserStateFromRequest($context, 'jlcontentfieldsfilter', array(), 'array');
 
-
+        $filterData = '';
 		if(!count($filterData))
 		{
 			return;
