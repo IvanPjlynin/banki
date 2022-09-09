@@ -195,9 +195,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                         
                         //if(){}else{}
                         
-                    echo '<pre>';
-                    var_dump($v);
-                    echo '</pre>';
+
                     
                         
 						foreach ( $v as $val ) {
@@ -206,7 +204,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                             
                             if($val == '1'){
                     echo '<pre>';
-                    var_dump($newVal[]);
+                    var_dump($newVal);
                     echo '</pre>';
                             }
 						}
