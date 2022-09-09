@@ -345,7 +345,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 	    $doc = JFactory::getDocument();
 
-        if(isset($filterData['ordering'])){
+        /*if(isset($filterData['ordering'])){
             unset($filterData['ordering']);
         }
         if(isset($filterData['is_filter'])){
@@ -354,7 +354,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
         if (!is_array($filterData) || !count($filterData)) {
             return;
-        }
+        }*/
 
         $params = JComponentHelper::getParams('com_jlcontentfieldsfilter');
         $autogeneration = $params->get('autogeneration', 0);
@@ -364,7 +364,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
         $hash = JlcontentfieldsfilterHelper::createHash($filter);
         $unsafe_hash = JlcontentfieldsfilterHelper::createHash($unsafe_filter);
 
-        /*$db = JFactory::getDbo();
+        $db = JFactory::getDbo();
         $query = $db->getQuery(true);
         $query->select('*')
             ->from('`#__jlcontentfieldsfilter_data`')
@@ -372,7 +372,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 	        ->where('`filter_hash` = '.$db->quote($unsafe_hash))
 	        ->andWhere('`publish`  = 1');
 
-        $result = $db->setQuery($query,0,1)->loadObject();*/
+        $result = $db->setQuery($query,0,1)->loadObject();
         if(empty($result->filter_hash)){
             if(!$autogeneration){
                 return;
