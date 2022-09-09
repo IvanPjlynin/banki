@@ -193,7 +193,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 					if(is_array($v) && count($v)){
 						$newVal = array();
                         
-                        if(){}else{}
+                        //if(){}else{}
                         
                     echo '<pre>';
                     var_dump($v);
