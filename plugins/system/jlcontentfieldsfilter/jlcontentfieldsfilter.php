@@ -192,6 +192,14 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				case 'list':
 					if(is_array($v) && count($v)){
 						$newVal = array();
+                        
+                        if(){}else{}
+                        
+                    echo '<pre>';
+                    var_dump($v);
+                    echo '</pre>';
+                    
+                        
 						foreach ( $v as $val ) {
 							if($val !== '')
 								$newVal[] = $val;
@@ -229,9 +237,6 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 			if(!empty($where)){
                 
-                echo '<pre>';
-        var_dump($where);
-        echo '</pre>';
         die();
                 
                 
