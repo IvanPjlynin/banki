@@ -210,7 +210,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 						if(count($newVal)){
                             
                             if($newVal == 'none'){
-                                $where = '(field_id = '.(int)$k.' AND value != "1"'.')';
+                                $where = '(field_id = '.(int)$k.' AND enabled NOT IN (1)'.')';
                             } else {
                             
 							$where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
