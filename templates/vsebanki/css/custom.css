@@ -1013,6 +1013,10 @@ button.filter-dropdown-toggle span {
     transform: translateX(-14px);
 }
 
+.block-filter .dropdown .switch .slider:before {
+    left: 16px;
+}
+
 /*Адаптация*/
 @media screen and (max-width: 768px) {
     .bestdeals .container .row div .nav-tabs button {
