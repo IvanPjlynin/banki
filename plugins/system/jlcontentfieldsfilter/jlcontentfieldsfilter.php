@@ -180,7 +180,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
         echo '<pre>';
         var_dump($filterData);
         echo '</pre>';
-        die();
+        //die();
         
 		foreach($filterData as $k=>$v)
 		{
