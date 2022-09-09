@@ -233,7 +233,7 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#srok-to-109").trigger("keypress").val(function(i, val) {
-            return 1000;
+            return 84;
         });
 
 
