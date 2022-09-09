@@ -199,14 +199,15 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                     
                         
 						foreach ( $v as $val ) {
-							if($val !== '')
+							/*if($val !== '') {
 								$newVal[] = $val;
+                            }*/
                             
                             if($val == '1'){
                                 $newVal = array('', '0','2','3','4','5','6','7','8','9','10');
-//echo '<pre>';
-//var_dump($newVal);
-//echo '</pre>';
+
+var_dump($newVal);
+
                             }
 						}
 						if(count($newVal)){
