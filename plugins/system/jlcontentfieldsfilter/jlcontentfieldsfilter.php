@@ -342,7 +342,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             $context = $option.'.cat_'.$catid.'.jlcontentfieldsfilter';
         }
 
-        $filterData = $app->getUserStateFromRequest($tagids, 'jlcontentfieldsfilter', array(), 'array');
+        //$filterData = $app->getUserStateFromRequest($tagids, 'jlcontentfieldsfilter', array(), 'array');
 
 	    $doc = JFactory::getDocument();
 
