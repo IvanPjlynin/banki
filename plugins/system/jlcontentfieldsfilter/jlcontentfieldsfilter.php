@@ -257,6 +257,12 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             
 		}
 
+echo '<pre>';            
+var_dump($filterArticles);
+echo '</pre>';
+die();
+
+
 		$context = $option.'.category.list.' . $itemid;
 
 		if($count > 0)
@@ -266,10 +272,6 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				$filterArticles = array(0);
 			}
             
-echo '<pre>';            
-var_dump($filterArticles);
-echo '</pre>';
-die();
 
 			$app->setUserState($context . 'filter.article_id_include', true);
 			$app->setUserState($context . 'filter.article_id', $filterArticles);
