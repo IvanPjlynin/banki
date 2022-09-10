@@ -227,8 +227,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 					break;
 			}
- var_dump($where);
-die();
+
 			if(!empty($where)){
 				$query->clear()->select(' DISTINCT item_id');
 				$query->from('#__fields_values');
@@ -250,6 +249,10 @@ die();
 					break;
 				}
 			}
+            
+var_dump($filterArticles);
+die();
+            
 		}
 
 		$context = $option.'.category.list.' . $itemid;
