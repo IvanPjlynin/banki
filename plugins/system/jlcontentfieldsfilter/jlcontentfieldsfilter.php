@@ -245,7 +245,10 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				}
                 
                 
-
+echo '<pre>';            
+var_dump($filterArticles);
+echo '</pre>';
+die();
 
 				$count++;
 
@@ -257,10 +260,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             
 		}
 
-echo '<pre>';            
-var_dump($filterArticles);
-echo '</pre>';
-die();
+
 
 
 		$context = $option.'.category.list.' . $itemid;
