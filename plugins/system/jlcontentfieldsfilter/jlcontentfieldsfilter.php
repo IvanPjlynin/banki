@@ -199,20 +199,11 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                     
                         
 						foreach ( $v as $val ) {
-							/*if($val !== '') {
+							if($val !== '') {
 								$newVal[] = $val;
-                            }*/
-                            
-                            if($val == '1'){
-                                $newVal = 'none';
-                            }
+                            }   
 						}
-						if(count($newVal)){
-                            
-                            if($newVal == 'none'){
-                                $where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
-                            } else {
-                            
+						if(count($newVal)){                       
 							$where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
                             }
 						}
