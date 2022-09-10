@@ -235,12 +235,6 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				$query->group('item_id');
 				$aIds = $db->setQuery($query)->loadColumn();
                 
-                
-echo '<pre>';            
-var_dump($filterArticles);
-echo '</pre>';
-die();
-                
 				$aIds = !is_array($aIds) ? array() : $aIds;
 
 				if($count == 0){
@@ -249,6 +243,12 @@ die();
 				else{
 					$filterArticles = array_intersect($filterArticles, $aIds);
 				}
+                
+                
+echo '<pre>';            
+var_dump($filterArticles);
+echo '</pre>';
+die();
 
 				$count++;
 
