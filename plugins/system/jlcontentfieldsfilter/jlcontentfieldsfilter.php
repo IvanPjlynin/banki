@@ -195,7 +195,11 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 								$newVal[] = $val;
 						}
 						if(count($newVal)){
-							$where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
+							//$where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
+                            $where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
+                            
+                            var_dump($where);
+                            die();
 						}
 					}
 					else if(!empty($v)){
