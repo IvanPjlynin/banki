@@ -246,7 +246,9 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				else{
 					$filterArticles = array_intersect($filterArticles, $aIds);
 				}
-                
+echo '<pre>';            
+var_dump($k);
+echo '</pre>';                
 echo '<pre>';            
 var_dump($filterArticles);
 echo '</pre>';
