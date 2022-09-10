@@ -175,6 +175,12 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 		$count = 0;
 		$filterArticles = array();
+        
+        
+echo '<pre>';            
+var_dump($filterData);
+echo '</pre>';
+die();
 
 		foreach($filterData as $k=>$v)
 		{
@@ -257,10 +263,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             
 		}
 
-echo '<pre>';            
-var_dump($filterArticles);
-echo '</pre>';
-die();
+
 
 
 		$context = $option.'.category.list.' . $itemid;
