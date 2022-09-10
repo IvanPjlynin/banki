@@ -119,8 +119,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 		$filterData = $app->getUserStateFromRequest($context, 'jlcontentfieldsfilter', array(), 'array');
 
-        
-        
+
 		if(!count($filterData))
 		{
 			return;
@@ -176,8 +175,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 		$count = 0;
 		$filterArticles = array();
-        
-        
+
 		foreach($filterData as $k=>$v)
 		{
 			if(!isset($fieldsTypes[$k])){
@@ -192,20 +190,12 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				case 'list':
 					if(is_array($v) && count($v)){
 						$newVal = array();
-                        
-                        //if(){}else{}
-                        
-
-                    
-                        
 						foreach ( $v as $val ) {
-							if($val !== '') {
+							if($val !== '')
 								$newVal[] = $val;
-                            }   
 						}
-						if(count($newVal)){                       
+						if(count($newVal)){
 							$where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
-                            }
 						}
 					}
 					else if(!empty($v)){
@@ -236,10 +226,6 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 			}
 
 			if(!empty($where)){
-                
-//die();
-                var_dump($where);
-                
 				$query->clear()->select(' DISTINCT item_id');
 				$query->from('#__fields_values');
 				$query->where($where);
@@ -326,10 +312,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				$app->setUserState($option.'.category.list.' . $itemid . '.filter_order', $ordering);
 				$app->setUserState($option.'.category.list.' . $itemid . '.filter_order_Dir', $dirn);
 			}
-            
-            
-		}      
-                
+		}
 	}
 
 	private function doMeta(){
@@ -358,7 +341,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             $context = $option.'.cat_'.$catid.'.jlcontentfieldsfilter';
         }
 
-        //$filterData = $app->getUserStateFromRequest($tagids, 'jlcontentfieldsfilter', array(), 'array');
+        $filterData = $app->getUserStateFromRequest($tagids, 'jlcontentfieldsfilter', array(), 'array');
 
 	    $doc = JFactory::getDocument();
 
@@ -376,7 +359,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
         $params = JComponentHelper::getParams('com_jlcontentfieldsfilter');
         $autogeneration = $params->get('autogeneration', 0);
 
-        //$filter = JlcontentfieldsfilterHelper::createFilterString($filterData);
+        $filter = JlcontentfieldsfilterHelper::createFilterString($filterData);
         $unsafe_filter = JlcontentfieldsfilterHelper::createFilterString($filterData, false);
         $hash = JlcontentfieldsfilterHelper::createHash($filter);
         $unsafe_hash = JlcontentfieldsfilterHelper::createHash($unsafe_filter);
