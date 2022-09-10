@@ -237,7 +237,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                 
                 
 echo '<pre>';            
-var_dump($aIds);
+var_dump($filterArticles);
 echo '</pre>';
 die();
                 
