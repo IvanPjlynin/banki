@@ -245,10 +245,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				}
                 
                 
-echo '<pre>';            
-var_dump($filterArticles);
-echo '</pre>';
-die();
+
 
 				$count++;
 
@@ -268,6 +265,11 @@ die();
 			{
 				$filterArticles = array(0);
 			}
+            
+echo '<pre>';            
+var_dump($filterArticles);
+echo '</pre>';
+die();
 
 			$app->setUserState($context . 'filter.article_id_include', true);
 			$app->setUserState($context . 'filter.article_id', $filterArticles);
