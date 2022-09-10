@@ -234,6 +234,13 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				$query->where($where);
 				$query->group('item_id');
 				$aIds = $db->setQuery($query)->loadColumn();
+                
+                
+echo '<pre>';            
+var_dump($aIds);
+echo '</pre>';
+die();
+                
 				$aIds = !is_array($aIds) ? array() : $aIds;
 
 				if($count == 0){
@@ -249,9 +256,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 					break;
 				}
 			}
-            
-var_dump($filterArticles);
-die();
+
             
 		}
 
