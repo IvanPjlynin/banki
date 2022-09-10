@@ -198,8 +198,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 							//$where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
                             $where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
                             
-                            var_dump($where);
-                            die();
+                           
 						}
 					}
 					else if(!empty($v)){
@@ -228,7 +227,8 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 					break;
 			}
-
+ var_dump($where);
+die();
 			if(!empty($where)){
 				$query->clear()->select(' DISTINCT item_id');
 				$query->from('#__fields_values');
