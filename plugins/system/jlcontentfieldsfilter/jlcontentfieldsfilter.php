@@ -186,34 +186,38 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 			}
 
 			$where = '';
+            
+            //ivp запрос для сбора ид исключений
+            $excludeWhere = '';
 
 			switch ($fieldsTypes[$k]->type){
 				case 'radio':
 				case 'checkboxes':
 				case 'list':
                     
-echo '<pre>';            
-var_dump($v[0]);
-echo '</pre>';
+                    //ivp если значение равно 1 то включаем в массив исключение
+                    if($v[0] == '1'){
+                        $excludeWhere = '(field_id = '.(int)$k.' AND value = 1'.')';
+                    }else{
+                        if(is_array($v) && count($v)){
+                            $newVal = array();
+                            foreach ( $v as $val ) {
+                                if($val !== '')
+                                    $newVal[] = $val;
+                            }
+                            if(count($newVal)){
+                                //$where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
+                                $where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
+
+
+                            }
+                        }
+                        else if(!empty($v)){
+                            $where = '(field_id = '.(int)$k.' AND value = '.$db->quote($v).')';
+                        }
+                        break;
+                    }
                     
-                    
-					if(is_array($v) && count($v)){
-						$newVal = array();
-						foreach ( $v as $val ) {
-							if($val !== '')
-								$newVal[] = $val;
-						}
-						if(count($newVal)){
-							//$where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
-                            $where = '(field_id = '.(int)$k.' AND value IN(\''.implode("', '", $newVal).'\'))';
-                            
-                           
-						}
-					}
-					else if(!empty($v)){
-						$where = '(field_id = '.(int)$k.' AND value = '.$db->quote($v).')';
-					}
-					break;
 				case 'text':
 					if(!empty($v)){
 						if(is_array($v)){
@@ -252,17 +256,34 @@ echo '</pre>';
 				else{
 					$filterArticles = array_intersect($filterArticles, $aIds);
 				}
-echo '<pre>';            
-var_dump($k);
-echo '</pre>';                
-echo '<pre>';            
-var_dump($filterArticles);
-echo '</pre>';
-
 
 				$count++;
 
 				if(!count($filterArticles)){
+					break;
+				}
+			}
+            
+            
+            if(!empty($excludeWhere)){
+				$query->clear()->select(' DISTINCT item_id');
+				$query->from('#__fields_values');
+				$query->where($excludeWhere);
+				$query->group('item_id');
+				$aIds = $db->setQuery($query)->loadColumn();
+                
+				$aIds = !is_array($aIds) ? array() : $aIds;
+
+				if($count == 0){
+					$excludeFilterArticles = $aIds;
+				}
+				else{
+					$excludeFilterArticles = array_intersect($excludeFilterArticles, $aIds);
+				}
+
+				$count++;
+
+				if(!count($excludeFilterArticles)){
 					break;
 				}
 			}
@@ -271,7 +292,12 @@ echo '</pre>';
 		}
 
 
-
+echo '<pre>';            
+var_dump($k);
+echo '</pre>';                
+echo '<pre>';            
+var_dump($excludeFilterArticles);
+echo '</pre>';
 die();
 
 		$context = $option.'.category.list.' . $itemid;
