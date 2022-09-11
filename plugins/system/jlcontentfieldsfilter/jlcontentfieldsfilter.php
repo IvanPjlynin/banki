@@ -298,7 +298,7 @@ echo '</pre>';*/
 
             
 		}
-die();
+//die();
 //ivp вычетаем исключенные материалы        
 $filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
