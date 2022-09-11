@@ -296,6 +296,11 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 echo '<pre>';            
 var_dump($excludeFilterArticles);
 echo '</pre>';
+        
+echo '<pre>';            
+var_dump($filterArticles);
+echo '</pre>';
+        
 die();
 
 		$context = $option.'.category.list.' . $itemid;
