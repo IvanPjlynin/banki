@@ -270,7 +270,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				$query->group('item_id');
 				$aIds2 = $db->setQuery($query)->loadColumn();
                 
-				$aIds2 = !is_array($aIds2) ? array() : $aIds;
+				$aIds2 = !is_array($aIds2) ? array() : $aIds2;
 
 				if($count2 == 0){
 					$excludeFilterArticles = $aIds2;
