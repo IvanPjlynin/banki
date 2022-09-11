@@ -292,9 +292,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 		}
 
 
-echo '<pre>';            
-var_dump($k);
-echo '</pre>';                
+                
 echo '<pre>';            
 var_dump($excludeFilterArticles);
 echo '</pre>';
