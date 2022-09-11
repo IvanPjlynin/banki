@@ -241,11 +241,11 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 					break;
 			}
             
-echo '<pre> where';
+echo '<pre> where ';
 var_dump($where); 
 echo '</pre>';
             
-echo '<pre> excludeWhere';
+echo '<pre> excludeWhere ';
 var_dump($excludeWhere); 
 echo '</pre>';
 
