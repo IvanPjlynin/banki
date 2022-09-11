@@ -276,7 +276,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 					$excludeFilterArticles = $aIds2;
 				}
 				else{
-					$excludeFilterArticles = array_intersect($excludeFilterArticles, $aIds2);
+					$excludeFilterArticles = array_merge($excludeFilterArticles, $aIds2);
 				}
 
 				$count2++;
