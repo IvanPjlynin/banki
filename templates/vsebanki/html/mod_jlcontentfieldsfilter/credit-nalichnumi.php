@@ -293,7 +293,7 @@ if ($params->get('enable_css', 1)) {
         var instance_filter_vozrast;
 
         $("#vozrast-from-109").trigger("keypress").val(function(i, val) {
-            return 18;
+            return 14;
         });
 
         $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
@@ -301,7 +301,7 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#vozrast-dlya-pogasheniya-from-109").trigger("keypress").val(function(i, val) {
-            return 85;
+            return 65;
         });
 
         $("#vozrast-dlya-pogasheniya-to-109").trigger("keypress").val(function(i, val) {
@@ -314,9 +314,9 @@ if ($params->get('enable_css', 1)) {
             type: "double",
             grid: false,
             from: 22,
-            to: 85,
+            to: 65,
             postfix: '',
-            min: 18,
+            min: 14,
             step: 1,
             grid_num: 4,
             grid_snap: '',
