@@ -378,7 +378,7 @@ if ($params->get('enable_css', 1)) {
 
     });
 
-</script>
+</script>1111
 <style>
     .blog .tabsmenu a:nth-child(2)~div {
         transition: all .33s linear;
