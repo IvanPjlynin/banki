@@ -176,7 +176,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 		$count = 0;
 		$filterArticles = array();
         
-        
+        $count2 = 0;
         $excludeFilterArticles = array();
 
 		foreach($filterData as $k=>$v)
@@ -268,18 +268,18 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				$query->from('#__fields_values');
 				$query->where($excludeWhere);
 				$query->group('item_id');
-				$aIds = $db->setQuery($query)->loadColumn();
+				$aIds2 = $db->setQuery($query)->loadColumn();
                 
-				$aIds = !is_array($aIds) ? array() : $aIds;
+				$aIds2 = !is_array($aIds2) ? array() : $aIds;
 
-				if($count == 0){
-					$excludeFilterArticles = $aIds;
+				if($count2 == 0){
+					$excludeFilterArticles = $aIds2;
 				}
 				else{
-					$excludeFilterArticles = array_intersect($excludeFilterArticles, $aIds);
+					$excludeFilterArticles = array_intersect($excludeFilterArticles, $aIds2);
 				}
 
-				$count++;
+				$count2++;
 
 				if(!count($excludeFilterArticles)){
 					break;
