@@ -246,7 +246,7 @@ if ($params->get('enable_css', 1)) {
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 2000,
+            max: 240,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
                 $("#srok-ot-to-109").trigger("keypress").val(function(i, val) {
