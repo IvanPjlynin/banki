@@ -290,8 +290,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 		}
 
 //ivp вычетаем исключенные материалы        
-$filterArticles = array_diff($filterArticles, $excludeFilterArticles);
-        
+$filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
 /*echo '<pre>';            
 var_dump($result);
