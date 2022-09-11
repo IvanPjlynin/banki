@@ -193,7 +193,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				case 'list':
                     
 echo '<pre>';            
-var_dump($v);
+var_dump($v[0]);
 echo '</pre>';
                     
                     
