@@ -316,11 +316,11 @@ if ($params->get('enable_css', 1)) {
             from: 22,
             to: 65,
             postfix: '',
-            min: 14,
+            min: 16,
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 99,
+            max: 85,
             onStart: updateInputs,
             onChange: updateInputs,
             onFinish: updateInputs
