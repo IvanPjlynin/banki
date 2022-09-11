@@ -305,7 +305,7 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#vozrast-dlya-pogasheniya-to-109").trigger("keypress").val(function(i, val) {
-            return 90;
+            return 99;
         });
 
 
@@ -320,7 +320,7 @@ if ($params->get('enable_css', 1)) {
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 90,
+            max: 99,
             onStart: updateInputs,
             onChange: updateInputs,
             onFinish: updateInputs
