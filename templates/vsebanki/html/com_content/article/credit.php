@@ -226,7 +226,7 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
+                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value || $this->item->extrafields['vozrast-dlya-pogasheniya']->value !== '99') : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст для погашения</h3>
                                 <p class="tab-text-block-content">до <?php echo $this->item->extrafields['vozrast-dlya-pogasheniya']->value; ?> лет</p>
@@ -244,15 +244,15 @@ $attribs['style'] = 'none';
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Ваш совокупный доход</h3>
                                 <p class="tab-text-block-content">
-                                
-                                <?php if (is_numeric($this->item->extrafields['zarplata-ot']->value))  : ?>
+
+                                    <?php if (is_numeric($this->item->extrafields['zarplata-ot']->value))  : ?>
                                     от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽
-                                <?php endif; ?>
-                                
-                                <?php if (!is_numeric($this->item->extrafields['zarplata-ot']->value))  : ?>
+                                    <?php endif; ?>
+
+                                    <?php if (!is_numeric($this->item->extrafields['zarplata-ot']->value))  : ?>
                                     <?php echo $this->item->extrafields['zarplata-ot']->value; ?>
-                                <?php endif; ?>
-                                
+                                    <?php endif; ?>
+
                                 </p>
                             </div>
                             <?php endif; ?>
@@ -324,19 +324,19 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">
 
                                     <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
-                                    
-                                        <?php if (is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
-                                        от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин.
-                                        <?php endif; ?>
-                                    
-                                        <?php if (!is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
-                                            <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?>
-                                        <?php endif; ?>
+
+                                    <?php if (is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
+                                    от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин.
                                     <?php endif; ?>
-                                    
+
+                                    <?php if (!is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
+                                    <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?>
+                                    <?php endif; ?>
+                                    <?php endif; ?>
+
 
                                     <?php if ($this->item->extrafields['rassmotrenie-do-dn']->value) : ?>
-                                        до <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн.
+                                    до <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн.
                                     <?php endif; ?>
                                 </p>
                             </div>
