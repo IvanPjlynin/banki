@@ -177,7 +177,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 		$filterArticles = array();
         
         
-
+        $excludeFilterArticles = array();
 
 		foreach($filterData as $k=>$v)
 		{
@@ -191,6 +191,12 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				case 'radio':
 				case 'checkboxes':
 				case 'list':
+                    
+echo '<pre>';            
+var_dump($v);
+echo '</pre>';
+                    
+                    
 					if(is_array($v) && count($v)){
 						$newVal = array();
 						foreach ( $v as $val ) {
