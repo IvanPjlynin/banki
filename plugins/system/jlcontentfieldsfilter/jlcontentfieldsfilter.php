@@ -196,7 +196,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				case 'list':
                     
                     //ivp если значение равно 1 то включаем в массив исключение
-                    if($v[0] == '1' || $v[0] == '3'){
+                    if($v[0] == '1' || $v[0] == '3' || $v[0] == '4'){
                         $excludeWhere = '(field_id = '.(int)$k.' AND value = \'1\')';
                     }else{
                         if(is_array($v) && count($v)){
