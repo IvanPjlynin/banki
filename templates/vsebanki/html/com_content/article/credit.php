@@ -226,7 +226,7 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value || $this->item->extrafields['vozrast-dlya-pogasheniya']->value !== '99') : ?>
+                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value && $this->item->extrafields['vozrast-dlya-pogasheniya']->value !== '99') : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст для погашения</h3>
                                 <p class="tab-text-block-content">до <?php echo $this->item->extrafields['vozrast-dlya-pogasheniya']->value; ?> лет</p>
