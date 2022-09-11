@@ -301,7 +301,7 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#vozrast-dlya-pogasheniya-from-109").trigger("keypress").val(function(i, val) {
-            return 75;
+            return 85;
         });
 
         $("#vozrast-dlya-pogasheniya-to-109").trigger("keypress").val(function(i, val) {
@@ -314,7 +314,7 @@ if ($params->get('enable_css', 1)) {
             type: "double",
             grid: false,
             from: 22,
-            to: 75,
+            to: 85,
             postfix: '',
             min: 18,
             step: 1,
