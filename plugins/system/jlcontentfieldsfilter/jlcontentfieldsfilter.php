@@ -197,7 +197,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                     
                     //ivp если значение равно 1 то включаем в массив исключение
                     if($v[0] == '1' && (int)$k == 777){
-                        $excludeWhere = '(field_id = '.(int)$k.' AND value = 1'.')';
+                        $excludeWhere = '(field_id = '.(int)$k.' AND value = 1)';
                     }else{
                         if(is_array($v) && count($v)){
                             $newVal = array();
@@ -215,8 +215,9 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                         else if(!empty($v)){
                             $where = '(field_id = '.(int)$k.' AND value = '.$db->quote($v).')';
                         }
-                        break;
+                        
                     }
+                    break;
                     
 				case 'text':
 					if(!empty($v)){
