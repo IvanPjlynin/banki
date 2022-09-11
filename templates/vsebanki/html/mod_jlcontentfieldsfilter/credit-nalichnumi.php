@@ -33,7 +33,13 @@ if ($params->get('enable_css', 1)) {
 }
 
 ?>
+<style>
+    .blog .tabsmenu a:nth-child(2)~div {
+        transition: all .33s linear;
+        -webkit-transition: all .33s linear;
+    }
 
+</style>
 <form id="mod-finder-searchform-<?php echo $module->id; ?>" action="<?php echo $action; ?>" method="<?php echo $form_method; ?>" class="form-search filter-credit-nalichumi">
     <div class="jlcontentfieldsfilter<?php echo $moduleclass_sfx; ?> row">
 
