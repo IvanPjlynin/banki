@@ -298,7 +298,14 @@ echo '</pre>';
 echo '<pre>';            
 var_dump($filterArticles);
 echo '</pre>';
+
         
+$result = array_diff($filterArticles, $excludeFilterArticles);
+        
+        
+echo '<pre>';            
+var_dump($result);
+echo '</pre>';
 die();
 
 		$context = $option.'.category.list.' . $itemid;
