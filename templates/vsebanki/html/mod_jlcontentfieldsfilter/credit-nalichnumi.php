@@ -300,19 +300,27 @@ if ($params->get('enable_css', 1)) {
             return 80;
         });
 
+        $("#vozrast-dlya-pogasheniya-from-109").trigger("keypress").val(function(i, val) {
+            return 75;
+        });
+
+        $("#vozrast-dlya-pogasheniya-to-109").trigger("keypress").val(function(i, val) {
+            return 90;
+        });
+
 
         $filter_vozrast.ionRangeSlider({
             skin: "round",
             type: "double",
             grid: false,
             from: 22,
-            to: 70,
+            to: 75,
             postfix: '',
             min: 18,
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 80,
+            max: 90,
             onStart: updateInputs,
             onChange: updateInputs,
             onFinish: updateInputs
@@ -333,6 +341,10 @@ if ($params->get('enable_css', 1)) {
 
             $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
                 return from;
+            });
+
+            $("#vozrast-dlya-pogasheniya-from-109").trigger("keypress").val(function(i, val) {
+                return to;
             });
         }
 
