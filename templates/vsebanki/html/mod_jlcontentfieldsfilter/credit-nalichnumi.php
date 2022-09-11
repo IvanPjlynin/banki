@@ -118,7 +118,7 @@ if ($params->get('enable_css', 1)) {
 
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
-        <div class="jlmf-section visually-hidden">
+        <div class="jlmf-section ">
             <?php echo $v; ?>
         </div>
         <?php endif;?>
@@ -133,7 +133,9 @@ if ($params->get('enable_css', 1)) {
 
 
     </div>
-    <?php if($option == 'com_tags'){ ?>
+    <?php
+    //visually-hidden
+    if($option == 'com_tags'){ ?>
     <input type="hidden" name="tag_category_id" value="<?php echo $catid; ?>">
     <?php } ?>
     <input type="hidden" name="jlcontentfieldsfilter[is_filter]" value="1">
