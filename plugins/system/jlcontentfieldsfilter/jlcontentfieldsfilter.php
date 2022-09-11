@@ -262,7 +262,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				}
 			}
             
-            
+//ivp собираем исключенные материалы в массив            
             if(!empty($excludeWhere)){
 				$query->clear()->select(' DISTINCT item_id');
 				$query->from('#__fields_values');
@@ -289,24 +289,14 @@ class plgSystemJlContentFieldsFilter extends JPlugin
             
 		}
 
-
-                
-echo '<pre>';            
-var_dump($excludeFilterArticles);
-echo '</pre>';
-        
-echo '<pre>';            
-var_dump($filterArticles);
-echo '</pre>';
-
-        
-$result = array_diff($filterArticles, $excludeFilterArticles);
+//ivp вычетаем исключенные материалы        
+$filterArticles = array_diff($filterArticles, $excludeFilterArticles);
         
         
-echo '<pre>';            
+/*echo '<pre>';            
 var_dump($result);
 echo '</pre>';
-die();
+die();*/
 
 		$context = $option.'.category.list.' . $itemid;
 
