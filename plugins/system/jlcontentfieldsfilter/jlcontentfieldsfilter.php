@@ -240,6 +240,14 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
 					break;
 			}
+            
+echo '<pre>';
+print_r($where); 
+echo '</pre>';
+            
+echo '<pre>';
+print_r($excludeWhere); 
+echo '</pre>';
 
 			if(!empty($where)){
 				$query->clear()->select(' DISTINCT item_id');
@@ -290,7 +298,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 
             
 		}
-
+die();
 //ivp вычетаем исключенные материалы        
 $filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
