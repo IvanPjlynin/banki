@@ -65,7 +65,6 @@ if ($params->get('enable_css', 1)) {
 
 
             <div class="dropdown">
-
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                     Фильтры поиска <span>(+4)</span>
                 </button>
@@ -115,37 +114,39 @@ if ($params->get('enable_css', 1)) {
                         </label>
                     </div>
 
+
                 </div>
             </div>
-
-            <div class="col-md-3 jlmf-section">
-                <?php if (!$autho_send) : ?>
-                <button type="submit" class="jlmf-button" id="filter-buttom"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
-                <?php endif; ?>
-                <!--<div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>-->
-            </div>
-
-            <?php foreach($fields as $v) : ?>
-            <?php if($v):?>
-            <div class="jlmf-section visually-hidden">
-                <?php echo $v; ?>
-            </div>
-            <?php endif;?>
-            <?php endforeach; ?>
-
-            <?php if($enableOrdering) : ?>
-            <div class="jlmf-section">
-                <?php echo $orderingSelect; ?>
-            </div>
-            <?php endif; ?>
-
-
-
         </div>
-        <?php if($option == 'com_tags'){ ?>
-        <input type="hidden" name="tag_category_id" value="<?php echo $catid; ?>">
-        <?php } ?>
-        <input type="hidden" name="jlcontentfieldsfilter[is_filter]" value="1">
+
+        <div class="col-md-3 jlmf-section">
+            <?php if (!$autho_send) : ?>
+            <button type="submit" class="jlmf-button" id="filter-buttom"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_SUBMIT'); ?></button>
+            <?php endif; ?>
+            <!--<div><button type="button" class="jlmf-link" onclick="return JlContentFieldsFilter.clearForm(this);"><?php echo JText::_('MOD_JLCONTENTFIELDSFILTER_RESET'); ?></button></div>-->
+        </div>
+
+        <?php foreach($fields as $v) : ?>
+        <?php if($v):?>
+        <div class="jlmf-section visually-hidden">
+            <?php echo $v; ?>
+        </div>
+        <?php endif;?>
+        <?php endforeach; ?>
+
+        <?php if($enableOrdering) : ?>
+        <div class="jlmf-section">
+            <?php echo $orderingSelect; ?>
+        </div>
+        <?php endif; ?>
+
+
+
+    </div>
+    <?php if($option == 'com_tags'){ ?>
+    <input type="hidden" name="tag_category_id" value="<?php echo $catid; ?>">
+    <?php } ?>
+    <input type="hidden" name="jlcontentfieldsfilter[is_filter]" value="1">
 </form>
 
 
