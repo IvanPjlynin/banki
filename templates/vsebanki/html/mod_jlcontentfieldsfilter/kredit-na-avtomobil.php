@@ -360,7 +360,7 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + n + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
         });
 
 
