@@ -358,10 +358,22 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + n + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
         });
 
 
     });
 
 </script>
+<style>
+    .blog .tabsmenu a:nth-child(4)~div {
+        transform: translate(522px);
+        -webkit-transform: translate(540px);
+        background: #56C182;
+        transition: all .33s linear;
+        -webkit-transition: all .33s linear;
+        width: 195px;
+        color: #002D4F;
+    }
+
+</style>
