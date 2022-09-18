@@ -63,7 +63,6 @@ if ($params->get('enable_css', 1)) {
                 <option value="3">Автомобиля</option>
             </select>
 
-
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                     Фильтры поиска <span>(+4)</span>
@@ -117,6 +116,8 @@ if ($params->get('enable_css', 1)) {
 
                 </div>
             </div>
+
+
         </div>
 
         <div class="col-md-3 jlmf-section">
