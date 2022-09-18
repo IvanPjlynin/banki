@@ -53,11 +53,11 @@ $attribs['style'] = 'none';
     <div class="page-header">
         <h1><?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> - <?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h1>
         <h3><?php echo JText::_('GET_ZAIM_IN'); ?> <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> в Санкт Петербурге</h3>
-        
+
         <?php if ($this->item->extrafields['kredit-pod-zalog']->value) : ?>
-        <h3>Под залог - <?php echo $this->item->extrafields['kredit-pod-zalog']->value; ?></h3>   
+        <h3>Под залог - <?php echo $this->item->extrafields['kredit-pod-zalog']->value; ?></h3>
         <?php endif; ?>
-        
+
     </div>
     <?php endif;
 	if (!empty($this->item->pagination) && !$this->item->paginationposition && $this->item->paginationrelative)
@@ -131,9 +131,9 @@ $attribs['style'] = 'none';
                         <div class="bank-field-name"><?php echo $this->item->extrafields['srok-zajma']->title; ?></div>
                         <div class="bank-field-value">
                             <?php if ($this->item->extrafields['srok-zajma']->value < 300) : ?>
-                                до <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.
+                            до <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.
                             <? else: ?>
-                                до <?php echo $this->item->extrafields['srok-zajma']->value/30; ?> мес.
+                            до <?php echo $this->item->extrafields['srok-zajma']->value/30; ?> мес.
                             <? endif; ?>
                         </div>
                     </div>
@@ -190,29 +190,29 @@ $attribs['style'] = 'none';
                                 <h3 class="tab-text-block-title">Ставка</h3>
                                 <p class="tab-text-block-content">
                                     <?php if ($this->item->extrafields['stavka-zajma-do']->value == 'нет') : ?>
-                                        от <?php echo $this->item->extrafields['stavka-zajma']->value; ?>%
+                                    от <?php echo $this->item->extrafields['stavka-zajma']->value; ?>%
                                     <? else: ?>
-                                        <?php echo $this->item->extrafields['stavka-zajma']->value; ?>% - <?php echo $this->item->extrafields['stavka-zajma-do']->value; ?>%
+                                    <?php echo $this->item->extrafields['stavka-zajma']->value; ?>% - <?php echo $this->item->extrafields['stavka-zajma-do']->value; ?>%
                                     <?php endif; ?>
                                 </p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['pervyj-zajm-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Первый займ</h3>
                                 <p class="tab-text-block-content"> от <?php echo $this->item->extrafields['pervyj-zajm-ot']->value; ?>%</p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['srok-zajma']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок</h3>
                                 <p class="tab-text-block-content">
                                     <?php if ($this->item->extrafields['srok-zajma']->value < 300) : ?>
-                                        <?php echo $this->item->extrafields['srok-zajma-ot']->value; ?> дн. - <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.
+                                    <?php echo $this->item->extrafields['srok-zajma-ot']->value; ?> дн. - <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.
                                     <? else: ?>
-                                        <?php echo $this->item->extrafields['srok-zajma-ot']->value/30; ?> мес. - <?php echo $this->item->extrafields['srok-zajma']->value/30; ?> мес.
+                                    <?php echo $this->item->extrafields['srok-zajma-ot']->value/30; ?> мес. - <?php echo $this->item->extrafields['srok-zajma']->value/30; ?> мес.
                                     <?php endif; ?>
                                 </p>
                             </div>
@@ -229,9 +229,9 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">от <?php echo $this->item->extrafields['vozrast']->value; ?> года</p>
                             </div>
                             <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
+
+                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value && $this->item->extrafields['vozrast-dlya-pogasheniya']->value !== '99') : ?>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст для погашения</h3>
                                 <p class="tab-text-block-content">до <?php echo $this->item->extrafields['vozrast-dlya-pogasheniya']->value; ?> лет</p>
                             </div>
@@ -242,7 +242,7 @@ $attribs['style'] = 'none';
                                 <h3 class="tab-text-block-title">Общий трудовой стаж</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value; ?></p>
                             </div>
-                            <?php endif; ?>                            
+                            <?php endif; ?>
 
                             <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
@@ -268,7 +268,7 @@ $attribs['style'] = 'none';
                                 </p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['trebovaniya-k-zalogu']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
                                 <h3 class="tab-text-block-title">Требования к залогу</h3>
@@ -277,7 +277,7 @@ $attribs['style'] = 'none';
                                 </p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['treb-zalog-z']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
                                 <h3 class="tab-text-block-title">Требования к залогу</h3>
@@ -298,7 +298,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['obyazatelnye-dokumenty']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['obizat-dokuments']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Обязательные документы</h3>
@@ -321,19 +321,19 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">
 
                                     <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
-                                    
-                                        <?php if (is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
-                                        от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин.
-                                        <?php endif; ?>
-                                    
-                                        <?php if (!is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
-                                            <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?>
-                                        <?php endif; ?>
+
+                                    <?php if (is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
+                                    от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин.
                                     <?php endif; ?>
-                                    
+
+                                    <?php if (!is_numeric($this->item->extrafields['rassmotrenie-ot-min']->value))  : ?>
+                                    <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?>
+                                    <?php endif; ?>
+                                    <?php endif; ?>
+
 
                                     <?php if ($this->item->extrafields['rassmotrenie-do-dn']->value) : ?>
-                                        до <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн.
+                                    до <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн.
                                     <?php endif; ?>
                                 </p>
                             </div>
