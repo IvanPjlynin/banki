@@ -368,7 +368,7 @@ if ($params->get('enable_css', 1)) {
 <style>
     .blog .tabsmenu a:nth-child(3)~div {
         transform: translate(321px);
-        -webkit-transform: translate(170px);
+        -webkit-transform: translate(321px);
         background: #56C182;
         transition: all .33s linear;
         -webkit-transition: all .33s linear;
