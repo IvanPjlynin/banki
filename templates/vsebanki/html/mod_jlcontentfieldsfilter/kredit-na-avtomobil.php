@@ -54,9 +54,10 @@ if ($params->get('enable_css', 1)) {
         </div>
 
         <div class="col-md-3 block-filter">
+
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    Фильтры поиска <span>(0)</span>
+                    Фильтры поиска <span>(+4)</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
@@ -72,7 +73,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Есть российский паспорт с регистрацией в любом регионе</h4>
-                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[5]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[5][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -81,7 +82,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Стаж на последнем месте работы более 3-х месяцев</h4>
-                        <label class="jlmf-sublabel switch" for="stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev-109">Да <input type="checkbox" value="1" id="stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev-109" name="jlcontentfieldsfilter[6]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev-109">Да <input type="checkbox" value="1" id="stazh-na-poslednem-meste-raboty-bolee-3-kh-mesyatsev-109" name="jlcontentfieldsfilter[6][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -90,7 +91,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Общий трудовой стаж более одного года</h4>
-                        <label class="jlmf-sublabel switch" for="obshchij-trudovoj-stazh-bolee-odnogo-goda-109">Да <input type="checkbox" value="1" id="obshchij-trudovoj-stazh-bolee-odnogo-goda-109" name="jlcontentfieldsfilter[7]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="obshchij-trudovoj-stazh-bolee-odnogo-goda-109">Да <input type="checkbox" value="1" id="obshchij-trudovoj-stazh-bolee-odnogo-goda-109" name="jlcontentfieldsfilter[7][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -99,7 +100,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Смогу подтвердить доход справкой 2-НДФЛП или справкой по форме банка?</h4>
-                        <label class="jlmf-sublabel switch" for="podtverzhdenie-dokhoda-109">Да <input type="checkbox" value="1" id="podtverzhdenie-dokhoda-109" name="jlcontentfieldsfilter[41]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="podtverzhdenie-dokhoda-109">Да <input type="checkbox" value="4" id="podtverzhdenie-dokhoda-109" name="jlcontentfieldsfilter[41][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -107,6 +108,7 @@ if ($params->get('enable_css', 1)) {
 
                 </div>
             </div>
+
         </div>
 
         <div class="col-md-3 jlmf-section">
