@@ -365,3 +365,15 @@ if ($params->get('enable_css', 1)) {
     });
 
 </script>
+<style>
+    .blog .tabsmenu a:nth-child(3)~div {
+        transform: translate(170px);
+        -webkit-transform: translate(170px);
+        background: #56C182;
+        transition: all .33s linear;
+        -webkit-transition: all .33s linear;
+        width: 101px;
+        color: #002D4F;
+    }
+
+</style>
