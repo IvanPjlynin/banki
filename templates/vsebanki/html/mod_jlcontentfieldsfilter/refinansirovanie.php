@@ -290,12 +290,20 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
         var instance_filter_vozrast;
 
-        $("#vozrast-from-139").trigger("keypress").val(function(i, val) {
-            return 18;
+        $("#vozrast-from-109").trigger("keypress").val(function(i, val) {
+            return 14;
         });
 
-        $("#vozrast-to-139").trigger("keypress").val(function(i, val) {
+        $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
             return 80;
+        });
+
+        $("#vozrast-dlya-pogasheniya-from-109").trigger("keypress").val(function(i, val) {
+            return 65;
+        });
+
+        $("#vozrast-dlya-pogasheniya-to-109").trigger("keypress").val(function(i, val) {
+            return 99;
         });
 
 
@@ -303,14 +311,14 @@ if ($params->get('enable_css', 1)) {
             skin: "round",
             type: "double",
             grid: false,
-            from: 18,
-            to: 80,
+            from: 22,
+            to: 65,
             postfix: '',
-            min: 18,
+            min: 16,
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 80,
+            max: 85,
             onStart: updateInputs,
             onChange: updateInputs,
             onFinish: updateInputs
@@ -325,11 +333,15 @@ if ($params->get('enable_css', 1)) {
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
 
-            $("#vozrast-from-139").trigger("keypress").val(function(i, val) {
+            /*$("#vozrast-from-109").trigger("keypress").val(function(i, val) {
+                return from;
+            });*/
+
+            $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
-            $("#vozrast-to-139").trigger("keypress").val(function(i, val) {
+            $("#vozrast-dlya-pogasheniya-from-109").trigger("keypress").val(function(i, val) {
                 return to;
             });
         }
