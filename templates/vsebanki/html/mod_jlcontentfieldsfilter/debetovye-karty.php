@@ -162,7 +162,8 @@ if ($params->get('enable_css', 1)) {
                     type: 'keypress',
                     keyCode: keyVal,
                     which: keyVal,
-                    charCode: keyVal
+                    charCode: keyVal,
+                    val: keyVal
                 });
                 /*$("#cashback-to-143").trigger("keypress").val(function(i, val) {
                     return value;
@@ -177,7 +178,8 @@ if ($params->get('enable_css', 1)) {
                     type: 'keypress',
                     keyCode: keyVal,
                     which: keyVal,
-                    charCode: keyVal
+                    charCode: keyVal,
+                    val: keyVal
                 });
             }
         });
