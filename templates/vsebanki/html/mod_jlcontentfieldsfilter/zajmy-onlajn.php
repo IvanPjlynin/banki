@@ -337,11 +337,11 @@ if ($params->get('enable_css', 1)) {
                 return from;
             });*/
 
-            $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
+            $("#vozrast-to-140").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
-            $("#vozrast-dlya-pogasheniya-from-109").trigger("keypress").val(function(i, val) {
+            $("#vozrast-dlya-pogasheniya-from-140").trigger("keypress").val(function(i, val) {
                 return to;
             });
         }
