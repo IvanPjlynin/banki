@@ -201,10 +201,10 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                 echo '</pre>';
                     
                     //ivp если значение равно 1 то включаем в массив исключение
-                    if($v[0] == '1' || $v[0] == '3' || $v[0] == '4'){
+                    if($v[0] == 1 || $v[0] == 3 || $v[0] == 4){
                         print_r('1---------------');
                         $excludeWhere = '(field_id = '.(int)$k.' AND value = '.$v[0].')';
-                    }else if($db->quote($v) == '1' || $db->quote($v) == '4'){
+                    }else if($db->quote($v) == 1 || $db->quote($v) == 4){
                         print_r('2---------------');
                         $excludeWhere = '(field_id = '.(int)$k.' AND value = '.$db->quote($v).')';
                     }else{
