@@ -203,3 +203,26 @@ if ($params->get('enable_css', 1)) {
     });
 
 </script>
+
+<style>
+    .blog .tabsmenu a:nth-child(1)~div {
+        transform: translate(0px);
+        -webkit-transform: translate(0px);
+        background: #56C182;
+        transition: all .33s linear;
+        -webkit-transition: all .33s linear;
+        width: 80px;
+        color: #002D4F;
+    }
+
+    .blog .tabsmenu a:nth-child(2):hover~div {
+        transform: translate(130px);
+        -webkit-transform: translate(130px);
+        background: #56C182;
+        transition: all .33s linear;
+        -webkit-transition: all .33s linear;
+        width: 125px;
+        color: #002D4F;
+    }
+
+</style>
