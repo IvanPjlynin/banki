@@ -57,9 +57,9 @@ if ($params->get('enable_css', 1)) {
 
             <select name="jlcontentfieldsfilter[47]" id="kredit-pod-zalog-137" class="jlmf-select filter-dropdown-toggle">
                 <option value="">Залог</option>
-                <option value="1">Недвижимости</option>
-                <option value="2">ПТС</option>
-                <option value="3">Автомобиля</option>
+                <option value="11">Недвижимости</option>
+                <option value="12">ПТС</option>
+                <option value="13">Автомобиля</option>
             </select>
 
             <div class="dropdown">
