@@ -234,13 +234,13 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#srok-ot-to-137").trigger("keypress").val(function(i, val) {
-            return 24;
+            return 60;
         });
 
 
 
         $("#srok-from-137").trigger("keypress").val(function(i, val) {
-            return 24;
+            return 60;
         });
 
         $("#srok-to-137").trigger("keypress").val(function(i, val) {
@@ -251,7 +251,7 @@ if ($params->get('enable_css', 1)) {
         $filter_range2.ionRangeSlider({
             type: "single",
             grid: false,
-            from: 24,
+            from: 60,
             postfix: '',
             min: 1,
             step: 1,
