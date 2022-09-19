@@ -277,6 +277,9 @@ echo '</pre>';*/
 					break;
 				}
 			}
+ echo '<pre> $filterArticles ';
+var_dump($filterArticles); 
+echo '</pre>';
             
 //ivp собираем исключенные материалы в массив            
             if(!empty($excludeWhere)){
