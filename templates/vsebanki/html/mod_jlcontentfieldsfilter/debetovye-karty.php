@@ -154,9 +154,10 @@ if ($params->get('enable_css', 1)) {
 
         $('#carta-cashback').change(function() {
             var value;
+            var keyVal;
             if ($(this).val() == 1) {
                 value = 0.01;
-                var keyVal = 0.01;
+                keyVal = 0.01;
                 $("#cashback-to-143").trigger({
                     type: 'keypress',
                     keyCode: keyVal,
@@ -171,12 +172,12 @@ if ($params->get('enable_css', 1)) {
                 /*$("#cashback-to-143").trigger("keypress").val(function(i, val) {
                     return value;
                 });*/
-                var keyVal2 = 1000;
+                keyVal = 1000;
                 $("#cashback-to-143").trigger({
                     type: 'keypress',
-                    keyCode: keyVal2,
-                    which: keyVal2,
-                    charCode: keyVal2
+                    keyCode: keyVal,
+                    which: keyVal,
+                    charCode: keyVal
                 });
             }
         });
