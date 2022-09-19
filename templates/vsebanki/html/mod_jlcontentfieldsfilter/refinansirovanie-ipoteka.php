@@ -56,7 +56,7 @@ if ($params->get('enable_css', 1)) {
         <div class="col-md-3 block-filter">
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    Фильтры поиска <span>(0)</span>
+                    Фильтры поиска <span>(+3)</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
@@ -109,7 +109,7 @@ if ($params->get('enable_css', 1)) {
 
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
-        <div class="jlmf-section visually-hidden">
+        <div class="jlmf-section ">
             <?php echo $v; ?>
         </div>
         <?php endif;?>
@@ -263,11 +263,11 @@ if ($params->get('enable_css', 1)) {
         var instance_filter_vozrast;
 
         $("#vozrast-ot-from-146").trigger("keypress").val(function(i, val) {
-            return 18;
+            return 14;
         });
 
         $("#vozrast-ot-to-146").trigger("keypress").val(function(i, val) {
-            return 80;
+            return 18;
         });
 
         $("#vozrast-do-from-146").trigger("keypress").val(function(i, val) {
@@ -305,7 +305,7 @@ if ($params->get('enable_css', 1)) {
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
 
-            $("#vozrast-ot-from-146").trigger("keypress").val(function(i, val) {
+            $("#vozrast-ot-to-146").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
@@ -338,7 +338,7 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + n + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (3 - n) + ')');
         });
 
 

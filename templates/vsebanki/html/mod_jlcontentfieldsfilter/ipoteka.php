@@ -56,7 +56,7 @@ if ($params->get('enable_css', 1)) {
         <div class="col-md-3 block-filter">
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    Фильтры поиска <span>(+2)</span>
+                    Фильтры поиска <span>(+3)</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
@@ -67,6 +67,15 @@ if ($params->get('enable_css', 1)) {
                         <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
                     </div>
                     <br>
+
+                    <hr>
+
+                    <div class="col-md-12 block-filter">
+                        <h4>Подтверждение дохода,<br> 2НДФЛ</h4>
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[90]" class="jlmf-checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
 
                     <hr>
 
@@ -329,7 +338,7 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + (2 - n) + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (3 - n) + ')');
         });
 
 
