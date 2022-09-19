@@ -196,7 +196,6 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				case 'list':
                     
                     //ivp если значение равно 1 то включаем в массив исключение
-                    var_dump($v);
                     
                     if(is_array($v) && count($v)){
                         print_r('1-----------');
@@ -247,13 +246,6 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 					break;
 			}
             
-echo '<pre> where ';
-var_dump($where); 
-echo '</pre>';
-            
-/*echo '<pre> excludeWhere ';
-var_dump($excludeWhere); 
-echo '</pre>';*/
 
 			if(!empty($where)){
 				$query->clear()->select(' DISTINCT item_id');
@@ -277,9 +269,7 @@ echo '</pre>';*/
 					break;
 				}
 			}
- echo '<pre> filterArticles ';
-var_dump($filterArticles); 
-echo '</pre>';
+
             
 //ivp собираем исключенные материалы в массив            
             if(!empty($excludeWhere)){
@@ -308,9 +298,9 @@ echo '</pre>';
             
 		}
         
-print_r($filterArticles);
-print_r($excludeFilterArticles);
-die();
+//print_r($filterArticles);
+//print_r($excludeFilterArticles);
+//die();
 //ivp вычетаем исключенные материалы        
 $filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
