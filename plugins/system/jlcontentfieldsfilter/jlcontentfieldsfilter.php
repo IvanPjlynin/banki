@@ -206,6 +206,8 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                     }elseif($db->quote($v) == '1' || $db->quote($v) == '4'){
                         $excludeWhere = '(field_id = '.(int)$k.' AND value = '.$db->quote($v).')';
                     }else{
+                        
+                        print_r('---------------');
                         if(is_array($v) && count($v)){
                             $newVal = array();
                             foreach ( $v as $val ) {
