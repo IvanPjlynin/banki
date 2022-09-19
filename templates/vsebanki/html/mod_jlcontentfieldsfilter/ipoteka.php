@@ -71,8 +71,8 @@ if ($params->get('enable_css', 1)) {
                     <hr>
 
                     <div class="col-md-12 block-filter">
-                        <h4>Подтверждение дохода,<br> 2НДФЛ</h4>
-                        <label class="jlmf-sublabel switch" for="obshchij-trudovoj-stazh-bolee-odnogo-goda-1091">Да <input type="checkbox" value="1" id="obshchij-trudovoj-stazh-bolee-odnogo-goda-1091" name="jlcontentfieldsfilter[90][]" class="jlmf-checkbox">
+                        <h4>Общий трудовой стаж более одного года</h4>
+                        <label class="jlmf-sublabel switch" for="obshchij-trudovoj-stazh-bolee-odnogo-goda-109">Да <input type="checkbox" value="1" id="obshchij-trudovoj-stazh-bolee-odnogo-goda-109" name="jlcontentfieldsfilter[7][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
