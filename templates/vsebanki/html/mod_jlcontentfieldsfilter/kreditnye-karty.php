@@ -56,7 +56,7 @@ if ($params->get('enable_css', 1)) {
         <div class="col-md-3 block-filter">
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    Фильтры поиска <span>(0)</span>
+                    Фильтры поиска <span>(+2)</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
@@ -72,7 +72,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Есть российский паспорт с регистрацией в любом регионе</h4>
-                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[5]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[5][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -81,13 +81,10 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Общий трудовой стаж более одного года</h4>
-                        <label class="jlmf-sublabel switch" for="obshchij-trudovoj-stazh-bolee-odnogo-goda-109">Да <input type="checkbox" value="1" id="obshchij-trudovoj-stazh-bolee-odnogo-goda-109" name="jlcontentfieldsfilter[7]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="obshchij-trudovoj-stazh-bolee-odnogo-goda-109">Да <input type="checkbox" value="1" id="obshchij-trudovoj-stazh-bolee-odnogo-goda-109" name="jlcontentfieldsfilter[7][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
-
-
-
 
                 </div>
             </div>
@@ -241,12 +238,20 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
         var instance_filter_vozrast;
 
-        $("#vozrast-from-142").trigger("keypress").val(function(i, val) {
-            return 18;
+        $("#vozrast-from-141").trigger("keypress").val(function(i, val) {
+            return 14;
         });
 
-        $("#vozrast-to-142").trigger("keypress").val(function(i, val) {
+        $("#vozrast-to-141").trigger("keypress").val(function(i, val) {
             return 80;
+        });
+
+        $("#vozrast-dlya-pogasheniya-from-141").trigger("keypress").val(function(i, val) {
+            return 65;
+        });
+
+        $("#vozrast-dlya-pogasheniya-to-141").trigger("keypress").val(function(i, val) {
+            return 99;
         });
 
 
@@ -254,14 +259,14 @@ if ($params->get('enable_css', 1)) {
             skin: "round",
             type: "double",
             grid: false,
-            from: 18,
-            to: 80,
+            from: 22,
+            to: 65,
             postfix: '',
-            min: 18,
+            min: 16,
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 80,
+            max: 85,
             onStart: updateInputs,
             onChange: updateInputs,
             onFinish: updateInputs
@@ -276,11 +281,15 @@ if ($params->get('enable_css', 1)) {
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
 
-            $("#vozrast-from-142").trigger("keypress").val(function(i, val) {
+            /*$("#vozrast-from-109").trigger("keypress").val(function(i, val) {
+                return from;
+            });*/
+
+            $("#vozrast-to-141").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
-            $("#vozrast-to-142").trigger("keypress").val(function(i, val) {
+            $("#vozrast-dlya-pogasheniya-from-141").trigger("keypress").val(function(i, val) {
                 return to;
             });
         }
@@ -309,7 +318,7 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + n + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
         });
 
 
