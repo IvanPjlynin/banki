@@ -153,24 +153,25 @@ if ($params->get('enable_css', 1)) {
                 });
 
                 $('#carta-cashback').change(function() {
-                        var value;
-                        var keyVal;
-                        if ($(this).val() == 1) {
-                            value = 0.01;
-                            $("#cashback-to-143").trigger("keypress").val(function(i, val) {
-                                return value;
-                            });
-                        } else {
-                            value = 1000;
-                            $("#cashback-to-143").trigger("keypress").val(function(i, val) {
-                                return value;
-                            });
+                    var value;
+                    var keyVal;
+                    if ($(this).val() == 1) {
+                        value = 0.01;
+                        $("#cashback-to-143").trigger("keypress").val(function(i, val) {
+                            return value;
                         });
+                    } else {
+                        value = 1000;
+                        $("#cashback-to-143").trigger("keypress").val(function(i, val) {
+                            return value;
+                        });
+                    }
 
                     //процент на остаток
                     $("#protsent-na-ostatok-from-143").trigger("keypress").val(function(i, val) {
                         return 0;
-                    }); $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
+                    });
+                    $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
                         return 0.01;
                     });
 
