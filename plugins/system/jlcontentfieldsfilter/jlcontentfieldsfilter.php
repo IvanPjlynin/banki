@@ -310,7 +310,7 @@ echo '</pre>';*/
         
 print_r($filterArticles);
 print_r($excludeFilterArticles);
-//die();
+die();
 //ivp вычетаем исключенные материалы        
 $filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
