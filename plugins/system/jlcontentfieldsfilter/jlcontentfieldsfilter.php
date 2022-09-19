@@ -277,7 +277,7 @@ echo '</pre>';*/
 					break;
 				}
 			}
- echo '<pre> $filterArticles ';
+ echo '<pre> filterArticles ';
 var_dump($filterArticles); 
 echo '</pre>';
             
