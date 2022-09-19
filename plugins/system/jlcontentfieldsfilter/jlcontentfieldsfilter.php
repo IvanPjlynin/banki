@@ -197,6 +197,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                     
                 echo '<pre>';
                 print_r($fieldsTypes[$k]);
+                print_r($v);
                 echo '</pre>';
                     
                     //ivp если значение равно 1 то включаем в массив исключение
