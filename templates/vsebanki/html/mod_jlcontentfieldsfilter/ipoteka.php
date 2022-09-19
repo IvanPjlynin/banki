@@ -72,7 +72,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Подтверждение дохода,<br> 2НДФЛ</h4>
-                        <label class="jlmf-sublabel switch" for="2ndfl-2-145">Да <input type="checkbox" value="1" id="2ndfl-2-145" name="jlcontentfieldsfilter[90][]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="obshchij-trudovoj-stazh-bolee-odnogo-goda-1091">Да <input type="checkbox" value="1" id="obshchij-trudovoj-stazh-bolee-odnogo-goda-1091" name="jlcontentfieldsfilter[90][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
