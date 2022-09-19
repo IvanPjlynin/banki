@@ -247,11 +247,11 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 					break;
 			}
             
-/*echo '<pre> where ';
+echo '<pre> where ';
 var_dump($where); 
 echo '</pre>';
             
-echo '<pre> excludeWhere ';
+/*echo '<pre> excludeWhere ';
 var_dump($excludeWhere); 
 echo '</pre>';*/
 
@@ -307,7 +307,7 @@ echo '</pre>';*/
         
 print_r($filterArticles);
 print_r($excludeFilterArticles);
-//die();
+die();
 //ivp вычетаем исключенные материалы        
 $filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
