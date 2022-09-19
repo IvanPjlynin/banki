@@ -290,19 +290,19 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
         var instance_filter_vozrast;
 
-        $("#vozrast-from-109").trigger("keypress").val(function(i, val) {
+        $("#vozrast-from-140").trigger("keypress").val(function(i, val) {
             return 14;
         });
 
-        $("#vozrast-to-109").trigger("keypress").val(function(i, val) {
+        $("#vozrast-to-140").trigger("keypress").val(function(i, val) {
             return 80;
         });
 
-        $("#vozrast-dlya-pogasheniya-from-109").trigger("keypress").val(function(i, val) {
+        $("#vozrast-dlya-pogasheniya-from-140").trigger("keypress").val(function(i, val) {
             return 65;
         });
 
-        $("#vozrast-dlya-pogasheniya-to-109").trigger("keypress").val(function(i, val) {
+        $("#vozrast-dlya-pogasheniya-to-140").trigger("keypress").val(function(i, val) {
             return 99;
         });
 
