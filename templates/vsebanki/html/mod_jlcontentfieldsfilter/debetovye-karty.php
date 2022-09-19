@@ -171,12 +171,12 @@ if ($params->get('enable_css', 1)) {
                 /*$("#cashback-to-143").trigger("keypress").val(function(i, val) {
                     return value;
                 });*/
-                var keyVal = 1000;
+                var keyVal2 = 1000;
                 $("#cashback-to-143").trigger({
                     type: 'keypress',
-                    keyCode: keyVal,
-                    which: keyVal,
-                    charCode: keyVal
+                    keyCode: keyVal2,
+                    which: keyVal2,
+                    charCode: keyVal2
                 });
             }
         });
