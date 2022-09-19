@@ -144,133 +144,133 @@ if ($params->get('enable_css', 1)) {
 
 <script>
     jQuery(document).ready(function($) {
-                //Cashback
-                $("#cashback-from-143").trigger("keypress").val(function(i, val) {
-                    return 0;
-                });
+        //Cashback
+        $("#cashback-from-143").trigger("keypress").val(function(i, val) {
+            return 0;
+        });
+        $("#cashback-to-143").trigger("keypress").val(function(i, val) {
+            return 0.01;
+        });
+
+        $('#carta-cashback').change(function() {
+            var value;
+            var keyVal;
+            if ($(this).val() == 1) {
+                value = 0.01;
                 $("#cashback-to-143").trigger("keypress").val(function(i, val) {
-                    return 0.01;
+                    return value;
                 });
-
-                $('#carta-cashback').change(function() {
-                    var value;
-                    var keyVal;
-                    if ($(this).val() == 1) {
-                        value = 0.01;
-                        $("#cashback-to-143").trigger("keypress").val(function(i, val) {
-                            return value;
-                        });
-                    } else {
-                        value = 1000;
-                        $("#cashback-to-143").trigger("keypress").val(function(i, val) {
-                            return value;
-                        });
-                    }
-
-                    //процент на остаток
-                    $("#protsent-na-ostatok-from-143").trigger("keypress").val(function(i, val) {
-                        return 0;
-                    });
-                    $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
-                        return 0.01;
-                    });
-
-                    $('#procent-ostatok').change(function() {
-                        var value;
-                        if ($(this).val() == 1) {
-                            value = 0.01;
-                            $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
-                                return value;
-                            });
-                        } else {
-                            value = 1000;
-                            $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
-                                return value;
-                            });
-                        }
-                    });
-
-
-
-
-                    //возраст
-                    var $filter_vozrast = $("#credit-filter-vozrast");
-                    var $input_filter_vozrastFrom = $("#input-credit-vozrast-ot");
-                    var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
-                    var instance_filter_vozrast;
-
-                    $("#vozrast-from-143").trigger("keypress").val(function(i, val) {
-                        return 18;
-                    });
-
-                    $("#vozrast-to-143").trigger("keypress").val(function(i, val) {
-                        return 80;
-                    });
-
-
-                    $filter_vozrast.ionRangeSlider({
-                        skin: "round",
-                        type: "double",
-                        grid: false,
-                        from: 18,
-                        to: 80,
-                        postfix: '',
-                        min: 18,
-                        step: 1,
-                        grid_num: 4,
-                        grid_snap: '',
-                        max: 80,
-                        onStart: updateInputs,
-                        onChange: updateInputs,
-                        onFinish: updateInputs
-                    });
-
-                    instance_filter_vozrast = $filter_vozrast.data("ionRangeSlider");
-
-                    function updateInputs(data) {
-                        from = data.from;
-                        to = data.to;
-
-                        $input_filter_vozrastFrom.prop("value", from);
-                        $input_filter_vozrastTo.prop("value", to);
-
-                        $("#vozrast-from-143").trigger("keypress").val(function(i, val) {
-                            return from;
-                        });
-
-                        $("#vozrast-to-143").trigger("keypress").val(function(i, val) {
-                            return to;
-                        });
-                    }
-
-                    $input_filter_vozrastFrom.on("change", function() {
-                        var val = $(this).prop("value");
-
-                        instance_filter_vozrast.update({
-                            from: val
-                        });
-
-                        $(this).prop("value", val);
-
-                    });
-
-                    $input_filter_vozrastTo.on("change", function() {
-                        var val = $(this).prop("value");
-
-                        instance_filter_vozrast.update({
-                            to: val
-                        });
-
-                        $(this).prop("value", val);
-                    });
-
-                    //подсчет чебоксов
-                    $('.dropdown-menu .jlmf-checkbox').change(function() {
-                        var n = $(".dropdown-menu input:checked").length;
-                        $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
-                    });
-
-
+            } else {
+                value = 1000;
+                $("#cashback-to-143").trigger("keypress").val(function(i, val) {
+                    return value;
                 });
+            }
+        });
+        //процент на остаток
+        $("#protsent-na-ostatok-from-143").trigger("keypress").val(function(i, val) {
+            return 0;
+        });
+        $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
+            return 0.01;
+        });
+
+        $('#procent-ostatok').change(function() {
+            var value;
+            if ($(this).val() == 1) {
+                value = 0.01;
+                $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
+                    return value;
+                });
+            } else {
+                value = 1000;
+                $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
+                    return value;
+                });
+            }
+        });
+
+
+
+
+        //возраст
+        var $filter_vozrast = $("#credit-filter-vozrast");
+        var $input_filter_vozrastFrom = $("#input-credit-vozrast-ot");
+        var $input_filter_vozrastTo = $("#input-credit-vozrast-do");
+        var instance_filter_vozrast;
+
+        $("#vozrast-from-143").trigger("keypress").val(function(i, val) {
+            return 18;
+        });
+
+        $("#vozrast-to-143").trigger("keypress").val(function(i, val) {
+            return 80;
+        });
+
+
+        $filter_vozrast.ionRangeSlider({
+            skin: "round",
+            type: "double",
+            grid: false,
+            from: 18,
+            to: 80,
+            postfix: '',
+            min: 18,
+            step: 1,
+            grid_num: 4,
+            grid_snap: '',
+            max: 80,
+            onStart: updateInputs,
+            onChange: updateInputs,
+            onFinish: updateInputs
+        });
+
+        instance_filter_vozrast = $filter_vozrast.data("ionRangeSlider");
+
+        function updateInputs(data) {
+            from = data.from;
+            to = data.to;
+
+            $input_filter_vozrastFrom.prop("value", from);
+            $input_filter_vozrastTo.prop("value", to);
+
+            $("#vozrast-from-143").trigger("keypress").val(function(i, val) {
+                return from;
+            });
+
+            $("#vozrast-to-143").trigger("keypress").val(function(i, val) {
+                return to;
+            });
+        }
+
+        $input_filter_vozrastFrom.on("change", function() {
+            var val = $(this).prop("value");
+
+            instance_filter_vozrast.update({
+                from: val
+            });
+
+            $(this).prop("value", val);
+
+        });
+
+        $input_filter_vozrastTo.on("change", function() {
+            var val = $(this).prop("value");
+
+            instance_filter_vozrast.update({
+                to: val
+            });
+
+            $(this).prop("value", val);
+        });
+
+        //подсчет чебоксов
+        $('.dropdown-menu .jlmf-checkbox').change(function() {
+            var n = $(".dropdown-menu input:checked").length;
+            $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
+        });
+
+
+    });
 
 </script>
