@@ -182,7 +182,11 @@ if ($params->get('enable_css', 1)) {
                     return value;
                 });*/
                 keyVal = 1000;
-                $('#cashback-to-143').trigger("key-sequence", {
+                $('#cashback-to-143').trigger({
+                    type: 'keypress',
+                    keyCode: keyVal,
+                    which: keyVal,
+                    charCode: keyVal,
                     sequence: keyVal,
                     delay: 10
                 });
