@@ -198,6 +198,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                     //ivp если значение равно 1 то включаем в массив исключение
                     
                     if(is_array($v) && count($v)){
+                        print_r('1-----------');
                         if($v[0] == '1' || $v[0] == '3' || $v[0] == '4'){
                             $excludeWhere = '(field_id = '.(int)$k.' AND value = '.$v[0].')';
                         } else {
@@ -212,7 +213,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                         }
                     }
                     else if(!empty($v)){
-                        
+                        print_r('1-----------');
                             if($db->quote($v) == '1' || $db->quote($v) == '4'){
                                 $excludeWhere = '(field_id = '.(int)$k.' AND value = '.$db->quote($v).')';
                             }else{
