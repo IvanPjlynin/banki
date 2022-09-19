@@ -214,14 +214,14 @@ class plgSystemJlContentFieldsFilter extends JPlugin
                         }
                     }
                     else if(!empty($v)){
-                        print_r('1-----------');
+                        print_r('2-----------');
                             if($db->quote($v) == '1' || $db->quote($v) == '4'){
                                 $excludeWhere = '(field_id = '.(int)$k.' AND value = '.$db->quote($v).')';
                             }else{
                                 $where = '(field_id = '.(int)$k.' AND value = '.$db->quote($v).')';
                             }
                         }
-                    
+                    $v = '';
                     break;
                     
 				case 'text':
@@ -307,7 +307,7 @@ echo '</pre>';*/
         
 print_r($filterArticles);
 print_r($excludeFilterArticles);
-die();
+//die();
 //ivp вычетаем исключенные материалы        
 $filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
