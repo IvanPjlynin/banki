@@ -403,8 +403,15 @@ if ($params->get('enable_css', 1)) {
         });
 
         var allVars = $.getUrlVars();
-        var getZaimUrl = $.getUrlVar('jlcontentfieldsfilter%5B47%5D');
-        console.log('URL', allVars, getZaimUrl);
+        var getZalogUrl = $.getUrlVar('jlcontentfieldsfilter%5B47%5D');
+        console.log('URL', allVars, getZalogUrl);
+
+        //если займ
+        if (getZalogUrl > 0) {
+            $("#kredit-pod-zalog-137").trigger("keypress").val(function(i, val) {
+                return getZalogUrl;
+            });
+        }
 
     });
 
