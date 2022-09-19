@@ -196,7 +196,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				case 'list':
                     
                     //ivp если значение равно 1 то включаем в массив исключение
-                    
+                    var_damp($v);
                     if(is_array($v) && count($v)){
                         print_r('1-----------');
                         if($v[0] == '1' || $v[0] == '3' || $v[0] == '4'){
