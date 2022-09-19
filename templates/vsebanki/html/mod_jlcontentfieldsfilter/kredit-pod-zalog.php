@@ -412,6 +412,7 @@ if ($params->get('enable_css', 1)) {
             $("#kredit-pod-zalog-137").trigger("keypress").val(function(i, val) {
                 return getZalogUrl;
             });
+            $(".credit-pod-zalog" + getZalogUrl).parent().addClass("active");
         }
 
     });
