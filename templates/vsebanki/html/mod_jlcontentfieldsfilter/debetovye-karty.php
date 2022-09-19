@@ -203,9 +203,11 @@ if ($params->get('enable_css', 1)) {
                 });
             } else {
                 value = 1000;
-                $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
+                /*$("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
                     return value;
-                });
+                });*/
+                keyVal = 1000;
+                $("#protsent-na-ostatok-to-143").val(keyVal);
             }
         });
 
