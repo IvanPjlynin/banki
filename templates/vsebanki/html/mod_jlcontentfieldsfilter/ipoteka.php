@@ -263,7 +263,7 @@ if ($params->get('enable_css', 1)) {
         var instance_filter_vozrast;
 
         $("#vozrast-ot-from-145").trigger("keypress").val(function(i, val) {
-            return 18;
+            return 16;
         });
 
         $("#vozrast-ot-to-145").trigger("keypress").val(function(i, val) {
