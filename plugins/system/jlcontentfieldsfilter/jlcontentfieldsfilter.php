@@ -195,6 +195,10 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 				case 'checkboxes':
 				case 'list':
                     
+                echo '<pre>';
+                print_r($fieldsTypes[$k]);
+                echo '</pre>';
+                    
                     //ivp если значение равно 1 то включаем в массив исключение
                     if($v[0] == '1' || $v[0] == '3' || $v[0] == '4'){
                         $excludeWhere = '(field_id = '.(int)$k.' AND value = '.$v[0].')';
@@ -298,7 +302,7 @@ echo '</pre>';*/
 
             
 		}
-//die();
+die();
 //ivp вычетаем исключенные материалы        
 $filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
