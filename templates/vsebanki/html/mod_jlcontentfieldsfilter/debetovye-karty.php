@@ -182,21 +182,7 @@ if ($params->get('enable_css', 1)) {
                     return value;
                 });*/
                 keyVal = 1000;
-                $('#cashback-to-143').trigger({
-                    type: 'keypress',
-                    keyCode: keyVal,
-                    which: keyVal,
-                    charCode: keyVal,
-                    sequence: keyVal,
-                    delay: 10
-                });
-                /*$("#cashback-to-143").trigger({
-                    type: 'keypress',
-                    keyCode: keyVal,
-                    which: keyVal,
-                    charCode: keyVal,
-                    val: keyVal
-                });*/
+                $("#cashback-to-143").val(keyVal);
             }
         });
 
