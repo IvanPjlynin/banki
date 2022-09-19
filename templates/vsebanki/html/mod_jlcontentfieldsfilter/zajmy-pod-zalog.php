@@ -374,7 +374,8 @@ if ($params->get('enable_css', 1)) {
 
 </script>
 <style>
-    .blog .tabsmenu a:nth-child(2)~div {
+    .blog .tabsmenu a:nth-child(2)~div,
+    .blog .tabsmenu a:nth-child(2):hover~div {
         transform: translate(125px);
         -webkit-transform: translate(125px);
         background: #56C182;
