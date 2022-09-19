@@ -403,7 +403,8 @@ if ($params->get('enable_css', 1)) {
         });
 
         var allVars = $.getUrlVars();
-        console.log('URL', allVars);
+        var getZaimUrl = $.getUrlVar('jlcontentfieldsfilter%5B47%5D');
+        console.log('URL', allVars, getZaimUrl);
 
     });
 
