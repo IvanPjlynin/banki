@@ -402,9 +402,10 @@ if ($params->get('enable_css', 1)) {
             }
         });
 
+
         var allVars = $.getUrlVars();
         var getZalogUrl = $.getUrlVar('jlcontentfieldsfilter%5B47%5D');
-        console.log('URL', allVars, getZalogUrl);
+        //console.log('URL', allVars, getZalogUrl);
 
         //если займ
         if (getZalogUrl > 0) {
