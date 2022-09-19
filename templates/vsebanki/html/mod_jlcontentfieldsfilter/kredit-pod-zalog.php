@@ -407,7 +407,7 @@ if ($params->get('enable_css', 1)) {
         var getZalogUrl = $.getUrlVar('jlcontentfieldsfilter%5B47%5D');
         //console.log('URL', allVars, getZalogUrl);
 
-        //если займ
+        //если под залог
         if (getZalogUrl > 0) {
             $("#kredit-pod-zalog-137").trigger("keypress").val(function(i, val) {
                 return getZalogUrl;
