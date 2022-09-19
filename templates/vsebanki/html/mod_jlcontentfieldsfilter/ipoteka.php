@@ -305,7 +305,7 @@ if ($params->get('enable_css', 1)) {
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
 
-            $("#vozrast-ot-from-145").trigger("keypress").val(function(i, val) {
+            $("#vozrast-ot-to-145").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
