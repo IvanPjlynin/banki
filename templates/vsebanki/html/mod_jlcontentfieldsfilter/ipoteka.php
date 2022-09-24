@@ -209,12 +209,12 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range2 = $("#input-credit-range-two");
         var instance_filter_range2;
 
-        $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
-            return 12;
+        $("#srok-ot-2-from-145").trigger("keypress").val(function(i, val) {
+            return 0;
         });
 
-        $("#srok-ipoteka-to-145").trigger("keypress").val(function(i, val) {
-            return 360;
+        $("#srok-ot-2-to-145").trigger("keypress").val(function(i, val) {
+            return 60;
         });
 
 
@@ -230,13 +230,13 @@ if ($params->get('enable_css', 1)) {
             max: 360,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+                $("#srok-ot-2-to-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+                $("#srok-ot-2-to-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -247,7 +247,7 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-ipoteka-from-145").trigger("keypress").val(function(i, val) {
+            $("#srok-ot-2-to-145").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
