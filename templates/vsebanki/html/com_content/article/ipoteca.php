@@ -186,7 +186,7 @@ $attribs['style'] = 'none';
                             </div>
 
 
-                            <?php if ($this->item->extrafields['srok-ipoteka']->value) : ?>
+                            <?php if ($this->item->extrafields['srok-ot-2']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок</h3>
                                 <p class="tab-text-block-content">от <?php echo $this->item->extrafields['srok-ot-2']->value; ?> до <?php echo $this->item->extrafields['srok-2']->value; ?> мес.</p>
