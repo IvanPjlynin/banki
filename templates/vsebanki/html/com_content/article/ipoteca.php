@@ -129,13 +129,13 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="bank-field srok">
                         <div class="bank-field-name">Срок</div>
-                        <div class="bank-field-value">до <?php echo $this->item->extrafields['srok-ipoteka']->value; ?> мес.</div>
+                        <div class="bank-field-value">до <?php echo $this->item->extrafields['srok-2']->value; ?> мес.</div>
                     </div>
 
                     <div class="bank-field stavka">
                         <div class="bank-field-name">Ставка</div>
                         <div class="bank-field-value">
-                            от <?php echo $this->item->extrafields['stavka-ipoteka']->value; ?> %
+                            от <?php echo $this->item->extrafields['stavka-bez-strakhovki-ot-4']->value; ?> %
                         </div>
                     </div>
 
