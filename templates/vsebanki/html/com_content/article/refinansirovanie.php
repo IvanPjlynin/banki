@@ -186,24 +186,46 @@ $attribs['style'] = 'none';
                             </div>
 
 
-                            <?php if ($this->item->extrafields['stavka-ipoteka']->value) : ?>
+                            <?php if ($this->item->extrafields['srok-ot-2']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка</h3>
-                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['stavka-ipoteka']->value; ?> %</p>
+                                <h3 class="tab-text-block-title">Срок</h3>
+                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['srok-ot-2']->value; ?> до <?php echo $this->item->extrafields['srok-2']->value; ?> мес.</p>
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['srok-ipoteka']->value) : ?>
+
+                            <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot']->value || $this->item->extrafields['stavka-bez-strakhovki-ot-2']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Срок</h3>
-                                <p class="tab-text-block-content">до <?php echo number_format($this->item->extrafields['srok-ipoteka']->value/12, 1, ',', ' '); ?> лет.</p>
+                                <h3 class="tab-text-block-title">Ставка без страховки</h3>
+                                <p class="tab-text-block-content">
+                                    <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot']->value) : ?>
+                                    от <?php echo $this->item->extrafields['stavka-bez-strakhovki-ot']->value; ?> %
+                                    <?php endif; ?>
+                                    <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot-2']->value) : ?>
+                                    до <?php echo $this->item->extrafields['stavka-bez-strakhovki-ot-2']->value; ?> %
+                                    <?php endif; ?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot-4']->value || $this->item->extrafields['stavka-bez-strakhovki-ot-3']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Ставка со страховкой</h3>
+                                <p class="tab-text-block-content">
+                                    <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot-4']->value) : ?>
+                                    от <?php echo $this->item->extrafields['stavka-bez-strakhovki-ot-4']->value; ?> %
+                                    <?php endif; ?>
+                                    <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot-3']->value) : ?>
+                                    до <?php echo $this->item->extrafields['stavka-bez-strakhovki-ot-3']->value; ?> %
+                                    <?php endif; ?>
+                                </p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['pervonachalnyj-vznos-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Первоначальный взнос</h3>
-                                <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['pervonachalnyj-vznos-ot']->value, 0, ',', ' '); ?> ₽</p>
+                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['pervonachalnyj-vznos-ot']->value; ?> %</p>
                             </div>
                             <?php endif; ?>
 
@@ -223,11 +245,11 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['trudoustrojstvo']->value) : ?>
+                            <?php if ($this->item->extrafields['obshii-stag-rab']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Трудоустройство</h3>
+                                <h3 class="tab-text-block-title">Общий стаж</h3>
                                 <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['trudoustrojstvo']->value;?>
+                                    от <?php echo $this->item->extrafields['obshii-stag-rab']->value;?>
                                 </p>
                             </div>
                             <?php endif; ?>
@@ -241,11 +263,43 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['obshii-stag-rab']->value) : ?>
+                            <?php if ($this->item->extrafields['vash-sovokupnyj-dokhod']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Общий стаж</h3>
+                                <h3 class="tab-text-block-title">Ваш совокупный доход</h3>
                                 <p class="tab-text-block-content">
-                                    от <?php echo $this->item->extrafields['obshii-stag-rab']->value;?>
+                                    <?php echo $this->item->extrafields['vash-sovokupnyj-dokhod']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['grazhdanstvo']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Гражданство РФ</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['grazhdanstvo']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['registratsiya']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Регистрация РФ</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['registratsiya']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
+                        <div class="row tab-text">
+
+                            <?php if ($this->item->extrafields['ipoteka-doks']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Обязательные документы</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['ipoteka-doks']->value;?>
                                 </p>
                             </div>
                             <?php endif; ?>
@@ -259,47 +313,30 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['registratsiya']->value) : ?>
+                            <?php if ($this->item->extrafields['ipoteka-sposob-poluchenia']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Регистрация</h3>
+                                <h3 class="tab-text-block-title">Способ получения</h3>
                                 <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['registratsiya']->value;?>
+                                    <?php echo $this->item->extrafields['ipoteka-sposob-poluchenia']->value;?>
                                 </p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['grazhdanstvo']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Гражданство</h3>
-                                <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['grazhdanstvo']->value;?>
-                                </p>
-                            </div>
-                            <?php endif; ?>
-
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
-                        <div class="row tab-text">
-
-                            <?php if ($this->item->extrafields['dokumenty-dlya-podachi-zayavki']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Документы для подачи заявки</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['dokumenty-dlya-podachi-zayavki']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['vydacha-inostrannym-grazhdanam']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Выдача иностранным гражданам</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['vydacha-inostrannym-grazhdanam']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['srok-rassmotreniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок рассмотрения</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['srok-rassmotreniya']->value; ?></p>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['srok-rassmotreniya']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['litsenziya']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Лицензия</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['litsenziya']->value;?>
+                                </p>
                             </div>
                             <?php endif; ?>
 
