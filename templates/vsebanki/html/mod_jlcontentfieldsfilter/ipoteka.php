@@ -72,7 +72,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Общий трудовой стаж <br> более года</h4>
-                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[89][]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109767">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109767" name="jlcontentfieldsfilter[89][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -81,7 +81,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Гражданство РФ</h4>
-                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[92][]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-4657576">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-4657576" name="jlcontentfieldsfilter[92][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -90,7 +90,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Регистрация РФ</h4>
-                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[91][]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-10911">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-10911" name="jlcontentfieldsfilter[91][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -99,7 +99,7 @@ if ($params->get('enable_css', 1)) {
 
                     <div class="col-md-12 block-filter">
                         <h4>Подтверждение дохода</h4>
-                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[90][]" class="jlmf-checkbox">
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-10922">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-10922" name="jlcontentfieldsfilter[90][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
