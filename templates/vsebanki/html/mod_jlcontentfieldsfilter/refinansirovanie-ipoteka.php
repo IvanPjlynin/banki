@@ -104,9 +104,6 @@ if ($params->get('enable_css', 1)) {
                         </label>
                     </div>
 
-                    <hr>
-
-
 
                 </div>
             </div>
