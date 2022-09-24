@@ -186,6 +186,14 @@ $attribs['style'] = 'none';
                             </div>
 
 
+                            <?php if ($this->item->extrafields['srok-ipoteka']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Срок</h3>
+                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['srok-ot-2']->value; ?> до <?php echo $this->item->extrafields['srok-2']->value; ?> мес.</p>
+                            </div>
+                            <?php endif; ?>
+
+
                             <?php if ($this->item->extrafields['stavka-ipoteka']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка</h3>
@@ -203,7 +211,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['pervonachalnyj-vznos-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Первоначальный взнос</h3>
-                                <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['pervonachalnyj-vznos-ot']->value, 0, ',', ' '); ?> ₽</p>
+                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['pervonachalnyj-vznos-ot']->value; ?> %</p>
                             </div>
                             <?php endif; ?>
 
