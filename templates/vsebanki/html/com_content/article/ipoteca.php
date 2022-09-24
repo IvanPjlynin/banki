@@ -295,11 +295,11 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
                         <div class="row tab-text">
 
-                            <?php if ($this->item->extrafields['trudoustrojstvo']->value) : ?>
+                            <?php if ($this->item->extrafields['ipoteka-doks']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Трудоустройство</h3>
+                                <h3 class="tab-text-block-title">Обязательные документы</h3>
                                 <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['trudoustrojstvo']->value;?>
+                                    <?php echo $this->item->extrafields['ipoteka-doks']->value;?>
                                 </p>
                             </div>
                             <?php endif; ?>
@@ -313,24 +313,30 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['dokumenty-dlya-podachi-zayavki']->value) : ?>
+                            <?php if ($this->item->extrafields['ipoteka-sposob-poluchenia']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Документы для подачи заявки</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['dokumenty-dlya-podachi-zayavki']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['vydacha-inostrannym-grazhdanam']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Выдача иностранным гражданам</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['vydacha-inostrannym-grazhdanam']->value; ?></p>
+                                <h3 class="tab-text-block-title">Способ получения</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['ipoteka-sposob-poluchenia']->value;?>
+                                </p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['srok-rassmotreniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок рассмотрения</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['srok-rassmotreniya']->value; ?></p>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['srok-rassmotreniya']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['litsenziya']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Лицензия</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['litsenziya']->value;?>
+                                </p>
                             </div>
                             <?php endif; ?>
 
