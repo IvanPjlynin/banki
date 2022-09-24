@@ -160,7 +160,7 @@ if ($params->get('enable_css', 1)) {
         $filter_range1.ionRangeSlider({
             type: "single",
             grid: false,
-            min: 100000,
+            min: 500000,
             from: 2000000,
             postfix: '',
             step: 10000,
