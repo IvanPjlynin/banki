@@ -71,8 +71,8 @@ if ($params->get('enable_css', 1)) {
                     <hr>
 
                     <div class="col-md-12 block-filter">
-                        <h4>Подтверждение дохода,<br> 2НДФЛ</h4>
-                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[90]" class="jlmf-checkbox">
+                        <h4>Общий трудовой стаж <br> более года</h4>
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[89][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
