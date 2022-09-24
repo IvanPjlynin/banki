@@ -194,10 +194,31 @@ $attribs['style'] = 'none';
                             <?php endif; ?>
 
 
-                            <?php if ($this->item->extrafields['stavka-ipoteka']->value) : ?>
+                            <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot']->value || $this->item->extrafields['stavka-bez-strakhovki-ot-2']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка</h3>
-                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['stavka-ipoteka']->value; ?> %</p>
+                                <h3 class="tab-text-block-title">Ставка без страховки</h3>
+                                <p class="tab-text-block-content">
+                                    <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot']->value) : ?>
+                                    от <?php echo $this->item->extrafields['stavka-bez-strakhovki-ot']->value; ?> %
+                                    <?php endif; ?>
+                                    <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot-2']->value) : ?>
+                                    до <?php echo $this->item->extrafields['stavka-bez-strakhovki-ot-2']->value; ?> %
+                                    <?php endif; ?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot-4']->value || $this->item->extrafields['stavka-bez-strakhovki-ot-3']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Ставка со страховкой</h3>
+                                <p class="tab-text-block-content">
+                                    <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot-4']->value) : ?>
+                                    от <?php echo $this->item->extrafields['stavka-bez-strakhovki-ot-4']->value; ?> %
+                                    <?php endif; ?>
+                                    <?php if ($this->item->extrafields['stavka-bez-strakhovki-ot-3']->value) : ?>
+                                    до <?php echo $this->item->extrafields['stavka-bez-strakhovki-ot-3']->value; ?> %
+                                    <?php endif; ?>
+                                </p>
                             </div>
                             <?php endif; ?>
 
