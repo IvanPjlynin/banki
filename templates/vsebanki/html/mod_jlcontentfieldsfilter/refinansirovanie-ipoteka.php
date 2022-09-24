@@ -56,7 +56,7 @@ if ($params->get('enable_css', 1)) {
         <div class="col-md-3 block-filter">
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    Фильтры поиска <span>(+3)</span>
+                    Фильтры поиска <span>(+4)</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
@@ -71,8 +71,8 @@ if ($params->get('enable_css', 1)) {
                     <hr>
 
                     <div class="col-md-12 block-filter">
-                        <h4>Подтверждение дохода,<br> 2НДФЛ</h4>
-                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[90]" class="jlmf-checkbox">
+                        <h4>Общий трудовой стаж <br> более года</h4>
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109767">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109767" name="jlcontentfieldsfilter[89][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -80,8 +80,8 @@ if ($params->get('enable_css', 1)) {
                     <hr>
 
                     <div class="col-md-12 block-filter">
-                        <h4>Официальное <br> трудоустройство</h4>
-                        <label class="jlmf-sublabel switch" for="obshchij-trudovoj-stazh-bolee-odnogo-goda-109">Да <input type="checkbox" value="1" id="obshchij-trudovoj-stazh-bolee-odnogo-goda-109" name="jlcontentfieldsfilter[87]" class="jlmf-checkbox">
+                        <h4>Гражданство РФ</h4>
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-4657576">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-4657576" name="jlcontentfieldsfilter[92][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -89,11 +89,23 @@ if ($params->get('enable_css', 1)) {
                     <hr>
 
                     <div class="col-md-12 block-filter">
-                        <h4>Выдача иностранным <br> гражданам</h4>
-                        <label class="jlmf-sublabel switch" for="podtverzhdenie-dokhoda-109">Да <input type="checkbox" value="1" id="podtverzhdenie-dokhoda-109" name="jlcontentfieldsfilter[94]" class="jlmf-checkbox">
+                        <h4>Регистрация РФ</h4>
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-10911">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-10911" name="jlcontentfieldsfilter[91][]" class="jlmf-checkbox">
                             <span class="slider round"></span>
                         </label>
                     </div>
+
+                    <hr>
+
+                    <div class="col-md-12 block-filter">
+                        <h4>Подтверждение дохода</h4>
+                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-10922">Да <input type="checkbox" value="1" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-10922" name="jlcontentfieldsfilter[90][]" class="jlmf-checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <hr>
+
 
 
                 </div>
@@ -160,7 +172,7 @@ if ($params->get('enable_css', 1)) {
         $filter_range1.ionRangeSlider({
             type: "single",
             grid: false,
-            min: 100000,
+            min: 500000,
             from: 2000000,
             postfix: '',
             step: 10000,
@@ -209,12 +221,20 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range2 = $("#input-credit-range-two");
         var instance_filter_range2;
 
-        $("#srok-ipoteka-from-146").trigger("keypress").val(function(i, val) {
-            return 12;
+        $("#srok-ot-2-from-146").trigger("keypress").val(function(i, val) {
+            return 0;
         });
 
-        $("#srok-ipoteka-to-146").trigger("keypress").val(function(i, val) {
-            return 360;
+        $("#srok-ot-2-to-146").trigger("keypress").val(function(i, val) {
+            return 60;
+        });
+
+        $("#srok-2-from-146").trigger("keypress").val(function(i, val) {
+            return 60;
+        });
+
+        $("#srok-2-to-146").trigger("keypress").val(function(i, val) {
+            return 6000;
         });
 
 
@@ -230,13 +250,19 @@ if ($params->get('enable_css', 1)) {
             max: 360,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ipoteka-from-146").trigger("keypress").val(function(i, val) {
+                $("#srok-ot-2-to-146").trigger("keypress").val(function(i, val) {
+                    return data.from;
+                });
+                $("#srok-2-from-146").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-ipoteka-from-146").trigger("keypress").val(function(i, val) {
+                $("#srok-ot-2-to-146").trigger("keypress").val(function(i, val) {
+                    return data.from;
+                });
+                $("#srok-2-from-146").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -247,7 +273,11 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-ipoteka-from-146").trigger("keypress").val(function(i, val) {
+            $("#srok-ot-2-to-146").trigger("keypress").val(function(i, val) {
+                return value;
+            });
+
+            $("#srok-2-from-146").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
@@ -267,15 +297,15 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#vozrast-ot-to-146").trigger("keypress").val(function(i, val) {
-            return 18;
+            return 80;
         });
 
         $("#vozrast-do-from-146").trigger("keypress").val(function(i, val) {
-            return 18;
+            return 65;
         });
 
         $("#vozrast-do-to-146").trigger("keypress").val(function(i, val) {
-            return 80;
+            return 99;
         });
 
 
@@ -283,14 +313,14 @@ if ($params->get('enable_css', 1)) {
             skin: "round",
             type: "double",
             grid: false,
-            from: 18,
-            to: 80,
+            from: 22,
+            to: 65,
             postfix: '',
-            min: 18,
+            min: 16,
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 80,
+            max: 85,
             onStart: updateInputs,
             onChange: updateInputs,
             onFinish: updateInputs
@@ -305,11 +335,15 @@ if ($params->get('enable_css', 1)) {
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
 
+            /*$("#vozrast-ot-from-146").trigger("keypress").val(function(i, val) {
+                return from;
+            });*/
+
             $("#vozrast-ot-to-146").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
-            $("#vozrast-do-to-146").trigger("keypress").val(function(i, val) {
+            $("#vozrast-do-from-146").trigger("keypress").val(function(i, val) {
                 return to;
             });
         }
@@ -338,7 +372,7 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + (3 - n) + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
         });
 
 
