@@ -281,7 +281,7 @@ if ($params->get('enable_css', 1)) {
         var instance_filter_vozrast;
 
         $("#vozrast-ot-from-145").trigger("keypress").val(function(i, val) {
-            return 16;
+            return 14;
         });
 
         $("#vozrast-ot-to-145").trigger("keypress").val(function(i, val) {
@@ -289,11 +289,11 @@ if ($params->get('enable_css', 1)) {
         });
 
         $("#vozrast-do-from-145").trigger("keypress").val(function(i, val) {
-            return 18;
+            return 65;
         });
 
         $("#vozrast-do-to-145").trigger("keypress").val(function(i, val) {
-            return 80;
+            return 99;
         });
 
 
@@ -301,14 +301,14 @@ if ($params->get('enable_css', 1)) {
             skin: "round",
             type: "double",
             grid: false,
-            from: 18,
-            to: 80,
+            from: 22,
+            to: 65,
             postfix: '',
-            min: 18,
+            min: 16,
             step: 1,
             grid_num: 4,
             grid_snap: '',
-            max: 80,
+            max: 85,
             onStart: updateInputs,
             onChange: updateInputs,
             onFinish: updateInputs
@@ -323,11 +323,15 @@ if ($params->get('enable_css', 1)) {
             $input_filter_vozrastFrom.prop("value", from);
             $input_filter_vozrastTo.prop("value", to);
 
+            /*$("#vozrast-ot-from-145").trigger("keypress").val(function(i, val) {
+                return from;
+            });*/
+
             $("#vozrast-ot-to-145").trigger("keypress").val(function(i, val) {
                 return from;
             });
 
-            $("#vozrast-do-to-145").trigger("keypress").val(function(i, val) {
+            $("#vozrast-do-from-145").trigger("keypress").val(function(i, val) {
                 return to;
             });
         }
@@ -356,7 +360,7 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + (3 - n) + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
         });
 
 
