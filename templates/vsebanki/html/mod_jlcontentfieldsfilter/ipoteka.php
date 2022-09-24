@@ -217,6 +217,14 @@ if ($params->get('enable_css', 1)) {
             return 60;
         });
 
+        $("#srok-2-from-145").trigger("keypress").val(function(i, val) {
+            return 60;
+        });
+
+        $("#srok-2-to-145").trigger("keypress").val(function(i, val) {
+            return 6000;
+        });
+
 
         $filter_range2.ionRangeSlider({
             type: "single",
@@ -233,10 +241,16 @@ if ($params->get('enable_css', 1)) {
                 $("#srok-ot-2-to-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
+                $("#srok-2-from-145").trigger("keypress").val(function(i, val) {
+                    return data.from;
+                });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
                 $("#srok-ot-2-to-145").trigger("keypress").val(function(i, val) {
+                    return data.from;
+                });
+                $("#srok-2-from-145").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -248,6 +262,10 @@ if ($params->get('enable_css', 1)) {
             var value = $(this).prop("value");
 
             $("#srok-ot-2-to-145").trigger("keypress").val(function(i, val) {
+                return value;
+            });
+
+            $("#srok-2-from-145").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
