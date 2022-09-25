@@ -129,11 +129,11 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="bank-field srok">
                         <div class="bank-field-name">Процент на остаток</div>
-                        <div class="bank-field-value">до <?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?> %</div>
+                        <div class="bank-field-value"><?php echo $this->item->extrafields['debet-proc-na-ostatok']->value; ?></div>
                     </div>
                     <div class="bank-field stavka">
                         <div class="bank-field-name">Годовое обслуживание</div>
-                        <div class="bank-field-value"><?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?></div>
+                        <div class="bank-field-value"><?php echo $this->item->extrafields['debet-stoimost-obsl']->value; ?></div>
                     </div>
                 </div>
             </div>
