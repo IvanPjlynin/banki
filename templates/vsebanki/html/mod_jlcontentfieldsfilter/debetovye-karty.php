@@ -58,7 +58,7 @@ if ($params->get('enable_css', 1)) {
         <div class="col-md-3 block-filter">
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    Фильтры поиска <span>(+1)</span>
+                    Фильтры поиска <span></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
@@ -68,16 +68,9 @@ if ($params->get('enable_css', 1)) {
 
                         <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
                     </div>
-                    <br>
 
-                    <hr>
 
-                    <div class="col-md-12 block-filter">
-                        <h4>Есть российский паспорт</h4>
-                        <label class="jlmf-sublabel switch" for="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109">Да <input type="checkbox" value="2" id="est-rossijskij-pasport-s-registratsiej-v-lyubom-regione-109" name="jlcontentfieldsfilter[40][]" class="jlmf-checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
+
 
                 </div>
             </div>
@@ -92,7 +85,7 @@ if ($params->get('enable_css', 1)) {
 
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
-        <div class="jlmf-section ">
+        <div class="jlmf-section visually-hidden">
             <?php echo $v; ?>
         </div>
         <?php endif;?>
