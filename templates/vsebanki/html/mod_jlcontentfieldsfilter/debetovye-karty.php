@@ -212,7 +212,7 @@ if ($params->get('enable_css', 1)) {
             skin: "round",
             type: "double",
             grid: false,
-            from: 18,
+            from: 10,
             to: 80,
             postfix: '',
             min: 18,
