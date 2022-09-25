@@ -168,28 +168,28 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['cashback']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Cash Back</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['cashback']->value; ?> ₽</p>
+                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['cashback']->value; ?> %</p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['debet-proc-na-ostatok']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Начисление % на остаток</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-proc-na-ostatok']->value; ?> ₽</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-proc-na-ostatok']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['debet-stoimost-obsl']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-stoimost-obsl']->value; ?> ₽</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-stoimost-obsl']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
                             <?php if ($this->item->extrafields['debet-stoimost-obsl']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Получение карты</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stoimost-dostavki-karty']->value; ?> ₽</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stoimost-dostavki-karty']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
