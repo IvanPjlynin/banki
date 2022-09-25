@@ -49,8 +49,8 @@ if ($params->get('enable_css', 1)) {
         <div class="col-md-3 block-filter">
             <label class="filter-label">Проценты на остаток</label>
             <select name="" id="procent-ostatok" class="jlmf-select filter-select">
-                <option value="1">Нет</option>
                 <option value="2">Да</option>
+                <option value="1">Нет</option>
             </select>
 
         </div>
@@ -168,24 +168,24 @@ if ($params->get('enable_css', 1)) {
             }
         });
         //процент на остаток
-        $("#protsent-na-ostatok-from-143").trigger("keypress").val(function(i, val) {
-            return 0;
+        $("#debet-proc-na-ostatok-143").trigger("keypress").val(function(i, val) {
+            return '';
         });
-        $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
+        /*$("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
             return 0.01;
-        });
+        });*/
 
         $('#procent-ostatok').change(function() {
             var value;
             if ($(this).val() == 1) {
                 value = 0.01;
-                $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
-                    return value;
+                $("#debet-proc-na-ostatok-143").trigger("keypress").val(function(i, val) {
+                    return 'нет';
                 });
             } else {
                 value = 1000;
-                $("#protsent-na-ostatok-to-143").trigger("keypress").val(function(i, val) {
-                    return value;
+                $("#debet-proc-na-ostatok-143").trigger("keypress").val(function(i, val) {
+                    return '';
                 });
             }
         });
@@ -215,7 +215,7 @@ if ($params->get('enable_css', 1)) {
             from: 18,
             to: 80,
             postfix: '',
-            min: 10,
+            min: 8,
             step: 1,
             grid_num: 4,
             grid_snap: '',
