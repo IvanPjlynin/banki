@@ -214,25 +214,43 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['debet-dop']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Дополнительно</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-dop']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-
-
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
                         <div class="row tab-text">
 
-
-                            <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
+                            <?php if ($this->item->extrafields['debet-limit']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Подтверждение дохода</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['podtverzhdenie-dokhoda']->value; ?></p>
+                                <h3 class="tab-text-block-title">Лимит на снятие</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-limit']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['debet-snatie-nall']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Снятие наличных</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-snatie-nall']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['uvelichennyj-cashback']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Увеличенный Cashback</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['uvelichennyj-cashback']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['cashback-u-partnerov']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Cashback у партнеров</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['cashback-u-partnerov']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['debet-dop']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Дополнительно</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-dop']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
