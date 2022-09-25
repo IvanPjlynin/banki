@@ -165,10 +165,31 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade show active" id="tab-stavki-tab" role="tabpanel" aria-labelledby="tab-stavki">
                         <div class="row tab-text">
 
-                            <?php if ($this->item->extrafields['summa-kreditnogo-limita']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Сумма кредитного лимита</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['summa-kreditnogo-limita']->value, 0, ',', ' '); ?> ₽</p>
+                            <?php if ($this->item->extrafields['cashback']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Cash Back</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['cashback']->value; ?> ₽</p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['debet-proc-na-ostatok']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Начисление % на остаток</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-proc-na-ostatok']->value; ?> ₽</p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['debet-stoimost-obsl']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-stoimost-obsl']->value; ?> ₽</p>
+                            </div>
+                            <?php endif; ?>
+
+                            <?php if ($this->item->extrafields['debet-stoimost-obsl']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Получение карты</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stoimost-dostavki-karty']->value; ?> ₽</p>
                             </div>
                             <?php endif; ?>
 
@@ -180,7 +201,7 @@ $attribs['style'] = 'none';
                         <div class="row tab-text">
 
                             <?php if ($this->item->extrafields['vozrast']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст</h3>
                                 <p class="tab-text-block-content">от <?php echo $this->item->extrafields['vozrast']->value; ?> года</p>
                             </div>
@@ -195,7 +216,7 @@ $attribs['style'] = 'none';
 
 
                             <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Подтверждение дохода</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['podtverzhdenie-dokhoda']->value; ?></p>
                             </div>
