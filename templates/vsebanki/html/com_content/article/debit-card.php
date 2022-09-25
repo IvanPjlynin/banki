@@ -133,7 +133,7 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="bank-field stavka">
                         <div class="bank-field-name">Годовое обслуживание</div>
-                        <div class="bank-field-value"><?php if ($this->item->extrafields['godovoe-obsluzhivanie']->value){ echo $this->item->extrafields['godovoe-obsluzhivanie']->value; } else { echo '0';} ?> ₽</div>
+                        <div class="bank-field-value"><?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?></div>
                     </div>
                 </div>
             </div>
@@ -172,68 +172,7 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['kreditnyj-limit']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Кредитный лимит</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['kreditnyj-limit']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['stavka-kredit']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-kredit']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['stavka-za-vydachu-nalichnykh']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка за выдачу наличных</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-za-vydachu-nalichnykh']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['pogashenie']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Погашение</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['pogashenie']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['stavka-co-strakhovkoj']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка cо страховкой</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['stavka-co-strakhovkoj']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['snyatie-kreditnykh-sredstv']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Снятие кредитных средств</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['snyatie-kreditnykh-sredstv']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['stoimost-obsluzhivaniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-obsluzhivaniya']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['stoimost-dostavki-karty']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Стоимость доставки карты</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['stoimost-dostavki-karty']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['protsent-na-ostatok']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Проценты на остаток</h3>
-                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['protsent-na-ostatok']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
 
                         </div>
                     </div>
@@ -247,91 +186,18 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Общий стаж</h3>
-                                <p class="tab-text-block-content">от 12 месяцев</p>
-                            </div>
-                            <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Зарплата</h3>
-                                <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-
-
-                            <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
-                                <h3 class="tab-text-block-title">Возраст для погашения</h3>
-                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['vozrast-dlya-pogasheniya']->value; ?> лет</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
-                                <h3 class="tab-text-block-title">Требование для подачи заявки</h3>
-                                <p class="tab-text-block-content">Гражданство РФ</p>
-                            </div>
-                            <?php endif; ?>
-                            
-                            <?php if ($this->item->extrafields['obyazatelnye-dokumenty']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Обязательные документы</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['obyazatelnye-dokumenty']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
 
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
                         <div class="row tab-text">
 
-                            
+
                             <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Подтверждение дохода</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['podtverzhdenie-dokhoda']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            
-
-                            <?php if ($this->item->extrafields['osnovnoj-bonus']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Основной бонус</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['osnovnoj-bonus']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['bonus-za-oplatu-v']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Бонус за оплату в</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['bonus-za-oplatu-v']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['bonus-u-partnerov']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Бонус у партнеров</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['bonus-u-partnerov']->value; ?>%</p>
-                            </div>
-                            <?php endif; ?>
-
-                            
-
-                            <?php if ($this->item->extrafields['sposob-polucheniya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Способ получения</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['sposob-polucheniya']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['rassmotrenie-ot-min']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Рассмотрение</h3>
-                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['rassmotrenie-ot-min']->value; ?> мин - <?php echo $this->item->extrafields['rassmotrenie-do-dn']->value; ?> дн</p>
                             </div>
                             <?php endif; ?>
 
