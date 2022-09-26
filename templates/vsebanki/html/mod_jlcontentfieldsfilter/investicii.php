@@ -34,7 +34,7 @@ if ($params->get('enable_css', 1)) {
 
 ?>
 
-<form id="mod-finder-searchform-<?php echo $module->id; ?>" action="<?php echo $action; ?>" method="<?php echo $form_method; ?>" class="form-search filter-credit-nalichumi">
+<form id="mod-finder-searchform-<?php echo $module->id; ?>" action="<?php echo $action; ?>" method="<?php echo $form_method; ?>" class="form-search filter-credit-nalichumi visually-hidden">
     <div class="jlcontentfieldsfilter<?php echo $moduleclass_sfx; ?> row">
 
         <div class="col-md-3 block-filter">
@@ -87,7 +87,7 @@ if ($params->get('enable_css', 1)) {
 
 
 <script>
-    jQuery(document).ready(function($) {
+    /*jQuery(document).ready(function($) {
         //сумма вклада
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
@@ -200,7 +200,7 @@ if ($params->get('enable_css', 1)) {
 
 
 
-    });
+    });*/
 
 </script>
 
