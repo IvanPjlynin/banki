@@ -124,32 +124,36 @@ $attribs['style'] = 'none';
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields">
                     <div class="bank-field summa">
-                        <div class="bank-field-name">Комиссия за сделку</div>
-                        <div class="bank-field-value">от <?php echo $this->item->extrafields['komissiya-za-sdelku']->value; ?> %</div>
+                        <div class="bank-field-name">Комиссия по операции</div>
+                        <div class="bank-field-value"><?php echo $this->item->extrafields['komissiya-za-sdelku']->value; ?></div>
                     </div>
                     <div class="bank-field srok">
-                        <div class="bank-field-name">Обслуживание в месяц</div>
-                        <div class="bank-field-value"><?php echo number_format($this->item->extrafields['obsluzhivanie-v-mesyats']->value, 0, ',', ' '); ?> ₽</div>
-                    </div>
-                                        
-                    <?php if (($this->item->extrafields['prilozhenie']->value)||($this->item->extrafields['dostup-k-quik']->value)) : ?>
-                    <div class="bank-field summa">
-                        <div class="bank-field-name">Особые условия</div>
+                        <div class="bank-field-name">Абонентская плата</div>
                         <div class="bank-field-value">
-                        <?php if($this->item->extrafields['prilozhenie']->value){
-                            echo 'Приложение';
-                        } ?>  
-                        <?php
-                        if(($this->item->extrafields['prilozhenie']->value)&&($this->item->extrafields['dostup-k-quik']->value)){
-                                echo ' / ';
-                            }
-                        ?> 
-                        <?php if($this->item->extrafields['dostup-k-quik']->value){
-                            echo 'Quik';
-                        } ?>  
+                            <?php 
+                             if ($this->item->extrafields['obsluzhivanie-v-mesyats']->value){
+                                 echo $this->item->extrafields['obsluzhivanie-v-mesyats']->value; 
+                             }else{
+                                 echo '0 ₽';
+                             }
+                             ?>
                         </div>
                     </div>
-                    <?php endif; ?>
+                                        
+                    
+                    <div class="bank-field summa">
+                        <div class="bank-field-name">Обслуживание счета</div>
+                        <div class="bank-field-value">
+                            <?php 
+                             if ($this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value){
+                                 echo $this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value; 
+                             }else{
+                                 echo '0 ₽';
+                             }
+                             ?>
+                        </div>
+                    </div>
+                    
                     
                     <div class="bank-field stavka">
                         <div class="bank-field-name">Размер портфеля</div>
