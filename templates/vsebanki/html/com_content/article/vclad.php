@@ -216,7 +216,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['vclad-vozrast']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['vclad-vozrast']->value; ?></p>
+                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['vclad-vozrast']->value; ?> лет</p>
                             </div>
                             <?php endif; ?>
                             
