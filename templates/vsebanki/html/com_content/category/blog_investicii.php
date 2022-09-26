@@ -51,8 +51,8 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
          }
       ?>
       <div class="bank-field summa">
-         <div class="bank-field-name">Тариф за сделку</div>
-         <div class="bank-field-value">от <?php echo $this->item->extrafields['komissiya-za-sdelku']->value; ?> %</div>
+         <div class="bank-field-name">Абонентская плата</div>
+         <div class="bank-field-value"><?php echo $this->item->extrafields['komissiya-za-sdelku']->value; ?> ₽</div>
       </div>
       <div class="bank-field srok">
          <div class="bank-field-name">Стоимость обслуживания</div>
@@ -71,7 +71,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
          <div class="bank-field-value">
              <?php 
              if ($this->item->extrafields['plata-za-popolnenie']->value){
-                 echo $this->item->extrafields['plata-za-popolnenie']->value.' ₽'; 
+                 echo $this->item->extrafields['plata-za-popolnenie']->value.''; 
              }else{
                  echo 'Бесплатно';
              }
