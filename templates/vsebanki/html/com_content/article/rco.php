@@ -195,6 +195,20 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
                             
+                            <?php if ($this->item->extrafields['rco-bank']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
+                                <h3 class="tab-text-block-title">Количество платежей на счета других банков</h3>
+                                <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['rco-bank']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['rco-bonus']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
+                                <h3 class="tab-text-block-title">Бонусы</h3>
+                                <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['rco-bonus']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
                         </div>
                     </div>
 
