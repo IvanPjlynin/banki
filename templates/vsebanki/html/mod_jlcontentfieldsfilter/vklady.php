@@ -94,7 +94,7 @@ if ($params->get('enable_css', 1)) {
         var instance_filter_range1;
 
         $("#summa-vklada-from-144").trigger("keypress").val(function(i, val) {
-            return 10000;
+            return 1000;
         });
 
         $("#summa-vklada-to-144").trigger("keypress").val(function(i, val) {
@@ -106,7 +106,7 @@ if ($params->get('enable_css', 1)) {
         $filter_range1.ionRangeSlider({
             type: "single",
             grid: false,
-            min: 10000,
+            min: 1000,
             from: 500000,
             postfix: '',
             step: 1000,
