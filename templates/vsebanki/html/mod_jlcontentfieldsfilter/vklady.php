@@ -149,12 +149,12 @@ if ($params->get('enable_css', 1)) {
         var $input_filter_range2 = $("#input-credit-range-two");
         var instance_filter_range2;
 
-        $("#srok-vklada-from-144").trigger("keypress").val(function(i, val) {
+        $("#srok-vklada-ot-from-144").trigger("keypress").val(function(i, val) {
             return 1;
         });
 
-        $("#srok-vklada-to-144").trigger("keypress").val(function(i, val) {
-            return 30;
+        $("#srok-vklada-ot-to-144").trigger("keypress").val(function(i, val) {
+            return 12;
         });
 
 
@@ -162,7 +162,7 @@ if ($params->get('enable_css', 1)) {
         $filter_range2.ionRangeSlider({
             type: "single",
             grid: false,
-            from: 30,
+            from: 12,
             postfix: '',
             min: 1,
             step: 1,
@@ -171,13 +171,13 @@ if ($params->get('enable_css', 1)) {
             max: 120,
             onStart: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-vklada-to-144").trigger("keypress").val(function(i, val) {
+                $("#srok-vklada-ot-to-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
-                $("#srok-vklada-to-144").trigger("keypress").val(function(i, val) {
+                $("#srok-vklada-ot-to-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -188,7 +188,7 @@ if ($params->get('enable_css', 1)) {
         $input_filter_range2.on("input", function() {
             var value = $(this).prop("value");
 
-            $("#srok-vklada-to-144").trigger("keypress").val(function(i, val) {
+            $("#srok-vklada-ot-to-144").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
