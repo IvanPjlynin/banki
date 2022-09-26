@@ -58,7 +58,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 
             <div class="bank-field srok mb-0">
                 <div class="bank-field-name">Стоимость тарифа</div>
-                <div class="bank-field-value"><?php echo number_format($this->item->extrafields['stoimost-tarifa']->value, 0, ',', ' '); ?> ₽/мес.</div>
+                <div class="bank-field-value">от <?php echo number_format($this->item->extrafields['rko-cena']->value, 0, ',', ' '); ?> ₽/мес.</div>
             </div>
 
         </div>
