@@ -51,16 +51,22 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
          }
       ?>
             <div class="bank-field summa">
-                <div class="bank-field-name"><?php echo $this->item->extrafields['summa-vklada']->title; ?></div>
+                <div class="bank-field-name">Сумма вклада</div>
                 <div class="bank-field-value">от <?php echo number_format($this->item->extrafields['summa-vklada']->value, 0, ',', ' '); ?> ₽</div>
             </div>
             <div class="bank-field srok">
-                <div class="bank-field-name"><?php echo $this->item->extrafields['srok-vklada']->title; ?></div>
-                <div class="bank-field-value">от <?php echo $this->item->extrafields['srok-vklada']->value; ?> мес.</div>
+                <div class="bank-field-name">Срок</div>
+                <div class="bank-field-value">
+                    <?php if ($this->item->extrafields['srok-vklada-do']->value == '999') : ?>
+                        Не ограничен
+                    <?php else: ?>
+                        до <?php echo $this->item->extrafields['srok-vklada-do']->value; ?> мес.
+                    <?php endif; ?>
+                </div>
             </div>
             <div class="bank-field stavka">
-                <div class="bank-field-name"><?php echo $this->item->extrafields['stavka-vklada']->title; ?></div>
-                <div class="bank-field-value"><?php echo $this->item->extrafields['stavka-vklada']->value; ?> %</div>
+                <div class="bank-field-name">Ставка</div>
+                <div class="bank-field-value">до <?php echo $this->item->extrafields['stavka-vklada']->value; ?> %</div>
             </div>
         </div>
         <div class="col-12 col-sm-12 col-md-5 column bank-tags">
