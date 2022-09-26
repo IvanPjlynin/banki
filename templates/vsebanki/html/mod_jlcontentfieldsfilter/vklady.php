@@ -156,6 +156,14 @@ if ($params->get('enable_css', 1)) {
         $("#srok-vklada-ot-to-144").trigger("keypress").val(function(i, val) {
             return 12;
         });
+        
+        $("#srok-vklada-do-from-144").trigger("keypress").val(function(i, val) {
+            return 12;
+        });
+
+        $("#srok-vklada-do-to-144").trigger("keypress").val(function(i, val) {
+            return 1000;
+        });
 
 
 
@@ -174,10 +182,16 @@ if ($params->get('enable_css', 1)) {
                 $("#srok-vklada-ot-to-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
+                $("#srok-vklada-do-from-144").trigger("keypress").val(function(i, val) {
+                    return data.from;
+                });
             },
             onChange: function(data) {
                 $input_filter_range2.prop("value", data.from);
                 $("#srok-vklada-ot-to-144").trigger("keypress").val(function(i, val) {
+                    return data.from;
+                });
+                $("#srok-vklada-do-from-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
             }
@@ -189,6 +203,9 @@ if ($params->get('enable_css', 1)) {
             var value = $(this).prop("value");
 
             $("#srok-vklada-ot-to-144").trigger("keypress").val(function(i, val) {
+                return value;
+            });
+            $("#srok-vklada-do-from-144").trigger("keypress").val(function(i, val) {
                 return value;
             });
 
