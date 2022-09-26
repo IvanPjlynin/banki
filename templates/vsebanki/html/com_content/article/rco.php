@@ -126,7 +126,7 @@ $attribs['style'] = 'none';
 
                     <div class="bank-field srok" style="width: 100%;">
                         <div class="bank-field-name pr-2">Стоимость тарифа</div>
-                        <div class="bank-field-value"><?php echo number_format($this->item->extrafields['stoimost-tarifa']->value, 0, ',', ' '); ?> ₽/мес.</div>
+                        <div class="bank-field-value">от <?php echo number_format($this->item->extrafields['rko-cena']->value, 0, ',', ' '); ?> ₽/мес.</div>
                     </div>
 
                 </div>
