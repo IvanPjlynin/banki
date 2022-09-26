@@ -129,11 +129,17 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="bank-field srok">
                         <div class="bank-field-name">Срок</div>
-                        <div class="bank-field-value">от <?php echo $this->item->extrafields['srok-vklada']->value; ?> мес.</div>
+                        <div class="bank-field-value">
+                            <?php if ($this->item->extrafields['srok-vklada-do']->value == '999') : ?>
+                                Не ограничен
+                            <?php else: ?>
+                                до <?php echo $this->item->extrafields['srok-vklada-do']->value; ?> мес.
+                            <?php endif; ?>
+                        </div>
                     </div>
                     <div class="bank-field stavka">
                         <div class="bank-field-name">Ставка</div>
-                        <div class="bank-field-value">до <?php if ($this->item->extrafields['stavka-vklada']->value){ echo $this->item->extrafields['stavka-vklada']->value; } else { echo '0';} ?> %</div>
+                        <div class="bank-field-value">до <?php echo $this->item->extrafields['stavka-vklada']->value; ?> %</div>
                     </div>
                 </div>
             </div>
@@ -166,32 +172,13 @@ $attribs['style'] = 'none';
                         <div class="row tab-text">
 
                             <?php if ($this->item->extrafields['summa-vklada']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Минимальная сумма вклада</h3>
                                 <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['summa-vklada']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['srok-vklada']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Срок</h3>
-                                <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['srok-vklada']->value, 0, ',', ' '); ?> мес.</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['stavka-vklada']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Ставка</h3>
-                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['stavka-vklada']->value; ?> %</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['tablitsa-stavok']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Таблица ставок</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['tablitsa-stavok']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
+                            
 
                         </div>
                     </div>
@@ -199,44 +186,9 @@ $attribs['style'] = 'none';
                         <div class="row tab-text">
 
                             <?php if ($this->item->extrafields['vyplata-protsentov']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Выплата процентов</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['vyplata-protsentov']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['kapitalizatsiya-protsentov']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Капитализация процентов</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['kapitalizatsiya-protsentov']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['popolnenie']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Пополнение</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['popolnenie']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['chastichnoe-snyatie']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Частичное снятие</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['chastichnoe-snyatie']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['nesnizhaemyj-ostatok']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Неснижаемый остаток</h3>
-                                <p class="tab-text-block-content"><?php echo number_format($this->item->extrafields['nesnizhaemyj-ostatok']->value, 0, ',', ' '); ?> ₽</p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['dosrochnoe-rastorzhenie']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
-                                <h3 class="tab-text-block-title">Досрочное расторжение</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['dosrochnoe-rastorzhenie']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
@@ -246,25 +198,13 @@ $attribs['style'] = 'none';
                         <div class="row tab-text">
 
                             <?php if ($this->item->extrafields['uvelichenie-stavki']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Увеличение ставки</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['uvelichenie-stavki']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['sposob-otkrytiya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Способ открытия</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['sposob-otkrytiya']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
-
-                            <?php if ($this->item->extrafields['osobye-usloviya']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Особые условия</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['osobye-usloviya']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
+                            
 
                         </div>
                     </div>
