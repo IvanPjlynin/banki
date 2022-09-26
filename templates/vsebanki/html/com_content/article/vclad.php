@@ -203,7 +203,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['nachislenie-protsentov']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Начисление процентов</h3>
-                                <p class="tab-text-block-content">до <?php echo $this->item->extrafields['nachislenie-protsentov']->value; ?> %</p>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['nachislenie-protsentov']->value; ?></p>
                             </div>
                             <?php endif; ?>
                             
@@ -213,10 +213,17 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade" id="tab-trebovaniya-tab" role="tabpanel" aria-labelledby="tab-trebovaniya">
                         <div class="row tab-text">
 
-                            <?php if ($this->item->extrafields['vyplata-protsentov']->value) : ?>
+                            <?php if ($this->item->extrafields['vclad-vozrast']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Выплата процентов</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['vyplata-protsentov']->value; ?></p>
+                                <h3 class="tab-text-block-title">Возраст</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['vclad-vozrast']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['dokumenty']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Документы</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['dokumenty']->value; ?></p>
                             </div>
                             <?php endif; ?>
 
@@ -225,15 +232,55 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
                         <div class="row tab-text">
 
-                            <?php if ($this->item->extrafields['uvelichenie-stavki']->value) : ?>
+                            <?php if ($this->item->extrafields['kapitalizatsiya_protsentov']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Увеличение ставки</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['uvelichenie-stavki']->value; ?></p>
+                                <h3 class="tab-text-block-title">Капитализация процентов</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['kapitalizatsiya_protsentov']->value; ?></p>
                             </div>
                             <?php endif; ?>
-
                             
-
+                            <?php if ($this->item->extrafields['popolnenie']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Пополнение</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['popolnenie']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['chastichnoe_snyatie']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Частичное снятие\расходы</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['chastichnoe_snyatie']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['nesnizhaemyj_ostatok']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Неснижаемый остаток</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['nesnizhaemyj_ostatok']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['vclad_raschet_procentov']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Расчет процентов</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['vclad_raschet_procentov']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['vclad_vupusk_cartu']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Выпуск карты</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['vclad_vupusk_cartu']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['vclad_prolognacia']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Прологнация</h3>
+                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['vclad_prolognacia']->value; ?></p>
+                            </div>
+                            <?php endif; ?>
+                            
                         </div>
                     </div>
                 </div>
