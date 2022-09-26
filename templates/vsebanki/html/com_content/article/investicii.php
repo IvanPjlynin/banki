@@ -186,14 +186,75 @@ $attribs['style'] = 'none';
 
                             
 
-                            <?php if ($this->item->extrafields['komissiya-za-sdelku']->value) : ?>
+                            <?php if ($this->item->extrafields['obsluzhivanie-v-mesyats']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Комиссия за сделку</h3>
-                                <p class="tab-text-block-content">от <?php echo $this->item->extrafields['komissiya-za-sdelku']->value; ?> %</p>
+                                <h3 class="tab-text-block-title">Абонентская плата</h3>
+                                <p class="tab-text-block-content">
+                                    
+                                    <?php 
+                                     if ($this->item->extrafields['obsluzhivanie-v-mesyats']->value){
+                                         echo $this->item->extrafields['obsluzhivanie-v-mesyats']->value; 
+                                     }else{
+                                         echo '0 ₽';
+                                     }
+                                     ?>
+                                
+                                </p>
                             </div>
                             <?php endif; ?>
-
                             
+                            <?php if ($this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Открытие и обслуживание счета</h3>
+                                <p class="tab-text-block-content">
+                                    
+                                <?php 
+                                 if ($this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value){
+                                     echo $this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value; 
+                                 }else{
+                                     echo '0 ₽';
+                                 }
+                                 ?>
+                                
+                                </p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['komissiya-za-sdelku']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Комиссия по операции</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['komissiya-za-sdelku']->value;?> 
+                                </p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['razmer-portfelya-ot']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Мин. пополнение</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['razmer-portfelya-ot']->value;?> 
+                                </p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['plata-za-popolnenie']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Комиссия за пополнение счета</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['plata-za-popolnenie']->value;?> 
+                                </p>
+                            </div>
+                            <?php endif; ?> 
+                            
+                            <?php if ($this->item->extrafields['razmer-portfelya-do']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Комиссия биржи</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['razmer-portfelya-do']->value;?> 
+                                </p>
+                            </div>
+                            <?php endif; ?> 
                             
                         </div>
                     </div>
@@ -201,15 +262,32 @@ $attribs['style'] = 'none';
                         <div class="row tab-text">
 
                             
-                            <?php if ($this->item->extrafields['dostupnye-birzhi']->value) : ?>
+                            <?php if ($this->item->extrafields['investicii-vozrast']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
-                                <h3 class="tab-text-block-title">Доступные биржи</h3>
+                                <h3 class="tab-text-block-title">Возраст</h3>
                                 <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['dostupnye-birzhi']->value;?> 
+                                    от <?php echo $this->item->extrafields['investicii-vozrast']->value;?> лет
                                 </p>
                             </div>
                             <?php endif; ?>
                             
+                            <?php if ($this->item->extrafields['investicii-docs']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Документы</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['investicii-docs']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>
+                            
+                            <?php if ($this->item->extrafields['invest-online']->value) : ?>
+                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
+                                <h3 class="tab-text-block-title">Возможность открытия онлайн</h3>
+                                <p class="tab-text-block-content">
+                                    <?php echo $this->item->extrafields['invest-online']->value;?>
+                                </p>
+                            </div>
+                            <?php endif; ?>                            
    
                         </div>
                     </div>
