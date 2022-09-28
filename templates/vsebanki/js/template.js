@@ -635,7 +635,7 @@ jQuery(document).ready(function ($) {
         box.find('.form-price').attr('value', value);
         
         var getHref = $('.service.credit a').attr('href');
-        console.log($range1.result.from);
+        console.log($range1.result);
     });
     $range2.on("change", function () {
         var $this = $(this),
