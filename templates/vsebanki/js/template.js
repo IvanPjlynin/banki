@@ -616,6 +616,7 @@ jQuery(document).ready(function ($) {
             min: min2,
             max: max2
         });
+        
         $('.credit .hover-block .service-button').attr('href', link);
     }
     //разбитие цены на разряды
@@ -632,7 +633,9 @@ jQuery(document).ready(function ($) {
             box = $(this).closest('#credit .range-group.one');
         box.find('.range-summary').text((value + "").replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
         box.find('.form-price').attr('value', value);
-        console.log($this);
+        
+        var getHref = $('.service.credit a').attr('href');
+        console.log($range1.result.from);
     });
     $range2.on("change", function () {
         var $this = $(this),
