@@ -60,7 +60,7 @@ use Joomla\CMS\Layout\LayoutHelper;
       ?>
       <div class="bank-field summa">
          <div class="bank-field-name"><?php echo $item->extrafields['kreditnyj-limit']->title; ?></div>
-         <div class="bank-field-value"><?php echo $item->extrafields['kreditnyj-limit']->value; ?></div>
+         <div class="bank-field-value"><?php echo number_format($item->extrafields['kreditnyj-limit']->value, 0, ',', ' '); ?></div>
       </div>
       <div class="bank-field srok credit-cards">
          <div class="bank-field-name"><?php echo $item->extrafields['lgotnyj-period']->title; ?></div>
