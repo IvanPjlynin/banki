@@ -632,6 +632,7 @@ jQuery(document).ready(function ($) {
             box = $(this).closest('#credit .range-group.one');
         box.find('.range-summary').text((value + "").replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
         box.find('.form-price').attr('value', value);
+        console.log($this);
     });
     $range2.on("change", function () {
         var $this = $(this),
