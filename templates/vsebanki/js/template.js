@@ -652,6 +652,17 @@ jQuery(document).ready(function ($) {
       
     });
     
+    //клик по ссылке в блоке на главной Вклады
+    $('.deposit a').on('click', function(e){
+        //e.preventDefault(); //отменить выполнение действия по умолчанию
+        var getHref = $(this).attr('href');
+        var summ = $range6.prop("value");
+        var sroc = $range7.prop("value");
+        var link = getHref + '?jlcontentfieldsfilter%5B15%5D%5Bfrom%5D=1000&jlcontentfieldsfilter%5B15%5D%5Bto%5D=' + summ + '&jlcontentfieldsfilter%5B16%5D%5Bfrom%5D=1&jlcontentfieldsfilter%5B16%5D%5Bto%5D=' + sroc + '&jlcontentfieldsfilter%5B138%5D%5Bfrom%5D=' + sroc + '&jlcontentfieldsfilter%5B138%5D%5Bto%5D=1000';
+        $(this).attr('href', link);
+      
+    });
+    
     
     //разбитие цены на разряды
     //$('.summa .bank-field-value').each(function (i, elem) {
