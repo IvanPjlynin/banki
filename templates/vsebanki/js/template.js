@@ -619,6 +619,15 @@ jQuery(document).ready(function ($) {
         
         $('.credit .hover-block .service-button').attr('href', link);
     }
+    
+    $('.service.credit a').on('click', function(e){
+        e.preventDefault(); //отменить выполнение действия по умолчанию
+        var getHref = $(this).attr('href');
+        console.log($range1.prop("value"));
+      
+    });
+    
+    
     //разбитие цены на разряды
     //$('.summa .bank-field-value').each(function (i, elem) {
     //let summ = parseInt($(this).html());
@@ -633,9 +642,6 @@ jQuery(document).ready(function ($) {
             box = $(this).closest('#credit .range-group.one');
         box.find('.range-summary').text((value + "").replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 '));
         box.find('.form-price').attr('value', value);
-        
-        var getHref = $('.service.credit a').attr('href');
-        console.log($range1.prop("value"));
     });
     $range2.on("change", function () {
         var $this = $(this),
