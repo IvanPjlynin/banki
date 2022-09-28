@@ -60,7 +60,7 @@ use Joomla\CMS\Layout\LayoutHelper;
       ?>
       <div class="bank-field summa">
          <div class="bank-field-name">Сумма</div>
-         <div class="bank-field-value"><?php echo $item->extrafields['summa-ipoteka']->value; ?></div>
+         <div class="bank-field-value">до <?php echo $item->extrafields['summa-ipoteka']->value; ?></div>
       </div>
       <div class="bank-field srok">
          <div class="bank-field-name">Срок</div>
@@ -68,6 +68,6 @@ use Joomla\CMS\Layout\LayoutHelper;
       </div>
       <div class="bank-field stavka credit-cards">
          <div class="bank-field-name">Ставка</div>
-         <div class="bank-field-value">от <?php echo $item->extrafields['stavka-bez-strakhovki-ot-4']->value; ?></div>
+         <div class="bank-field-value"><?php echo $item->extrafields['stavka-bez-strakhovki-ot-4']->value; ?></div>
       </div>
 <?php echo LayoutHelper::render('joomla.content.readmore', array('item' => $item, 'params' => $item->params, 'link' => $item->link)); ?>
