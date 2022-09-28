@@ -529,7 +529,7 @@ jQuery(document).ready(function ($) {
         step: 10000,
         grid_num: 4,
         grid_snap: '',
-        max: 3000000
+        max: 1000000
     });
     $range4.ionRangeSlider({
         type: "single",
