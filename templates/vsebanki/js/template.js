@@ -626,7 +626,8 @@ jQuery(document).ready(function ($) {
         var getHref = $(this).attr('href');
         var summ = $range1.prop("value");
         var sroc = $range2.prop("value");
-        console.log(getHref + '?' + 'jlcontentfieldsfilter%5B30%5D%5Bfrom%5D=0' + '&' + 'jlcontentfieldsfilter%5B30%5D%5Bto%5D=' + summ + '&' + 'jlcontentfieldsfilter%5B1%5D%5Bfrom%5D='+ summ + '&' + 'jlcontentfieldsfilter%5B1%5D%5Bto%5D=50000000' + '&' + 'jlcontentfieldsfilter%5B32%5D%5Bfrom%5D=0' + '&' + 'jlcontentfieldsfilter%5B32%5D%5Bto%5D=' + sroc + '&' + 'jlcontentfieldsfilter%5B2%5D%5Bfrom%5D=' + sroc + '&' + 'jlcontentfieldsfilter%5B2%5D%5Bto%5D=2000');
+        var link = getHref + '?' + 'jlcontentfieldsfilter%5B30%5D%5Bfrom%5D=0' + '&' + 'jlcontentfieldsfilter%5B30%5D%5Bto%5D=' + summ + '&' + 'jlcontentfieldsfilter%5B1%5D%5Bfrom%5D='+ summ + '&' + 'jlcontentfieldsfilter%5B1%5D%5Bto%5D=50000000' + '&' + 'jlcontentfieldsfilter%5B32%5D%5Bfrom%5D=0' + '&' + 'jlcontentfieldsfilter%5B32%5D%5Bto%5D=' + sroc + '&' + 'jlcontentfieldsfilter%5B2%5D%5Bfrom%5D=' + sroc + '&' + 'jlcontentfieldsfilter%5B2%5D%5Bto%5D=2000';
+        $(this).attr('href', link);
       
     });
     
