@@ -641,6 +641,17 @@ jQuery(document).ready(function ($) {
       
     });
     
+    //клик по ссылке в блоке на главной Займы
+    $('#loan a').on('click', function(e){
+        //e.preventDefault(); //отменить выполнение действия по умолчанию
+        var getHref = $(this).attr('href');
+        var summ = $range4.prop("value");
+        var sroc = $range5.prop("value");
+        var link = getHref + '?jlcontentfieldsfilter%5B48%5D%5Bfrom%5D=0&jlcontentfieldsfilter%5B48%5D%5Bto%5D=' + summ + '&jlcontentfieldsfilter%5B9%5D%5Bfrom%5D=' + summ + '&jlcontentfieldsfilter%5B9%5D%5Bto%5D=100000&jlcontentfieldsfilter%5B52%5D%5Bfrom%5D=0&jlcontentfieldsfilter%5B52%5D%5Bto%5D=' + sroc + '&jlcontentfieldsfilter%5B10%5D%5Bfrom%5D=' + sroc + '&jlcontentfieldsfilter%5B10%5D%5Bto%5D=366';
+        $(this).attr('href', link);
+      
+    });
+    
     
     //разбитие цены на разряды
     //$('.summa .bank-field-value').each(function (i, elem) {
