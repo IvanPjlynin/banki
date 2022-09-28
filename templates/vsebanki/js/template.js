@@ -631,6 +631,16 @@ jQuery(document).ready(function ($) {
       
     });
     
+    //клик по ссылке в блоке на главной Кредитные карты
+    $('.service.credit-card a').on('click', function(e){
+        //e.preventDefault(); //отменить выполнение действия по умолчанию
+        var getHref = $(this).attr('href');
+        var summ = $range3.prop("value");
+        var link = getHref + '&jlcontentfieldsfilter%5B12%5D%5Bfrom%5D=' + summ + '&jlcontentfieldsfilter%5B12%5D%5Bto%5D=1000000';
+        $(this).attr('href', link);
+      
+    });
+    
     
     //разбитие цены на разряды
     //$('.summa .bank-field-value').each(function (i, elem) {
