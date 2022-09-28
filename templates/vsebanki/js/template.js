@@ -642,7 +642,7 @@ jQuery(document).ready(function ($) {
     });
     
     //клик по ссылке в блоке на главной Займы
-    $('#loan a').on('click', function(e){
+    $('.loan a').on('click', function(e){
         //e.preventDefault(); //отменить выполнение действия по умолчанию
         var getHref = $(this).attr('href');
         var summ = $range4.prop("value");
