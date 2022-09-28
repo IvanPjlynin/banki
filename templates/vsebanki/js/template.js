@@ -681,7 +681,7 @@ jQuery(document).ready(function ($) {
     console.log('getUrlParameter', getUrlParameter('summ'));
     if(getUrlParameter('summ')){
         instance_filter_range1.update({
-                from: getUrlParameter('summ');
+                from: getUrlParameter('summ')
             });
     }
     
