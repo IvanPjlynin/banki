@@ -620,10 +620,13 @@ jQuery(document).ready(function ($) {
         $('.credit .hover-block .service-button').attr('href', link);
     }
     
+    //клик по ссылке в блоке на главной Кредит
     $('.service.credit a').on('click', function(e){
         e.preventDefault(); //отменить выполнение действия по умолчанию
         var getHref = $(this).attr('href');
-        console.log($range1.prop("value"));
+        var summ = $range1.prop("value");
+        var sroc = $range2.prop("value");
+        console.log(getHref + summ + sroc);
       
     });
     
