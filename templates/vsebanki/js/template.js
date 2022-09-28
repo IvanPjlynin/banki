@@ -678,7 +678,7 @@ jQuery(document).ready(function ($) {
         }
     };
     
-    console.log('getUrlParameter', getUrlParameter);
+    console.log('getUrlParameter', getUrlParameter('summ'));
     
     
     //разбитие цены на разряды
