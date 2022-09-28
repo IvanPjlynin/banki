@@ -67,7 +67,7 @@ use Joomla\CMS\Layout\LayoutHelper;
          <div class="bank-field-value"><?php echo $item->extrafields['lgotnyj-period']->value; ?></div>
       </div>
       <div class="bank-field stavka credit-cards">
-         <div class="bank-field-name"><?php echo $item->extrafields['stavka-kredit']->title; ?></div>
+         <div class="bank-field-name">Проценты</div>
          <div class="bank-field-value"><?php echo $item->extrafields['stavka-kredit']->value; ?></div>
       </div>
 <?php echo LayoutHelper::render('joomla.content.readmore', array('item' => $item, 'params' => $item->params, 'link' => $item->link)); ?>
