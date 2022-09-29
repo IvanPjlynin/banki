@@ -133,7 +133,7 @@ $attribs['style'] = 'none';
                             <?php if ($this->item->extrafields['srok-zajma']->value < 300) : ?>
                             до <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.
                             <? else: ?>
-                            до <?php echo $this->item->extrafields['srok-zajma']->value/30; ?> мес.
+                            до <?php echo round($this->item->extrafields['srok-zajma']->value/30); ?> мес.
                             <? endif; ?>
                         </div>
                     </div>
@@ -212,7 +212,7 @@ $attribs['style'] = 'none';
                                     <?php if ($this->item->extrafields['srok-zajma']->value < 300) : ?>
                                     <?php echo $this->item->extrafields['srok-zajma-ot']->value; ?> дн. - <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.
                                     <? else: ?>
-                                    <?php echo $this->item->extrafields['srok-zajma-ot']->value/30; ?> мес. - <?php echo $this->item->extrafields['srok-zajma']->value/30; ?> мес.
+                                    <?php echo $this->item->extrafields['srok-zajma-ot']->value; ?> дн. - <?php echo round($this->item->extrafields['srok-zajma']->value/30); ?> мес.
                                     <?php endif; ?>
                                 </p>
                             </div>
