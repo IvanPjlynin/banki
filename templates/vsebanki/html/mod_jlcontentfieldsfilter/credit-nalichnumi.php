@@ -393,9 +393,10 @@ if ($params->get('enable_css', 1)) {
         if(getUrlParameter('summ')){
             console.log('getUrlParameter', instance_filter_range1);
             instance_filter_range1.update({
-                from: getUrlParameter('summ'),
-                to: getUrlParameter('summ')
+                from: getUrlParameter('summ')
             });
+            instance_filter_range1.reset();
+            instance_filter_range1.destroy();
         }
 
 
