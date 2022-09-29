@@ -311,7 +311,7 @@ $filterArticles = array_diff($filterArticles, $excludeFilterArticles);
 var_dump($filterArticles);
 echo '</pre>';
 die();*/
-$filterArticles = rsort($filterArticles);
+//$filterArticles = rsort($filterArticles);
 
 		$context = $option.'.category.list.' . $itemid;
 
