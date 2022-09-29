@@ -188,7 +188,7 @@ if ($params->get('enable_css', 1)) {
         }
         var fromSroc = 24;    
         if(getUrlParameter('sroc')){
-            fromSumm = getUrlParameter('sroc');
+            fromSroc = getUrlParameter('sroc');
         }
 
 
