@@ -88,8 +88,6 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 			return;
 		}
 
-        print_r($_POST);
-        die();
         
 		$app = JFactory::getApplication();
 		$input = $app->input;
@@ -383,7 +381,12 @@ die();*/
 			}
 		}
         
-        
+        if( isset($_POST['tmpl']) ){
+            
+        } else {
+            $app->setUserState($context . 'filter.article_id_include', null);
+			$app->setUserState($context . 'filter.article_id', null);
+        }
 
         
 	}
