@@ -321,12 +321,9 @@ die();*/
 			}
             
 
-			//$app->setUserState($context . 'filter.article_id_include', true);
-			//$app->setUserState($context . 'filter.article_id', $filterArticles);
-            
-            $app->setUserState($context . 'filter.article_id_include', null);
-			$app->setUserState($context . 'filter.article_id', null);
-            
+			$app->setUserState($context . 'filter.article_id_include', true);
+			$app->setUserState($context . 'filter.article_id', $filterArticles);
+                    
 
 		}
 		else{
@@ -462,6 +459,9 @@ die();*/
         if(!empty($result->meta_keywords)){
             $doc->setMetaData('keywords', $result->meta_keywords);
         }
+        
+        $app->setUserState($context . 'filter.article_id_include', null);
+        $app->setUserState($context . 'filter.article_id', null);
 
     }
 }
