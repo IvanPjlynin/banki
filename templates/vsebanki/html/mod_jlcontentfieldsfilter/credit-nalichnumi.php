@@ -166,13 +166,19 @@ if ($params->get('enable_css', 1)) {
         $("#summa-kredita-to-109").trigger("keypress").val(function(i, val) {
             return 50000000;
         });
+        
+        var fromSumm = 500000;
+            
+        if(getUrlParameter('summ')){
+            fromSumm = getUrlParameter('summ');
+        }
 
 
         $filter_range1.ionRangeSlider({
             type: "single",
             grid: false,
             min: 10000,
-            from: 500000,
+            from: fromSumm,
             postfix: '',
             step: 10000,
             grid_snap: '',
@@ -390,12 +396,7 @@ if ($params->get('enable_css', 1)) {
         };
 
         
-        if(getUrlParameter('summ')){
-            console.log('getUrlParameter', instance_filter_range1);
-            instance_filter_range1.updateFrom({
-                from: getUrlParameter('summ')
-            });            
-        }
+        
 
 
     });
