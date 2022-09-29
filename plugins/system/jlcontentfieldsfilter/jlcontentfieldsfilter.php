@@ -460,8 +460,7 @@ die();*/
             $doc->setMetaData('keywords', $result->meta_keywords);
         }
         
-        $app->setUserState($context . 'filter.article_id_include', null);
-        $app->setUserState($context . 'filter.article_id', null);
+        
 
     }
 }
