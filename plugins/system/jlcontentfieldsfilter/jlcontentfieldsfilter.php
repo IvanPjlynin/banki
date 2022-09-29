@@ -381,11 +381,14 @@ die();*/
 			}
 		}
         
-        if( isset($_POST['tmpl']) ){
+        if( isset($_POST['tmpl'] || isset($_GET['summ']) ){
             
         } else {
+            
             $app->setUserState($context . 'filter.article_id_include', null);
 			$app->setUserState($context . 'filter.article_id', null);
+            
+           
         }
 
         
