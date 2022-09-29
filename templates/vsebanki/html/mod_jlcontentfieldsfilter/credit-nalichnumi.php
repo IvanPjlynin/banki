@@ -182,10 +182,13 @@ if ($params->get('enable_css', 1)) {
                 }
             }
         };
-        var fromSumm = 500000;
-            
+        var fromSumm = 500000;    
         if(getUrlParameter('summ')){
             fromSumm = getUrlParameter('summ');
+        }
+        var fromSroc = 24;    
+        if(getUrlParameter('sroc')){
+            fromSumm = getUrlParameter('sroc');
         }
 
 
@@ -263,7 +266,7 @@ if ($params->get('enable_css', 1)) {
         $filter_range2.ionRangeSlider({
             type: "single",
             grid: false,
-            from: 24,
+            from: fromSroc,
             postfix: '',
             min: 1,
             step: 1,
