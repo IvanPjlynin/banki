@@ -60,7 +60,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
                     <?php if ($this->item->extrafields['srok-zajma']->value < 300) : ?>
                         до <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.
                     <? else: ?>
-                        до <?php echo $this->item->extrafields['srok-zajma']->value/30; ?> мес.
+                        до <?php echo round($this->item->extrafields['srok-zajma']->value/30); ?> мес.
                     <? endif; ?>
                 </div>
             </div>
