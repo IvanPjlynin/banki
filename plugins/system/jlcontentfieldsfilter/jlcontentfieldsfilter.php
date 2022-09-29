@@ -379,6 +379,11 @@ die();*/
 				$app->setUserState($option.'.category.list.' . $itemid . '.filter_order_Dir', $dirn);
 			}
 		}
+        
+        
+$app->setUserState($context . 'filter.article_id_include', null);
+$app->setUserState($context . 'filter.article_id', null);
+        
 	}
 
 	private function doMeta(){
