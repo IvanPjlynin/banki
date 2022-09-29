@@ -146,6 +146,31 @@ if ($params->get('enable_css', 1)) {
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
+        
+        
+        //получаем GET параметры в url
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+        var fromSumm = 5000;    
+        if(getUrlParameter('summ')){
+            fromSumm = getUrlParameter('summ');
+        }
+        var fromSroc = 30;    
+        if(getUrlParameter('sroc')){
+            fromSroc = getUrlParameter('sroc');
+        }
+        
+        
 
         $("#summa-zajma-ot-from-140").trigger("keypress").val(function(i, val) {
             return 0;
@@ -170,7 +195,7 @@ if ($params->get('enable_css', 1)) {
             type: "single",
             grid: false,
             min: 500,
-            from: 5000,
+            from: fromSumm,
             postfix: '',
             step: 500,
             grid_snap: '',
@@ -240,7 +265,7 @@ if ($params->get('enable_css', 1)) {
         $filter_range2.ionRangeSlider({
             type: "single",
             grid: false,
-            from: 30,
+            from: fromSroc,
             postfix: '',
             min: 5,
             step: 1,
