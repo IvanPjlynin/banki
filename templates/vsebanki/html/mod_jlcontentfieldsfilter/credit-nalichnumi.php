@@ -396,7 +396,7 @@ if ($params->get('enable_css', 1)) {
                 from: getUrlParameter('summ')
             });
             instance_filter_range1.reset();
-            instance_filter_range1.destroy();
+            
         }
 
 
