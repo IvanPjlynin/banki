@@ -1225,7 +1225,7 @@ jQuery(document).ready(function ($) {
 
     function loadDataFiltr() {
         var form = $('form.form-search');
-        console.log(form.serialize());
+        console.log(form.attr('action'));
         return jQuery.ajax({
             type: 'POST',
             url: form.attr('action'),
