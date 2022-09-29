@@ -88,6 +88,9 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 			return;
 		}
 
+        print_r($_POST);
+        die();
+        
 		$app = JFactory::getApplication();
 		$input = $app->input;
 		$option = $input->getString('option', '');
