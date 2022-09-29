@@ -381,7 +381,7 @@ die();*/
 			}
 		}
         
-        if( isset($_POST['tmpl'] || isset($_GET['summ']) ){
+        if( isset($_POST['tmpl']) || isset($_GET['summ']) ){
             
         } else {
             
