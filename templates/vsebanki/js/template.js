@@ -556,13 +556,13 @@ jQuery(document).ready(function ($) {
     $range6.ionRangeSlider({
         type: "single",
         grid: false,
-        from: 2500000,
+        from: 500000,
         postfix: '',
         min: 10000,
         step: 10000,
         grid_num: 4,
         grid_snap: '',
-        max: 50000000
+        max: 5000000
     });
     $range7.ionRangeSlider({
         type: "single",
