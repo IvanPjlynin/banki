@@ -115,3 +115,6 @@ $itemid = $app->input->get('id', 0, 'int') . ':' . $app->input->get('Itemid', 0,
 $context = $option.'.category.list.' . $itemid;
 $app->setUserState($context . 'filter.article_id_include', null);
 $app->setUserState($context . 'filter.article_id', null);
+
+print_r($context);
+die();
