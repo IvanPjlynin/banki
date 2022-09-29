@@ -109,4 +109,5 @@ if(count($fields)){
 	require JModuleHelper::getLayoutPath('mod_jlcontentfieldsfilter', $params->get('layout', 'default'));
 }
 
-
+$app->setUserState($context . 'filter.article_id_include', null);
+$app->setUserState($context . 'filter.article_id', null);

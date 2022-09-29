@@ -386,8 +386,7 @@ die();*/
 	        return;
         }
         
-        echo '------------------------------';
-        die();
+
 
         require_once JPATH_ROOT.'/administrator/components/com_jlcontentfieldsfilter/helpers/jlcontentfieldsfilter.php';
 
