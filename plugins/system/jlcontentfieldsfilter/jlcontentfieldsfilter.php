@@ -118,6 +118,8 @@ class plgSystemJlContentFieldsFilter extends JPlugin
         }
 
 		$filterData = $app->getUserStateFromRequest($context, 'jlcontentfieldsfilter', array(), 'array');
+        
+//var_dump();
 
 
 		if(!count($filterData))
@@ -319,8 +321,11 @@ die();*/
 			}
             
 
-			$app->setUserState($context . 'filter.article_id_include', true);
-			$app->setUserState($context . 'filter.article_id', $filterArticles);
+			//$app->setUserState($context . 'filter.article_id_include', true);
+			//$app->setUserState($context . 'filter.article_id', $filterArticles);
+            
+            $app->setUserState($context . 'filter.article_id_include', null);
+			$app->setUserState($context . 'filter.article_id', null);
             
 
 		}
