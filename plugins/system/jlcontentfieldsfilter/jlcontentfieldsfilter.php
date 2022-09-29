@@ -385,6 +385,9 @@ die();*/
 	    if(!JComponentHelper::isEnabled('com_jlcontentfieldsfilter')){
 	        return;
         }
+        
+        echo '------------------------------';
+        die();
 
         require_once JPATH_ROOT.'/administrator/components/com_jlcontentfieldsfilter/helpers/jlcontentfieldsfilter.php';
 
