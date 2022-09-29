@@ -11,7 +11,7 @@
 defined('_JEXEC') or die;
 
 require_once JPATH_ROOT. '/administrator/components/com_fields/helpers/fields.php';
-die();
+
 class ModJlContentFieldsFilterHelper
 {
 	public static function getFields($params, $category_id, $values, $moduleId, $option)
