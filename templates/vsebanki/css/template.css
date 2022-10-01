@@ -287,6 +287,7 @@ main {
 
 .main-block .container .row div .service.credit-card:hover .hover-block,
 .main-block .container .row div .service.credit:hover .hover-block,
+.main-block .container .row div .service.credit:active .hover-block,
 .main-block .container .row div .service.loan:hover .hover-block,
 .main-block .container .row div .service.deposit:hover .hover-block {
     z-index: 1
@@ -515,17 +516,21 @@ main {
     background: #fff
 }
 
-.main-block .container .row div .service.credit:hover {
+.main-block .container .row div .service.credit:hover,
+.main-block .container .row div .service.credit:active {
     background: #f6f9f9;
     align-items: flex-start
 }
 
 .main-block .container .row div .service.credit:hover img,
-.main-block .container .row div .service.credit:hover .service-name {
+.main-block .container .row div .service.credit:active img,
+.main-block .container .row div .service.credit:hover .service-name,
+.main-block .container .row div .service.credit:active .service-name {
     display: none
 }
 
-.main-block .container .row div .service.credit:hover .hover-block {
+.main-block .container .row div .service.credit:hover .hover-block,
+.main-block .container .row div .service.credit:active .hover-block {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -534,7 +539,8 @@ main {
     margin-bottom: 0
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block {
+.main-block .container .row div .service.credit:hover .hover-block .top-block,
+.main-block .container .row div .service.credit:active .hover-block .top-block {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -543,7 +549,8 @@ main {
     padding: 0 16px
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block .service-name-inside {
+.main-block .container .row div .service.credit:hover .hover-block .top-block .service-name-inside,
+.main-block .container .row div .service.credit:active .hover-block .top-block .service-name-inside {
     font-family: "Roboto", sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -552,12 +559,14 @@ main {
     margin-bottom: 10px
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container {
+.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container,
+.main-block .container .row div .service.credit:active .hover-block .top-block .chosen-container {
     margin-bottom: 21px;
     width: 100% !important
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-single {
+.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-single,
+.main-block .container .row div .service.credit:active .hover-block .top-block .chosen-container .chosen-single {
     background: #fff;
     border: 1px solid #D9DEE3;
     border-radius: 4px;
@@ -566,7 +575,8 @@ main {
     box-shadow: none
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-single span {
+.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-single span,
+.main-block .container .row div .service.credit:active .hover-block .top-block .chosen-container .chosen-single span {
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -574,26 +584,31 @@ main {
     color: #002D4F
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-single div {
+.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-single div,
+.main-block .container .row div .service.credit:active .hover-block .top-block .chosen-container .chosen-single div {
     margin-bottom: 0;
     width: 10px;
     margin-right: 15px
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-single div b {
+.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-single div b,
+.main-block .container .row div .service.credit:active .hover-block .top-block .chosen-container .chosen-single div b {
     background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNSIgdmlld0JveD0iMCAwIDEwIDUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik01IDVMMCAwSDEwTDUgNVoiIGZpbGw9IiM1NkMxODIiLz4KPC9zdmc+Cg==") no-repeat center
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-drop {
+.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-drop,
+.main-block .container .row div .service.credit:active .hover-block .top-block .chosen-container .chosen-drop {
     margin-bottom: 0;
     border: 1px solid #D9DEE3
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-drop .chosen-results {
+.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-drop .chosen-results,
+.main-block .container .row div .service.credit:active .hover-block .top-block .chosen-container .chosen-drop .chosen-results {
     padding: 0
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-drop .chosen-results li {
+.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-drop .chosen-results li,
+.main-block .container .row div .service.credit:active .hover-block .top-block .chosen-container .chosen-drop .chosen-results li {
     padding: 5px 16px;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
@@ -602,13 +617,15 @@ main {
     color: #002D4F
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-drop .chosen-results li.highlighted {
+.main-block .container .row div .service.credit:hover .hover-block .top-block .chosen-container .chosen-drop .chosen-results li.highlighted,
+.main-block .container .row div .service.credit:active .hover-block .top-block .chosen-container .chosen-drop .chosen-results li.highlighted {
     color: #56C182;
     background-color: transparent;
     background-image: none
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block,
+.main-block .container .row div .service.credit:active .hover-block .middle-block {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -617,17 +634,20 @@ main {
     padding: 0 16px
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group {
     margin-bottom: 20px !important
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-text {
     list-style: none;
     padding-left: 0;
     margin-bottom: 0
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-text li {
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     font-weight: 400;
@@ -635,11 +655,13 @@ main {
     color: #606970
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li.range-place .range-value {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li.range-place .range-value,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-text li.range-place .range-value {
     margin-bottom: 0
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li.range-place .range-value .range-summary {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li.range-place .range-value .range-summary,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-text li.range-place .range-value .range-summary {
     font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 700;
@@ -647,16 +669,19 @@ main {
     color: #002D4F
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li.range-place .range-value .range-summary:after {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li.range-place .range-value .range-summary:after,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-text li.range-place .range-value .range-summary:after {
     content: '\20BD';
     padding-left: 5px
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li.range-place .range-input {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li.range-place .range-input,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-text li.range-place .range-input {
     display: none
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li.range-place .range-input input {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-text li.range-place .range-input input,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-text li.range-place .range-input input {
     background: #fff;
     border: 1px solid #D9DEE3;
     box-sizing: border-box;
@@ -671,19 +696,23 @@ main {
     margin-bottom: 8px
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-control {
     margin-bottom: 0
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-control .range {
     margin-bottom: 0
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-control .range .irs {
     height: 20px
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-line {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-line,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-line {
     height: 8px;
     top: 11px;
     border-radius: 100px;
@@ -691,15 +720,19 @@ main {
 }
 
 .main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-min,
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-max {
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-min,
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-max,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-max {
     visibility: hidden !important
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-single {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-single,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-control .range .irs .irs .irs-single {
     display: none
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs-bar {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs-bar,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-control .range .irs .irs-bar {
     top: 11px;
     height: 8px;
     left: 0 !important;
@@ -707,7 +740,8 @@ main {
     border-radius: 100px
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs-slider {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group .range-control .range .irs .irs-slider,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group .range-control .range .irs .irs-slider {
     top: 0;
     width: 32px;
     height: 32px;
@@ -718,11 +752,13 @@ main {
     cursor: pointer
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group.two .range-text li.range-place .range-value .range-summary:after {
+.main-block .container .row div .service.credit:hover .hover-block .middle-block .range-group.two .range-text li.range-place .range-value .range-summary:after,
+.main-block .container .row div .service.credit:active .hover-block .middle-block .range-group.two .range-text li.range-place .range-value .range-summary:after {
     content: ' мес.'
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .service-button {
+.main-block .container .row div .service.credit:hover .hover-block .service-button,
+.main-block .container .row div .service.credit:active .hover-block .service-button {
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -739,7 +775,8 @@ main {
     line-height: 24px
 }
 
-.main-block .container .row div .service.credit:hover .hover-block .service-button:hover {
+.main-block .container .row div .service.credit:hover .hover-block .service-button:hover,
+.main-block .container .row div .service.credit:active .hover-block .service-button:active {
     color: #56C182;
     background: #fff
 }
