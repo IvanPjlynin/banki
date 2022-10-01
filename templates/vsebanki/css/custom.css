@@ -1032,7 +1032,8 @@ button.filter-dropdown-toggle span {
     .main-block .container .row div .service.credit-card:hover .hover-block,
     .main-block .container .row div .service.credit:hover .hover-block,
     .main-block .container .row div .service.loan:hover .hover-block,
-    .main-block .container .row div .service.deposit:hover .hover-block {
+    .main-block .container .row div .service.deposit:hover .hover-block,
+    .main-block .container .row div .service.ipoteka:hover .hover-block {
         position: relative;
         z-index: 1;
         min-height: 360px;
