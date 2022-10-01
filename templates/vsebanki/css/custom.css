@@ -1249,6 +1249,14 @@ button.filter-dropdown-toggle span {
     line-height: 24px
 }
 
+.main-block .container .row div .service.credit-card .hover-block,
+.main-block .container .row div .service.credit .hover-block,
+.main-block .container .row div .service.loan .hover-block,
+.main-block .container .row div .service.deposit .hover-block {
+    position: relative;
+    z-index: -1;
+}
+
 
 /*Адаптация*/
 @media screen and (max-width: 768px) {
