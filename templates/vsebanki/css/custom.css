@@ -1035,6 +1035,7 @@ button.filter-dropdown-toggle span {
     .main-block .container .row div .service.deposit:hover .hover-block {
         position: relative;
         z-index: 1;
+        min-height: 360px;
     }
 
 
