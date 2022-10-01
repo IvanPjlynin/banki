@@ -1028,6 +1028,16 @@ button.filter-dropdown-toggle span {
 
 /*Адаптация*/
 @media screen and (max-width: 768px) {
+
+    .main-block .container .row div .service.credit-card:hover .hover-block,
+    .main-block .container .row div .service.credit:hover .hover-block,
+    .main-block .container .row div .service.loan:hover .hover-block,
+    .main-block .container .row div .service.deposit:hover .hover-block {
+        position: relative;
+        z-index: 1;
+    }
+
+
     .bestdeals .container .row div .nav-tabs button {
         width: 98%;
         margin: 0 auto;
