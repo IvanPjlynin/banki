@@ -1678,4 +1678,13 @@ button.filter-dropdown-toggle span {
     .bestdeals .container .row div .tab-content .tab-pane .row .mod-articlesnews__item .article-wrapper .newsflash-title {
         margin-bottom: 0px;
     }
+
+    .item-page.credit .com-content-article__body .bank-info .row .rating .yrvote_box {
+        margin-left: 0px;
+    }
+
+    .item-page.credit .com-content-article__body .bank-info .row .rating .rating-title {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
 }
