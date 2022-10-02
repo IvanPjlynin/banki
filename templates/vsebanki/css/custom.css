@@ -1670,4 +1670,8 @@ button.filter-dropdown-toggle span {
     .blog .tabsmenu div {
         display: none;
     }
+
+    #filter-buttom {
+        margin-top: 0px;
+    }
 }
