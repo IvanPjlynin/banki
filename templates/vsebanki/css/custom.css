@@ -1691,4 +1691,8 @@ button.filter-dropdown-toggle span {
     .com-content-article__body div.bank-logo img {
         margin: 20px 0;
     }
+
+    .filter-dropdown-toggle {
+        margin-top: 35px;
+    }
 }
