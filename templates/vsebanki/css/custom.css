@@ -1655,4 +1655,10 @@ button.filter-dropdown-toggle span {
         background: linear-gradient(141.24deg, #6CB4F5 -.46%, #2E73DB 101.31%);
 
     }
+
+    body > main > div.section.main-block > div > div > div:nth-child(1) > div > div > div.top-block > select {
+        padding: 8px;
+        font-size: 18px;
+        margin-bottom: 18px;
+    }
 }
