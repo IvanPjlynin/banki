@@ -1695,4 +1695,12 @@ button.filter-dropdown-toggle span {
     .filter-dropdown-toggle {
         margin-top: 35px;
     }
+
+    .bestdeals .container .row div .tab-content .tab-pane .row .mod-articlesnews__item .article-wrapper .bank-field {
+        padding-right: 0;
+    }
+
+    .bestdeals .container .row div .tab-content .tab-pane .row .mod-articlesnews__item .article-wrapper .readmore {
+        margin-top: 25px;
+    }
 }
