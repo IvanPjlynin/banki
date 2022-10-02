@@ -1661,4 +1661,8 @@ button.filter-dropdown-toggle span {
         font-size: 18px;
         margin-bottom: 18px;
     }
+
+    blog .tabsmenu a {
+        margin-right: 35px;
+    }
 }
