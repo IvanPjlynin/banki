@@ -1663,6 +1663,11 @@ button.filter-dropdown-toggle span {
     }
 
     .blog .tabsmenu a {
-        margin-right: 35px;
+        margin-right: 10px;
+        font-size: 16px;
+    }
+
+    .blog .tabsmenu div {
+        display: none;
     }
 }
