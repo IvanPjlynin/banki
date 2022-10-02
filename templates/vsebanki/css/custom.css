@@ -1674,4 +1674,8 @@ button.filter-dropdown-toggle span {
     #filter-buttom {
         margin-top: 0px;
     }
+
+    .bestdeals .container .row div .tab-content .tab-pane .row .mod-articlesnews__item .article-wrapper .newsflash-title {
+        margin-bottom: 0px;
+    }
 }
