@@ -926,6 +926,8 @@ div.mb-service-home {
 #input-credit-vozrast-ot {
     width: 40%;
     display: inline-block;
+    margin: 0 auto !important;
+    text-align: center;
 }
 
 #input-credit-vozrast-do {
