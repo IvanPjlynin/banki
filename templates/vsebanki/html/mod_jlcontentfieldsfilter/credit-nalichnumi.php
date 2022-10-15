@@ -208,6 +208,9 @@ if ($params->get('enable_css', 1)) {
             max: 5000000,
             onStart: function(data) {
                 $input_filter_range1.prop("value", number_format(data.from));
+
+                alert(number_format(data.from, true));
+
                 $("#summa-kredita-ot-to-109").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
