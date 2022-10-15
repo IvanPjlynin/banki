@@ -337,7 +337,7 @@ if ($params->get('enable_css', 1)) {
             skin: "big",
             type: "single",
             grid: false,
-            from: 22,
+            from: 24,
             to: 65,
             postfix: '',
             min: 16,
