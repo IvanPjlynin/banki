@@ -142,6 +142,13 @@ if ($params->get('enable_css', 1)) {
 
 <script>
     jQuery(document).ready(function($) {
+        //разделитель на 1000
+        function number_format(num, format) {
+            num = (num + "").replace(/(\s)+/g, "");
+            return format ? num.replace(/(\d{1,3})(?=(?:\d{3})+$)/g, "$1 ") : num
+        }
+
+
         //сумма кредита
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
@@ -221,7 +228,11 @@ if ($params->get('enable_css', 1)) {
 
         instance_filter_range1 = $filter_range1.data("ionRangeSlider");
 
-        $input_filter_range1.on("input", function() {
+        $input_filter_range1.on("focus", function() {
+            this.value = number_format(this.value);
+            this.focus();
+            this.selectionStart = this.value.length
+        }).on("input", function() {
             var value = $(this).prop("value");
 
             $("#summa-kredita-ot-to-109").trigger("keypress").val(function(i, val) {
@@ -235,6 +246,9 @@ if ($params->get('enable_css', 1)) {
                 from: value
             });
         });
+
+
+
 
         //срок кредита
 
