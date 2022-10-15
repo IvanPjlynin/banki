@@ -65,13 +65,13 @@ if ($params->get('enable_css', 1)) {
 
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    Фильтры поиска <span>(+4)</span>
+                    Фильтры поиска <span>(+5)</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
-                        <label class="filter-label">Возраст, от и до</label>
+                        <label class="filter-label">Возраст, лет</label>
                         <input type="text" class="filter-input" id="input-credit-vozrast-ot" value="" />
-                        <input type="text" class="filter-input" id="input-credit-vozrast-do" value="" />
+
 
                         <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
                     </div>
@@ -157,9 +157,9 @@ if ($params->get('enable_css', 1)) {
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
-        
-        
-        
+
+
+
         //получаем GET параметры в url
         var getUrlParameter = function getUrlParameter(sParam) {
             var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -173,16 +173,16 @@ if ($params->get('enable_css', 1)) {
                 }
             }
         };
-        var fromSumm = 500000;    
-        if(getUrlParameter('summ')){
+        var fromSumm = 500000;
+        if (getUrlParameter('summ')) {
             fromSumm = getUrlParameter('summ');
         }
-        var fromSroc = 60;    
-        if(getUrlParameter('sroc')){
+        var fromSroc = 60;
+        if (getUrlParameter('sroc')) {
             fromSroc = getUrlParameter('sroc');
         }
-        
-        
+
+
 
         $("#summa-kredita-ot-from-137").trigger("keypress").val(function(i, val) {
             return 0;
@@ -407,7 +407,7 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (5 - n) + ')');
         });
 
         //получаем GET параметры
