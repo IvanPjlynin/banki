@@ -346,7 +346,7 @@ if ($params->get('enable_css', 1)) {
 
         $filter_vozrast.ionRangeSlider({
             skin: "round",
-            type: "double",
+            type: "single",
             grid: false,
             from: 22,
             to: 65,
@@ -379,7 +379,7 @@ if ($params->get('enable_css', 1)) {
             });
 
             $("#vozrast-dlya-pogasheniya-from-137").trigger("keypress").val(function(i, val) {
-                return to;
+                return from;
             });
         }
 
