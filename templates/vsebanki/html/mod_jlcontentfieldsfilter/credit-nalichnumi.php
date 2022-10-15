@@ -207,7 +207,7 @@ if ($params->get('enable_css', 1)) {
             grid_snap: '',
             max: 5000000,
             onStart: function(data) {
-                $input_filter_range1.prop("value", number_format(data.from));
+                $input_filter_range1.prop("value", number_format(data.from, true));
 
                 $("#summa-kredita-ot-to-109").trigger("keypress").val(function(i, val) {
                     return data.from;
@@ -231,7 +231,7 @@ if ($params->get('enable_css', 1)) {
         instance_filter_range1 = $filter_range1.data("ionRangeSlider");
 
         $input_filter_range1.on("focus", function() {
-            this.value = number_format(this.value);
+            this.value = number_format(this.value, true);
             this.focus();
             this.selectionStart = this.value.length
         }).on("input", function() {
