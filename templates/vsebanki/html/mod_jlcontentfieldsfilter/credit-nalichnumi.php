@@ -368,7 +368,7 @@ if ($params->get('enable_css', 1)) {
             });
 
             $("#vozrast-dlya-pogasheniya-from-109").trigger("keypress").val(function(i, val) {
-                return to;
+                return from;
             });
         }
 
