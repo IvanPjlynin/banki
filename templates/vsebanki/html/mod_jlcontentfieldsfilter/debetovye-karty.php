@@ -62,9 +62,8 @@ if ($params->get('enable_css', 1)) {
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
-                        <label class="filter-label">Возраст, от и до</label>
+                        <label class="filter-label">Возраст, лет</label>
                         <input type="text" class="filter-input" id="input-credit-vozrast-ot" value="" />
-                        <input type="text" class="filter-input" id="input-credit-vozrast-do" value="" />
 
                         <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
                     </div>
@@ -175,7 +174,7 @@ if ($params->get('enable_css', 1)) {
 
         $filter_vozrast.ionRangeSlider({
             skin: "round",
-            type: "double",
+            type: "single",
             grid: false,
             from: 18,
             to: 80,
@@ -204,7 +203,7 @@ if ($params->get('enable_css', 1)) {
             });
 
             $("#vozrast-to-143").trigger("keypress").val(function(i, val) {
-                return to;
+                return from;
             });
         }
 
@@ -259,6 +258,10 @@ if ($params->get('enable_css', 1)) {
         -webkit-transition: all .33s linear;
         width: 180px;
         color: #002D4F;
+    }
+
+    .blog .tabsmenu a:nth-child(2) {
+        color: #56c182;
     }
 
 </style>
