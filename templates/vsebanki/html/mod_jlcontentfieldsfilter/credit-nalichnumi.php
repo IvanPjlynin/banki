@@ -334,7 +334,7 @@ if ($params->get('enable_css', 1)) {
 
 
         $filter_vozrast.ionRangeSlider({
-            skin: "round",
+            skin: "big",
             type: "single",
             grid: false,
             from: 22,
