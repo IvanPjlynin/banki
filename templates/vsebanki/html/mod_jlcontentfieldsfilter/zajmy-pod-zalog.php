@@ -68,9 +68,8 @@ if ($params->get('enable_css', 1)) {
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
-                        <label class="filter-label">Возраст, от и до</label>
+                        <label class="filter-label">Возраст, лет</label>
                         <input type="text" class="filter-input" id="input-credit-vozrast-ot" value="" />
-                        <input type="text" class="filter-input" id="input-credit-vozrast-do" value="" />
 
                         <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
                     </div>
@@ -350,7 +349,7 @@ if ($params->get('enable_css', 1)) {
             });
 
             $("#vozrast-dlya-pogasheniya-from-141").trigger("keypress").val(function(i, val) {
-                return to;
+                return from;
             });
         }
 
@@ -378,7 +377,7 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (5 - n) + ')');
         });
 
         //получаем GET параметры
@@ -436,6 +435,10 @@ if ($params->get('enable_css', 1)) {
         -webkit-transition: all .33s linear;
         width: 80px;
         color: #002D4F;
+    }
+
+    .blog .tabsmenu a:nth-child(2) {
+        color: #56c182;
     }
 
 </style>
