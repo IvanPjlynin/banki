@@ -774,6 +774,7 @@ div.modal {
 .irs .irs .irs-min,
 .irs .irs .irs-max {
     visibility: hidden !important;
+    display: none;
 }
 
 .irs .irs .irs-single {
