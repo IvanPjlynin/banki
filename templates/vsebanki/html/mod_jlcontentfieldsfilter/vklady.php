@@ -88,14 +88,21 @@ if ($params->get('enable_css', 1)) {
 
 <script>
     jQuery(document).ready(function($) {
+
+        //разделитель на 1 000
+        function number_format(num, format) {
+            num = (num + "").replace(/(\s)+/g, "");
+            return format ? num.replace(/(\d{1,3})(?=(?:\d{3})+$)/g, "$1 ") : num
+        }
+
         //сумма вклада
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
-        
-        
-        
-        
+
+
+
+
         //получаем GET параметры в url
         var getUrlParameter = function getUrlParameter(sParam) {
             var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -109,16 +116,16 @@ if ($params->get('enable_css', 1)) {
                 }
             }
         };
-        var fromSumm = 500000;    
-        if(getUrlParameter('summ')){
+        var fromSumm = 500000;
+        if (getUrlParameter('summ')) {
             fromSumm = getUrlParameter('summ');
         }
-        var fromSroc = 12;    
-        if(getUrlParameter('sroc')){
+        var fromSroc = 12;
+        if (getUrlParameter('sroc')) {
             fromSroc = getUrlParameter('sroc');
         }
-        
-        
+
+
 
         $("#summa-vklada-from-144").trigger("keypress").val(function(i, val) {
             return 1000;
@@ -140,14 +147,14 @@ if ($params->get('enable_css', 1)) {
             grid_snap: '',
             max: 5000000,
             onStart: function(data) {
-                $input_filter_range1.prop("value", data.from);
+                $input_filter_range1.prop("value", number_format(data.from, true));
                 $("#summa-vklada-to-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
 
             },
             onChange: function(data) {
-                $input_filter_range1.prop("value", data.from);
+                $input_filter_range1.prop("value", number_format(data.from, true));
                 $("#summa-vklada-to-144").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
@@ -157,16 +164,20 @@ if ($params->get('enable_css', 1)) {
 
         instance_filter_range1 = $filter_range1.data("ionRangeSlider");
 
-        $input_filter_range1.on("input", function() {
+        $input_filter_range1.on("focus", function() {
+            this.value = number_format(this.value, true);
+            this.focus();
+            this.selectionStart = this.value.length
+        }).on("input", function() {
             var value = $(this).prop("value");
 
             $("#summa-vklada-to-144").trigger("keypress").val(function(i, val) {
-                return value;
+                return number_format(value);
             });
 
 
             instance_filter_range1.update({
-                from: value
+                from: number_format(value)
             });
         });
 
@@ -183,7 +194,7 @@ if ($params->get('enable_css', 1)) {
         $("#srok-vklada-ot-to-144").trigger("keypress").val(function(i, val) {
             return 12;
         });
-        
+
         $("#srok-vklada-do-from-144").trigger("keypress").val(function(i, val) {
             return 12;
         });
@@ -267,6 +278,10 @@ if ($params->get('enable_css', 1)) {
         -webkit-transition: all .33s linear;
         width: 125px;
         color: #002D4F;
+    }
+
+    .blog .tabsmenu a:nth-child(1) {
+        color: #56c182;
     }
 
 </style>
