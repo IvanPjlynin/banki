@@ -56,7 +56,7 @@ if ($params->get('enable_css', 1)) {
         <div class="col-md-3 block-filter">
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    Фильтры поиска <span>(+4)</span>
+                    Фильтры поиска <span>(+5)</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
@@ -335,7 +335,7 @@ if ($params->get('enable_css', 1)) {
 
         $filter_vozrast.ionRangeSlider({
             skin: "round",
-            type: "double",
+            type: "single",
             grid: false,
             from: 22,
             to: 65,
@@ -396,7 +396,7 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (5 - n) + ')');
         });
 
 
