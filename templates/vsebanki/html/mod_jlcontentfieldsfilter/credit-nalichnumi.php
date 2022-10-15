@@ -116,7 +116,7 @@ if ($params->get('enable_css', 1)) {
 
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
-        <div class="jlmf-section ">
+        <div class="jlmf-section visually-hidden">
             <?php echo $v; ?>
         </div>
         <?php endif;?>
@@ -238,10 +238,10 @@ if ($params->get('enable_css', 1)) {
             var value = $(this).prop("value");
 
             $("#summa-kredita-ot-to-109").trigger("keypress").val(function(i, val) {
-                return value;
+                return number_format(value);
             });
             $("#summa-kredita-from-109").trigger("keypress").val(function(i, val) {
-                return value;
+                return number_format(value);
             });
 
             instance_filter_range1.update({
