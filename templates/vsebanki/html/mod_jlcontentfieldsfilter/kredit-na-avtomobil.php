@@ -425,4 +425,8 @@ if ($params->get('enable_css', 1)) {
         color: #002D4F;
     }
 
+    .blog .tabsmenu a:nth-child(3) {
+        color: #56c182;
+    }
+
 </style>
