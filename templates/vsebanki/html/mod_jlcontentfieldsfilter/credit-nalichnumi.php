@@ -60,10 +60,8 @@ if ($params->get('enable_css', 1)) {
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
-                        <label class="filter-label">Возраст, от и до</label>
+                        <label class="filter-label">Возраст, лет.</label>
                         <input type="text" class="filter-input" id="input-credit-vozrast-ot" value="" />
-                        <input type="text" class="filter-input" id="input-credit-vozrast-do" value="" />
-
                         <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
                     </div>
                     <br>
