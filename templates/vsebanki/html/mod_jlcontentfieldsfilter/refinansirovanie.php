@@ -422,4 +422,10 @@ if ($params->get('enable_css', 1)) {
         color: #002D4F;
     }
 
+    @media screen and (max-width: 768px) {
+        .blog .tabsmenu a:nth-child(4)~div {
+            color: #56c182;
+        }
+    }
+
 </style>
