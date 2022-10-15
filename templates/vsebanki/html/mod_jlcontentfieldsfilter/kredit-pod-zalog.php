@@ -256,7 +256,7 @@ if ($params->get('enable_css', 1)) {
             });
 
             instance_filter_range1.update({
-                from: number_format(value);
+                from: number_format(value)
             });
         });
 
