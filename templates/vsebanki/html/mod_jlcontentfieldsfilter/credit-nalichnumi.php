@@ -217,6 +217,7 @@ if ($params->get('enable_css', 1)) {
             },
             onChange: function(data) {
                 $input_filter_range1.prop("value", number_format(data.from));
+                alert(number_format(data.from));
                 $("#summa-kredita-ot-to-109").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
