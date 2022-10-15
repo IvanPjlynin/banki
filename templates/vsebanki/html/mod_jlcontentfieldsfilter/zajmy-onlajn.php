@@ -141,6 +141,13 @@ if ($params->get('enable_css', 1)) {
 
 <script>
     jQuery(document).ready(function($) {
+
+        //разделитель на 1 000
+        function number_format(num, format) {
+            num = (num + "").replace(/(\s)+/g, "");
+            return format ? num.replace(/(\d{1,3})(?=(?:\d{3})+$)/g, "$1 ") : num
+        }
+
         //сумма кредита
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
@@ -200,7 +207,7 @@ if ($params->get('enable_css', 1)) {
             grid_snap: '',
             max: 100000,
             onStart: function(data) {
-                $input_filter_range1.prop("value", data.from);
+                $input_filter_range1.prop("value", number_format(data.from, true));
                 $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
@@ -209,7 +216,7 @@ if ($params->get('enable_css', 1)) {
                 });
             },
             onChange: function(data) {
-                $input_filter_range1.prop("value", data.from);
+                $input_filter_range1.prop("value", number_format(data.from, true));
                 $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
@@ -221,18 +228,22 @@ if ($params->get('enable_css', 1)) {
 
         instance_filter_range1 = $filter_range1.data("ionRangeSlider");
 
-        $input_filter_range1.on("input", function() {
+        $input_filter_range1.on("focus", function() {
+            this.value = number_format(this.value, true);
+            this.focus();
+            this.selectionStart = this.value.length
+        }).on("input", function() {
             var value = $(this).prop("value");
 
             $("#summa-zajma-ot-to-140").trigger("keypress").val(function(i, val) {
-                return value;
+                return number_format(value);
             });
             $("#summa-zajma-from-140").trigger("keypress").val(function(i, val) {
-                return value;
+                return number_format(value);
             });
 
             instance_filter_range1.update({
-                from: value
+                from: number_format(value)
             });
         });
 
