@@ -56,13 +56,12 @@ if ($params->get('enable_css', 1)) {
         <div class="col-md-3 block-filter">
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                    Фильтры поиска <span>(+2)</span>
+                    Фильтры поиска <span>(+3)</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <div class="col-md-12 block-filter">
-                        <label class="filter-label">Возраст, от и до</label>
+                        <label class="filter-label">Возраст, лет</label>
                         <input type="text" class="filter-input" id="input-credit-vozrast-ot" value="" />
-                        <input type="text" class="filter-input" id="input-credit-vozrast-do" value="" />
 
                         <div class="range"><input type="text" id="credit-filter-vozrast" value="" /></div>
                     </div>
@@ -123,13 +122,20 @@ if ($params->get('enable_css', 1)) {
 
 <script>
     jQuery(document).ready(function($) {
+
+        //разделитель на 1 000
+        function number_format(num, format) {
+            num = (num + "").replace(/(\s)+/g, "");
+            return format ? num.replace(/(\d{1,3})(?=(?:\d{3})+$)/g, "$1 ") : num
+        }
+
         //сумма кредита
         var $filter_range1 = $("#credit-range-one");
         var $input_filter_range1 = $("#input-credit-range-one");
         var instance_filter_range1;
-        
-        
-        
+
+
+
         //получаем GET параметры в url
         var getUrlParameter = function getUrlParameter(sParam) {
             var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -143,12 +149,12 @@ if ($params->get('enable_css', 1)) {
                 }
             }
         };
-        var fromSumm = 50000;    
-        if(getUrlParameter('summ')){
+        var fromSumm = 50000;
+        if (getUrlParameter('summ')) {
             fromSumm = getUrlParameter('summ');
         }
 
-        
+
 
         $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
             return 0;
@@ -170,14 +176,14 @@ if ($params->get('enable_css', 1)) {
             grid_snap: '',
             max: 1000000,
             onStart: function(data) {
-                $input_filter_range1.prop("value", data.from);
+                $input_filter_range1.prop("value", number_format(data.from, true));
                 $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
 
             },
             onChange: function(data) {
-                $input_filter_range1.prop("value", data.from);
+                $input_filter_range1.prop("value", number_format(data.from, true));
                 $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
                     return data.from;
                 });
@@ -187,16 +193,20 @@ if ($params->get('enable_css', 1)) {
 
         instance_filter_range1 = $filter_range1.data("ionRangeSlider");
 
-        $input_filter_range1.on("input", function() {
+        $input_filter_range1.on("focus", function() {
+            this.value = number_format(this.value, true);
+            this.focus();
+            this.selectionStart = this.value.length
+        }).on("input", function() {
             var value = $(this).prop("value");
 
             $("#kreditnyj-limit-from-142").trigger("keypress").val(function(i, val) {
-                return value;
+                return number_format(value);
             });
 
 
             instance_filter_range1.update({
-                from: value
+                from: number_format(value)
             });
         });
 
@@ -279,7 +289,7 @@ if ($params->get('enable_css', 1)) {
 
         $filter_vozrast.ionRangeSlider({
             skin: "round",
-            type: "double",
+            type: "single",
             grid: false,
             from: 22,
             to: 65,
@@ -312,7 +322,7 @@ if ($params->get('enable_css', 1)) {
             });
 
             $("#vozrast-dlya-pogasheniya-from-142").trigger("keypress").val(function(i, val) {
-                return to;
+                return from;
             });
         }
 
@@ -340,7 +350,7 @@ if ($params->get('enable_css', 1)) {
         //подсчет чебоксов
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
-            $('button.filter-dropdown-toggle span').html('(+' + (2 - n) + ')');
+            $('button.filter-dropdown-toggle span').html('(+' + (3 - n) + ')');
         });
 
 
@@ -366,6 +376,10 @@ if ($params->get('enable_css', 1)) {
         -webkit-transition: all .33s linear;
         width: 180px;
         color: #002D4F;
+    }
+
+    .blog .tabsmenu a:nth-child(1) {
+        color: #56c182;
     }
 
 </style>
