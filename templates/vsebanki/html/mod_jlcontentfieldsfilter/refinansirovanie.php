@@ -419,6 +419,11 @@ if ($params->get('enable_css', 1)) {
         transition: all .33s linear;
         -webkit-transition: all .33s linear;
         width: 195px;
+        color: #002D4F;
+    }
+
+
+    .blog .tabsmenu a:nth-child(4) {
         color: #56c182;
     }
 
