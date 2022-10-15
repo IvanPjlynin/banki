@@ -142,7 +142,7 @@ if ($params->get('enable_css', 1)) {
 
 <script>
     jQuery(document).ready(function($) {
-        //разделитель на 1000
+        //разделитель на 1 000
         function number_format(num, format) {
             num = (num + "").replace(/(\s)+/g, "");
             return format ? num.replace(/(\d{1,3})(?=(?:\d{3})+$)/g, "$1 ") : num
