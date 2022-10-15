@@ -118,7 +118,7 @@ if ($params->get('enable_css', 1)) {
 
         <?php foreach($fields as $v) : ?>
         <?php if($v):?>
-        <div class="jlmf-section visually-hidden">
+        <div class="jlmf-section ">
             <?php echo $v; ?>
         </div>
         <?php endif;?>
@@ -166,9 +166,9 @@ if ($params->get('enable_css', 1)) {
         $("#summa-kredita-to-109").trigger("keypress").val(function(i, val) {
             return 50000000;
         });
-        
-        
-        
+
+
+
         //получаем GET параметры в url
         var getUrlParameter = function getUrlParameter(sParam) {
             var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -182,12 +182,12 @@ if ($params->get('enable_css', 1)) {
                 }
             }
         };
-        var fromSumm = 500000;    
-        if(getUrlParameter('summ')){
+        var fromSumm = 500000;
+        if (getUrlParameter('summ')) {
             fromSumm = getUrlParameter('summ');
         }
-        var fromSroc = 24;    
-        if(getUrlParameter('sroc')){
+        var fromSroc = 24;
+        if (getUrlParameter('sroc')) {
             fromSroc = getUrlParameter('sroc');
         }
 
@@ -398,11 +398,11 @@ if ($params->get('enable_css', 1)) {
             var n = $(".dropdown-menu input:checked").length;
             $('button.filter-dropdown-toggle span').html('(+' + (4 - n) + ')');
         });
-        
-        
 
-        
-        
+
+
+
+
 
 
     });
