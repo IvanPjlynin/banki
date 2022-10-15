@@ -788,7 +788,8 @@ div.modal {
     border-radius: 100px;
 }
 
-.single .irs-bar {
+.single .irs-bar,
+.block-filter .dropdown-menu .block-filter span.irs-bar {
     left: 0 !important;
 }
 
