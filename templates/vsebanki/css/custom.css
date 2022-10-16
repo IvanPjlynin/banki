@@ -1031,7 +1031,7 @@ button.filter-dropdown-toggle span {
 
 .com-content-article.item-page.credit.kreditnye-karty #myTabContent h3,
 .com-content-article.item-page.credit.kreditnye-karty #myTabContent p {
-    text-align: left;
+    text-align: left !important;
 }
 
 /*Адаптация*/
