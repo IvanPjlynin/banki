@@ -1222,7 +1222,7 @@ jQuery(document).ready(function ($) {
             function () {
                 //do something special
                 if (formFilter == $('form.form-search').serialize()) {
-
+                    console.log('отправляем запрос');
                     loadDataFiltr().done(function (data) {
                         console.log($(data).find('.item-content').length);
                         let articlesCount = $(data).find('.item-content').length;
