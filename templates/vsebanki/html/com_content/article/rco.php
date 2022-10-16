@@ -146,7 +146,7 @@ $attribs['style'] = 'none';
             <div class="rl_tabs">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="tab-stavki" data-bs-toggle="tab" data-bs-target="#tab-stavki-tab" type="button" role="tab" aria-controls="tab-stavki" aria-selected="true">О тариф</a>
+                        <a class="nav-link active" id="tab-stavki" data-bs-toggle="tab" data-bs-target="#tab-stavki-tab" type="button" role="tab" aria-controls="tab-stavki" aria-selected="true">О тарифе</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -159,56 +159,56 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['rco-name']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['rko-mes']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Обслуживание в месяц</h3>
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['rko-mes']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['rko-fiz']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Переводы ФЛ</h3>
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['rko-fiz']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['postupleniya-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Поступления</h3>
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['postupleniya-ot']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['snyatie-nalichnykh']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Снятие наличных</h3>
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['snyatie-nalichnykh']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['rco-vnesrenie']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Внесение наличных</h3>
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['rco-vnesrenie']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['rco-bank']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Количество платежей на счета других банков</h3>
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['rco-bank']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['rco-bonus']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
                                 <h3 class="tab-text-block-title">Бонусы</h3>
                                 <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['rco-bonus']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                         </div>
                     </div>
 
