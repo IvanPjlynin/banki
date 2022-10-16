@@ -1225,7 +1225,8 @@ jQuery(document).ready(function ($) {
             function () {
                 //do something special
                 formFilter2 = $('form.form-search').serialize();
-
+                console.log('formFilter1', formFilter1);
+                console.log('formFilter2', formFilter2);
                 if (formFilter1 == formFilter2) {
                     console.log('отправляем запрос');
                     loadDataFiltr().done(function (data) {
