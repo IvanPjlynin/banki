@@ -1217,11 +1217,16 @@ jQuery(document).ready(function ($) {
     $('.form-search input, .form-search input[type="radio"], .form-search input[type="checkbox"], .form-search select').on('change', function () {
         console.log('изменен фильтр');
 
-        var formFilter = $('form.form-search').serialize();
+        var formFilter1;
+        var formFilter2;
+        formFilter1 = $('form.form-search').serialize();
+
         setTimeout(
             function () {
                 //do something special
-                if (formFilter == $('form.form-search').serialize()) {
+                formFilter2 = $('form.form-search').serialize();
+
+                if (formFilter == formFilter2) {
                     console.log('отправляем запрос');
                     loadDataFiltr().done(function (data) {
                         console.log($(data).find('.item-content').length);
