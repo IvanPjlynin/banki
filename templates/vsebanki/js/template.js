@@ -616,56 +616,56 @@ jQuery(document).ready(function ($) {
             min: min2,
             max: max2
         });
-        
+
         $('.credit .hover-block .service-button').attr('href', link);
     }
-    
+
     //клик по ссылке в блоке на главной Кредит
-    $('.service.credit a').on('click', function(e){
+    $('.service.credit a').on('click', function (e) {
         //e.preventDefault(); //отменить выполнение действия по умолчанию
         var getHref = $(this).attr('href');
         var summ = $range1.prop("value");
         var sroc = $range2.prop("value");
-        var link = getHref + '?' + 'jlcontentfieldsfilter%5B30%5D%5Bfrom%5D=0' + '&' + 'jlcontentfieldsfilter%5B30%5D%5Bto%5D=' + summ + '&' + 'jlcontentfieldsfilter%5B1%5D%5Bfrom%5D='+ summ + '&' + 'jlcontentfieldsfilter%5B1%5D%5Bto%5D=50000000' + '&' + 'jlcontentfieldsfilter%5B32%5D%5Bfrom%5D=0' + '&' + 'jlcontentfieldsfilter%5B32%5D%5Bto%5D=' + sroc + '&' + 'jlcontentfieldsfilter%5B2%5D%5Bfrom%5D=' + sroc + '&' + 'jlcontentfieldsfilter%5B2%5D%5Bto%5D=2000&summ=' +  summ + '&sroc=' + sroc;
+        var link = getHref + '?' + 'jlcontentfieldsfilter%5B30%5D%5Bfrom%5D=0' + '&' + 'jlcontentfieldsfilter%5B30%5D%5Bto%5D=' + summ + '&' + 'jlcontentfieldsfilter%5B1%5D%5Bfrom%5D=' + summ + '&' + 'jlcontentfieldsfilter%5B1%5D%5Bto%5D=50000000' + '&' + 'jlcontentfieldsfilter%5B32%5D%5Bfrom%5D=0' + '&' + 'jlcontentfieldsfilter%5B32%5D%5Bto%5D=' + sroc + '&' + 'jlcontentfieldsfilter%5B2%5D%5Bfrom%5D=' + sroc + '&' + 'jlcontentfieldsfilter%5B2%5D%5Bto%5D=2000&summ=' + summ + '&sroc=' + sroc;
         $(this).attr('href', link);
-      
+
     });
-    
+
     //клик по ссылке в блоке на главной Кредитные карты
-    $('.service.credit-card a').on('click', function(e){
+    $('.service.credit-card a').on('click', function (e) {
         //e.preventDefault(); //отменить выполнение действия по умолчанию
         var getHref = $(this).attr('href');
         var summ = $range3.prop("value");
-        var link = getHref + '?jlcontentfieldsfilter%5B12%5D%5Bfrom%5D=' + summ + '&jlcontentfieldsfilter%5B12%5D%5Bto%5D=1000000&summ=' +  summ;
+        var link = getHref + '?jlcontentfieldsfilter%5B12%5D%5Bfrom%5D=' + summ + '&jlcontentfieldsfilter%5B12%5D%5Bto%5D=1000000&summ=' + summ;
         $(this).attr('href', link);
-      
+
     });
-    
+
     //клик по ссылке в блоке на главной Займы
-    $('.loan a').on('click', function(e){
+    $('.loan a').on('click', function (e) {
         //e.preventDefault(); //отменить выполнение действия по умолчанию
         var getHref = $(this).attr('href');
         var summ = $range4.prop("value");
         var sroc = $range5.prop("value");
-        var link = getHref + '?jlcontentfieldsfilter%5B48%5D%5Bfrom%5D=0&jlcontentfieldsfilter%5B48%5D%5Bto%5D=' + summ + '&jlcontentfieldsfilter%5B9%5D%5Bfrom%5D=' + summ + '&jlcontentfieldsfilter%5B9%5D%5Bto%5D=100000&jlcontentfieldsfilter%5B52%5D%5Bfrom%5D=0&jlcontentfieldsfilter%5B52%5D%5Bto%5D=' + sroc + '&jlcontentfieldsfilter%5B10%5D%5Bfrom%5D=' + sroc + '&jlcontentfieldsfilter%5B10%5D%5Bto%5D=366&summ=' +  summ + '&sroc=' + sroc;
+        var link = getHref + '?jlcontentfieldsfilter%5B48%5D%5Bfrom%5D=0&jlcontentfieldsfilter%5B48%5D%5Bto%5D=' + summ + '&jlcontentfieldsfilter%5B9%5D%5Bfrom%5D=' + summ + '&jlcontentfieldsfilter%5B9%5D%5Bto%5D=100000&jlcontentfieldsfilter%5B52%5D%5Bfrom%5D=0&jlcontentfieldsfilter%5B52%5D%5Bto%5D=' + sroc + '&jlcontentfieldsfilter%5B10%5D%5Bfrom%5D=' + sroc + '&jlcontentfieldsfilter%5B10%5D%5Bto%5D=366&summ=' + summ + '&sroc=' + sroc;
         $(this).attr('href', link);
-      
+
     });
-    
+
     //клик по ссылке в блоке на главной Вклады
-    $('.deposit a').on('click', function(e){
+    $('.deposit a').on('click', function (e) {
         //e.preventDefault(); //отменить выполнение действия по умолчанию
         var getHref = $(this).attr('href');
         var summ = $range6.prop("value");
         var sroc = $range7.prop("value");
-        var link = getHref + '?jlcontentfieldsfilter%5B15%5D%5Bfrom%5D=1000&jlcontentfieldsfilter%5B15%5D%5Bto%5D=' + summ + '&jlcontentfieldsfilter%5B16%5D%5Bfrom%5D=1&jlcontentfieldsfilter%5B16%5D%5Bto%5D=' + sroc + '&jlcontentfieldsfilter%5B138%5D%5Bfrom%5D=' + sroc + '&jlcontentfieldsfilter%5B138%5D%5Bto%5D=1000&summ=' +  summ + '&sroc=' + sroc;
+        var link = getHref + '?jlcontentfieldsfilter%5B15%5D%5Bfrom%5D=1000&jlcontentfieldsfilter%5B15%5D%5Bto%5D=' + summ + '&jlcontentfieldsfilter%5B16%5D%5Bfrom%5D=1&jlcontentfieldsfilter%5B16%5D%5Bto%5D=' + sroc + '&jlcontentfieldsfilter%5B138%5D%5Bfrom%5D=' + sroc + '&jlcontentfieldsfilter%5B138%5D%5Bto%5D=1000&summ=' + summ + '&sroc=' + sroc;
         $(this).attr('href', link);
-      
+
     });
-    
-    
-    
-    
+
+
+
+
     //разбитие цены на разряды
     //$('.summa .bank-field-value').each(function (i, elem) {
     //let summ = parseInt($(this).html());
@@ -1216,11 +1216,22 @@ jQuery(document).ready(function ($) {
     });
     $('.form-search input, .form-search input[type="radio"], .form-search input[type="checkbox"], .form-search select').on('change', function () {
         console.log('изменен фильтр');
-        loadDataFiltr().done(function (data) {
-            console.log($(data).find('.item-content').length);
-            let articlesCount = $(data).find('.item-content').length;
-            $('.jlmf-button').text('Показать (' + articlesCount + ')');
-        })
+
+        var formFilter = $('form.form-search').serialize();
+        setTimeout(
+            function () {
+                //do something special
+                if (formFilter == $('form.form-search').serialize()) {
+
+                    loadDataFiltr().done(function (data) {
+                        console.log($(data).find('.item-content').length);
+                        let articlesCount = $(data).find('.item-content').length;
+                        $('.jlmf-button').text('Показать (' + articlesCount + ')');
+                    })
+
+                }
+            }, 1000);
+
     });
 
     function loadDataFiltr() {
