@@ -381,11 +381,11 @@ die();*/
 				$app->setUserState($option.'.category.list.' . $itemid . '.filter_order_Dir', $dirn);
 			}
 		}
-        echo '<pre>';
+        /*echo '<pre>';
         print_r($_GET['jlcontentfieldsfilter']);
         echo '</pre>';
-        die();
-        /*if( isset($_POST['tmpl']) || isset($_GET['summ']) ){
+        die();*/
+if( isset($_POST['tmpl']) || isset($_GET['summ']) || isset($_GET['jlcontentfieldsfilter']) ){
             
         } else {
             
@@ -393,7 +393,7 @@ die();*/
 			$app->setUserState($context . 'filter.article_id', null);
             
            
-        }*/
+        }
 
         
 	}
