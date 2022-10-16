@@ -382,7 +382,7 @@ die();*/
 			}
 		}
         
-        if( isset($_POST['tmpl']) || isset($_GET['summ']) ){
+        /*if( isset($_POST['tmpl']) || isset($_GET['summ']) ){
             
         } else {
             
@@ -390,7 +390,7 @@ die();*/
 			$app->setUserState($context . 'filter.article_id', null);
             
            
-        }
+        }*/
 
         
 	}
