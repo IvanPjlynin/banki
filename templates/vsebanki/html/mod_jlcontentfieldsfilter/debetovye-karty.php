@@ -55,7 +55,7 @@ if ($params->get('enable_css', 1)) {
 
         </div>
 
-        <div class="col-md-3 block-filter">
+        <!--<div class="col-md-3 block-filter">
             <div class="dropdown">
                 <button class="btn dropdown-toggle filter-dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                     Фильтры поиска <span></span>
@@ -73,7 +73,7 @@ if ($params->get('enable_css', 1)) {
 
                 </div>
             </div>
-        </div>
+        </div>-->
 
         <div class="col-md-3 jlmf-section">
             <?php if (!$autho_send) : ?>
