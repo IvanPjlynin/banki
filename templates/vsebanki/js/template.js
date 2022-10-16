@@ -1240,7 +1240,11 @@ jQuery(document).ready(function ($) {
 
     });
 
-    loadDataFiltr();
+    loadDataFiltr().done(function (data) {
+        console.log($(data).find('.item-content').length);
+        let articlesCount = $(data).find('.item-content').length;
+        $('.jlmf-button').text('Показать (' + articlesCount + ')');
+    });
 
     function loadDataFiltr() {
         var form = $('form.form-search');
