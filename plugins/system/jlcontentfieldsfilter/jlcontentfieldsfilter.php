@@ -381,8 +381,9 @@ die();*/
 				$app->setUserState($option.'.category.list.' . $itemid . '.filter_order_Dir', $dirn);
 			}
 		}
-        
-        print_r($_GET['is_filter']);
+        echo '<pre>';
+        print_r($_GET);
+        echo '</pre>';
         die();
         /*if( isset($_POST['tmpl']) || isset($_GET['summ']) ){
             
