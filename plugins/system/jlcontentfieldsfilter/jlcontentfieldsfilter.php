@@ -382,7 +382,7 @@ die();*/
 			}
 		}
         
-        print_r($_GET);
+        print_r($_GET['is_filter']);
         die();
         /*if( isset($_POST['tmpl']) || isset($_GET['summ']) ){
             
