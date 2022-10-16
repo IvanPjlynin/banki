@@ -1029,6 +1029,10 @@ button.filter-dropdown-toggle span {
     z-index: 1;
 }
 
+.com-content-article.item-page.credit.kreditnye-karty #myTabContent h3,
+.com-content-article.item-page.credit.kreditnye-karty #myTabContent p {
+    text-align: left;
+}
 
 /*Адаптация*/
 @media screen and (max-width: 768px) {
