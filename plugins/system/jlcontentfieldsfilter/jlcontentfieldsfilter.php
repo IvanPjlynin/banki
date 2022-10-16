@@ -382,7 +382,7 @@ die();*/
 			}
 		}
         echo '<pre>';
-        print_r($_GET);
+        print_r($_GET['jlcontentfieldsfilter']);
         echo '</pre>';
         die();
         /*if( isset($_POST['tmpl']) || isset($_GET['summ']) ){
