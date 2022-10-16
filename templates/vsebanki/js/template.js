@@ -1240,6 +1240,8 @@ jQuery(document).ready(function ($) {
 
     });
 
+    loadDataFiltr();
+
     function loadDataFiltr() {
         var form = $('form.form-search');
         //console.log(form.attr('action'));
