@@ -82,6 +82,16 @@ $attribs['style'] = 'none';
         <span class="icon-info-circle" aria-hidden="true"></span><span class="visually-hidden"><?php echo Text::_('INFO'); ?></span>
         <?php echo Text::_('COM_CONTENT_NO_ARTICLES'); ?>
     </div>-->
+
+    <div class="com-content-category-blog__items blog-items ">
+        <div class="com-content-category-blog__item blog-item" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+
+        </div>
+    </div>
+
+
+
     <?php endif; ?>
     <?php endif; ?>
 
