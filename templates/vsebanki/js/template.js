@@ -1177,7 +1177,7 @@ jQuery(document).ready(function ($) {
             grid: false,
             from: 1000000,
             postfix: '',
-            min: 100000,
+            min: 0,
             step: 10000,
             grid_num: 4,
             grid_snap: '',
