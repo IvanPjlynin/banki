@@ -276,7 +276,7 @@ if ($params->get('enable_css', 1)) {
             grid: false,
             from: fromSroc,
             postfix: '',
-            min: 1,
+            min: 3,
             step: 1,
             grid_num: 4,
             grid_snap: '',
@@ -343,12 +343,12 @@ if ($params->get('enable_css', 1)) {
 
         $filter_vozrast.ionRangeSlider({
             skin: "round",
-            type: "double",
+            type: "single",
             grid: false,
             from: 22,
             to: 65,
             postfix: '',
-            min: 16,
+            min: 18,
             step: 1,
             grid_num: 4,
             grid_snap: '',
