@@ -1057,6 +1057,10 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     border-right: 1px solid #EBEFEF;
 }
 
+.com-content-article.rco .bank-info .row .bank-logo figure {
+    margin: 0 auto;
+}
+
 /*sroll to top*/
 .btn-up {
     position: fixed;
