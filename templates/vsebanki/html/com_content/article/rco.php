@@ -121,6 +121,7 @@ $attribs['style'] = 'none';
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-logo">
                     <?php echo LayoutHelper::render('joomla.content.full_image', $this->item); ?>
+                    <?php echo $this->item->extrafields['rco-name']->value; ?>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields " style="display: flex;align-items: center;">
 
