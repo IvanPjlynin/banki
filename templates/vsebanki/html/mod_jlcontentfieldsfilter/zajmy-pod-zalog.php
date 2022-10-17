@@ -429,8 +429,8 @@ if ($params->get('enable_css', 1)) {
 <style>
     .blog .tabsmenu a:nth-child(2)~div,
     .blog .tabsmenu a:nth-child(2):hover~div {
-        transform: translate(125px);
-        -webkit-transform: translate(125px);
+        transform: translate(168px);
+        -webkit-transform: translate(168px);
         background: #56C182;
         transition: all .33s linear;
         -webkit-transition: all .33s linear;
@@ -444,7 +444,7 @@ if ($params->get('enable_css', 1)) {
         background: #56C182;
         transition: all .33s linear;
         -webkit-transition: all .33s linear;
-        width: 80px;
+        width: 120px;
         color: #002D4F;
     }
 
