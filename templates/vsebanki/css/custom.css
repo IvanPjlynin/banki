@@ -1037,7 +1037,7 @@ button.filter-dropdown-toggle span {
 /*sroll to top*/
 .btn-up {
     position: fixed;
-    background-color: #673ab7;
+    background-color: #56c182;
     right: 20px;
     bottom: 20px;
     border-radius: 22px;
@@ -1063,7 +1063,7 @@ button.filter-dropdown-toggle span {
 
 @media (hover: hover) and (pointer: fine) {
     .btn-up:hover {
-        background-color: #512da8;
+        background-color: #1c7c44;
     }
 }
 
