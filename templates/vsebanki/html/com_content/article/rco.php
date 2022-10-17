@@ -157,12 +157,7 @@ $attribs['style'] = 'none';
                     <div class="tab-pane fade show active" id="tab-stavki-tab" role="tabpanel" aria-labelledby="tab-stavki">
                         <div class="row tab-text">
 
-                            <?php if ($this->item->extrafields['rco-name']->value) : ?>
-                            <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
-                                <h3 class="tab-text-block-title">Название тарифа</h3>
-                                <p class="tab-text-block-content text-center"><?php echo $this->item->extrafields['rco-name']->value; ?></p>
-                            </div>
-                            <?php endif; ?>
+
 
                             <?php if ($this->item->extrafields['rko-mes']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-4 tab-text-block text-center">
