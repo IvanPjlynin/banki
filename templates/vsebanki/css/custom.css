@@ -1049,6 +1049,14 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     min-width: 600px;
 }
 
+.com-content-article.rco .bank-info .row .bank-logo {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid #EBEFEF;
+}
+
 /*sroll to top*/
 .btn-up {
     position: fixed;
@@ -1789,4 +1797,6 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
         width: auto;
         display: inline-block;
     }
+
+
 }
