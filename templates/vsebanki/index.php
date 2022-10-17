@@ -261,6 +261,8 @@ $stickyHeader = $this->params->get('sticky-header') ? 'position-sticky sticky-to
     <?php endif; ?>
     <jdoc:include type="modules" name="debug" style="none" />
 
+    <div class="btn-up btn-up_hide"></div>
+
 </body>
 
 </html>
