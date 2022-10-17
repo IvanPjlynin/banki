@@ -1034,6 +1034,10 @@ button.filter-dropdown-toggle span {
     text-align: left !important;
 }
 
+body > main > div.content.container > div > div > div.com-content-article.item-page > div.com-content-article__body > div.article-full-width > div > div:nth-child(1) > div.com-baforms-wrapper > form > div.ba-form-page > div > div:nth-child(2) > div > div:nth-child(1) > div > div > div.ba-field-container > input.ba-phone-number-input {
+    padding-left: 105px !important;
+}
+
 /*sroll to top*/
 .btn-up {
     position: fixed;
