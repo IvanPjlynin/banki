@@ -1763,6 +1763,6 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     }
 
     body > main > div > div > div > div.com-content-article.item-page > div > div.col-12.col-sm-12.col-md-12.full-item-block.block1.full-item-block_full-wight > div > div > a {
-        margin: 25px auto 0;
+        margin: 25px auto 0 !important;
     }
 }
