@@ -76,6 +76,7 @@ $stickyHeader = $this->params->get('sticky-header') ? 'position-sticky sticky-to
 	. ($pageclass ? ' ' . $pageclass : '')
 	. $hasClass;
 ?>">
+    <div class="btn-up btn-up_hide"></div>
     <header class="header full-width<?php echo $stickyHeader ? ' ' . $stickyHeader : ''; ?>">
         <div class="container">
             <div class="row">
@@ -261,7 +262,7 @@ $stickyHeader = $this->params->get('sticky-header') ? 'position-sticky sticky-to
     <?php endif; ?>
     <jdoc:include type="modules" name="debug" style="none" />
 
-    <div class="btn-up btn-up_hide"></div>
+
 
 </body>
 
