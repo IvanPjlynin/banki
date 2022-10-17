@@ -131,9 +131,9 @@ $attribs['style'] = 'none';
                         <div class="bank-field-name">Срок</div>
                         <div class="bank-field-value">
                             <?php if ($this->item->extrafields['srok-vklada-do']->value == '999') : ?>
-                                Не ограничен
+                            Не ограничен
                             <?php else: ?>
-                                до <?php echo $this->item->extrafields['srok-vklada-do']->value; ?> мес.
+                            до <?php echo $this->item->extrafields['srok-vklada-do']->value; ?> мес.
                             <?php endif; ?>
                         </div>
                     </div>
@@ -177,36 +177,36 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">от <?php echo number_format($this->item->extrafields['summa-vklada']->value, 0, ',', ' '); ?> ₽</p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['stavka-vklada']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Ставка</h3>
                                 <p class="tab-text-block-content">до <?php echo $this->item->extrafields['stavka-vklada']->value; ?> %</p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['srok-vklada-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок</h3>
                                 <p class="tab-text-block-content">
                                     от <?php echo $this->item->extrafields['srok-vklada-ot'']->value; ?> мес.
-                                    
+
                                     <?php if ($this->item->extrafields['srok-vklada-do']->value && $this->item->extrafields['srok-vklada-do']->value !== '999' ) : ?>
-                                        до <?php echo $this->item->extrafields['srok-vklada-do']->value; ?> мес.
-                                    <?php endif; ?>                         
-                                                                
-                                    
+                                    до <?php echo $this->item->extrafields['srok-vklada-do']->value; ?> мес.
+                                    <?php endif; ?>
+
+
                                 </p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['nachislenie-protsentov']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Начисление процентов</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['nachislenie-protsentov']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
 
                         </div>
                     </div>
@@ -219,7 +219,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">от <?php echo $this->item->extrafields['vclad-vozrast']->value; ?> лет</p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['dokumenty']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Документы</h3>
@@ -238,49 +238,49 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['kapitalizatsiya-protsentov']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['popolnenie']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Пополнение</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['popolnenie']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['chastichnoe-snyatie']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Частичное снятие\расходы</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['chastichnoe-snyatie']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['nesnizhaemyj-ostatok']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Неснижаемый остаток</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['nesnizhaemyj-ostatok']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['vclad-raschet-procentov']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Расчет процентов</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['vclad-raschet-procentov']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['vclad-vupusk-cartu']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Выпуск карты</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['vclad-vupusk-cartu']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['vclad-prolognacia']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Прологнация</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['vclad-prolognacia']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                         </div>
                     </div>
                 </div>
