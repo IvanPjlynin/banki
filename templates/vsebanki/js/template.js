@@ -1052,7 +1052,7 @@ jQuery(document).ready(function ($) {
             onChangeInput: function (elem) {
                 $(elem).on("change keyup paste", function () {
 
-                    if (($(elem).attr('id') == 'stoimost-nedvig') || ($(elem).attr('id') == 'one-vznos')) {
+                    if (($(elem).attr('id') == 'stoimost-nedvig') || ($(elem).attr('id') == 'one-vznos') || ($(elem).attr('id') == 'srock-ipoteca')) {
                         calcIpoteca.digits_int(elem);
                     }
 
