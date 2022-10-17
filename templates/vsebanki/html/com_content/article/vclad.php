@@ -189,7 +189,7 @@ $attribs['style'] = 'none';
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Срок</h3>
                                 <p class="tab-text-block-content">
-                                    от <?php echo $this->item->extrafields['srok-vklada-ot'']->value; ?> мес.
+                                    от <?php echo $this->item->extrafields['srok-vklada-ot']->value; ?> мес.
 
                                     <?php if ($this->item->extrafields['srok-vklada-do']->value && $this->item->extrafields['srok-vklada-do']->value !== '999' ) : ?>
                                     до <?php echo $this->item->extrafields['srok-vklada-do']->value; ?> мес.
