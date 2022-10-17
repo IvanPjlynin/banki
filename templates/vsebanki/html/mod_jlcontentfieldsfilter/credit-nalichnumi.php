@@ -427,7 +427,7 @@ if ($params->get('enable_css', 1)) {
         color: #56c182;
     }
 
-    .blog .tabsmenu a:nth-child(5)~div {
+    .blog .tabsmenu a:nth-child(5):hover~div {
         transform: translate(170px);
         -webkit-transform: translate(170px);
         background: #56C182;
