@@ -1061,12 +1061,16 @@ jQuery(document).ready(function ($) {
 
                     var sliderStoimostNedvig = $sliderStoimostNedvig.data("ionRangeSlider");
                     var sliderOneVznos = $sliderOneVznos.data("ionRangeSlider");
+                    var sliderSrock = $sliderSrock.data("ionRangeSlider");
                     sliderStoimostNedvig.update({
                         from: calcIpoteca.params['stoimost-nedvig']
                     });
                     sliderOneVznos.update({
                         from: calcIpoteca.params['one-vznos'],
                         max: calcIpoteca.params['stoimost-nedvig']
+                    });
+                    sliderSrock.update({
+                        from: calcIpoteca.params['srock-ipoteca']
                     });
 
                 });
