@@ -1808,5 +1808,14 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
         display: inline-block;
     }
 
+    body > main > div.section.intro > div > div {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
+    body > main > div.section.intro > div > div > div {
+        display: inline-block;
+    }
 
 }
