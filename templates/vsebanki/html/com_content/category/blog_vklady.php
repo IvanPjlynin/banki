@@ -58,9 +58,9 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
                 <div class="bank-field-name">Срок</div>
                 <div class="bank-field-value">
                     <?php if ($this->item->extrafields['srok-vklada-do']->value == '999') : ?>
-                        Не ограничен
+                    Не ограничен
                     <?php else: ?>
-                        до <?php echo $this->item->extrafields['srok-vklada-do']->value; ?> мес.
+                    до <?php echo $this->item->extrafields['srok-vklada-do']->value; ?> мес.
                     <?php endif; ?>
                 </div>
             </div>
@@ -75,7 +75,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
             <?php endif; ?>
             <div class="buttons">
                 <a class="button-full" href="<?php echo $this->item->category_route.'/'.$this->item->alias; ?>"><?php echo JText::_('BANK_FULL_LINK'); ?></a>
-                <a class="button-full-send" href="#"><?php echo JText::_('BANK_FULL_SEND_LINK'); ?></a>
+                <a class="button-full-send" href="<?php echo $this->item->extrafields['ssylka-na-ofer-banka']->value; ?>"><?php echo JText::_('BANK_FULL_SEND_LINK'); ?></a>
             </div>
         </div>
 
