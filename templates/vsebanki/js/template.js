@@ -1191,7 +1191,7 @@ jQuery(document).ready(function ($) {
             calcIpoteca.setSlideToInput($('#one-vznos'), value);
         });
 
-        var $sliderSrock = $('#srock-ipoteca-slide');
+        var $sliderSrock = $('#srock-ipoteca-slider');
         $sliderSrock.ionRangeSlider({
             type: "single",
             grid: false,
