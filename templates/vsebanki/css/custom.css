@@ -1044,6 +1044,10 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     overflow-x: scroll;
 }
 
+#exampleModalGrafic .modal-dialog.modal-xl {
+    min-width: 600px;
+}
+
 /*sroll to top*/
 .btn-up {
     position: fixed;
