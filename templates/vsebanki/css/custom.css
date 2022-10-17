@@ -1770,7 +1770,8 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
         margin: 25px auto 0 !important;
     }
 
-    body > main > div > div > div > div.com-content-category-blog div.tabsmenu {
+    body > main > div > div > div > div.com-content-category-blog div.tabsmenu,
+    .com_content.view-article #myTab {
         overflow-x: scroll;
         overflow-y: hidden;
         white-space: nowrap;
