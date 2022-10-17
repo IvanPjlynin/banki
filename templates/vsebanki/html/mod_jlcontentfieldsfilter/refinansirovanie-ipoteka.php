@@ -408,6 +408,16 @@ if ($params->get('enable_css', 1)) {
         color: #002D4F;
     }
 
+    .blog .tabsmenu a:nth-child(3):hover~div {
+        transform: translate(383px);
+        -webkit-transform: translate(383px);
+        background: #56C182;
+        transition: all .33s linear;
+        -webkit-transition: all .33s linear;
+        width: 249px;
+        color: #002D4F;
+    }
+
     .blog .tabsmenu a:nth-child(2) {
         color: #56c182;
     }
