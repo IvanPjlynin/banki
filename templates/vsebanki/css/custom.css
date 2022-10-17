@@ -1040,6 +1040,10 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     padding-left: 105px !important;
 }
 
+#exampleModalGrafic {
+    overflow-x: scroll;
+}
+
 /*sroll to top*/
 .btn-up {
     position: fixed;
