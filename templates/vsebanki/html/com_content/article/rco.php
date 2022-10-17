@@ -123,8 +123,6 @@ $attribs['style'] = 'none';
 
                     <?php echo LayoutHelper::render('joomla.content.full_image', $this->item); ?>
 
-                    <div></div>
-
                     <h4><?php echo $this->item->extrafields['rco-name']->value; ?></h4>
 
                 </div>
