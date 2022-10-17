@@ -1450,7 +1450,10 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     }
 
     body.itemid-116 > main > div > div > div > div.com-content-article.item-page > div > div.col-12.col-sm-12.col-md-12.full-item-block.block1.full-item-block_full-wight > div > div > div > div > div > div.col-12.col-sm-12.col-md-7.py-4.ps-4 > div:nth-child(1) > a {
-        display: none;
+        display: block;
+
+        margin-top: 11px;
+        padding: 0 10px;
     }
 
     .full-item-block .banner-subtitle {
