@@ -1770,11 +1770,23 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
         margin: 25px auto 0 !important;
     }
 
-    body > main > div > div > div > div.com-content-category-blog div.tabsmenu,
+    body > main > div > div > div > div.com-content-category-blog div.tabsmenu {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding-bottom: 5px;
+    }
+
     .com_content.view-article #myTab {
         overflow-x: scroll;
         overflow-y: hidden;
         white-space: nowrap;
         padding-bottom: 5px;
+        display: block;
+    }
+
+    .item-page.credit .com-content-article__body .bank-info-full .rl_tabs .nav-tabs li {
+        width: auto;
+        display: inline-block;
     }
 }
