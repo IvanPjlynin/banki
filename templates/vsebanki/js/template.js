@@ -1306,6 +1306,10 @@ jQuery(document).ready(function ($) {
                     left: 0,
                     behavior: 'smooth'
                 });
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 500);
+                return false;
             }
         }
     }
