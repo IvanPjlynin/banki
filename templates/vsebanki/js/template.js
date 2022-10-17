@@ -1204,6 +1204,13 @@ jQuery(document).ready(function ($) {
             max: 30
         });
 
+        $sliderSrock.on("change", function () {
+            var $this = $(this),
+                value = $this.prop("value");
+
+            calcIpoteca.setSlideToInput($('#srock-ipoteca'), value);
+        });
+
     }
 
 
