@@ -792,7 +792,8 @@ div.modal {
 .block-filter .dropdown-menu .block-filter span.irs-bar,
 body > main > div > div > div > div.com-content-article.item-page > div > div.col-12.col-sm-12.col-md-12.full-item-block.block1.full-item-block_full-wight > div > div > div > div > div > div.col-12.col-sm-12.col-md-6.border-right.py-4.pe-4 > div.form-1 > span > span.irs-bar,
 body > main > div > div > div > div.com-content-article.item-page > div > div.col-12.col-sm-12.col-md-12.full-item-block.block1.full-item-block_full-wight > div > div > div > div > div > div.col-12.col-sm-12.col-md-6.border-right.py-4.pe-4 > div.form-2.mt-4 > span.irs.js-irs-1 > span.irs-bar,
-body > main > div > div > div > div.com-content-article.item-page > div > div.col-12.col-sm-12.col-md-12.full-item-block.block1.full-item-block_full-wight > div > div > div > div > div > div.col-12.col-sm-12.col-md-5.border-right.py-4.form-credit-calc_block-form.pe-4 > div.input-group.mb-3 > div.col-8.col-sm-12.col-md-8 > span > span.irs-bar {
+body > main > div > div > div > div.com-content-article.item-page > div > div.col-12.col-sm-12.col-md-12.full-item-block.block1.full-item-block_full-wight > div > div > div > div > div > div.col-12.col-sm-12.col-md-5.border-right.py-4.form-credit-calc_block-form.pe-4 > div.input-group.mb-3 > div.col-8.col-sm-12.col-md-8 > span > span.irs-bar,
+body > main > div > div > div > div.com-content-article.item-page > div > div.col-12.col-sm-12.col-md-12.full-item-block.block1.full-item-block_full-wight > div > div > div > div > div > div.col-12.col-sm-12.col-md-6.border-right.py-4.pe-4 > div.form-3.mt-4.row > div.col-12.col-sm-12.col-md-8 > span > span.irs-bar {
     left: 0 !important;
 }
 
