@@ -1061,6 +1061,12 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     margin: 0 auto;
 }
 
+.com-content-article.rco .bank-info .row .bank-logo h4 {
+    margin-top: 10px;
+    font-size: 22px;
+    color: #606970;
+}
+
 /*sroll to top*/
 .btn-up {
     position: fixed;
