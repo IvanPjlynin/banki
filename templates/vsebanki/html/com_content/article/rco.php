@@ -120,7 +120,10 @@ $attribs['style'] = 'none';
                     <?php echo $this->item->extrafields['rejting']->value; ?>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-logo">
-                    <?php echo LayoutHelper::render('joomla.content.full_image', $this->item); ?>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <?php echo LayoutHelper::render('joomla.content.full_image', $this->item); ?>
+                    </div>
+
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <h4><?php echo $this->item->extrafields['rco-name']->value; ?></h4>
                     </div>
