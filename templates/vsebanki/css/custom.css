@@ -1050,7 +1050,7 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
 }
 
 .com-content-article.rco .bank-info .row .bank-logo {
-    display: inline-block;
+    display: inline-block !important;
     justify-content: center;
     align-items: center;
     text-align: center;
