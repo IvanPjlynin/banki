@@ -864,7 +864,7 @@ jQuery(document).ready(function ($) {
         $sliderSrockCredit.ionRangeSlider({
             type: "single",
             grid: false,
-            from: 6,
+            from: 12,
             postfix: '',
             min: 2,
             step: 1,
