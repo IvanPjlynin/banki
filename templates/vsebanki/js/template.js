@@ -1303,12 +1303,14 @@ jQuery(document).ready(function ($) {
             }, 500);
 
     });
-
-    loadDataFiltr().done(function (data) {
-        console.log($(data).find('.item-content').length);
-        let articlesCount = $(data).find('.item-content').length;
-        $('.jlmf-button').text('Показать (' + articlesCount + ')');
-    });
+    setTimeout(
+        function () {
+            loadDataFiltr().done(function (data) {
+                console.log($(data).find('.item-content').length);
+                let articlesCount = $(data).find('.item-content').length;
+                $('.jlmf-button').text('Показать (' + articlesCount + ')');
+            });
+        }, 500);
 
     function loadDataFiltr() {
         var form = $('form.form-search');
