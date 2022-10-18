@@ -913,7 +913,8 @@ jQuery(document).ready(function ($) {
 
             console.log('mesPlateg - ', mesPlateg);
 
-            var valueForm['form-credit-calc_mes-plat'] = Math.round(mesPlateg);
+            let valueForm = {};
+            valueForm['form-credit-calc_mes-plat'] = Math.round(mesPlateg);
             valueForm['form-credit-calc_mes-plat'] = valueForm['form-credit-calc_mes-plat'].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
             $('.form-credit-calc_mes-plat').html(valueForm['form-credit-calc_mes-plat']);
