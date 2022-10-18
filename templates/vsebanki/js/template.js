@@ -860,6 +860,32 @@ jQuery(document).ready(function ($) {
         });
 
 
+        var $sliderSrockCredit = $('#srock-credit-slider');
+        $sliderSrockCredit.ionRangeSlider({
+            type: "single",
+            grid: false,
+            from: 6,
+            postfix: '',
+            min: 2,
+            step: 1,
+            grid_num: 4,
+            grid_snap: '',
+            max: 240
+        });
+
+        $sliderSrockCredit.on("change", function () {
+            var $this = $(this),
+                value = $this.prop("value")
+
+            $('#srock-credit').val(value);
+
+            digits_int(this);
+            getRezultElemForm();
+            renderTableGrafic();
+
+        });
+
+
         let kredit = {
             "summ-kredit": 1000000,
             "select-valute": "₽",
