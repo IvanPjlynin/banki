@@ -737,13 +737,18 @@
 }
 
 .form-credit-calc #srock-credit {
-    width: auto;
-    max-width: 80px;
+    width: 100%;
+    /*max-width: 80px;*/
+}
+
+body > main > div > div > div > div.com-content-article.item-page > div > div.col-12.col-sm-12.col-md-12.full-item-block.block1.full-item-block_full-wight > div > div > div > div > div > div.col-12.col-sm-12.col-md-5.border-right.py-4.form-credit-calc_block-form.pe-4 > div.row > div.col-md-4.col-4 > label {
+    float: right;
 }
 
 .form-credit-calc #stavka-procent {
     width: auto;
-    max-width: 80px;
+    max-width: 72px;
+    float: right;
 }
 
 div.modal {
