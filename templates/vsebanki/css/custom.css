@@ -1825,4 +1825,11 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
         flex: 0 0 auto;
     }
 
+    .blog div.tabsmenu {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding-bottom: 5px;
+    }
+
 }
