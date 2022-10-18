@@ -817,6 +817,12 @@ jQuery(document).ready(function ($) {
     //форма калькулятора и расчет
     if ($('.form-credit-calc').length > 0) {
 
+        //разделитель на 1 000
+        function number_format(num, format) {
+            num = (num + "").replace(/(\s)+/g, "");
+            return format ? num.replace(/(\d{1,3})(?=(?:\d{3})+$)/g, "$1 ") : num
+        }
+
         //печать
         $('#exampleModalGrafic > div > div > div.modal-body > div.pb-4 > a').click(function (e) {
             e.preventDefault();
@@ -913,11 +919,11 @@ jQuery(document).ready(function ($) {
 
             console.log('mesPlateg - ', mesPlateg);
 
-            let valueForm = {};
-            valueForm['form-credit-calc_mes-plat'] = Math.round(mesPlateg);
-            valueForm['form-credit-calc_mes-plat'] = valueForm['form-credit-calc_mes-plat'].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            number_format(num, format)
+            Math.round(mesPlateg);
 
-            $('.form-credit-calc_mes-plat').html(valueForm['form-credit-calc_mes-plat']);
+
+            $('.form-credit-calc_mes-plat').html(number_format(Math.round(mesPlateg), true));
 
 
             $('.form-credit-calc_pereplat').html(Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
