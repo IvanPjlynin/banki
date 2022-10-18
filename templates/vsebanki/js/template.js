@@ -913,7 +913,12 @@ jQuery(document).ready(function ($) {
 
             console.log('mesPlateg - ', mesPlateg);
 
-            $('.form-credit-calc_mes-plat').html(Math.round(mesPlateg).replace(/\B(?=(\d{3})+(?!\d))/g, ' '));
+            var valueForm['form-credit-calc_mes-plat'] = Math.round(mesPlateg);
+            valueForm['form-credit-calc_mes-plat'] = valueForm['form-credit-calc_mes-plat'].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+
+            $('.form-credit-calc_mes-plat').html(valueForm['form-credit-calc_mes-plat']);
+
+
             $('.form-credit-calc_pereplat').html(Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
             $('.form-credit-calc_summ').html(Math.round(mesPlateg * kredit['srock-credit']));
             $('.form-credit-calc .progress .progress-bar').width(100 - ((Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit'])) / (Math.round(mesPlateg * kredit['srock-credit']) / 100)) + '%');
