@@ -922,8 +922,8 @@ jQuery(document).ready(function ($) {
             $('.form-credit-calc_mes-plat').html(number_format(Math.round(mesPlateg), true));
 
 
-            $('.form-credit-calc_pereplat').html(Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit']));
-            $('.form-credit-calc_summ').html(Math.round(mesPlateg * kredit['srock-credit']));
+            $('.form-credit-calc_pereplat').html(number_format(Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit']), true));
+            $('.form-credit-calc_summ').html(number_format(Math.round(mesPlateg * kredit['srock-credit']), true));
             $('.form-credit-calc .progress .progress-bar').width(100 - ((Math.round((mesPlateg * kredit['srock-credit']) - kredit['summ-kredit'])) / (Math.round(mesPlateg * kredit['srock-credit']) / 100)) + '%');
 
         }
