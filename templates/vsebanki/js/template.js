@@ -1002,9 +1002,9 @@ jQuery(document).ready(function ($) {
             $("#exampleModalGrafic table.table-grafic tbody").append(`<tr>
                         <td><b>Итого </b></th>
                         <td>&nbsp;</td>
-                        <td><b>${procent * kredit['srock-credit']}</b></td>
-                        <td><b>${summaCredit}</b></td>
-                        <td><b>${summaCredit}</b></td>
+                        <td><b>${number_format(procent * kredit['srock-credit'], true)}</b></td>
+                        <td><b>${number_format(summaCredit, true)}</b></td>
+                        <td><b>${number_format(summaCredit, true)}</b></td>
                     </tr>`);
 
             valSumCredit = $('#summ-kredit').val().replace(/[^0-9]/g, '');
