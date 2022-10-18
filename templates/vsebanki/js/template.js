@@ -878,6 +878,7 @@ jQuery(document).ready(function ($) {
                 value = $this.prop("value")
 
             $('#srock-credit').val(value);
+            kredit['srock-credit'] = $('#srock-credit').val().replace(/\s+/g, '');
 
             digits_int(this);
             getRezultElemForm();
@@ -928,6 +929,11 @@ jQuery(document).ready(function ($) {
                 renderTableGrafic();
 
                 var sliderCreditSumm = $sliderCreditSumm.data("ionRangeSlider");
+                sliderCreditSumm.update({
+                    from: kredit['summ-kredit']
+                });
+
+                var sliderSrockCredit = $sliderSrockCredit.data("ionRangeSlider");
                 sliderCreditSumm.update({
                     from: kredit['summ-kredit']
                 });
