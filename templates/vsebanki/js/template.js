@@ -919,10 +919,6 @@ jQuery(document).ready(function ($) {
 
             console.log('mesPlateg - ', mesPlateg);
 
-            number_format(num, format)
-            Math.round(mesPlateg);
-
-
             $('.form-credit-calc_mes-plat').html(number_format(Math.round(mesPlateg), true));
 
 
