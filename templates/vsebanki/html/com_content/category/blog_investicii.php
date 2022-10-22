@@ -77,15 +77,19 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
                 </div>
             </div>-->
             <div class="bank-field stavka">
-                <div class="bank-field-name">Комиссия за сделку</div>
+                <div class="bank-field-name">Комиссия по операции</div>
                 <div class="bank-field-value">
                     <?php 
-             if ($this->item->extrafields['komissiya-za-sdelku']->value){
-                 echo $this->item->extrafields['komissiya-za-sdelku']->value.''; 
-             }else{
-                 echo 'Бесплатно';
-             }
-             ?>
+                     if($this->item->extrafields['komissiya-po-operatsii-dop-param']->value){
+                         echo 'от ';
+                     }
+                    
+                     if ($this->item->extrafields['komissiya-za-sdelku']->value){
+                         echo $this->item->extrafields['komissiya-za-sdelku']->value.''; 
+                     }else{
+                         echo '0';
+                     }
+                     ?>
                 </div>
             </div>
         </div>
