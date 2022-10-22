@@ -141,7 +141,7 @@ $attribs['style'] = 'none';
                     </div>
 
 
-                    <div class="bank-field summa">
+                    <!--<div class="bank-field summa">
                         <div class="bank-field-name">Обслуживание счета</div>
                         <div class="bank-field-value">
                             <?php 
@@ -152,7 +152,7 @@ $attribs['style'] = 'none';
                              }
                              ?>
                         </div>
-                    </div>
+                    </div>-->
 
 
 
