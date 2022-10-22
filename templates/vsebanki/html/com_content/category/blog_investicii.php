@@ -64,7 +64,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 
                 </div>
             </div>
-            <div class="bank-field srok">
+            <!--<div class="bank-field srok">
                 <div class="bank-field-name">Стоимость обслуживания</div>
                 <div class="bank-field-value">
                     <?php 
@@ -75,7 +75,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
              }
              ?>
                 </div>
-            </div>
+            </div>-->
             <div class="bank-field stavka">
                 <div class="bank-field-name">Комиссия за сделку</div>
                 <div class="bank-field-value">
