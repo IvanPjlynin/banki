@@ -232,10 +232,7 @@ $attribs['style'] = 'none';
                                 <h3 class="tab-text-block-title">Комиссия по операции</h3>
                                 <p class="tab-text-block-content">
                                     <?php 
-                                    if($this->item->extrafields['komissiya-po-operatsii-dop-param']->value){
-                                         echo 'от ';
-                                     }
-                                    
+                                                                        
                                     echo $this->item->extrafields['komissiya-za-sdelku']->value;
                                     
                                     if($this->item->extrafields['komissiya-po-operatsii-dop-param']->value){
