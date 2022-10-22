@@ -125,7 +125,14 @@ $attribs['style'] = 'none';
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 column bank-fields">
                     <div class="bank-field summa">
                         <div class="bank-field-name">Комиссия по операции</div>
-                        <div class="bank-field-value"><?php echo $this->item->extrafields['komissiya-za-sdelku']->value; ?></div>
+                        <div class="bank-field-value">
+                            <?php 
+                            if($this->item->extrafields['komissiya-po-operatsii-dop-param']->value){
+                                 echo 'от ';
+                             }
+                            echo $this->item->extrafields['komissiya-za-sdelku']->value; 
+                            ?>
+                        </div>
                     </div>
                     <div class="bank-field srok">
                         <div class="bank-field-name">Абонентская плата</div>
@@ -224,7 +231,18 @@ $attribs['style'] = 'none';
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Комиссия по операции</h3>
                                 <p class="tab-text-block-content">
-                                    <?php echo $this->item->extrafields['komissiya-za-sdelku']->value;?>
+                                    <?php 
+                                    if($this->item->extrafields['komissiya-po-operatsii-dop-param']->value){
+                                         echo 'от ';
+                                     }
+                                    
+                                    echo $this->item->extrafields['komissiya-za-sdelku']->value;
+                                    
+                                    if($this->item->extrafields['komissiya-po-operatsii-dop-param']->value){
+                                         echo '<br>'.$this->item->extrafields['komissiya-po-operatsii-dop-param']->value;
+                                     }
+                                    
+                                    ?>
                                 </p>
                             </div>
                             <?php endif; ?>
