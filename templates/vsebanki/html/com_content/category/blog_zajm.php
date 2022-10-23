@@ -36,21 +36,25 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
     <div class="system-unpublished">
         <?php endif; ?>
         <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
+
+        <?php
+             $this->item->extrafields = array();
+             if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
+                foreach ($this->item->jcfields as $field) {
+                   if (!empty($field->rawvalue)) {
+                      $this->item->extrafields[$field->name] = $field;
+                   }
+                }
+             }
+          ?>
+
+
         <div class="col-12 col-sm-12 col-md-3 column bank-logo">
             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
             <h4 class="fs-4">"<?php echo $this->item->extrafields['nazvanie-produkta']->value; ?>"</h4>
         </div>
         <div class="col-12 col-sm-12 col-md-4 column bank-fields">
-            <?php
-         $this->item->extrafields = array();
-         if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
-            foreach ($this->item->jcfields as $field) {
-		       if (!empty($field->rawvalue)) {
-			      $this->item->extrafields[$field->name] = $field;
-		       }
-	        }
-         }
-      ?>
+
             <div class="bank-field summa">
                 <div class="bank-field-name"><?php echo $this->item->extrafields['summa-zajma']->title; ?></div>
                 <div class="bank-field-value">до <?php echo number_format($this->item->extrafields['summa-zajma']->value, 0, ',', ' '); ?> ₽</div>
