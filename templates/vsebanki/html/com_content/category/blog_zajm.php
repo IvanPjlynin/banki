@@ -38,6 +38,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
         <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
         <div class="col-12 col-sm-12 col-md-3 column bank-logo">
             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
+            <h4 class="fs-4">"<?php echo $this->item->extrafields['nazvanie-produkta']->value; ?>"</h4>
         </div>
         <div class="col-12 col-sm-12 col-md-4 column bank-fields">
             <?php
@@ -58,9 +59,9 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
                 <div class="bank-field-name"><?php echo $this->item->extrafields['srok-zajma']->title; ?></div>
                 <div class="bank-field-value">
                     <?php if ($this->item->extrafields['srok-zajma']->value < 300) : ?>
-                        до <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.
+                    до <?php echo $this->item->extrafields['srok-zajma']->value; ?> дн.
                     <? else: ?>
-                        до <?php echo round($this->item->extrafields['srok-zajma']->value/30); ?> мес.
+                    до <?php echo round($this->item->extrafields['srok-zajma']->value/30); ?> мес.
                     <? endif; ?>
                 </div>
             </div>
