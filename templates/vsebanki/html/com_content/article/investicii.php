@@ -200,7 +200,7 @@ $attribs['style'] = 'none';
 
                                     <?php 
                                      if ($this->item->extrafields['obsluzhivanie-v-mesyats']->value){
-                                         echo $this->item->extrafields['obsluzhivanie-v-mesyats']->value; 
+                                         echo $this->item->extrafields['obsluzhivanie-v-mesyats']->value.' ₽'; 
                                      }else{
                                          echo '0 ₽';
                                      }
