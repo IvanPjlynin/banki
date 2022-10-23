@@ -216,6 +216,11 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">
 
                                     <?php 
+                                    
+                                    if($this->item->extrafields['otkrytie-i-obsluzhivanie-scheta-dop-param']->value){
+                                         echo 'от ';
+                                     }
+                                    
                                      if ($this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value){
                                          echo $this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value.' ₽'; 
                                      }else{
