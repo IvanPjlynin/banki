@@ -1074,6 +1074,14 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     color: #606970;
 }
 
+.blog .blog-items .blog-item .item-content .bank-logo {
+    display: block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #EBEFEF;
+}
+
 /*sroll to top*/
 .btn-up {
     position: fixed;
