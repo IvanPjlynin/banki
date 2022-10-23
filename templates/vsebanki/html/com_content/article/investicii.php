@@ -210,14 +210,14 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value) : ?>
+
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Открытие и обслуживание счета</h3>
                                 <p class="tab-text-block-content">
 
                                     <?php 
                                  if ($this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value){
-                                     echo $this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value; 
+                                     echo $this->item->extrafields['obsluzhivanie-s-soversheniem-operatsij']->value.' ₽'; 
                                  }else{
                                      echo '0 ₽';
                                  }
@@ -225,7 +225,7 @@ $attribs['style'] = 'none';
 
                                 </p>
                             </div>
-                            <?php endif; ?>
+
 
                             <?php if ($this->item->extrafields['komissiya-za-sdelku']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
