@@ -1845,5 +1845,9 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
         padding-right: 0;
     }
 
+    .item-page.credit .com-content-article__body,
+    .blog .blog-items {
+        min-width: 99%;
+    }
 
 }
