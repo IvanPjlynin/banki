@@ -190,10 +190,31 @@ $attribs['style'] = 'none';
                             </div>
                             <?php endif; ?>
 
-                            <?php if ($this->item->extrafields['debet-stoimost-obsl']->value) : ?>
+                            <?php if ($this->item->extrafields['debet-stoimost-obsl']->value || $this->item->extrafields['stoimost-obsluzhivaniya-dop-param']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-3 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
-                                <p class="tab-text-block-content"><?php echo $this->item->extrafields['debet-stoimost-obsl']->value; ?></p>
+                                <p class="tab-text-block-content">
+
+                                    <?php 
+                                    if($this->item->extrafields['stoimost-obsluzhivaniya-dop-param']->value){
+                                        echo 'от '; 
+                                        }
+                                    ?>
+
+                                    <?php
+                                    if($this->item->extrafields['debet-stoimost-obsl']->value){
+                                        echo $this->item->extrafields['debet-stoimost-obsl']->value;
+                                    }else{
+                                        echo '0 ₽';
+                                    } 
+                                    ?>
+
+                                    <?php 
+                                    if($this->item->extrafields['stoimost-obsluzhivaniya-dop-param']->value){
+                                        echo '<br>'.$this->item->extrafields['stoimost-obsluzhivaniya-dop-param']->value; 
+                                        }
+                                    ?>
+                                </p>
                             </div>
                             <?php endif; ?>
 
