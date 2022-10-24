@@ -1098,7 +1098,7 @@ form.form-search {
 
 .filtr-sort label {
     font-weight: 600;
-    margin-right: 10px;
+    margin-right: 10px !important;
 }
 
 .filtr-sort .jlmf-select {
