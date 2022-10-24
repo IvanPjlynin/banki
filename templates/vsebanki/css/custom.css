@@ -1090,12 +1090,18 @@ form.form-search {
     position: relative;
 }
 
+
 .filtr-sort {
     position: absolute;
-    bottom: -110px;
+    bottom: -85px;
 }
 
-.jlmf-select {
+.filtr-sort label {
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.filtr-sort .jlmf-select {
     width: 190px !important;
 }
 
