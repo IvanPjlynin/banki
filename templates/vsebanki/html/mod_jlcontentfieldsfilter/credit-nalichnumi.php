@@ -133,14 +133,16 @@ if ($params->get('enable_css', 1)) {
             <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
             <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select">
                 <option value="" selected="selected">По умолчанию</option>
-                <option value="ordering.asc">Порядок (по возрастанию)</option>
-                <option value="ordering.desc">Порядок (по убыванию)</option>
+                <option value="stavca-c.asc">Ставка (по возрастанию)</option>
+                <option value="stavca-c.desc">Ставка (по убыванию)</option>
+                <option value="summ-c.asc">Сумма (по возрастанию)</option>
+                <option value="summ-c.desc">Сумма (по убыванию)</option>
+                <option value="sroc-c.asc">Срок (по возрастанию)</option>
+                <option value="sroc-c.desc">Срок (по убыванию)</option>
+
                 <option value="title.asc">Заголовок (по возрастанию)</option>
                 <option value="title.desc">Заголовок (по убыванию)</option>
-                <option value="created.asc">Дата создания (по возрастанию)</option>
-                <option value="created.desc">Дата создания (по убыванию)</option>
-                <option value="created_by.asc">Автор (по возрастанию)</option>
-                <option value="created_by.desc">Автор (по убыванию)</option>
+
                 <option value="hits.asc">Популярность (по возрастанию)</option>
                 <option value="hits.desc">Популярность (по убыванию)</option>
             </select>
