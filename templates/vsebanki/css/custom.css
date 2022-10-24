@@ -1082,6 +1082,10 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     border-right: 1px solid #EBEFEF;
 }
 
+.blog .blog-items .blog-item .item-content .bank-logo h4 {
+    font-size: 1.2rem !important;
+}
+
 /*sroll to top*/
 .btn-up {
     z-index: 999;
