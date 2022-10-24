@@ -1096,7 +1096,7 @@ form.form-search {
 }
 
 .jlmf-select {
-    width: 190px;
+    width: 190px !important;
 }
 
 /*sroll to top*/
