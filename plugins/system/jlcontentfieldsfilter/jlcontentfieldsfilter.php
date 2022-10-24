@@ -308,12 +308,12 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 $filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
         
-rsort($filterArticles);
+/*rsort($filterArticles);
 
 echo '<pre>';            
 var_dump($filterArticles);
 echo '</pre>';
-die();
+die();*/
 
 
 		$context = $option.'.category.list.' . $itemid;
