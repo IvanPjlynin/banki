@@ -1086,6 +1086,8 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     font-size: 1.2rem !important;
 }
 
+.filtr-sort {}
+
 /*sroll to top*/
 .btn-up {
     z-index: 999;
