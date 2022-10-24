@@ -51,7 +51,7 @@ $attribs['style'] = 'none';
     <meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? Factory::getApplication()->get('language') : $this->item->language; ?>">
     <?php if ($this->params->get('show_page_heading')) : ?>
     <div class="page-header">
-        <h1><?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> - <?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h1>
+        <h1><?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> <?php echo ($this->item->extrafields['nazvanie-produkta']->value) ? ' - '.$this->item->extrafields['nazvanie-produkta']->value : '';?></h1>
         <h3>Получите кредитную карту в <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> в Санкт-Петербурге</h3>
 
         <?php if ($this->item->extrafields['kredit-pod-zalog']->value) : ?>
@@ -206,28 +206,28 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content"> ₽</p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['poluchenie-karty']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Получение карты</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['poluchenie-karty']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['lgotnyj-period']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Льготный период</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['lgotnyj-period']->value; ?> дн.</p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['limit-na-snyatie']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Лимит на снятие</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['limit-na-snyatie']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['stoimost-obslug']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Стоимость обслуживания</h3>
@@ -246,7 +246,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">от <?php echo $this->item->extrafields['vozrast']->value; ?> года</p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['vozrast-dlya-pogasheniya']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Возраст для погашения</h3>
@@ -259,28 +259,28 @@ $attribs['style'] = 'none';
                                 <h3 class="tab-text-block-title">Общий стаж</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['obshchij-trudovoj-stazh-bolee-odnogo-goda']->value; ?></p>
                             </div>
-                            <?php endif; ?>                            
+                            <?php endif; ?>
 
                             <?php if ($this->item->extrafields['zarplata-ot']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block">
                                 <h3 class="tab-text-block-title">Совокупный доход</h3>
                                 <p class="tab-text-block-content">
                                     <?php if (is_numeric($this->item->extrafields['zarplata-ot']->value))  : ?>
-                                        от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽
+                                    от <?php echo number_format($this->item->extrafields['zarplata-ot']->value, 0, ',', ' '); ?> ₽
                                     <? else: ?>
-                                        <?php echo $this->item->extrafields['zarplata-ot']->value; ?>
+                                    <?php echo $this->item->extrafields['zarplata-ot']->value; ?>
                                     <?php endif; ?>
                                 </p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
                                 <h3 class="tab-text-block-title">Требование для подачи заявки</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['est-rossijskij-pasport-s-registratsiej-v-lyubom-regione']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['obizat-dokuments']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
                                 <h3 class="tab-text-block-title">Обязательные документы</h3>
@@ -289,7 +289,7 @@ $attribs['style'] = 'none';
                                 </p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['podtverzhdenie-dokhoda']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-4 col-lg-4 tab-text-block mt-2">
                                 <h3 class="tab-text-block-title">Подтверждение дохода</h3>
@@ -297,14 +297,14 @@ $attribs['style'] = 'none';
                                     <?php echo $this->item->extrafields['podtverzhdenie-dokhoda']->value; ?>
                                 </p>
                             </div>
-                            <?php endif; ?>                           
-                            
+                            <?php endif; ?>
+
 
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-dopolnitelno-tab" role="tabpanel" aria-labelledby="tab-dopolnitelno">
                         <div class="row tab-text">
-                            
+
                             <?php if ($this->item->extrafields['protsenty-v-techenie-lgotnogo-perioda']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Проценты в течение льготного периода</h3>
@@ -317,38 +317,38 @@ $attribs['style'] = 'none';
                                 <h3 class="tab-text-block-title">Расширение срока кредита</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['rasshirenie-sroka-kredita']->value; ?></p>
                             </div>
-                            <?php endif; ?>                            
-                            
-                            
-                            
+                            <?php endif; ?>
+
+
+
                             <?php if ($this->item->extrafields['keshbek-na-vse']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Кэшбэк на все</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['keshbek-na-vse']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['uvelichennyj-keshbek']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Увеличенный кэшбэк</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['uvelichennyj-keshbek']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['u-partnerov']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">У партнеров</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['u-partnerov']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
                             <?php if ($this->item->extrafields['nachislenie-na-ostatok']->value) : ?>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3 tab-text-block">
                                 <h3 class="tab-text-block-title">Начисление % на остаток</h3>
                                 <p class="tab-text-block-content"><?php echo $this->item->extrafields['nachislenie-na-ostatok']->value; ?></p>
                             </div>
                             <?php endif; ?>
-                            
+
 
                         </div>
                     </div>

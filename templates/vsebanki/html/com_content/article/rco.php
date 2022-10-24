@@ -51,7 +51,7 @@ $attribs['style'] = 'none';
     <meta itemprop="inLanguage" content="<?php echo ($this->item->language === '*') ? Factory::getApplication()->get('language') : $this->item->language; ?>">
     <?php if ($this->params->get('show_page_heading')) : ?>
     <div class="page-header">
-        <h1><?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> тариф "<?php echo $this->item->extrafields['nazvanie-produkta']->value; ?>"</h1>
+        <h1><?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?> <?php echo ($this->item->extrafields['nazvanie-produkta']->value) ? ' тариф '.$this->item->extrafields['nazvanie-produkta']->value : '';?></h1>
         <h3>Открыть расчетный счет в <?php echo $this->item->extrafields['nazvanie-organizatsii']->value; ?></h3>
 
         <?php if ($this->item->extrafields['kredit-pod-zalog']->value) : ?>
