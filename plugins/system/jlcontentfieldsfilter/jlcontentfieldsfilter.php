@@ -307,10 +307,10 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 //ivp вычетаем исключенные материалы        
 $filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
-/*echo '<pre>';            
+echo '<pre>';            
 var_dump($filterArticles);
 echo '</pre>';
-die();*/
+die();
 //$filterArticles = rsort($filterArticles);
 
 		$context = $option.'.category.list.' . $itemid;
