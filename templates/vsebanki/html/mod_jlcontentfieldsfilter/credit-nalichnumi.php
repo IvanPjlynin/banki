@@ -129,6 +129,24 @@ if ($params->get('enable_css', 1)) {
         <?php endif; ?>
 
 
+        <div class="jlmf-section filtr-sort">
+            <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
+            <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select">
+                <option value="" selected="selected">По умолчанию</option>
+                <option value="ordering.asc">Порядок (по возрастанию)</option>
+                <option value="ordering.desc">Порядок (по убыванию)</option>
+                <option value="title.asc">Заголовок (по возрастанию)</option>
+                <option value="title.desc">Заголовок (по убыванию)</option>
+                <option value="created.asc">Дата создания (по возрастанию)</option>
+                <option value="created.desc">Дата создания (по убыванию)</option>
+                <option value="created_by.asc">Автор (по возрастанию)</option>
+                <option value="created_by.desc">Автор (по убыванию)</option>
+                <option value="hits.asc">Популярность (по возрастанию)</option>
+                <option value="hits.desc">Популярность (по убыванию)</option>
+            </select>
+        </div>
+
+
 
     </div>
     <?php
