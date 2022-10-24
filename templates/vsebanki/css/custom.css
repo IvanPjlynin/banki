@@ -1090,7 +1090,7 @@ form.form-search {
     position: relative;
 }
 
-form + .com-content-category-blog__items.blog-items {
+style + .com-content-category-blog__items.blog-items {
     padding-top: 70px !important;
 }
 
