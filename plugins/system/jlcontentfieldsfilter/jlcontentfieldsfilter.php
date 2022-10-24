@@ -308,7 +308,7 @@ class plgSystemJlContentFieldsFilter extends JPlugin
 $filterArticles = array_diff($filterArticles, $excludeFilterArticles);        
         
         
-$filterArticles = ksort($filterArticles);
+ksort($filterArticles);
 
 echo '<pre>';            
 var_dump($filterArticles);
