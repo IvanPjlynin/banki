@@ -1850,4 +1850,8 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
         min-width: 99%;
     }
 
+    .item-page.credit .com-content-article__body .bank-info-full .article-content {
+        min-width: 99%;
+    }
+
 }
