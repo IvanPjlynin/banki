@@ -1086,7 +1086,14 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     font-size: 1.2rem !important;
 }
 
-.filtr-sort {}
+form.form-search {
+    position: relative;
+}
+
+.filtr-sort {
+    position: absolute;
+    bottom: 0;
+}
 
 /*sroll to top*/
 .btn-up {
