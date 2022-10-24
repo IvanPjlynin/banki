@@ -1084,6 +1084,7 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
 
 /*sroll to top*/
 .btn-up {
+    z-index: 999;
     position: fixed;
     background-color: #56c182;
     right: 20px;
