@@ -133,7 +133,18 @@ $attribs['style'] = 'none';
                     </div>
                     <div class="bank-field stavka">
                         <div class="bank-field-name">Годовое обслуживание</div>
-                        <div class="bank-field-value"><?php echo $this->item->extrafields['debet-stoimost-obsl']->value; ?></div>
+                        <div class="bank-field-value">
+                            <?php 
+                            if($this->item->extrafields['stoimost-obsluzhivaniya-dop-param']->value){
+                                echo 'от ';
+                            }
+
+                            if ($this->item->extrafields['debet-stoimost-obsl']->value){
+                                echo $this->item->extrafields['debet-stoimost-obsl']->value; 
+                            } else { 
+                                echo '0 ₽';
+                            } ?>
+                        </div>
                     </div>
                 </div>
             </div>
