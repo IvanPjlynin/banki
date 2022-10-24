@@ -1092,7 +1092,11 @@ form.form-search {
 
 .filtr-sort {
     position: absolute;
-    bottom: 0;
+    bottom: -110px;
+}
+
+.jlmf-select {
+    width: 190px;
 }
 
 /*sroll to top*/
