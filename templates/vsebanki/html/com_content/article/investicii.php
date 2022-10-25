@@ -131,7 +131,7 @@ $attribs['style'] = 'none';
                                  echo 'от ';
                              }
                             echo $this->item->extrafields['komissiya-za-sdelku']->value; 
-                            ?>
+                            ?> %
                         </div>
                     </div>
                     <div class="bank-field srok">
@@ -242,7 +242,7 @@ $attribs['style'] = 'none';
                                 <p class="tab-text-block-content">
                                     <?php 
                                                                         
-                                    echo $this->item->extrafields['komissiya-za-sdelku']->value;
+                                    echo $this->item->extrafields['komissiya-za-sdelku']->value.' %';
                                     
                                     if($this->item->extrafields['komissiya-po-operatsii-dop-param']->value){
                                          echo '<br>'.$this->item->extrafields['komissiya-po-operatsii-dop-param']->value;
