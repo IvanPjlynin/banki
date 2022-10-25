@@ -32,6 +32,10 @@ if ($params->get('enable_css', 1)) {
 	$doc->addStyleSheet(JUri::root().'modules/mod_jlcontentfieldsfilter/assets/css/jlcontentfilter.css', array('version' => 'auto'));
 }
 
+use Joomla\CMS\Factory;
+$assetManager = Factory::getApplication()->getDocument()->getWebAssetManager();
+$assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/ajax/libs/tinysort/3.2.5/tinysort.min.js', []);
+
 ?>
 
 <form id="mod-finder-searchform-<?php echo $module->id; ?>" action="<?php echo $action; ?>" method="<?php echo $form_method; ?>" class="form-search filter-credit-nalichumi">
