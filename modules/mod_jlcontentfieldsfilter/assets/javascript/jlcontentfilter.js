@@ -81,20 +81,22 @@ var JlContentFieldsFilter = {
                 $this.HideLoadingScreen();
 
 
+                //ivp сортировка после применения фильтра 
+                if ($("select.filtr-sort-select").length) {
+                    var selectSortVal = $("select.filtr-sort-select").val();
 
-                var selectSortVal = $("select.filtr-sort-select").val();
+                    console.log('фильтр обновлен', selectSortVal);
+                    let arrSort = selectSortVal.split('.');
+                    let dataSort = arrSort[0];
+                    let orderSort = arrSort[1];
 
-                console.log('фильтр обновлен', selectSortVal);
-                let arrSort = selectSortVal.split('.');
-                let dataSort = arrSort[0];
-                let orderSort = arrSort[1];
-
-                var divOfers = 'div.com-content-category-blog__item.blog-item';
-                tinysort(divOfers, {
-                    selector: 'div.item-content',
-                    data: dataSort,
-                    order: orderSort
-                });
+                    var divOfers = 'div.com-content-category-blog__item.blog-item';
+                    tinysort(divOfers, {
+                        selector: 'div.item-content',
+                        data: dataSort,
+                        order: orderSort
+                    });
+                }
 
             }
         });
