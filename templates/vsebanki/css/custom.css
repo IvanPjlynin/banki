@@ -1357,8 +1357,13 @@ style + .com-content-category-blog__items.blog-items {
     }
 
     .blog .blog-items .blog-item .item-content.row.eq {
-        width: 95%;
+        /*width: 95%;*/
         margin: 0 auto;
+    }
+
+    .blog .blog-items .blog-item {
+        margin-bottom: 16px;
+        width: 98%;
     }
 
     .blog .blog-items {
