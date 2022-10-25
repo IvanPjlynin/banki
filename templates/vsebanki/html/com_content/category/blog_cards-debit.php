@@ -44,7 +44,13 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 <?php
 $cashback = $this->item->extrafields['cashback']->value;
 $procent = $this->item->extrafields['debet-proc-na-ostatok']->value;
-$stoimost = $this->item->extrafields['debet-stoimost-obsl']->value;
+
+if($this->item->extrafields['debet-stoimost-obsl']->value){
+    $stoimost = $this->item->extrafields['debet-stoimost-obsl']->value;
+}else{
+    $stoimost = '0';
+}
+
 ?>
 <div class="item-content row eq cards" data-cashback='<?php echo $cashback; ?>' data-procent='<?php echo $procent; ?>' data-stoimost='<?php echo $stoimost; ?>' data-id='<?php echo $this->item->id; ?>'>
     <?php if ($isUnpublished) : ?>
