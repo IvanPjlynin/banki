@@ -143,18 +143,14 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
                 <option value="summ.desc">Сумма (по убыванию)</option>
                 <option value="stavka.asc">Ставка (по возрастанию)</option>
                 <option value="stavka.desc">Ставка (по убыванию)</option>
+                <option value="sroc.asc">Срок (по возрастанию)</option>
+                <option value="sroc.desc">Срок (по убыванию)</option>
 
-
-
-
-                <option value="sroc-c.asc">Срок (по возрастанию)</option>
-                <option value="sroc-c.desc">Срок (по убыванию)</option>
-
-                <option value="title.asc">Заголовок (по возрастанию)</option>
+                <!--<option value="title.asc">Заголовок (по возрастанию)</option>
                 <option value="title.desc">Заголовок (по убыванию)</option>
-
                 <option value="hits.asc">Популярность (по возрастанию)</option>
-                <option value="hits.desc">Популярность (по убыванию)</option>
+                <option value="hits.desc">Популярность (по убыванию)</option>-->
+
             </select>
         </div>
 
