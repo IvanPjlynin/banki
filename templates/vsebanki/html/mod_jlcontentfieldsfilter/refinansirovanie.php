@@ -32,6 +32,11 @@ if ($params->get('enable_css', 1)) {
 	$doc->addStyleSheet(JUri::root().'modules/mod_jlcontentfieldsfilter/assets/css/jlcontentfilter.css', array('version' => 'auto'));
 }
 
+use Joomla\CMS\Factory;
+$assetManager = Factory::getApplication()->getDocument()->getWebAssetManager();
+$assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/ajax/libs/tinysort/3.2.5/tinysort.min.js', []);
+
+
 ?>
 
 <form id="mod-finder-searchform-<?php echo $module->id; ?>" action="<?php echo $action; ?>" method="<?php echo $form_method; ?>" class="form-search filter-credit-nalichumi">
@@ -129,6 +134,24 @@ if ($params->get('enable_css', 1)) {
         </div>
         <?php endif; ?>
 
+        <div class="jlmf-section filtr-sort">
+            <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
+            <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select filtr-sort-select">
+                <option value="id.desc" selected="selected">По умолчанию</option>
+                <option value="summ.asc">Сумма (по возрастанию)</option>
+                <option value="summ.desc">Сумма (по убыванию)</option>
+                <option value="stavka.asc">Ставка (по возрастанию)</option>
+                <option value="stavka.desc">Ставка (по убыванию)</option>
+                <option value="sroc.asc">Срок (по возрастанию)</option>
+                <option value="sroc.desc">Срок (по убыванию)</option>
+
+                <!--<option value="title.asc">Заголовок (по возрастанию)</option>
+                <option value="title.desc">Заголовок (по убыванию)</option>
+                <option value="hits.asc">Популярность (по возрастанию)</option>
+                <option value="hits.desc">Популярность (по убыванию)</option>-->
+
+            </select>
+        </div>
 
 
     </div>
@@ -407,6 +430,28 @@ if ($params->get('enable_css', 1)) {
             $('button.filter-dropdown-toggle span').html('(+' + (5 - n) + ')');
         });
 
+        //сортировка
+        function SortOfers(data, order) {
+            var divOfers = 'div.com-content-category-blog__item.blog-item';
+            tinysort(divOfers, {
+                selector: 'div.item-content',
+                data: data,
+                order: order
+            });
+        }
+
+        $('select.filtr-sort-select').on('change', function(e) {
+            var optionSelected = $("option:selected", this);
+            var valueSelected = this.value;
+
+            let arr = valueSelected.split('.');
+            let data = arr[0];
+            let order = arr[1];
+            //console.log(data, order);
+
+            SortOfers(data, order);
+
+        });
 
     });
 
