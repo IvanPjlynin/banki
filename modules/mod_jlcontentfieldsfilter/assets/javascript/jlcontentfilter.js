@@ -81,6 +81,7 @@ var JlContentFieldsFilter = {
                 $this.HideLoadingScreen();
 
                 console.log('фильтр обновлен');
+                SortOfers('summ', 'asc');
             }
         });
     },
