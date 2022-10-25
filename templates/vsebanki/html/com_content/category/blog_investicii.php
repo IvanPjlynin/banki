@@ -112,7 +112,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
                      }else{
                          echo '0';
                      }
-                     ?>
+                     ?> %
                 </div>
             </div>
         </div>
