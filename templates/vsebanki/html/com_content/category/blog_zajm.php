@@ -30,14 +30,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 ?>
-
-<div class="item-content row eq zajm">
-    <?php if ($isUnpublished) : ?>
-    <div class="system-unpublished">
-        <?php endif; ?>
-        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
-
-        <?php
+<?php
              $this->item->extrafields = array();
              if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
                 foreach ($this->item->jcfields as $field) {
@@ -47,6 +40,16 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
                 }
              }
           ?>
+
+
+
+<div class="item-content row eq zajm" data-summ='<?php echo $this->item->extrafields['summa-zajma']->value; ?>' data-stavka='<?php echo $this->item->extrafields['stavka-zajma']->value; ?>' data-sroc='<?php echo $this->item->extrafields['srok-zajma']->value; ?>' data-id='<?php echo $this->item->id; ?>'>
+    <?php if ($isUnpublished) : ?>
+    <div class="system-unpublished">
+        <?php endif; ?>
+        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
+
+
 
 
         <div class="col-12 col-sm-12 col-md-3 column bank-logo">
