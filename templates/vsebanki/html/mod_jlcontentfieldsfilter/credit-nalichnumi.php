@@ -442,7 +442,9 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
 
 
 
-
+        jQuery('div.com-content-category-blog__items.blog-items>div.com-content-category-blog__item.blog-item').tinysort('div.com-content-category-blog__item.blog-item>div.item-content', {
+            attr: 'data-summ'
+        });
 
 
     });
