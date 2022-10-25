@@ -173,6 +173,58 @@ $attribs['style'] = 'none';
 
 
 
+    <?php if ($menu == '125') : ?>
+
+    <?php
+            $assetManager = Factory::getApplication()->getDocument()->getWebAssetManager();
+            $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/ajax/libs/tinysort/3.2.5/tinysort.min.js', []);
+        ?>
+
+    <div style="position: relative;">
+        <div class="jlmf-section filtr-sort no-filter">
+            <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
+            <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select filtr-sort-select">
+                <option value="id.desc" selected="selected">По умолчанию</option>
+                <option value="summ.asc">Абонентская плата (по возрастанию)</option>
+                <option value="summ.asc">Комиссия (по возрастанию)</option>
+            </select>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function($) {
+            //сортировка
+            function SortOfers(data, order) {
+                var divOfers = 'div.com-content-category-blog__item.blog-item';
+                tinysort(divOfers, {
+                    selector: 'div.item-content',
+                    data: data,
+                    order: order
+                });
+            }
+
+            $('select.filtr-sort-select').on('change', function(e) {
+                var optionSelected = $("option:selected", this);
+                var valueSelected = this.value;
+
+                let arr = valueSelected.split('.');
+                let data = arr[0];
+                let order = arr[1];
+                //console.log(data, order);
+
+                SortOfers(data, order);
+
+            });
+
+
+        });
+
+    </script>
+
+
+    <?php endif; ?>
+
+
+
     <div class="com-content-category-blog__items blog-items <?php echo $blogClass; ?>">
 
 
@@ -194,7 +246,7 @@ $attribs['style'] = 'none';
             <?php elseif ($menu == '124') : ?>
             <?php echo $this->loadTemplate('vklady'); ?>
             <?php elseif ($menu == '125') : ?>
-            <?php echo $this->loadTemplate('investicii'); ?>
+            <?php echo '<br>'.$this->loadTemplate('investicii'); ?>
             <?php elseif (($menu == '127') || ($menu == '128') || ($menu == '129')) : ?>
             <?php echo $this->loadTemplate('strahovka'); ?>
             <?php elseif (($menu == '130') || ($menu == '131')) : ?>
