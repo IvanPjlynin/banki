@@ -48,7 +48,8 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
     if(!$this->item->extrafields['debet-proc-na-ostatok']->value || $this->item->extrafields['debet-proc-na-ostatok']->value == 'нет'){
         $procent = '0';
     }else{
-        $procent = (int)$this->item->extrafields['debet-proc-na-ostatok']->value;
+        $procent = $this->item->extrafields['debet-proc-na-ostatok']->value;
+        $procent = preg_replace('/[^0-9]/', '', $procent);
     }
 
     if($this->item->extrafields['debet-stoimost-obsl']->value){
