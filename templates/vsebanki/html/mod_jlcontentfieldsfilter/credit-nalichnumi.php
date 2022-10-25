@@ -464,6 +464,8 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
             let order = arr[1];
             console.log(data, order);
 
+            SortOfers(data, order);
+
         });
 
 
