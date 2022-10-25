@@ -30,13 +30,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 ?>
-
-<div class="item-content row eq vklady">
-    <?php if ($isUnpublished) : ?>
-    <div class="system-unpublished">
-        <?php endif; ?>
-        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
-        <?php
+<?php
          $this->item->extrafields = array();
          if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
             foreach ($this->item->jcfields as $field) {
@@ -46,6 +40,31 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	        }
          }
       ?>
+
+
+<?php
+    
+    if($this->item->extrafields['obsluzhivanie-v-mesyats']->value){
+        $abonentPlata = $this->item->extrafields['obsluzhivanie-v-mesyats']->value;
+    }else{
+        $abonentPlata = '0';
+    }
+
+
+    if($this->item->extrafields['komissiya-po-operatsii-dop-param']->value){
+        $komiss = $this->item->extrafields['komissiya-po-operatsii-dop-param']->value;
+    }else{
+        $komiss = '0';
+    }
+
+?>
+
+<div class="item-content row eq vklady" data-abb='<?php echo $abonentPlata; ?>' data-komiss='<?php echo $komiss; ?>' data-id='<?php echo $this->item->id; ?>'>
+    <?php if ($isUnpublished) : ?>
+    <div class="system-unpublished">
+        <?php endif; ?>
+        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
+
         <div class="col-12 col-sm-12 col-md-3 column bank-logo">
             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
             <h4 class="fs-4 mt-2"><?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h4>
