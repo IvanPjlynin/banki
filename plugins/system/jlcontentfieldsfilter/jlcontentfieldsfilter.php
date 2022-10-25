@@ -339,7 +339,7 @@ die();*/
 		if(!empty($filterData['ordering']))
 		{
 			list($ordering, $dirn) = explode('.', $filterData['ordering']);
-			$dirn = !empty($dirn) ? strtoupper($dirn) : 'DESC';
+			$dirn = !empty($dirn) ? strtoupper($dirn) : 'ASC';
 
 			switch ($option){
 				case 'com_content':
