@@ -41,7 +41,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
          }
 ?>
 
-<div class="item-content row eq" id='<?php echo $this->item->id; ?>' data-summ='<?php echo $this->item->extrafields['rko-cena']->value; ?>'>
+<div class="item-content row eq" data-id='<?php echo $this->item->id; ?>' data-summ='<?php echo $this->item->extrafields['rko-cena']->value; ?>'>
     <?php if ($isUnpublished) : ?>
 
     <div class="system-unpublished">
