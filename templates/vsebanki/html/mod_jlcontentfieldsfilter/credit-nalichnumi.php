@@ -139,10 +139,14 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
             <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
             <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select filtr-sort-select">
                 <option value="" selected="selected">По умолчанию</option>
-                <option value="stavca-c.asc">Ставка (по возрастанию)</option>
-                <option value="stavca-c.desc">Ставка (по убыванию)</option>
                 <option value="summ.asc">Сумма (по возрастанию)</option>
                 <option value="summ.desc">Сумма (по убыванию)</option>
+                <option value="stavka.asc">Ставка (по возрастанию)</option>
+                <option value="stavka.desc">Ставка (по убыванию)</option>
+
+
+
+
                 <option value="sroc-c.asc">Срок (по возрастанию)</option>
                 <option value="sroc-c.desc">Срок (по убыванию)</option>
 
