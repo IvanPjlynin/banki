@@ -444,8 +444,6 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
 
 
         //сортировка
-
-
         function SortOfers(data, order) {
             var divOfers = 'div.com-content-category-blog__item.blog-item';
             tinysort(divOfers, {
@@ -462,7 +460,7 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
             let arr = valueSelected.split('.');
             let data = arr[0];
             let order = arr[1];
-            console.log(data, order);
+            //console.log(data, order);
 
             SortOfers(data, order);
 

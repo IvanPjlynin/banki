@@ -26,8 +26,7 @@ var JlContentFieldsFilter = {
                             params.ajax === 1 ? $this.loadData(id) : input.parents('form').submit();
                         }, 500);
                     });
-            }
-            else if (params.ajax === 1) {
+            } else if (params.ajax === 1) {
                 jQuery('#' + id).on('submit', function (event) {
                     event.preventDefault();
                     $this.loadData(id);
@@ -47,8 +46,7 @@ var JlContentFieldsFilter = {
         form.find('select').prop('selectedIndex', 0);
         if (params.ajax === 1 && params.autho_send === 1) {
             this.loadData(id);
-        }
-        else if (params.autho_send === 1) {
+        } else if (params.autho_send === 1) {
             jQuery(id).submit();
         }
         return false;
@@ -61,8 +59,7 @@ var JlContentFieldsFilter = {
         if (params.autho_send === 1) {
             if (params.ajax === 1) {
                 this.loadData(id);
-            }
-            else {
+            } else {
                 jQuery(element).parents('form').submit();
             }
         }
@@ -82,6 +79,8 @@ var JlContentFieldsFilter = {
                 jQuery(params.ajax_selector).html($(data).find('.blog-item'));
                 let event = document.dispatchEvent(new CustomEvent('JlContentFieldsFilterLoadDataSuccess'));
                 $this.HideLoadingScreen();
+
+                console.log('фильтр обновлен');
             }
         });
     },
@@ -116,6 +115,3 @@ var JlContentFieldsFilter = {
         jQuery("#id_admin_forms_fade").css('display', 'none');
     }
 };
-
-
-
