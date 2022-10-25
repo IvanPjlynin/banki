@@ -180,7 +180,7 @@ $attribs['style'] = 'none';
             $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/ajax/libs/tinysort/3.2.5/tinysort.min.js', []);
         ?>
 
-    <br>
+
     <div style="position: relative;">
         <div class="jlmf-section filtr-sort no-filter">
             <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
