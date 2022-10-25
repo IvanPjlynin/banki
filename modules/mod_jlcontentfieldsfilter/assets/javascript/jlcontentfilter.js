@@ -85,7 +85,7 @@ var JlContentFieldsFilter = {
                 if ($("select.filtr-sort-select").length) {
                     var selectSortVal = $("select.filtr-sort-select").val();
 
-                    console.log('фильтр обновлен', selectSortVal);
+                    //console.log('фильтр обновлен', selectSortVal);
                     let arrSort = selectSortVal.split('.');
                     let dataSort = arrSort[0];
                     let orderSort = arrSort[1];
