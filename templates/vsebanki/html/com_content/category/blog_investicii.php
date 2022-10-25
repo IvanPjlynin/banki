@@ -51,8 +51,8 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
     }
 
 
-    if($this->item->extrafields['komissiya-po-operatsii-dop-param']->value){
-        $komiss = $this->item->extrafields['komissiya-po-operatsii-dop-param']->value;
+    if($this->item->extrafields['komissiya-za-sdelku']->value){
+        $komiss = $this->item->extrafields['komissiya-za-sdelku']->value;
     }else{
         $komiss = '0';
     }
