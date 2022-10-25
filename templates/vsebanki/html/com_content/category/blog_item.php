@@ -31,14 +31,8 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 
 ?>
 
-
-
-<div class="item-content row eq" data-summ='<?php echo $this->item->extrafields['summa-kredita']->value; ?>'>
-    <?php if ($isUnpublished) : ?>
-    <div class="system-unpublished">
-        <?php endif; ?>
-        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
-        <?php
+<?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
+<?php
          $this->item->extrafields = array();
          if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
             foreach ($this->item->jcfields as $field) {
@@ -48,6 +42,14 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	        }
          }
       ?>
+
+
+
+<div class="item-content row eq" data-summ='<?php echo $this->item->extrafields['summa-kredita']->value; ?>'>
+    <?php if ($isUnpublished) : ?>
+    <div class="system-unpublished">
+        <?php endif; ?>
+
 
         <div class="col-12 col-sm-12 col-md-3 column bank-logo">
             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
