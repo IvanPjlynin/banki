@@ -137,7 +137,7 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
 
         <div class="jlmf-section filtr-sort">
             <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
-            <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select">
+            <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select filtr-sort-select">
                 <option value="" selected="selected">По умолчанию</option>
                 <option value="stavca-c.asc">Ставка (по возрастанию)</option>
                 <option value="stavca-c.desc">Ставка (по убыванию)</option>
@@ -443,10 +443,17 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
 
 
 
+        //сортировка
+        $('select.filtr-sort-select').on('change', function(e) {
+            var optionSelected = $("option:selected", this);
+            var valueSelected = this.value;
+            console.log(valueSelected);
 
-        tinysort('div.com-content-category-blog__item.blog-items > div.com-content-category-blog__item.blog-item', {
+        });
+        tinysort('div.com-content-category-blog__item.blog-item', {
             selector: 'div.item-content',
-            data: 'summ'
+            data: 'summ',
+            order: 'desc'
         });
 
 
