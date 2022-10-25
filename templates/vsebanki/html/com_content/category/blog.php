@@ -185,8 +185,8 @@ $attribs['style'] = 'none';
             <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
             <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select filtr-sort-select">
                 <option value="id.desc" selected="selected">По умолчанию</option>
-                <option value="summ.asc">Абонентская плата (по возрастанию)</option>
-                <option value="summ.asc">Комиссия (по возрастанию)</option>
+                <option value="abb.asc">Абонентская плата (по возрастанию)</option>
+                <option value="komiss.asc">Комиссия (по возрастанию)</option>
             </select>
         </div>
     </div>
