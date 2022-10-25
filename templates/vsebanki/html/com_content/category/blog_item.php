@@ -30,7 +30,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 echo '<pre>';
-print_r($this->item);
+var_dump($this->item);
 echo '</pre>';
 ?>
 
