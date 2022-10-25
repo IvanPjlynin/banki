@@ -29,6 +29,8 @@ $currentDate   = Factory::getDate()->format('Y-m-d H:i:s');
 $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED || $this->item->publish_up > $currentDate)
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
+print_r($this->item);
+
 ?>
 
 <?php
