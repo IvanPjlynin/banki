@@ -30,15 +30,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 ?>
-
-<div class="item-content row eq">
-    <?php if ($isUnpublished) : ?>
-
-    <div class="system-unpublished">
-        <?php endif; ?>
-        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
-
-        <?php
+<?php
          $this->item->extrafields = array();
          if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
             foreach ($this->item->jcfields as $field) {
@@ -47,7 +39,16 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 		       }
 	        }
          }
-        ?>
+?>
+
+<div class="item-content row eq" id='<?php echo $this->item->id; ?>' data-summ='<?php echo $this->item->extrafields['rko-cena']->value; ?>'>
+    <?php if ($isUnpublished) : ?>
+
+    <div class="system-unpublished">
+        <?php endif; ?>
+        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
+
+
 
 
         <div class="col-12 col-sm-12 col-md-3 column text-center">
