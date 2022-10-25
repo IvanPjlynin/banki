@@ -82,10 +82,10 @@ var JlContentFieldsFilter = {
 
 
 
-                var selectSortVal = $("select.filtr-sort-select:selected").val();
+                var selectSortVal = $("select.filtr-sort-select").val();
 
                 console.log('фильтр обновлен', selectSortVal);
-                /*let arrSort = selectSortVal.split('.');
+                let arrSort = selectSortVal.split('.');
                 let dataSort = arrSort[0];
                 let orderSort = arrSort[1];
 
@@ -94,7 +94,7 @@ var JlContentFieldsFilter = {
                     selector: 'div.item-content',
                     data: dataSort,
                     order: orderSort
-                });*/
+                });
 
             }
         });
