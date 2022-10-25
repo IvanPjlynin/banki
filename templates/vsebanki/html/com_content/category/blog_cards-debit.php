@@ -30,13 +30,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 ?>
-
-<div class="item-content row eq cards">
-    <?php if ($isUnpublished) : ?>
-    <div class="system-unpublished">
-        <?php endif; ?>
-        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
-        <?php
+<?php
          $this->item->extrafields = array();
          if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
             foreach ($this->item->jcfields as $field) {
@@ -46,6 +40,13 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	        }
          }
       ?>
+
+<div class="item-content row eq cards" data-cashback='<?php echo $this->item->extrafields['cashback']->value; ?>' data-procent='<?php echo $this->item->extrafields['debet-proc-na-ostatok']->value; ?>' data-stoimost='<?php echo $this->item->extrafields['stoimost-obsluzhivaniya-dop-param']->value; ?>' data-id='<?php echo $this->item->id; ?>'>
+    <?php if ($isUnpublished) : ?>
+    <div class="system-unpublished">
+        <?php endif; ?>
+        <?php echo LayoutHelper::render('joomla.content.blog_style_default_item_title', $this->item); ?>
+
         <div class="col-12 col-sm-12 col-md-3 column bank-logo">
             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
             <h4 class="fs-4 mt-2"><?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h4>
