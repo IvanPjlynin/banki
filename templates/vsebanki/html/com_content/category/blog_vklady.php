@@ -30,6 +30,16 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
 ?>
+<?php
+         $this->item->extrafields = array();
+         if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
+            foreach ($this->item->jcfields as $field) {
+		       if (!empty($field->rawvalue)) {
+			      $this->item->extrafields[$field->name] = $field;
+		       }
+	        }
+         }
+      ?>
 
 <div class="item-content row eq vklady" data-summ='<?php echo $this->item->extrafields['summa-vklada']->value; ?>' data-stavka='<?php echo $this->item->extrafields['stavka-vklada']->value; ?>' data-sroc='<?php echo $this->item->extrafields['srok-vklada-do']->value; ?>' data-id='<?php echo $this->item->id; ?>'>
     <?php if ($isUnpublished) : ?>
@@ -40,16 +50,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
         </div>
         <div class="col-12 col-sm-12 col-md-4 column bank-fields">
-            <?php
-         $this->item->extrafields = array();
-         if (isset($this->item->jcfields) && is_array($this->item->jcfields)) {
-            foreach ($this->item->jcfields as $field) {
-		       if (!empty($field->rawvalue)) {
-			      $this->item->extrafields[$field->name] = $field;
-		       }
-	        }
-         }
-      ?>
+
             <div class="bank-field summa">
                 <div class="bank-field-name">Сумма вклада</div>
                 <div class="bank-field-value">от <?php echo number_format($this->item->extrafields['summa-vklada']->value, 0, ',', ' '); ?> ₽</div>
