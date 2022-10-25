@@ -32,6 +32,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 echo '<pre>';
 var_dump($this->item);
 echo '</pre>';
+die();
 ?>
 
 <?php
