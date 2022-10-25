@@ -139,6 +139,35 @@ $attribs['style'] = 'none';
             </select>
         </div>
     </div>
+    <script>
+        jQuery(document).ready(function($) {
+            //сортировка
+            function SortOfers(data, order) {
+                var divOfers = 'div.com-content-category-blog__item.blog-item';
+                tinysort(divOfers, {
+                    selector: 'div.item-content',
+                    data: data,
+                    order: order
+                });
+            }
+
+            $('select.filtr-sort-select').on('change', function(e) {
+                var optionSelected = $("option:selected", this);
+                var valueSelected = this.value;
+
+                let arr = valueSelected.split('.');
+                let data = arr[0];
+                let order = arr[1];
+                //console.log(data, order);
+
+                SortOfers(data, order);
+
+            });
+
+
+        });
+
+    </script>
 
 
     <?php endif; ?>
