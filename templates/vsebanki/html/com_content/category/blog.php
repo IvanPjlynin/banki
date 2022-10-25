@@ -135,7 +135,6 @@ $attribs['style'] = 'none';
             <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select filtr-sort-select">
                 <option value="id.desc" selected="selected">По умолчанию</option>
                 <option value="summ.asc">Стоимость (по возрастанию)</option>
-                <option value="summ.desc">Стоимость (по убыванию)</option>
             </select>
         </div>
     </div>
