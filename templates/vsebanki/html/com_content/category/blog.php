@@ -129,14 +129,15 @@ $attribs['style'] = 'none';
             $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/ajax/libs/tinysort/3.2.5/tinysort.min.js', []);
         ?>
 
-
-    <div class="jlmf-section filtr-sort no-filter">
-        <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
-        <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select filtr-sort-select">
-            <option value="id.desc" selected="selected">По умолчанию</option>
-            <option value="summ.asc">Стоимость (по возрастанию)</option>
-            <option value="summ.desc">Стоимость (по убыванию)</option>
-        </select>
+    <div>
+        <div class="jlmf-section filtr-sort no-filter">
+            <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
+            <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select filtr-sort-select">
+                <option value="id.desc" selected="selected">По умолчанию</option>
+                <option value="summ.asc">Стоимость (по возрастанию)</option>
+                <option value="summ.desc">Стоимость (по убыванию)</option>
+            </select>
+        </div>
     </div>
 
 
