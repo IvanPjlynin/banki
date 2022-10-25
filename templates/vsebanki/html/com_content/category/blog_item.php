@@ -31,7 +31,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 
 ?>
 
-<div class="item-content row eq">
+<div class="item-content row eq" data-summ='<?php echo $this->item->extrafields['summa-kredita']->value; ?>'>
     <?php if ($isUnpublished) : ?>
     <div class="system-unpublished">
         <?php endif; ?>
