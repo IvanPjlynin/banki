@@ -83,15 +83,15 @@ var JlContentFieldsFilter = {
                 console.log('фильтр обновлен');
 
                 var selectSortVal = $("select.filtr-sort-select:selected").val();
-                let arr = selectSortVal.split('.');
-                let data = arr[0];
-                let order = arr[1];
+                let arrSort = selectSortVal.split('.');
+                let dataSort = arrSort[0];
+                let orderSort = arrSort[1];
 
                 var divOfers = 'div.com-content-category-blog__item.blog-item';
                 tinysort(divOfers, {
                     selector: 'div.item-content',
-                    data: data,
-                    order: order
+                    data: dataSort,
+                    order: orderSort
                 });
 
             }
