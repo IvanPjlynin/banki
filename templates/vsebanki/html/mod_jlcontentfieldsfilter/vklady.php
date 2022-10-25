@@ -76,6 +76,16 @@ if ($params->get('enable_css', 1)) {
         </div>
         <?php endif; ?>
 
+        <div class="jlmf-section filtr-sort">
+            <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
+            <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select filtr-sort-select">
+                <option value="id.desc" selected="selected">По умолчанию</option>
+                <option value="stavka.desc">Ставка (по убыванию)</option>
+                <option value="summ.asc">Сумма (по возрастанию)</option>
+                <option value="sroc.asc">Срок (по возрастанию)</option>
+            </select>
+        </div>
+
 
 
     </div>
@@ -252,7 +262,28 @@ if ($params->get('enable_css', 1)) {
             });
         });
 
+        //сортировка
+        function SortOfers(data, order) {
+            var divOfers = 'div.com-content-category-blog__item.blog-item';
+            tinysort(divOfers, {
+                selector: 'div.item-content',
+                data: data,
+                order: order
+            });
+        }
 
+        $('select.filtr-sort-select').on('change', function(e) {
+            var optionSelected = $("option:selected", this);
+            var valueSelected = this.value;
+
+            let arr = valueSelected.split('.');
+            let data = arr[0];
+            let order = arr[1];
+            //console.log(data, order);
+
+            SortOfers(data, order);
+
+        });
 
 
     });
