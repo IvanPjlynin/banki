@@ -1094,6 +1094,8 @@ style + .com-content-category-blog__items.blog-items {
     padding-top: 70px !important;
 }
 
+.filtr-sort.no-filter {}
+
 .filtr-sort {
     position: absolute;
     bottom: -85px;
