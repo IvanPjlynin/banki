@@ -1357,8 +1357,9 @@ style + .com-content-category-blog__items.blog-items {
     }
 
     .blog .blog-items .blog-item .item-content.row.eq {
-        width: 98%;
+        width: 95%;
         margin: 0 auto;
+        padding: 15px 0px 15px 15px;
     }
 
 
