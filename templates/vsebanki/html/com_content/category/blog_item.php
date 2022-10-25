@@ -41,7 +41,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 		       }
 	        }
          }
-      ?>
+?>
 
 
 
