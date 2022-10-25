@@ -29,10 +29,10 @@ $currentDate   = Factory::getDate()->format('Y-m-d H:i:s');
 $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED || $this->item->publish_up > $currentDate)
 	|| ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
-echo '<pre>';
+/*echo '<pre>';
 var_dump($this->item->id);
 echo '</pre>';
-die();
+die();*/
 ?>
 
 <?php
@@ -46,7 +46,7 @@ die();
          }
       ?>
 
-<div class="item-content row eq" data-summ='<?php echo $this->item->extrafields['summa-kredita']->value; ?>' data-stavka='<?php echo $this->item->extrafields['stavka']->value; ?>' data-sroc='<?php echo $this->item->extrafields['srok']->value; ?>'>
+<div class="item-content row eq" data-summ='<?php echo $this->item->extrafields['summa-kredita']->value; ?>' data-stavka='<?php echo $this->item->extrafields['stavka']->value; ?>' data-sroc='<?php echo $this->item->extrafields['srok']->value; ?>' data-id='<?php echo $this->item->id; ?>'>
     <?php if ($isUnpublished) : ?>
     <div class="system-unpublished">
         <?php endif; ?>
