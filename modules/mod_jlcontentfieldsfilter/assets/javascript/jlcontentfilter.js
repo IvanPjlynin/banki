@@ -81,7 +81,14 @@ var JlContentFieldsFilter = {
                 $this.HideLoadingScreen();
 
                 console.log('фильтр обновлен');
-                SortOfers('summ', 'asc');
+
+                var divOfers = 'div.com-content-category-blog__item.blog-item';
+                tinysort(divOfers, {
+                    selector: 'div.item-content',
+                    data: 'summ',
+                    order: 'asc'
+                });
+
             }
         });
     },
