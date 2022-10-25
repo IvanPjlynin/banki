@@ -53,6 +53,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 
     if($this->item->extrafields['komissiya-za-sdelku']->value){
         $komiss = $this->item->extrafields['komissiya-za-sdelku']->value;
+        $komiss = preg_replace('/[^0-9]/', '', $komiss);
     }else{
         $komiss = '0';
     }
