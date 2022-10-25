@@ -80,10 +80,12 @@ var JlContentFieldsFilter = {
                 let event = document.dispatchEvent(new CustomEvent('JlContentFieldsFilterLoadDataSuccess'));
                 $this.HideLoadingScreen();
 
-                console.log('фильтр обновлен');
+
 
                 var selectSortVal = $("select.filtr-sort-select:selected").val();
-                let arrSort = selectSortVal.split('.');
+
+                console.log('фильтр обновлен', selectSortVal);
+                /*let arrSort = selectSortVal.split('.');
                 let dataSort = arrSort[0];
                 let orderSort = arrSort[1];
 
@@ -92,7 +94,7 @@ var JlContentFieldsFilter = {
                     selector: 'div.item-content',
                     data: dataSort,
                     order: orderSort
-                });
+                });*/
 
             }
         });
