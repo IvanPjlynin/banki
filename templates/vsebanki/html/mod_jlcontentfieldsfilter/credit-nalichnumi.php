@@ -141,8 +141,8 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
                 <option value="" selected="selected">По умолчанию</option>
                 <option value="stavca-c.asc">Ставка (по возрастанию)</option>
                 <option value="stavca-c.desc">Ставка (по убыванию)</option>
-                <option value="summ-c.asc">Сумма (по возрастанию)</option>
-                <option value="summ-c.desc">Сумма (по убыванию)</option>
+                <option value="summ.asc">Сумма (по возрастанию)</option>
+                <option value="summ.desc">Сумма (по убыванию)</option>
                 <option value="sroc-c.asc">Срок (по возрастанию)</option>
                 <option value="sroc-c.desc">Срок (по убыванию)</option>
 
@@ -444,17 +444,26 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
 
 
         //сортировка
+
+
+        function SortOfers(data, order) {
+            var divOfers = 'div.com-content-category-blog__item.blog-item';
+            tinysort(divOfers, {
+                selector: 'div.item-content',
+                data: data,
+                order: order
+            });
+        }
+
         $('select.filtr-sort-select').on('change', function(e) {
             var optionSelected = $("option:selected", this);
             var valueSelected = this.value;
-            console.log(valueSelected);
+
+            let arr = valueSelected.split('.');
+            console.log(arr);
 
         });
-        tinysort('div.com-content-category-blog__item.blog-item', {
-            selector: 'div.item-content',
-            data: 'summ',
-            order: 'desc'
-        });
+
 
 
     });
