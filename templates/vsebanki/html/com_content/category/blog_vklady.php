@@ -31,7 +31,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 
 ?>
 
-<div class="item-content row eq vklady">
+<div class="item-content row eq vklady" data-summ='<?php echo $this->item->extrafields['summa-vklada']->value; ?>' data-stavka='<?php echo $this->item->extrafields['stavka-vklada']->value; ?>' data-sroc='<?php echo $this->item->extrafields['srok-vklada-do']->value; ?>' data-id='<?php echo $this->item->id; ?>'>
     <?php if ($isUnpublished) : ?>
     <div class="system-unpublished">
         <?php endif; ?>
