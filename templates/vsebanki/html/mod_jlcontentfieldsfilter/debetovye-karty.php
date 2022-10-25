@@ -32,6 +32,10 @@ if ($params->get('enable_css', 1)) {
 	$doc->addStyleSheet(JUri::root().'modules/mod_jlcontentfieldsfilter/assets/css/jlcontentfilter.css', array('version' => 'auto'));
 }
 
+use Joomla\CMS\Factory;
+$assetManager = Factory::getApplication()->getDocument()->getWebAssetManager();
+$assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/ajax/libs/tinysort/3.2.5/tinysort.min.js', []);
+
 ?>
 
 <form id="mod-finder-searchform-<?php echo $module->id; ?>" action="<?php echo $action; ?>" method="<?php echo $form_method; ?>" class="form-search filter-debit-card">
@@ -95,6 +99,25 @@ if ($params->get('enable_css', 1)) {
             <?php echo $orderingSelect; ?>
         </div>
         <?php endif; ?>
+
+        <div class="jlmf-section filtr-sort">
+            <label class="jlmf-label" for="jlcontentfieldsfilter-ordering-109">Сортировка</label>
+            <select id="jlcontentfieldsfilter-ordering-109" name="jlcontentfieldsfilter[ordering]" class="jlmf-select filtr-sort-select">
+                <option value="id.desc" selected="selected">По умолчанию</option>
+                <option value="cashback.asc">Cash Back (по возрастанию)</option>
+                <option value="cashback.desc">Cash Back (по убыванию)</option>
+                <option value="procent.asc">Процент (по возрастанию)</option>
+                <option value="procent.desc">Процент (по убыванию)</option>
+                <option value="stoimost.asc">Обслуживание (по возрастанию)</option>
+                <option value="stoimost.desc">Обслуживание (по убыванию)</option>
+
+                <!--<option value="title.asc">Заголовок (по возрастанию)</option>
+                <option value="title.desc">Заголовок (по убыванию)</option>
+                <option value="hits.asc">Популярность (по возрастанию)</option>
+                <option value="hits.desc">Популярность (по убыванию)</option>-->
+
+            </select>
+        </div>
 
 
 
@@ -232,6 +255,30 @@ if ($params->get('enable_css', 1)) {
         $('.dropdown-menu .jlmf-checkbox').change(function() {
             var n = $(".dropdown-menu input:checked").length;
             $('button.filter-dropdown-toggle span').html('(+' + (1 - n) + ')');
+        });
+
+
+        //сортировка
+        function SortOfers(data, order) {
+            var divOfers = 'div.com-content-category-blog__item.blog-item';
+            tinysort(divOfers, {
+                selector: 'div.item-content',
+                data: data,
+                order: order
+            });
+        }
+
+        $('select.filtr-sort-select').on('change', function(e) {
+            var optionSelected = $("option:selected", this);
+            var valueSelected = this.value;
+
+            let arr = valueSelected.split('.');
+            let data = arr[0];
+            let order = arr[1];
+            //console.log(data, order);
+
+            SortOfers(data, order);
+
         });
 
 
