@@ -460,7 +460,9 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
             var valueSelected = this.value;
 
             let arr = valueSelected.split('.');
-            console.log(arr);
+            let data = arr[0];
+            let order = arr[1];
+            console.log(data, order);
 
         });
 
