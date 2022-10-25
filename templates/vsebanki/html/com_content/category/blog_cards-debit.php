@@ -41,7 +41,12 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
          }
       ?>
 
-<div class="item-content row eq cards" data-cashback='<?php echo $this->item->extrafields['cashback']->value; ?>' data-procent='<?php echo $this->item->extrafields['debet-proc-na-ostatok']->value; ?>' data-stoimost='<?php echo $this->item->extrafields['stoimost-obsluzhivaniya-dop-param']->value; ?>' data-id='<?php echo $this->item->id; ?>'>
+<?php
+$cashback = $this->item->extrafields['cashback']->value;
+$procent = $this->item->extrafields['debet-proc-na-ostatok']->value;
+$stoimost = $this->item->extrafields['debet-stoimost-obsl']->value;
+?>
+<div class="item-content row eq cards" data-cashback='<?php echo $cashback; ?>' data-procent='<?php echo $procent; ?>' data-stoimost='<?php echo $stoimost; ?>' data-id='<?php echo $this->item->id; ?>'>
     <?php if ($isUnpublished) : ?>
     <div class="system-unpublished">
         <?php endif; ?>
