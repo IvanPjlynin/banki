@@ -122,7 +122,10 @@ $attribs['style'] = 'none';
     <?php endif; ?>
     <div class="com-content-category-blog__items blog-items <?php echo $blogClass; ?>">
 
+        <?php if ($menu == '134') : ?>
 
+
+        <?php endif; ?>
 
         <?php foreach ($this->intro_items as $key => &$item) : ?>
         <div class="com-content-category-blog__item blog-item" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
