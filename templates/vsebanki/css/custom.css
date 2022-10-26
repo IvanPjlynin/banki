@@ -1376,7 +1376,7 @@ style + .com-content-category-blog__items.blog-items {
 
     .blog .blog-items .blog-item .item-content .bank-tags .buttons {
         padding: 0;
-        padding-right: 25px;
+        padding-right: 5px;
     }
 
     .blog .blog-items .blog-item .item-content .bank-tags .buttons .button-full {
