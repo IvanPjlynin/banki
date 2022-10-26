@@ -55,7 +55,11 @@ die();*/
 
         <div class="col-12 col-sm-12 col-md-3 column bank-logo">
             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
+
+            <?php if ($this->item->extrafields['nazvanie-produkta']->value) : ?>
             <h4 class="fs-4"><?php echo $this->item->extrafields['nazvanie-produkta']->value; ?></h4>
+            <?php endif; ?>
+
         </div>
         <div class="col-12 col-sm-12 col-md-4 column bank-fields">
 

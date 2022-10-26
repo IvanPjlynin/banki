@@ -1075,7 +1075,9 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
 }
 
 .blog .blog-items .blog-item .item-content .bank-logo {
-    display: block;
+    /*display: block;*/
+    display: grid;
+    vertical-align: middle;
     text-align: center;
     justify-content: center;
     align-items: center;
