@@ -60,7 +60,7 @@ $assetManager->registerAndUseScript('tinysort', 'https://cdnjs.cloudflare.com/aj
         <div class="col-md-3 block-filter">
 
             <select name="jlcontentfieldsfilter[47]" id="kredit-pod-zalog-137" class="jlmf-select filter-dropdown-toggle">
-                <option value="">Залог</option>
+                <option value="">Залог - все</option>
                 <option value="11">Недвижимости</option>
                 <option value="12">ПТС</option>
                 <option value="13">Автомобиля</option>
