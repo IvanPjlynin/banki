@@ -1893,4 +1893,8 @@ style + .com-content-category-blog__items.blog-items {
         min-width: 99%;
     }
 
+    .blog .blog-items .blog-item .item-content .bank-fields .bank-field {
+        padding-right: 5px;
+    }
+
 }
