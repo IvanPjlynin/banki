@@ -1012,7 +1012,7 @@ button.filter-dropdown-toggle span {
 .blog .blog-items .blog-item .item-content .bank-logo .item-image a img {
     max-width: 185px;
     min-width: 140px;
-    height: auto;
+    max-height: 100px height: auto;
     width: 100%;
 }
 
