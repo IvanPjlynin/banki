@@ -1116,6 +1116,10 @@ style + .com-content-category-blog__items.blog-items {
     width: 190px !important;
 }
 
+#id_admin_forms_fade img {
+    margin-left: -100px;
+}
+
 /*sroll to top*/
 .btn-up {
     z-index: 999;
