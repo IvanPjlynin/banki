@@ -1085,6 +1085,7 @@ body > main > div.content.container > div > div > div.com-content-article.item-p
     border-right: 1px solid #EBEFEF;
 }
 
+div.com-content-category-blog.blog > div.com-content-category-blog__items.blog-items > div > div > div.col-12.col-sm-12.col-md-3.column.text-center > h4,
 .blog .blog-items .blog-item .item-content .bank-logo h4 {
     font-size: 1.2rem !important;
     margin-top: 5px;
@@ -1117,7 +1118,7 @@ style + .com-content-category-blog__items.blog-items {
 }
 
 #id_admin_forms_fade img {
-    margin-left: -100px;
+    margin-left: -83px;
 }
 
 /*sroll to top*/
